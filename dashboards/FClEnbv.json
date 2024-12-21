@@ -1,0 +1,42 @@
+{
+  "pages": [
+    {
+      "id": "lqARk3M",
+      "grid": {
+        "tiles": []
+      },
+      "show": true,
+      "showTitle": false,
+      "titleAlign": "CENTER",
+      "titleFontColor": "#444444",
+      "titleFontSize": 28,
+      "enableCrossFilters": true,
+      "backgroundColor": "#ffffff",
+      "showFilterPanel": true,
+      "filtersParams": {
+        "panelPosition": "TOP",
+        "engineType": "LINO"
+      }
+    }
+  ],
+  "owner": "fabien.antoine@cgi.com",
+  "listed": true,
+  "name": "Non Conformities\u0027s default dashboard",
+  "showGrid": false,
+  "columnNumber": 36,
+  "showNavigationArrows": false,
+  "reloadWhenEventReceived": false,
+  "tileSpacing": 8,
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "fabien.antoine@cgi.com"
+    },
+    "lastModifiedOn": 1734792380381
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}
