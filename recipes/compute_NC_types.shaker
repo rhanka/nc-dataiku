@@ -119,7 +119,7 @@
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
-        "expression": "substring(sha1(nc_scenario),0,16)",
+        "expression": "replace(concat(ATA_code,\" \",substring(sha1(nc_scenario),0,16)),\" \",\"-\")",
         "column": "nc_scenario_id"
       },
       "alwaysShowComment": false
