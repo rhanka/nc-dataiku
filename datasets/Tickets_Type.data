@@ -1,3 +1,15 @@
 {
-  "data": []
+  "data": [
+    [
+      "MEC",
+      "Alignment defect detected during assembly"
+    ]
+  ],
+  "schema": {
+    "columns": [
+      {"name":"category","type":"string"},
+      {"name":"non conformity type","type":"string"}
+    ],
+    "userModified": false
+  }
 }
