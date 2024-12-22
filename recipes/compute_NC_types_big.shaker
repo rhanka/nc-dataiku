@@ -50,8 +50,19 @@
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
-        "expression": "rand(0,2000)",
+        "expression": "rand(0,36000)",
         "column": "nc_event_seed"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "concat(nc_scenario_id,\"-\",substring(sha1(nc_event_seed),0,4))",
+        "column": "nc_event_id"
       },
       "alwaysShowComment": false
     },
@@ -61,8 +72,8 @@
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
-        "expression": "concat(nc_scenario_id,\"-\",substring(sha1(nc_event_seed),0,4))",
-        "column": "nc_event_id"
+        "expression": "inc(now(),0-nc_event_seed,\u0027hours\u0027)",
+        "column": "nc_event_date"
       },
       "alwaysShowComment": false
     }
@@ -132,7 +143,8 @@
     "nc_quantitative_impact": 300,
     "nc_primary_cause": 300,
     "metrics": 300,
-    "nc_contributory_causes": 300
+    "nc_contributory_causes": 300,
+    "nc_event_date": 183
   },
   "sorting": [],
   "globalSearchQuery": "",
