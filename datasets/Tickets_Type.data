@@ -251,9 +251,104 @@
       "Non-compliance with the established control plan"
     ],
     [
-      null,
-      null,
-      null
+      "SUP",
+      "Supply Chain",
+      "Late delivery of critical components"
+    ],
+    [
+      "SUP",
+      "Supply Chain",
+      "Receipt of parts not meeting specifications"
+    ],
+    [
+      "SUP",
+      "Supply Chain",
+      "Counterfeit components detected in the batch"
+    ],
+    [
+      "SUP",
+      "Supply Chain",
+      "Error in the quantity of parts delivered"
+    ],
+    [
+      "SUP",
+      "Supply Chain",
+      "Incomplete supplier documentation"
+    ],
+    [
+      "SUP",
+      "Supply Chain",
+      "Supplier change without notification"
+    ],
+    [
+      "SUP",
+      "Supply Chain",
+      "Recurrent quality issues with a supplier"
+    ],
+    [
+      "SUP",
+      "Supply Chain",
+      "Non-compliance with packaging conditions"
+    ],
+    [
+      "SUP",
+      "Supply Chain",
+      "Incorrect labeling on received batches"
+    ],
+    [
+      "SUP",
+      "Supply Chain",
+      "Non-compliance with import regulations"
+    ],
+    [
+      "SEC",
+      "Safety",
+      "Missing personal protective equipment"
+    ],
+    [
+      "SEC",
+      "Safety",
+      "Unresolved hazard reported on site"
+    ],
+    [
+      "SEC",
+      "Safety",
+      "Safety procedure not followed by personnel"
+    ],
+    [
+      "SEC",
+      "Safety",
+      "Work area not meeting safety standards"
+    ],
+    [
+      "SEC",
+      "Safety",
+      "Safety incident reported without injury"
+    ],
+    [
+      "SEC",
+      "Safety",
+      "Insufficient or missing safety signage"
+    ],
+    [
+      "SEC",
+      "Safety",
+      "Safety training not completed by an employee"
+    ],
+    [
+      "SEC",
+      "Safety",
+      "First aid equipment not available"
+    ],
+    [
+      "SEC",
+      "Safety",
+      "Evacuation drill not conducted on time"
+    ],
+    [
+      "SEC",
+      "Safety",
+      "Improper use of hazardous equipment"
     ]
   ],
   "schema": {
