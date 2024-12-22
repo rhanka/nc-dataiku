@@ -1,6 +1,41 @@
 {
   "name": "Generate Non Conformity Scenario",
-  "prompts": [],
+  "prompts": [
+    {
+      "id": "t1rih1x6vn",
+      "prompt": {
+        "promptMode": "PROMPT_TEMPLATE_TEXT",
+        "promptTemplateInputs": [],
+        "structuredPromptExamples": [],
+        "textPromptTemplateInputs": [
+          {
+            "name": "input",
+            "type": "TEXT"
+          }
+        ],
+        "textPromptTemplate": "On a pour objectif de générer un jeu de données synthétiaue\nFor a given type of non conforimty, as described in {{input}}, you have to generate a non conformity scenario including:\n- A description of the part, including",
+        "textPromptSystemTemplate": "",
+        "resultValidation": {
+          "expectedFormat": "NONE",
+          "requiredJSONObjectKeys": [],
+          "forbiddenTerms": []
+        },
+        "promptTemplateQueriesSource": "DATASET"
+      },
+      "llmId": "openai:OpenAI-FA:gpt-4o",
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      },
+      "llmSettings": {
+        "stopSequences": []
+      },
+      "dataset": "Tickets_Type",
+      "nbRows": 8,
+      "inlinePromptTemplateQueries": [],
+      "tags": [],
+      "starred": false
+    }
+  ],
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
