@@ -1,7 +1,12 @@
 {
   "name": "Tech doc for A220",
   "color": "#C54F00",
-  "items": [],
+  "items": [
+    {
+      "objectId": "SoQWOnhR",
+      "objectType": "MANAGED_FOLDER"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
