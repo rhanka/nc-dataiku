@@ -1,7 +1,12 @@
 {
   "name": "Synthetic data generation",
   "color": "#8C2DA7",
-  "items": [],
+  "items": [
+    {
+      "objectId": "Tickets_Type",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
