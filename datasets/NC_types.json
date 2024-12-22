@@ -88,12 +88,11 @@
     "columns": [
       {"name":"ATA_category","type":"string"},
       {"name":"ATA_code","type":"string"},
-      {"name":"nc_description","type":"string"},
       {"name":"ATA_description","type":"string"},
-      {"name":"for_prompt","type":"string"},
-      {"name":"ATA_codes_linked_0","type":"string"},
-      {"name":"ATA_codes_linked_1","type":"string"},
-      {"name":"0_ATA_description","type":"string"}
+      {"name":"nc_scenario","type":"map","mapKeys":{"type":"string"},
+        "mapValues": {"type":"string"}
+      },
+      {"name":"for_prompt","type":"string"}
     ],
     "userModified": true
   },
