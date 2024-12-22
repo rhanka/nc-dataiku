@@ -50,7 +50,18 @@
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
-        "expression": "concat(nc_scenario_id,\"-\",substring(sha1(rand()),0,4))",
+        "expression": "rand(0,2000)",
+        "column": "nc_event_seed"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "concat(nc_scenario_id,\"-\",substring(sha1(nc_event_seed),0,4))",
         "column": "nc_event_id"
       },
       "alwaysShowComment": false
@@ -89,6 +100,7 @@
     "nc_scenario_nc_unresolved_scenario": 300,
     "detection_method": 300,
     "ATA_description": 232,
+    "nc_event_seed": 274,
     "nc_type": 100,
     "nc_scenario_detection_method": 300,
     "nc_scenario": 300,
