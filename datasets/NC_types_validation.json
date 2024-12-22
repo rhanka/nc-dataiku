@@ -42,8 +42,15 @@
     "view": "VERIFIED_ONLY"
   },
   "schema": {
-    "columns": [],
-    "userModified": false
+    "columns": [
+      {"name":"labeling_task_id","type":"string"},
+      {"name":"for_prompt","type":"string"},
+      {"name":"annotation_date","type":"bigint"},
+      {"name":"reviewer","type":"string"},
+      {"name":"comment","type":"string"},
+      {"name":"validation","type":"string"}
+    ],
+    "userModified": true
   },
   "dkuProperties": [],
   "metrics": {
