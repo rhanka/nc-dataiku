@@ -117,6 +117,17 @@
       "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "substring(sha1(nc_scenario),0,16)",
+        "column": "nc_scenario_id"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "ColumnsConcat",
       "params": {
         "outputColumn": "for_prompt",
@@ -203,6 +214,7 @@
     "ATA 52": 100,
     "llm_output": 300,
     "llm_raw_query": 300,
+    "nc_scenario_id": 148,
     "join_ATA_description": 165,
     "nc_phase": 162,
     "ATA 53": 100,
