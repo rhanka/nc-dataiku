@@ -1,0 +1,16 @@
+{
+  "name": "Generate Non Conformity Scenario",
+  "prompts": [],
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "fabien.antoine@cgi.com"
+    },
+    "lastModifiedOn": 1734878541316
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}
