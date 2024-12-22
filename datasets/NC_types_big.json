@@ -114,6 +114,7 @@
       {"name":"nc_contributory_causes","type":"array","arrayContent":{"type":"string"}
       },
       {"name":"nc_event_seed","type":"bigint"},
+      {"name":"nc_event_date","type":"date"},
       {"name":"nc_event_id","type":"string"}
     ],
     "userModified": true
