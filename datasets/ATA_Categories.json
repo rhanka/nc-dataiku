@@ -52,7 +52,11 @@
     "importSourceType": "NONE"
   },
   "schema": {
-    "columns": [],
+    "columns": [
+      {"name":"ATA_category","type":"string"},
+      {"name":"ATA_code","type":"string"},
+      {"name":"ATA_description","type":"string"}
+    ],
     "userModified": true
   },
   "dkuProperties": [],

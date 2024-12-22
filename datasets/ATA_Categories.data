@@ -1,3 +1,242 @@
 {
-  "data": []
+  "data": [
+    [
+      "Aircraft General",
+      "ATA 00",
+      "General"
+    ],
+    [
+      "Aircraft General",
+      "ATA 05",
+      "Time Limits and Maintenance Checks"
+    ],
+    [
+      "Aircraft General",
+      "ATA 06",
+      "Dimensions and Areas"
+    ],
+    [
+      "Aircraft General",
+      "ATA 07",
+      "Lifting and Shoring"
+    ],
+    [
+      "Aircraft General",
+      "ATA 08",
+      "Leveling and Weighing"
+    ],
+    [
+      "Aircraft General",
+      "ATA 09",
+      "Towing and Taxiing"
+    ],
+    [
+      "Aircraft General",
+      "ATA 10",
+      "Parking, Mooring, Storage and Return to Service"
+    ],
+    [
+      "Aircraft General",
+      "ATA 11",
+      "Placards and Markings"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 21",
+      "Air Conditioning"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 22",
+      "Auto Flight"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 23",
+      "Communications"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 24",
+      "Electrical Power"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 25",
+      "Equipment and Furnishings"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 26",
+      "Fire Protection"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 27",
+      "Flight Controls"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 28",
+      "Fuel"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 29",
+      "Hydraulic Power"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 30",
+      "Ice and Rain Protection"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 31",
+      "Indicating and Recording Systems"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 32",
+      "Landing Gear"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 33",
+      "Lights"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 34",
+      "Navigation"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 35",
+      "Oxygen"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 36",
+      "Pneumatic"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 38",
+      "Water / Waste"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 45",
+      "Central Maintenance System"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 46",
+      "Information Systems"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 49",
+      "Airborne Auxiliary Power"
+    ],
+    [
+      "Aircraft Systems",
+      "ATA 50",
+      "Cargo and Accessory Compartments"
+    ],
+    [
+      "Structures",
+      "ATA 51",
+      "Structures"
+    ],
+    [
+      "Structures",
+      "ATA 52",
+      "Doors"
+    ],
+    [
+      "Structures",
+      "ATA 53",
+      "Fuselage"
+    ],
+    [
+      "Structures",
+      "ATA 54",
+      "Nacelles / Pylons"
+    ],
+    [
+      "Structures",
+      "ATA 55",
+      "Stabilizers"
+    ],
+    [
+      "Structures",
+      "ATA 56",
+      "Windows"
+    ],
+    [
+      "Structures",
+      "ATA 57",
+      "Wings"
+    ],
+    [
+      "Powerplant",
+      "ATA 71",
+      "Powerplant General"
+    ],
+    [
+      "Powerplant",
+      "ATA 72",
+      "Engine"
+    ],
+    [
+      "Powerplant",
+      "ATA 73",
+      "Engine Fuel and Control"
+    ],
+    [
+      "Powerplant",
+      "ATA 74",
+      "Ignition"
+    ],
+    [
+      "Powerplant",
+      "ATA 75",
+      "Air"
+    ],
+    [
+      "Powerplant",
+      "ATA 76",
+      "Engine Controls"
+    ],
+    [
+      "Powerplant",
+      "ATA 77",
+      "Engine Indicating"
+    ],
+    [
+      "Powerplant",
+      "ATA 78",
+      "Exhaust"
+    ],
+    [
+      "Powerplant",
+      "ATA 79",
+      "Oil"
+    ],
+    [
+      "Powerplant",
+      "ATA 80",
+      "Starting"
+    ]
+  ],
+  "schema": {
+    "columns": [
+      {"name":"ATA_category","type":"string"},
+      {"name":"ATA_code","type":"string"},
+      {"name":"ATA_description","type":"string"}
+    ],
+    "userModified": false
+  }
 }
