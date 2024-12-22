@@ -23,7 +23,23 @@
     "nc_scenario_id",
     "nc_scenario_parts",
     "nc_scenario_detection_method",
-    "nc_scenario_nc_contributory_causes"
+    "nc_scenario_nc_contributory_causes",
+    "nc_quantitative_impact",
+    "nc_primary_cause",
+    "metrics",
+    "nc_aggravated_scenario",
+    "nc_impact",
+    "nc_analysis",
+    "nc_type",
+    "nc_label",
+    "nc_mitigated_scenario",
+    "nc_phase",
+    "nc_unresolved_scenario",
+    "for_prompt",
+    "ATA_codes_linked",
+    "detection_method",
+    "parts",
+    "nc_contributory_causes"
   ],
   "inputs": {
     "metadata": {
