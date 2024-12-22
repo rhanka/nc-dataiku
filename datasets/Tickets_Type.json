@@ -2,6 +2,7 @@
   "type": "Inline",
   "managed": true,
   "featureGroup": false,
+  "formatType": "json",
   "checklists": {
     "checklists": []
   },
@@ -22,6 +23,14 @@
       "enabled": false,
       "rules": []
     }
+  },
+  "formatParams": {
+    "maxExpansionDepth": -1,
+    "nestedArraysHandling": "FLATTEN",
+    "extractFromSingleElement": false,
+    "nestedArraysMaxElements": 100,
+    "nestedArraysMaxContentSize": 300000,
+    "headerRow": true
   },
   "partitioning": {
     "ignoreNonMatchingFile": false,
