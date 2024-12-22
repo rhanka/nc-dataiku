@@ -2,13 +2,265 @@
   "data": [
     [
       "MEC",
+      "Mechanical",
       "Alignment defect detected during assembly"
+    ],
+    [
+      "MEC",
+      "Mechanical",
+      "Incorrect torque on the engine"
+    ],
+    [
+      "MEC",
+      "Mechanical",
+      "Damaged part identified during inspection"
+    ],
+    [
+      "MEC",
+      "Mechanical",
+      "Premature wear of a mechanical component"
+    ],
+    [
+      "MEC",
+      "Mechanical",
+      "Hydraulic leak detected in the system"
+    ],
+    [
+      "MEC",
+      "Mechanical",
+      "Excessive vibration observed during testing"
+    ],
+    [
+      "MEC",
+      "Mechanical",
+      "Premature corrosion on a metal part"
+    ],
+    [
+      "MEC",
+      "Mechanical",
+      "Structural deformation identified"
+    ],
+    [
+      "MEC",
+      "Mechanical",
+      "Balancing problem on a rotating part"
+    ],
+    [
+      "MEC",
+      "Mechanical",
+      "Overheating of a mechanical component"
+    ],
+    [
+      "ELE",
+      "Electrical",
+      "Wiring error in the navigation system"
+    ],
+    [
+      "ELE",
+      "Electrical",
+      "Defective connector causing signal loss"
+    ],
+    [
+      "ELE",
+      "Electrical",
+      "Short circuit detected during electrical tests"
+    ],
+    [
+      "ELE",
+      "Electrical",
+      "Faulty battery requiring replacement"
+    ],
+    [
+      "ELE",
+      "Electrical",
+      "Anomaly in the power supply system"
+    ],
+    [
+      "ELE",
+      "Electrical",
+      "Electromagnetic interference observed"
+    ],
+    [
+      "ELE",
+      "Electrical",
+      "Grounding problem on a component"
+    ],
+    [
+      "ELE",
+      "Electrical",
+      "Blown fuse during system activation"
+    ],
+    [
+      "ELE",
+      "Electrical",
+      "Overvoltage detected in the main circuit"
+    ],
+    [
+      "ELE",
+      "Electrical",
+      "Insulation defect on an electrical cable"
+    ],
+    [
+      "LOG",
+      "Software",
+      "Critical bug in the autopilot software"
+    ],
+    [
+      "LOG",
+      "Software",
+      "Incompatibility between firmware versions"
+    ],
+    [
+      "LOG",
+      "Software",
+      "Configuration error in the embedded system"
+    ],
+    [
+      "LOG",
+      "Software",
+      "Abnormally long system response time"
+    ],
+    [
+      "LOG",
+      "Software",
+      "System crash during execution of certain commands"
+    ],
+    [
+      "LOG",
+      "Software",
+      "Insufficient memory causing slowdowns"
+    ],
+    [
+      "LOG",
+      "Software",
+      "Error in navigation calculations"
+    ],
+    [
+      "LOG",
+      "Software",
+      "Security issue in the embedded software"
+    ],
+    [
+      "LOG",
+      "Software",
+      "Failed software update"
+    ],
+    [
+      "LOG",
+      "Software",
+      "Missing functionality in the communication module"
+    ],
+    [
+      "DOC",
+      "Documentation",
+      "Missing user manual for a piece of equipment"
+    ],
+    [
+      "DOC",
+      "Documentation",
+      "Obsolete procedure detected in the documentation"
+    ],
+    [
+      "DOC",
+      "Documentation",
+      "Labeling error on components"
+    ],
+    [
+      "DOC",
+      "Documentation",
+      "Inconsistency between diagram and text description"
+    ],
+    [
+      "DOC",
+      "Documentation",
+      "Missing page in the technical report"
+    ],
+    [
+      "DOC",
+      "Documentation",
+      "Poor translation in the provided documentation"
+    ],
+    [
+      "DOC",
+      "Documentation",
+      "Incorrect reference to an industry standard"
+    ],
+    [
+      "DOC",
+      "Documentation",
+      "Incomplete or erroneous table of contents"
+    ],
+    [
+      "DOC",
+      "Documentation",
+      "Missing illustrations for some procedures"
+    ],
+    [
+      "DOC",
+      "Documentation",
+      "Missing safety instructions in the manual"
+    ],
+    [
+      "QUAL",
+      "Quality Control",
+      "Incorrect measurements taken during inspection"
+    ],
+    [
+      "QUAL",
+      "Quality Control",
+      "Incorrect calibration of a measuring instrument"
+    ],
+    [
+      "QUAL",
+      "Quality Control",
+      "Missing quality control on a batch of parts"
+    ],
+    [
+      "QUAL",
+      "Quality Control",
+      "Non-compliance with specified tolerances"
+    ],
+    [
+      "QUAL",
+      "Quality Control",
+      "Improper application of control procedure"
+    ],
+    [
+      "QUAL",
+      "Quality Control",
+      "Insufficient sampling for tests"
+    ],
+    [
+      "QUAL",
+      "Quality Control",
+      "Incomplete quality control report"
+    ],
+    [
+      "QUAL",
+      "Quality Control",
+      "ISO standard non-compliance detected"
+    ],
+    [
+      "QUAL",
+      "Quality Control",
+      "Human error during visual inspection"
+    ],
+    [
+      "QUAL",
+      "Quality Control",
+      "Non-compliance with the established control plan"
+    ],
+    [
+      null,
+      null,
+      null
     ]
   ],
   "schema": {
     "columns": [
       {"name":"category","type":"string"},
-      {"name":"non conformity type","type":"string"}
+      {"name":"category_label","type":"string"},
+      {"name":"non_conformity_type","type":"string"}
     ],
     "userModified": false
   }

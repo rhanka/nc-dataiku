@@ -54,7 +54,8 @@
   "schema": {
     "columns": [
       {"name":"category","type":"string"},
-      {"name":"non conformity type","type":"string"}
+      {"name":"category_label","type":"string"},
+      {"name":"non_conformity_type","type":"string"}
     ],
     "userModified": true
   },
