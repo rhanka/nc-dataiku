@@ -8,7 +8,8 @@
     "ATA_category",
     "nc_scenario",
     "ATA_code",
-    "ATA_description"
+    "ATA_description",
+    "nc_scenario_nc_label"
   ],
   "inputs": {
     "metadata": {
