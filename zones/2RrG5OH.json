@@ -33,6 +33,14 @@
     {
       "objectId": "jexkPjSUSv",
       "objectType": "LABELING_TASK"
+    },
+    {
+      "objectId": "NC_types_big",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_NC_types_big",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
