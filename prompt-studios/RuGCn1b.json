@@ -10,10 +10,11 @@
         "textPromptTemplateInputs": [
           {
             "name": "input",
+            "datasetColumnName": "ATA_code",
             "type": "TEXT"
           }
         ],
-        "textPromptTemplate": "Pour chaque type de non conformité {{input}} je veux une liste de 20 type de non conformités, incluant potentiellement une non conformité impactant aussi un autre composant ATA",
+        "textPromptTemplate": "Pour chaque code ATA {{input}} je veux une liste de 20 type de non conformités pour l\u0027A220, incluant potentiellement une non conformité impactant aussi un autre composant ATA",
         "textPromptSystemTemplate": "",
         "resultValidation": {
           "expectedFormat": "NONE",
