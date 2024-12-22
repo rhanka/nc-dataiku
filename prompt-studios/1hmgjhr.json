@@ -30,7 +30,7 @@
       "llmSettings": {
         "stopSequences": []
       },
-      "dataset": "NC_types",
+      "dataset": "NC_types_random",
       "nbRows": 1,
       "inlinePromptTemplateQueries": [],
       "tags": [],
