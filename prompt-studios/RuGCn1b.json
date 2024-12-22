@@ -1,6 +1,41 @@
 {
   "name": "Generate non conformities type",
-  "prompts": [],
+  "prompts": [
+    {
+      "id": "8slizvffgm",
+      "prompt": {
+        "promptMode": "PROMPT_TEMPLATE_TEXT",
+        "promptTemplateInputs": [],
+        "structuredPromptExamples": [],
+        "textPromptTemplateInputs": [
+          {
+            "name": "input",
+            "type": "TEXT"
+          }
+        ],
+        "textPromptTemplate": "Pour chaque type de non conformité {{input}} je veux une liste de 20 type de non conformités, incluant potentiellement une non conformité impactant aussi un autre composant ATA",
+        "textPromptSystemTemplate": "",
+        "resultValidation": {
+          "expectedFormat": "NONE",
+          "requiredJSONObjectKeys": [],
+          "forbiddenTerms": []
+        },
+        "promptTemplateQueriesSource": "DATASET"
+      },
+      "llmId": "openai:OpenAI-FA:gpt-4o",
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      },
+      "llmSettings": {
+        "stopSequences": []
+      },
+      "dataset": "ATA_Categories",
+      "nbRows": 8,
+      "inlinePromptTemplateQueries": [],
+      "tags": [],
+      "starred": false
+    }
+  ],
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
