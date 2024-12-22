@@ -41,14 +41,6 @@
     {
       "objectId": "compute_NC_types_big",
       "objectType": "RECIPE"
-    },
-    {
-      "objectId": "compute_NC_types_big_sorted",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "NC_types_big_sorted",
-      "objectType": "DATASET"
     }
   ],
   "shared": [],
