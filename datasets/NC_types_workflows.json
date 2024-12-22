@@ -94,8 +94,8 @@
       {"name":"nc_aggravated_scenario","type":"string"},
       {"name":"nc_impact","type":"string"},
       {"name":"ATA_description","type":"string"},
-      {"name":"nc_scenario","type":"map","mapKeys":{"type":"string"},
-        "mapValues": {"type":"string"}
+      {"name":"nc_scenario","type":"map","mapKeys":{"name":"","type":"string"},
+        "mapValues": {"name":"","type":"string"}
       },
       {"name":"nc_analysis","type":"string"},
       {"name":"nc_type","type":"string"},
@@ -105,19 +105,19 @@
       {"name":"nc_unresolved_scenario","type":"string"},
       {"name":"for_prompt","type":"string"},
       {"name":"nc_scenario_id","type":"string"},
-      {"name":"ATA_codes_linked","type":"array","arrayContent":{"type":"string"}
+      {"name":"ATA_codes_linked","type":"array","arrayContent":{"name":"","type":"string"}
       },
-      {"name":"detection_method","type":"array","arrayContent":{"type":"string"}
+      {"name":"detection_method","type":"array","arrayContent":{"name":"","type":"string"}
       },
-      {"name":"parts","type":"array","arrayContent":{"type":"string"}
+      {"name":"parts","type":"array","arrayContent":{"name":"","type":"string"}
       },
-      {"name":"nc_contributory_causes","type":"array","arrayContent":{"type":"string"}
+      {"name":"nc_contributory_causes","type":"array","arrayContent":{"name":"","type":"string"}
       },
       {"name":"llm_output","type":"string"},
       {"name":"llm_validation_status","type":"string"},
-      {"name":"llm_raw_query","type":"string"},
       {"name":"llm_raw_response","type":"string"},
-      {"name":"llm_error_message","type":"string"}
+      {"name":"llm_error_message","type":"string"},
+      {"name":"llm_raw_query","type":"string"}
     ],
     "userModified": true
   },
