@@ -1,0 +1,30 @@
+{
+  "associatedPromptStudioPromptId": "8slizvffgm",
+  "associatedPromptStudioId": "RuGCn1b",
+  "rawQueryOutputMode": "RAW",
+  "completionSettings": {
+    "stopSequences": []
+  },
+  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
+  "llmId": "openai:OpenAI-FA:gpt-4o",
+  "prompt": {
+    "promptTemplateInputs": [],
+    "resultValidation": {
+      "requiredJSONObjectKeys": [],
+      "expectedFormat": "NONE",
+      "forbiddenTerms": []
+    },
+    "promptTemplateQueriesSource": "DATASET",
+    "structuredPromptExamples": [],
+    "textPromptTemplate": "Pour chaque code ATA {{input}} je veux une liste de 20 type de non conformités pour l\u0027A220, incluant potentiellement une non conformité impactant aussi un autre composant ATA.\nLa sortie doit être un json (sans aucun commentaire), en anglais, avec la structure suivante: \n[{\"ATA_code\": \"{{input}}\", \"nc_description\": \"description en anglais de la non conformité\", \"ATA_codes_linked\": [liste des ATA liés si pertinent]}, ...]\n\nNe met bien que le json, aucune mise en forme (pas de quotes etc)",
+    "textPromptTemplateInputs": [
+      {
+        "datasetColumnName": "ATA_code",
+        "name": "input",
+        "type": "TEXT"
+      }
+    ],
+    "textPromptSystemTemplate": "",
+    "promptMode": "PROMPT_TEMPLATE_TEXT"
+  }
+}
