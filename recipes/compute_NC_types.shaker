@@ -29,8 +29,55 @@
   },
   "explorationFilters": [],
   "columnUseScientificNotationByName": {},
-  "exploreUIParams": {},
-  "steps": [],
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ArrayFold",
+      "params": {
+        "column": "llm_output"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "JSONFlattener",
+      "params": {
+        "maxDepth": 10,
+        "inCol": "llm_output",
+        "nullAsEmpty": true,
+        "prefixOutputs": false,
+        "flattenArrays": false,
+        "separator": "_"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsSelector",
+      "params": {
+        "columns": [
+          "llm_error_message",
+          "llm_output",
+          "llm_raw_query",
+          "llm_validation_status",
+          "llm_raw_response"
+        ],
+        "keep": false,
+        "appliesTo": "COLUMNS"
+      },
+      "alwaysShowComment": false
+    }
+  ],
   "maxProcessedMemTableBytes": -1,
   "previewMode": "ALL_ROWS",
   "vizSampling": {
@@ -57,7 +104,21 @@
     "autoRefreshSample": false
   },
   "analysisColumnData": {},
-  "columnWidthsByName": {},
+  "columnWidthsByName": {
+    "llm_error_message": 143,
+    "llm_raw_response": 300,
+    "ATA_codes_linked": 135,
+    "llm_validation_status": 173,
+    "llm_output_nc_description": 300,
+    "llm_output_ATA_codes_linked": 218,
+    "llm_output": 300,
+    "nc_description": 300,
+    "ATA_description": 225,
+    "llm_raw_query": 300,
+    "ATA_code": 106,
+    "ATA_category": 134,
+    "llm_output_ATA_code": 158
+  },
   "sorting": [],
   "globalSearchQuery": "",
   "coloring": {
