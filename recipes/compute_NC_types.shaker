@@ -48,6 +48,21 @@
       "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
+      "type": "ColumnRenamer",
+      "params": {
+        "renamings": [
+          {
+            "from": "llm_output",
+            "to": "nc_scenario"
+          }
+        ]
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": true,
       "type": "JSONFlattener",
       "params": {
         "maxDepth": 10,
@@ -62,7 +77,7 @@
     {
       "preview": false,
       "metaType": "PROCESSOR",
-      "disabled": false,
+      "disabled": true,
       "type": "JSONFlattener",
       "params": {
         "maxDepth": 10,
@@ -77,7 +92,7 @@
     {
       "preview": false,
       "metaType": "PROCESSOR",
-      "disabled": false,
+      "disabled": true,
       "type": "MemoryEquiJoiner",
       "params": {
         "rightCol": "ATA_code",
@@ -109,7 +124,7 @@
           "ATA_category",
           "ATA_code",
           "ATA_description",
-          "ATA_codes_linked"
+          "nc_scenario"
         ],
         "join": " - "
       },
@@ -123,11 +138,9 @@
       "params": {
         "columns": [
           "llm_error_message",
-          "llm_output",
           "llm_raw_query",
           "llm_validation_status",
-          "llm_raw_response",
-          "ATA_codes_linked"
+          "llm_raw_response"
         ],
         "keep": false,
         "appliesTo": "COLUMNS"
@@ -163,7 +176,10 @@
   "analysisColumnData": {},
   "columnWidthsByName": {
     "llm_output_ATA_codes_linked": 218,
+    "detection_method": 300,
+    "nc_scenario": 457,
     "ATA 28": 100,
+    "nc_unresolved_scenario": 300,
     "ATA 29": 100,
     "ATA_code": 106,
     "ATA 20": 100,
@@ -172,6 +188,7 @@
     "ATA 23": 100,
     "ATA_category": 134,
     "ATA 24": 100,
+    "nc_aggravated_scenario": 300,
     "ATA 25": 100,
     "ATA 26": 100,
     "ATA 27": 100,
@@ -179,20 +196,26 @@
     "llm_raw_response": 300,
     "ATA 91": 100,
     "ATA 92": 100,
-    "for_prompt": 127,
+    "for_prompt": 599,
     "llm_validation_status": 173,
     "ATA 51": 100,
+    "nc_analysis": 300,
     "ATA 52": 100,
     "llm_output": 300,
     "llm_raw_query": 300,
     "join_ATA_description": 165,
+    "nc_phase": 162,
     "ATA 53": 100,
     "ATA 97": 100,
+    "parts": 300,
     "ATA 54": 100,
+    "nc_quantitative_impact": 300,
     "ATA 55": 100,
     "61": 100,
     "ATA 56": 100,
     "ATA 12": 100,
+    "metrics": 300,
+    "nc_contributory_causes": 300,
     "ATA 57": 100,
     "0_ATA_description": 162,
     "ATA 80": 100,
@@ -200,12 +223,14 @@
     "28": 100,
     "llm_output_nc_description": 300,
     "ATA_description": 225,
+    "nc_type": 100,
     "ATA 06": 100,
     "ATA 42": 100,
     "71": 100,
     "ATA 44": 100,
     "ATA 45": 100,
     "73": 100,
+    "nc_impact": 300,
     "76": 100,
     "ATA 49": 100,
     "ATA 05": 100,
@@ -218,6 +243,8 @@
     "ATA 30": 100,
     "ATA 74": 100,
     "nc_description": 300,
+    "nc_label": 300,
+    "nc_mitigated_scenario": 300,
     "80": 100,
     "ATA 31": 100,
     "ATA 75": 100,
@@ -227,6 +254,7 @@
     "ATA 33": 100,
     "ATA 78": 100,
     "ATA 34": 100,
+    "nc_primary_cause": 300,
     "ATA 35": 100,
     "ATA 79": 100,
     "ATA_codes_linked_1": 150,
