@@ -76,6 +76,23 @@
         "appliesTo": "COLUMNS"
       },
       "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsConcat",
+      "params": {
+        "outputColumn": "for_prompt",
+        "columns": [
+          "ATA_category",
+          "ATA_code",
+          "ATA_description",
+          "ATA_codes_linked"
+        ],
+        "join": " - "
+      },
+      "alwaysShowComment": false
     }
   ],
   "maxProcessedMemTableBytes": -1,
@@ -108,6 +125,7 @@
     "llm_error_message": 143,
     "llm_raw_response": 300,
     "ATA_codes_linked": 135,
+    "for_prompt": 127,
     "llm_validation_status": 173,
     "llm_output_nc_description": 300,
     "llm_output_ATA_codes_linked": 218,
