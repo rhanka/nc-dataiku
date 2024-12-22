@@ -2,9 +2,14 @@
   "owner": "fabien.antoine@cgi.com",
   "name": "label_NC_types",
   "type": "RECORD_FREETEXT",
-  "idColumn": "for_prompt",
+  "idColumn": "nc_scenario_id",
   "labelColumnName": "validation",
-  "extraColumns": [],
+  "extraColumns": [
+    "ATA_category",
+    "nc_scenario",
+    "ATA_code",
+    "ATA_description"
+  ],
   "inputs": {
     "metadata": {
       "items": [
