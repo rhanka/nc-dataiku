@@ -29,8 +29,32 @@
   },
   "explorationFilters": [],
   "columnUseScientificNotationByName": {},
-  "exploreUIParams": {},
-  "steps": [],
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "GenerateBigData",
+      "params": {
+        "expansionFactor": 20
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "column": "newcolumn_expression"
+      },
+      "alwaysShowComment": false
+    }
+  ],
   "maxProcessedMemTableBytes": -1,
   "previewMode": "ALL_ROWS",
   "vizSampling": {
@@ -57,7 +81,30 @@
     "autoRefreshSample": false
   },
   "analysisColumnData": {},
-  "columnWidthsByName": {},
+  "columnWidthsByName": {
+    "nc_scenario_nc_contributory_causes": 300,
+    "nc_scenario_nc_quantitative_impact": 300,
+    "for_prompt": 300,
+    "nc_scenario_nc_phase": 190,
+    "nc_scenario_nc_impact": 300,
+    "nc_scenario_nc_unresolved_scenario": 300,
+    "ATA_description": 232,
+    "nc_scenario_id": 176,
+    "nc_scenario_detection_method": 300,
+    "nc_scenario": 300,
+    "nc_scenario_nc_aggravated_scenario": 300,
+    "nc_scenario_nc_mitigated_scenario": 300,
+    "nc_scenario_metrics": 300,
+    "nc_scenario_parts": 300,
+    "ATA_code": 106,
+    "nc_scenario_ATA_codes_linked": 225,
+    "nc_scenario_nc_primary_cause": 300,
+    "nc_scenario_nc_type": 158,
+    "nc_scenario_nc_label": 300,
+    "ATA_category": 134,
+    "nc_scenario_nc_analysis": 300,
+    "nc_scenario_ATA_code": 165
+  },
   "sorting": [],
   "globalSearchQuery": "",
   "coloring": {
