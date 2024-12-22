@@ -49,6 +49,14 @@
     {
       "objectId": "NC_types_random",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_NC_types_workflows",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "NC_types_workflows",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
