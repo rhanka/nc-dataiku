@@ -44,7 +44,7 @@
   "schema": {
     "columns": [
       {"name":"labeling_task_id","type":"string"},
-      {"name":"for_prompt","type":"string"},
+      {"name":"nc_scenario_id","type":"string"},
       {"name":"annotation_date","type":"bigint"},
       {"name":"reviewer","type":"string"},
       {"name":"comment","type":"string"},
