@@ -1,0 +1,50 @@
+{
+  "owner": "fabien.antoine@cgi.com",
+  "name": "label_NC_types",
+  "type": "RECORD_FREETEXT",
+  "labelColumnName": "label",
+  "extraColumns": [],
+  "inputs": {
+    "metadata": {
+      "items": [
+        {
+          "ref": "NC_types"
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "main": {
+      "items": [
+        {
+          "ref": "NC_types_validation"
+        }
+      ]
+    }
+  },
+  "classes": [],
+  "instructions": "",
+  "inputPlaceholder": "Label...",
+  "allowEmptyLabels": true,
+  "minNbAnnotatorsPerRecord": 1,
+  "autoValidateAnswers": false,
+  "permissions": [],
+  "commentSettings": {
+    "enabled": false,
+    "columnName": "comment",
+    "placeholder": "Comments...",
+    "autoValidateStrategy": "CONCATENATE_IF_DIFFERENT"
+  },
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "fabien.antoine@cgi.com"
+    },
+    "lastModifiedOn": 1734885762462
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

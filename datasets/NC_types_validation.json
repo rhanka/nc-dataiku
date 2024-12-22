@@ -37,11 +37,13 @@
   },
   "tags": [],
   "params": {
+    "labelingTaskId": "jexkPjSUSv",
+    "labelingTaskType": "RECORD_FREETEXT",
     "view": "VERIFIED_ONLY"
   },
   "schema": {
     "columns": [],
-    "userModified": true
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {
