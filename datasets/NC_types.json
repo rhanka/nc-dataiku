@@ -90,9 +90,10 @@
       {"name":"ATA_code","type":"string"},
       {"name":"nc_description","type":"string"},
       {"name":"ATA_description","type":"string"},
-      {"name":"ATA_codes_linked","type":"array","arrayContent":{"type":"string"}
-      },
-      {"name":"for_prompt","type":"string"}
+      {"name":"for_prompt","type":"string"},
+      {"name":"ATA_codes_linked_0","type":"string"},
+      {"name":"ATA_codes_linked_1","type":"string"},
+      {"name":"0_ATA_description","type":"string"}
     ],
     "userModified": true
   },
