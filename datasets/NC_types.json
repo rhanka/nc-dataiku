@@ -92,7 +92,8 @@
       {"name":"nc_scenario","type":"map","mapKeys":{"type":"string"},
         "mapValues": {"type":"string"}
       },
-      {"name":"for_prompt","type":"string"}
+      {"name":"for_prompt","type":"string"},
+      {"name":"nc_scenario_id","type":"string"}
     ],
     "userModified": true
   },
