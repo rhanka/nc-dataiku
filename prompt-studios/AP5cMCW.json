@@ -1,6 +1,33 @@
 {
   "name": "Generate A220 ATA categories",
-  "prompts": [],
+  "prompts": [
+    {
+      "id": "2tdubpu77u",
+      "prompt": {
+        "promptMode": "RAW_PROMPT",
+        "promptTemplateInputs": [],
+        "structuredPromptExamples": [],
+        "textPromptTemplateInputs": [],
+        "rawPromptText": "Liste des ATA pertinents pour l\u0027A220, structuré en table",
+        "resultValidation": {
+          "expectedFormat": "NONE",
+          "requiredJSONObjectKeys": [],
+          "forbiddenTerms": []
+        }
+      },
+      "llmId": "openai:OpenAI-FA:gpt-4o",
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      },
+      "llmSettings": {
+        "stopSequences": []
+      },
+      "nbRows": 8,
+      "inlinePromptTemplateQueries": [],
+      "tags": [],
+      "starred": false
+    }
+  ],
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
