@@ -57,6 +57,14 @@
           "deps": []
         }
       ]
+    },
+    "scriptDeps": {
+      "items": [
+        {
+          "ref": "ATA_Categories",
+          "deps": []
+        }
+      ]
     }
   },
   "outputs": {
