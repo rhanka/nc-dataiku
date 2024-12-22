@@ -14,7 +14,7 @@
             "type": "TEXT"
           }
         ],
-        "textPromptTemplate": "Pour chaque code ATA {{input}} je veux une liste de 20 type de non conformités pour l\u0027A220, incluant potentiellement une non conformité impactant aussi un autre composant ATA",
+        "textPromptTemplate": "Pour chaque code ATA {{input}} je veux une liste de 20 type de non conformités pour l\u0027A220, incluant potentiellement une non conformité impactant aussi un autre composant ATA.\nLa sortie doit être un json (sans aucun commentaire), en anglais, avec la structure suivante: \n[{\"ATA_code\": \"{{input}}\", \"nc_description\": \"description en anglais de la non conformité\", \"ATA_codes_linked\": [liste des ATA liés si pertinent]}, ...]",
         "textPromptSystemTemplate": "",
         "resultValidation": {
           "expectedFormat": "NONE",
