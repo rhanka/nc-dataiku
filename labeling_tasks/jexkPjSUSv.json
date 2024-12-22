@@ -2,7 +2,8 @@
   "owner": "fabien.antoine@cgi.com",
   "name": "label_NC_types",
   "type": "RECORD_FREETEXT",
-  "labelColumnName": "label",
+  "idColumn": "for_prompt",
+  "labelColumnName": "validation",
   "extraColumns": [],
   "inputs": {
     "metadata": {
@@ -23,14 +24,14 @@
     }
   },
   "classes": [],
-  "instructions": "",
+  "instructions": "Catégoriser selon \"ok\" (valid), \"ko\" (not valid), \"tbc\" (to be confirmed) and comment if necessary",
   "inputPlaceholder": "Label...",
   "allowEmptyLabels": true,
   "minNbAnnotatorsPerRecord": 1,
   "autoValidateAnswers": false,
   "permissions": [],
   "commentSettings": {
-    "enabled": false,
+    "enabled": true,
     "columnName": "comment",
     "placeholder": "Comments...",
     "autoValidateStrategy": "CONCATENATE_IF_DIFFERENT"
