@@ -8,7 +8,7 @@
         "promptTemplateInputs": [],
         "structuredPromptExamples": [],
         "textPromptTemplateInputs": [],
-        "rawPromptText": "Liste des ATA pertinents pour l\u0027A220, structuré en table",
+        "rawPromptText": "Liste des ATA pertinents pour l\u0027A220, structuré en table avec les colonnes suivantes, et en anglais: category, ATA_code, description",
         "resultValidation": {
           "expectedFormat": "NONE",
           "requiredJSONObjectKeys": [],
