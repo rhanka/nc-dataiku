@@ -40,7 +40,7 @@
       "disabled": false,
       "type": "GenerateBigData",
       "params": {
-        "expansionFactor": 20
+        "expansionFactor": 100
       },
       "alwaysShowComment": false
     },
