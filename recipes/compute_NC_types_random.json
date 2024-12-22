@@ -14,12 +14,13 @@
         "enabled": false,
         "rules": []
       },
-      "samplingMethod": "FULL",
-      "maxRecords": -1,
+      "samplingMethod": "RANDOM_FIXED_NB",
+      "maxRecords": 100,
       "targetRatio": 0.02,
       "ascending": true,
       "withinFirstN": -1,
-      "maxReadUncompressedBytes": -1
+      "maxReadUncompressedBytes": -1,
+      "seed": 1337
     },
     "engineParams": {
       "dssEngineMaxThreads": 4,
