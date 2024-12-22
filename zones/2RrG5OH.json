@@ -9,6 +9,14 @@
     {
       "objectId": "ATA_Categories",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_NC_types_by_ATA",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "NC_types_by_ATA",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
