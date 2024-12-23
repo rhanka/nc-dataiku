@@ -1,7 +1,24 @@
 {
   "name": "100 - Design Office",
   "color": "#C54F00",
-  "items": [],
+  "items": [
+    {
+      "objectId": "compute_NC_types_random_001_analysis",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "NC_types_random_100_analysis",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_NC_types_random_100_analysis_structured",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "NC_types_random_100_analysis_structured",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
