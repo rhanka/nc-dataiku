@@ -99,7 +99,7 @@
         }
       },
       "dataset": "NC_types_random",
-      "nbRows": 1,
+      "nbRows": 2,
       "inlinePromptTemplateQueries": [],
       "tags": [],
       "starred": false
