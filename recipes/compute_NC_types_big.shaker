@@ -83,7 +83,7 @@
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
-        "expression": "[\"concise and precise\",\"not fully fluent\",\"elusive\",\"useless details\",\"skills limits\"][mod(nc_event_seed,5)]",
+        "expression": "[\"concise and precise\",\"not fully fluent (words workarounds)\",\"elusive (missing details)\",\"verbose (too much details)\",\"skills limits (concepts approximations)\"][mod(nc_event_seed,5)]",
         "column": "000_style"
       },
       "alwaysShowComment": false
@@ -94,7 +94,7 @@
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
-        "expression": "[\"skills limits\",\"elusive\",\"concise and precise\",\"not fully fluent\",\"useless details\"][mod(nc_event_seed,5)]",
+        "expression": "[\"verbose (too much details)\",\"elusive (missing details)\",\"concise and precise\",\"not fully fluent (words workarounds)\",\"skills limits (concepts approximations)\"][mod(nc_event_seed,5)]",
         "column": "100_style"
       },
       "alwaysShowComment": false
@@ -116,7 +116,7 @@
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
-        "expression": "[\"not fully fluent\",\"useless details\",\"skills limits\",\"elusive\",\"concise and precise\"][mod(nc_event_seed,5)]",
+        "expression": "[\"concise and precise\",\"elusive (missing details)\",\"verbose (too much details)\",\"not fully fluent (words workarounds)\",\"skills limits (concepts approximations)\"][mod(nc_event_seed,5)]",
         "column": "300_style"
       },
       "alwaysShowComment": false
