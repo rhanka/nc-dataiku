@@ -75,7 +75,10 @@
         "containerMode": "INHERIT"
       },
       "llmSettings": {
-        "stopSequences": []
+        "stopSequences": [],
+        "responseFormat": {
+          "type": "json"
+        }
       },
       "dataset": "ATA_Categories",
       "nbRows": 2,
