@@ -207,7 +207,22 @@
   },
   "metricsChecks": {
     "monitor": false,
-    "checks": [],
+    "checks": [
+      {
+        "type": "ValuesInSetRule",
+        "columns": [
+          "llm_validation_status"
+        ],
+        "valueSet": [
+          "VALID"
+        ],
+        "id": "SVuVNewg",
+        "displayName": "All values of llm_validation_status are in set",
+        "computeOnBuildMode": "PARTITION",
+        "autoRun": true,
+        "enabled": true
+      }
+    ],
     "displayedState": {
       "checks": []
     }
