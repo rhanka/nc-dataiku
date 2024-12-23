@@ -149,6 +149,7 @@
     "nc_type": 100,
     "200_analysis_validation_description": 300,
     "500_style": 148,
+    "nc_probability": 134,
     "000_rapport_date": 183,
     "200_analysis_validation_date": 246,
     "nc_impact": 300,
