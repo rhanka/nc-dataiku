@@ -88,7 +88,10 @@
         "containerMode": "INHERIT"
       },
       "llmSettings": {
-        "stopSequences": []
+        "stopSequences": [],
+        "responseFormat": {
+          "type": "json"
+        }
       },
       "dataset": "NC_types_random",
       "nbRows": 1,
