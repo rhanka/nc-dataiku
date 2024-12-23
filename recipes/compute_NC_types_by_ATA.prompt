@@ -14,7 +14,7 @@
     "promptTemplateInputs": [],
     "resultValidation": {
       "requiredJSONObjectKeys": [],
-      "expectedFormat": "JSON_ARRAY",
+      "expectedFormat": "JSON_OBJECT",
       "forbiddenTerms": []
     },
     "promptTemplateQueriesSource": "DATASET",
