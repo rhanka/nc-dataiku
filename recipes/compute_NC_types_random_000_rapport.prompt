@@ -1,99 +1,89 @@
 {
-  "prompt": {
-    "promptMode": "PROMPT_TEMPLATE_TEXT",
-    "promptTemplateInputs": [],
-    "structuredPromptExamples": [],
-    "textPromptTemplateInputs": [
-      {
-        "name": " nc_label ",
-        "datasetColumnName": "nc_label",
-        "type": "TEXT"
-      },
-      {
-        "name": " nc_primary_cause ",
-        "datasetColumnName": "nc_primary_cause",
-        "type": "TEXT"
-      },
-      {
-        "name": " nc_impact ",
-        "datasetColumnName": "nc_impact",
-        "type": "TEXT"
-      },
-      {
-        "name": " nc_quantitative_impact ",
-        "datasetColumnName": "nc_quantitative_impact",
-        "type": "TEXT"
-      },
-      {
-        "name": " nc_mitigated_scenario ",
-        "datasetColumnName": "nc_mitigated_scenario",
-        "type": "TEXT"
-      },
-      {
-        "name": " nc_analysis ",
-        "datasetColumnName": "nc_analysis",
-        "type": "TEXT"
-      },
-      {
-        "name": " nc_unresolved_scenario ",
-        "datasetColumnName": "nc_unresolved_scenario",
-        "type": "TEXT"
-      },
-      {
-        "name": " metrics ",
-        "datasetColumnName": "metrics",
-        "type": "TEXT"
-      },
-      {
-        "name": " ATA code ",
-        "datasetColumnName": "ATA_code",
-        "type": "TEXT"
-      },
-      {
-        "name": " ATA category ",
-        "datasetColumnName": "ATA_category",
-        "type": "TEXT"
-      },
-      {
-        "name": " detection_method",
-        "datasetColumnName": "detection_method",
-        "type": "TEXT"
-      },
-      {
-        "name": " parts ",
-        "datasetColumnName": "parts",
-        "type": "TEXT"
-      },
-      {
-        "name": " nc_event_date ",
-        "datasetColumnName": "nc_event_date",
-        "type": "TEXT"
-      },
-      {
-        "name": " 000_style ",
-        "datasetColumnName": "000_style",
-        "type": "TEXT"
-      }
-    ],
-    "textPromptTemplate": "000 - rapport de non-conformité par le Quality Controler\n\nUne non-conformité apparait selon le contexte suivant :\n- label: {{ nc_label }}\n- cause primaire: {{ nc_primary_cause }}\n- analyse: {{ nc_analysis }}\n- impact  : {{ nc_impact }} \n- impact quantitatif:  {{ nc_quantitative_impact }} \n- si non traité :  {{ nc_unresolved_scenario }} \n- mitigation possible: {{ nc_mitigated_scenario }} \n- métriques:  {{ metrics }}\n- domaine ATA  : {{ ATA code }} {{ ATA category }}\n- domaines ATA connexes : {{ ATA code }} \n- parties concernées de l\u0027A220: {{ parts }} \n\nCes données ne sont pas formalisées par les opérateurs, qui doivent les découvrir (données cachées) selon le processus de gestion standardisé suivant :\n000 - rapport de non-conformité par le Quality Controler\n100 - analyse et recommandation / plan d\u0027action par le Design Office\n200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n400 - du calcul / plan d\u0027action amendé par le Stress Manager\n500 - plan d\u0027action final validé par le Quality Manager\n\nAu stade 000, \nChoisir aleatoirement dans  {{ detection_method}} en tant qu\u0027OBSERVATION. OBSERVATION est la seule donnée directement accessible à cette étape.\nUn Quality Controler de l\u0027A220 est en charge de la gestion d\u0027une non-conformité vous a été reporté par un technicien de production selon l\u0027OBSERVATION. \n\nSon premier travail est de saisir un rapport de non-conformité, ce rapport comporte une DESCRIPTION issue d\u0027une formalisation de l\u0027OBSERVATION : un rapport relatif à votre observation de la non-conformité, incluant les observations spécifiques, les mesures, et les problèmes notés dans les parties si elles sont observables en premier regard (parmi {{ parts }}). Le rapport ne pose que les observation et aucune analyse. Inutile de le préciser puisque c\u0027est le processus.\nLe titre associé est un LABEL inspiré d\u0027un résumé de la DESCRIPTION ou de l\u0027OBSERVATION\n\nLe nom du Quality Controler est  PRENOM_NOM (générer un nom prénom statistiquement aléatoire pour la region de Quebec)\n\nLe Quality Controler a le STYLE suivant utilisé pour son style rédactionnel: {{ 000_style }}. \nElusif voudra dire trop synthéthique, verbose un peu trop de mots.\nDans tous les cas il s\u0027agit de style ingénieur, donc plus télégraphique que pleinement rédigé (pas de phrases compliquées)\n\n\nEn sortie, est attendu un json brut sans mise en forme (sans ```json) comprenant:\n- name: PRENOM_NOM\n- observation: OBSERVATION\n- role: \"Quality Controler\"\n- style: STYLE (Assure toi de bien raisonner pour cela, pour calculer le module puis slectionner le bonne élément de la lisse. N\u0027affiche pas le raisonnement mais assure toi de bien le faire pour ne pas te tromper)\n- label: LABEL\n- date: {{ nc_event_date }} \n- description: DESCRIPTION - formatté en markdown multiligne \n\nLes textes sont en anglais",
-    "textPromptSystemTemplate": "",
-    "resultValidation": {
-      "expectedFormat": "JSON_OBJECT",
-      "requiredJSONObjectKeys": [],
-      "forbiddenTerms": []
-    },
-    "promptTemplateQueriesSource": "DATASET"
-  },
-  "associatedPromptStudioId": "1hmgjhr",
   "associatedPromptStudioPromptId": "bhynrwzio4",
+  "associatedPromptStudioId": "1hmgjhr",
   "rawQueryOutputMode": "RAW",
-  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
   "completionSettings": {
-    "temperature": 0.3,
     "stopSequences": [],
+    "temperature": 0.3,
     "responseFormat": {
       "type": "json"
     }
   },
-  "llmId": "openai:OpenAI-FA:gpt-4o-mini"
+  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
+  "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+  "prompt": {
+    "promptTemplateInputs": [],
+    "resultValidation": {
+      "requiredJSONObjectKeys": [],
+      "expectedFormat": "JSON_OBJECT",
+      "forbiddenTerms": []
+    },
+    "promptTemplateQueriesSource": "DATASET",
+    "structuredPromptExamples": [],
+    "textPromptTemplate": "000 - rapport de non-conformité par le Quality Controler\n\nUne non-conformité apparait selon le contexte suivant :\n- label: {{ nc_label }}\n- cause primaire: {{ nc_primary_cause }}\n- analyse: {{ nc_analysis }}\n- impact  : {{ nc_impact }} \n- impact quantitatif:  {{ nc_quantitative_impact }} \n- si non traité :  {{ nc_unresolved_scenario }} \n- mitigation possible: {{ nc_mitigated_scenario }} \n- métriques:  {{ metrics }}\n- domaine ATA  : {{ ATA code }} {{ ATA category }}\n- domaines ATA connexes : {{ ATA code }} \n- parties concernées de l\u0027A220: {{ parts }} \n\nCes données ne sont pas formalisées par les opérateurs, qui doivent les découvrir (données cachées) selon le processus de gestion standardisé suivant :\n000 - rapport de non-conformité par le Quality Controler\n100 - analyse et recommandation / plan d\u0027action par le Design Office\n200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n400 - du calcul / plan d\u0027action amendé par le Stress Manager\n500 - plan d\u0027action final validé par le Quality Manager\n\nAu stade 000, \nChoisir aleatoirement dans  {{ detection_method}} en tant qu\u0027OBSERVATION. OBSERVATION est la seule donnée directement accessible à cette étape.\nUn Quality Controler de l\u0027A220 est en charge de la gestion d\u0027une non-conformité vous a été reporté par un technicien de production selon l\u0027OBSERVATION. \n\nSon premier travail est de saisir un rapport de non-conformité, ce rapport comporte une DESCRIPTION issue d\u0027une formalisation de l\u0027OBSERVATION : un rapport relatif à votre observation de la non-conformité, incluant les observations spécifiques, les mesures, et les problèmes notés dans les parties si elles sont observables en premier regard (parmi {{ parts }}). Le rapport ne pose que les observation et aucune analyse. Inutile de le préciser puisque c\u0027est le processus.\nLe titre associé est un LABEL inspiré d\u0027un résumé de la DESCRIPTION ou de l\u0027OBSERVATION\n\nLe nom du Quality Controler est  PRENOM_NOM (générer un nom prénom statistiquement aléatoire pour la region de Quebec)\n\nLe Quality Controler a le STYLE suivant utilisé pour son style rédactionnel: {{ 000_style }}. \nElusif voudra dire trop synthéthique, verbose un peu trop de mots.\nDans tous les cas il s\u0027agit de style ingénieur, donc plus télégraphique que pleinement rédigé (pas de phrases compliquées)\n\n\nEn sortie, est attendu un json brut sans mise en forme (sans ```json) comprenant:\n- name: PRENOM_NOM\n- observation: OBSERVATION\n- role: \"Quality Controler\"\n- style: STYLE (Assure toi de bien raisonner pour cela, pour calculer le module puis slectionner le bonne élément de la lisse. N\u0027affiche pas le raisonnement mais assure toi de bien le faire pour ne pas te tromper)\n- label: LABEL\n- date: {{ nc_event_date }} \n- description: DESCRIPTION - formatté en markdown multiligne \n\nLes textes sont en anglais",
+    "textPromptTemplateInputs": [
+      {
+        "name": " nc_label ",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_primary_cause ",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_impact ",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_quantitative_impact ",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_mitigated_scenario ",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_analysis ",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_unresolved_scenario ",
+        "type": "TEXT"
+      },
+      {
+        "name": " metrics ",
+        "type": "TEXT"
+      },
+      {
+        "datasetColumnName": "ATA_code",
+        "name": " ATA code ",
+        "type": "TEXT"
+      },
+      {
+        "datasetColumnName": "ATA_category",
+        "name": " ATA category ",
+        "type": "TEXT"
+      },
+      {
+        "name": " detection_method",
+        "type": "TEXT"
+      },
+      {
+        "name": " parts ",
+        "type": "TEXT"
+      },
+      {
+        "datasetColumnName": "nc_event_date",
+        "name": " nc_event_date ",
+        "type": "TEXT"
+      },
+      {
+        "datasetColumnName": "000_style",
+        "name": " 000_style ",
+        "type": "TEXT"
+      }
+    ],
+    "textPromptSystemTemplate": "",
+    "promptMode": "PROMPT_TEMPLATE_TEXT"
+  }
 }
