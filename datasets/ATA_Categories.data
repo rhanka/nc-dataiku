@@ -1,59 +1,9 @@
 {
   "data": [
     [
-      "Aircraft General",
-      "ATA 00",
-      "General"
-    ],
-    [
-      "Aircraft General",
-      "ATA 05",
-      "Time Limits and Maintenance Checks"
-    ],
-    [
-      "Aircraft General",
-      "ATA 06",
-      "Dimensions and Areas"
-    ],
-    [
-      "Aircraft General",
-      "ATA 07",
-      "Lifting and Shoring"
-    ],
-    [
-      "Aircraft General",
-      "ATA 08",
-      "Leveling and Weighing"
-    ],
-    [
-      "Aircraft General",
-      "ATA 09",
-      "Towing and Taxiing"
-    ],
-    [
-      "Aircraft General",
-      "ATA 10",
-      "Parking, Mooring, Storage and Return to Service"
-    ],
-    [
-      "Aircraft General",
-      "ATA 11",
-      "Placards and Markings"
-    ],
-    [
       "Aircraft Systems",
       "ATA 21",
       "Air Conditioning"
-    ],
-    [
-      "Aircraft Systems",
-      "ATA 22",
-      "Auto Flight"
-    ],
-    [
-      "Aircraft Systems",
-      "ATA 23",
-      "Communications"
     ],
     [
       "Aircraft Systems",
@@ -107,11 +57,6 @@
     ],
     [
       "Aircraft Systems",
-      "ATA 34",
-      "Navigation"
-    ],
-    [
-      "Aircraft Systems",
       "ATA 35",
       "Oxygen"
     ],
@@ -124,21 +69,6 @@
       "Aircraft Systems",
       "ATA 38",
       "Water / Waste"
-    ],
-    [
-      "Aircraft Systems",
-      "ATA 45",
-      "Central Maintenance System"
-    ],
-    [
-      "Aircraft Systems",
-      "ATA 46",
-      "Information Systems"
-    ],
-    [
-      "Aircraft Systems",
-      "ATA 49",
-      "Airborne Auxiliary Power"
     ],
     [
       "Aircraft Systems",
@@ -204,16 +134,6 @@
       "Powerplant",
       "ATA 75",
       "Air"
-    ],
-    [
-      "Powerplant",
-      "ATA 76",
-      "Engine Controls"
-    ],
-    [
-      "Powerplant",
-      "ATA 77",
-      "Engine Indicating"
     ],
     [
       "Powerplant",
