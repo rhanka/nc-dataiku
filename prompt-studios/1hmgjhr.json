@@ -192,10 +192,12 @@
           },
           {
             "name": " 100_style ",
+            "datasetColumnName": "100_style",
             "type": "TEXT"
           },
           {
             "name": " 000_rapport_name ",
+            "datasetColumnName": "000_rapport_name",
             "type": "TEXT"
           }
         ],
