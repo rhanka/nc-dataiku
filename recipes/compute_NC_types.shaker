@@ -128,23 +128,6 @@
       "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
-      "type": "ColumnsConcat",
-      "params": {
-        "outputColumn": "for_prompt",
-        "columns": [
-          "ATA_category",
-          "ATA_code",
-          "ATA_description",
-          "nc_scenario"
-        ],
-        "join": " - "
-      },
-      "alwaysShowComment": false
-    },
-    {
-      "preview": false,
-      "metaType": "PROCESSOR",
-      "disabled": false,
       "type": "ColumnsSelector",
       "params": {
         "columns": [
