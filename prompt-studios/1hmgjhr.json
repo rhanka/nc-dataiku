@@ -743,6 +743,10 @@
             "type": "TEXT"
           },
           {
+            "name": " nc_analysis ",
+            "type": "TEXT"
+          },
+          {
             "name": " nc_impact ",
             "type": "TEXT"
           },
@@ -751,15 +755,11 @@
             "type": "TEXT"
           },
           {
-            "name": " nc_mitigated_scenario ",
-            "type": "TEXT"
-          },
-          {
-            "name": " nc_analysis ",
-            "type": "TEXT"
-          },
-          {
             "name": " nc_unresolved_scenario ",
+            "type": "TEXT"
+          },
+          {
+            "name": " nc_mitigated_scenario ",
             "type": "TEXT"
           },
           {
@@ -768,16 +768,10 @@
           },
           {
             "name": " ATA code ",
-            "datasetColumnName": "ATA_code",
             "type": "TEXT"
           },
           {
             "name": " ATA category ",
-            "datasetColumnName": "ATA_category",
-            "type": "TEXT"
-          },
-          {
-            "name": " detection_method",
             "type": "TEXT"
           },
           {
@@ -785,17 +779,19 @@
             "type": "TEXT"
           },
           {
-            "name": " nc_event_date ",
-            "datasetColumnName": "nc_event_date",
+            "name": " detection_method ",
             "type": "TEXT"
           },
           {
             "name": " 000_style ",
-            "datasetColumnName": "000_style",
+            "type": "TEXT"
+          },
+          {
+            "name": " nc_event_date ",
             "type": "TEXT"
           }
         ],
-        "textPromptTemplate": "000 - rapport de non-conformité par le Quality Controler\n\nUne non-conformité apparait selon le contexte suivant :\n- label: {{ nc_label }}\n- cause primaire: {{ nc_primary_cause }}\n- analyse: {{ nc_analysis }}\n- impact  : {{ nc_impact }} \n- impact quantitatif:  {{ nc_quantitative_impact }} \n- si non traité :  {{ nc_unresolved_scenario }} \n- mitigation possible: {{ nc_mitigated_scenario }} \n- métriques:  {{ metrics }}\n- domaine ATA  : {{ ATA code }} {{ ATA category }}\n- domaines ATA connexes : {{ ATA code }} \n- parties concernées de l\u0027A220: {{ parts }} \n\nCes données ne sont pas formalisées par les opérateurs, qui doivent les découvrir (données cachées) selon le processus de gestion standardisé suivant :\n000 - rapport de non-conformité par le Quality Controler\n100 - analyse et recommandation / plan d\u0027action par le Design Office\n200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n400 - du calcul / plan d\u0027action amendé par le Stress Manager\n500 - plan d\u0027action final validé par le Quality Manager\n\nAu stade 000, \nChoisir aleatoirement dans  {{ detection_method}} en tant qu\u0027OBSERVATION. OBSERVATION est la seule donnée directement accessible à cette étape.\nUn Quality Controler de l\u0027A220 est en charge de la gestion d\u0027une non-conformité vous a été reporté par un technicien de production selon l\u0027OBSERVATION. \n\nSon premier travail est de saisir un rapport de non-conformité, ce rapport comporte une DESCRIPTION issue d\u0027une formalisation de l\u0027OBSERVATION : un rapport relatif à votre observation de la non-conformité, incluant les observations spécifiques, les mesures, et les problèmes notés dans les parties si elles sont observables en premier regard (parmi {{ parts }}). Le rapport ne pose que les observation et aucune analyse. Inutile de le préciser puisque c\u0027est le processus.\nLe titre associé est un LABEL inspiré d\u0027un résumé de la DESCRIPTION ou de l\u0027OBSERVATION\n\nLe nom du Quality Controler est  PRENOM_NOM (générer un nom prénom statistiquement aléatoire pour la region de Quebec)\n\nLe Quality Controler a le STYLE suivant utilisé pour son style rédactionnel: {{ 000_style }}. \nElusif voudra dire trop synthéthique, verbose un peu trop de mots.\nDans tous les cas il s\u0027agit de style ingénieur, donc plus télégraphique que pleinement rédigé (pas de phrases compliquées)\n\n\nEn sortie, est attendu un json brut sans mise en forme (sans ```json) comprenant:\n- name: PRENOM_NOM\n- observation: OBSERVATION\n- role: \"Quality Controler\"\n- style: STYLE (Assure toi de bien raisonner pour cela, pour calculer le module puis slectionner le bonne élément de la lisse. N\u0027affiche pas le raisonnement mais assure toi de bien le faire pour ne pas te tromper)\n- label: LABEL\n- date: {{ nc_event_date }} \n- description: DESCRIPTION - formatté en markdown multiligne \n\nLes textes sont en anglais",
+        "textPromptTemplate": "**000 - Rapport de Non-Conformité par le Quality Controller**\n\nUne non-conformité est identifiée selon les éléments suivants :\n- **Label** : {{ nc_label }}\n- **Cause principale** : {{ nc_primary_cause }}\n- **Analyse** : {{ nc_analysis }}\n- **Impact** : {{ nc_impact }}\n- **Impact quantitatif** : {{ nc_quantitative_impact }}\n- **Scénario si non traité** : {{ nc_unresolved_scenario }}\n- **Mitigation possible** : {{ nc_mitigated_scenario }}\n- **Métriques** : {{ metrics }}\n- **Domaine ATA** : {{ ATA code }} {{ ATA category }}\n- **Domaines ATA connexes** : {{ ATA code }}\n- **Parties concernées de l\u0027A220** : {{ parts }}\n\nCes données, bien que critiques, ne sont pas encore formalisées par les opérateurs. Elles doivent être identifiées et découvertes selon le processus de gestion standardisé suivant :\n- **000** - Rapport de non-conformité par le Quality Controller\n- **100** - Analyse et recommandations / Plan d’action par le Design Office\n- **200** - Validation de l’analyse / Plan d’action par le Design Manager\n- **300** - Calcul de structure lié au plan d’action et recommandations / Stress Office\n- **400** - Amendement du calcul / Plan d’action amendé par le Stress Manager\n- **500** - Plan d’action final validé par le Quality Manager\n\nAu stade **000**, \nL\u0027**OBSERVATION** doit être choisie aléatoirement parmi {{ detection_method }}. L\u0027**OBSERVATION** est la seule donnée immédiatement accessible à cette étape.\nUn **Quality Controller** de l\u0027A220 est en charge de la gestion d\u0027une non-conformité signalée par un technicien de production en fonction de l\u0027**OBSERVATION**.\n\nSa première tâche est de rédiger un rapport de non-conformité. Ce rapport comprendra une **DESCRIPTION**, issue de la formalisation de l\u0027**OBSERVATION** : un rapport relatif à l\u0027observation de la non-conformité, incluant les observations spécifiques, les mesures, et les problèmes identifiés dans les parties observables en première analyse (parmi {{ parts }}). Le rapport se limite à la description des observations, sans aucune analyse. Cela fait partie du processus, il n\u0027est donc pas nécessaire de le préciser.\nLe **LABEL** associé au rapport est inspiré d\u0027un résumé de la **DESCRIPTION** ou de l\u0027**OBSERVATION**.\n\nLe nom du **Quality Controller** est **PRENOM_NOM** (générer un nom et prénom statistiquement aléatoire pour la région du Québec).\n\nLe **Quality Controller** adopte le **STYLE** suivant pour son style rédactionnel : {{ 000_style }}. \n- \"Elusif\" indique un style trop synthétique, tandis que \"verbose\" suggère un excès de détails.\nDans tous les cas, le style reste technique et concis, avec une approche plus télégraphique que rédigée de manière complexe (pas de phrases longues ou compliquées).\n\nEn sortie, un **JSON brut** est attendu (sans formatage ou bloc ```json) comprenant les éléments suivants :\n- `name` : PRENOM_NOM\n- `observation` : OBSERVATION\n- `role` : \"Quality Controller\"\n- `style` : STYLE (Assurez-vous de raisonner correctement pour calculer et sélectionner le bon élément dans la liste, sans afficher le raisonnement)\n- `label` : LABEL\n- `date` : {{ nc_event_date }}\n- `description` : DESCRIPTION - formatée en markdown multiligne\n\n**Instructions supplémentaires** :\n- **Analyse des causes** : Les causes doivent être réalistes et adaptées au contexte spécifique de l\u0027A220, en tenant compte des impacts possibles.\n- **Causes internes et externes** : Différencier les causes internes (ex. : erreurs d\u0027assemblage, calibrations incorrectes) et externes (ex. : défauts fournisseurs, intempéries).\n- **Orientation industrielle** : Prioriser les scénarios ayant un impact direct sur la navigabilité, la résistance (statique et fatigue), ou les coûts de production.\n\n**Orientation sur les gains industriels** :\n- **Réduction des coûts** : Prioriser les scénarios avec un impact financier élevé ou nécessitant des corrections coûteuses si elles ne sont pas détectées à temps.\n- **Efficacité temporelle** : Mettre en place des étapes d’analyse optimisées et des moyens de détection rapide pour réduire les délais de production.\n- **Pertinence industrielle** : Adopter une approche réaliste et contextuellement adaptée à l’industrie aéronautique, afin de garantir la navigabilité, la fiabilité et la conformité des produits.\n\n---\n\nLes principes relatifs aux **non-conformités significatives** stipulent qu\u0027une non-conformité qui peut affecter la navigabilité, la résistance (statique et fatigue), l’installation, le fonctionnement, ou tout autre domaine impactant la qualité et la sécurité doit être soigneusement évaluée et traitée. \n\nChaque **non-conformité significative** doit faire l\u0027objet d\u0027une demande de dérogation soumise à l\u0027ingénierie pour une évaluation approfondie. Le processus de dérogation ne doit pas être utilisé pour des erreurs de conception ou des problèmes de configuration non anticipée. En outre, les **suffixes de dérogation** doivent être attribués pour définir les limitations permanentes ou temporaires sur les articles concernés.",
         "textPromptSystemTemplate": "",
         "resultValidation": {
           "expectedFormat": "JSON_OBJECT",
