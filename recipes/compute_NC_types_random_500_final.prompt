@@ -1,124 +1,124 @@
 {
-  "associatedPromptStudioPromptId": "whlkmg5lb7",
+  "prompt": {
+    "promptMode": "PROMPT_TEMPLATE_TEXT",
+    "promptTemplateInputs": [],
+    "structuredPromptExamples": [],
+    "textPromptTemplateInputs": [
+      {
+        "name": " nc_label ",
+        "datasetColumnName": "nc_label",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_primary_cause ",
+        "datasetColumnName": "nc_primary_cause",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_impact ",
+        "datasetColumnName": "nc_impact",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_quantitative_impact ",
+        "datasetColumnName": "nc_quantitative_impact",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_mitigated_scenario ",
+        "datasetColumnName": "nc_mitigated_scenario",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_analysis ",
+        "datasetColumnName": "nc_analysis",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_unresolved_scenario ",
+        "datasetColumnName": "nc_unresolved_scenario",
+        "type": "TEXT"
+      },
+      {
+        "name": " metrics ",
+        "datasetColumnName": "metrics",
+        "type": "TEXT"
+      },
+      {
+        "name": " ATA code ",
+        "datasetColumnName": "ATA_code",
+        "type": "TEXT"
+      },
+      {
+        "name": " ATA category ",
+        "datasetColumnName": "ATA_category",
+        "type": "TEXT"
+      },
+      {
+        "name": " parts ",
+        "datasetColumnName": "parts",
+        "type": "TEXT"
+      },
+      {
+        "name": " 000_rapport_description ",
+        "datasetColumnName": "000_rapport_description",
+        "type": "TEXT"
+      },
+      {
+        "name": " 000_observation ",
+        "datasetColumnName": "000_rapport_observation",
+        "type": "TEXT"
+      },
+      {
+        "name": " 000_rapport_name ",
+        "datasetColumnName": "000_rapport_name",
+        "type": "TEXT"
+      },
+      {
+        "name": " 100_analysis ",
+        "datasetColumnName": "100_analysis",
+        "type": "TEXT"
+      },
+      {
+        "name": " 200_analysis_validation ",
+        "datasetColumnName": "200_analysis_validation",
+        "type": "TEXT"
+      },
+      {
+        "name": " 300_stress ",
+        "datasetColumnName": "300_stress",
+        "type": "TEXT"
+      },
+      {
+        "name": " 300_style ",
+        "datasetColumnName": "300_style",
+        "type": "TEXT"
+      },
+      {
+        "name": " 400_stress_validation ",
+        "datasetColumnName": "400_stress_validation",
+        "type": "TEXT"
+      }
+    ],
+    "textPromptTemplate": "500 - Analyse et recommandation finale par le Quality Manager\nUne non-conformité apparaît selon le contexte suivant :\n•\tlabel : {{ nc_label }}\n•\tcause primaire : {{ nc_primary_cause }}\n•\tanalyse : {{ nc_analysis }}\n•\timpact : {{ nc_impact }}\n•\timpact quantitatif : {{ nc_quantitative_impact }}\n•\tsi non traité : {{ nc_unresolved_scenario }}\n•\tmitigation possible : {{ nc_mitigated_scenario }}\n•\tmétriques : {{ metrics }}\n•\tdomaine ATA : {{ ATA code }} {{ ATA category }}\n•\tdomaines ATA connexes : {{ ATA code }}\n•\tparties concernées de l\u0027A220 : {{ parts }}\n•\tméthode d\u0027observation : {{ 000_observation }}\nCes données ne sont pas formalisées par les opérateurs, qui doivent les découvrir (données cachées) selon le processus de gestion standardisé suivant :\n•\t000 - rapport de non-conformité par le Quality Controler\n•\t100 - analyse et recommandation / plan d\u0027action par le Design Office\n•\t200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n•\t300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n•\t400 - du calcul / plan d\u0027action amendé par le Stress Manager\n•\t500 - plan d\u0027action final validé par le Quality Manager\nUn premier rapport a été formalisé en 000 par le Quality Controler :\n•\tdescription : {{ 000_rapport_description }}\nPuis analysée en 100 par le Design Office :\n•\tdescription : {{ 100_analysis }}\nEt validé en 200 par le Design manager :\n•\tdescription : {{ 200_analysis_validation }}\nLes calculs de stress ont été assurés en 300 par le Stress Office :\n•\tdescription : {{ 300_stress }}\nEt validé en 400 par le Stress Manager :\n•\tdescription : {{ 400_stress_validation }}\nExtraire la dernière date de cette description, connue sous le nom de DERNIERE_DATE.\nLe travail du Quality Manager consiste à fournir l\u0027analyse et la recommandation finale, y compris le plan d\u0027action, une synthèse si nécessaire et la mise en consistance.\nLe nom du Quality Manager est PRENOM_NOM (générer un nom et prénom statistiquement aléatoire pour la région de Québec, différent de celui du Quality Controller {{ 000_rapport_name }} et des membres du Design Office, du Design Manager, du Stress Office, ainsi que du Stress Manager).\nLe Design Office utilise le style rédactionnel suivant : {{ 300_style }}. Le style doit être plus direct et synthétique, en évitant l\u0027élusivité (trop synthétique) ou la verbosité (trop détaillé), et en restant dans une approche ingénieur (plus télégraphique que rédactionnelle).\nEn sortie, un JSON brut est attendu, sans mise en forme, qui inclura :\n•\trole : Quality Manager\n•\tname : PRENOM_NOM (du Quality Manager)\n•\tstyle : STYLE (celui du Quality Manager)\n•\tlabel : \"Validation de l\u0027Analyse et Recommandation Finale\"\n•\tdate : DERNIERE_DATE, incrémentée de quelques heures à un ou deux jours (l\u0027heure doit être naturelle, pas arrondie)\n•\tdescription : description détaillée de l\u0027analyse et du plan d\u0027action de l\u0027équipe, avec la recommandation finale, synthèse et mise en consistance, le cas échéant. La description doit être autoporteuse et non une simple référence à un rapport externe. Le texte doit être formaté en markdown multilignes.\nInstructions supplémentaires :\n•\tAnalyse des causes : la probabilité et les causes doivent être réalistes et adaptées au contexte de l’A220.\n•\tDifférencier les causes internes (ex. : erreur d’assemblage, mauvaise calibration) des causes externes (ex. : défauts fournisseurs, intempéries).\n•\tOrientation industrielle : prioriser les scénarios ayant des implications directes sur la navigabilité, la résistance, ou les coûts de production.\n•\tRéduction des coûts : prioriser les scénarios ayant un impact financier significatif ou nécessitant des corrections coûteuses si non détectées.\n•\tEfficacité temporelle : inclure des étapes d’analyse optimisées et des moyens de détection rapide pour réduire les délais de production.\n•\tPertinence industrielle : adopter une approche réaliste et contextualisée à l’industrie aéronautique pour garantir la navigabilité, la fiabilité et la conformité des produits.",
+    "textPromptSystemTemplate": "",
+    "resultValidation": {
+      "expectedFormat": "JSON_OBJECT",
+      "requiredJSONObjectKeys": [],
+      "forbiddenTerms": []
+    },
+    "promptTemplateQueriesSource": "DATASET"
+  },
   "associatedPromptStudioId": "1hmgjhr",
+  "associatedPromptStudioPromptId": "mow6iyr20r",
   "rawQueryOutputMode": "RAW",
+  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
   "completionSettings": {
-    "stopSequences": [],
     "temperature": 0.3,
+    "stopSequences": [],
     "responseFormat": {
       "type": "json"
     }
   },
-  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "openai:OpenAI-FA:gpt-4o",
-  "prompt": {
-    "promptTemplateInputs": [],
-    "resultValidation": {
-      "requiredJSONObjectKeys": [],
-      "expectedFormat": "JSON_OBJECT",
-      "forbiddenTerms": []
-    },
-    "promptTemplateQueriesSource": "DATASET",
-    "structuredPromptExamples": [],
-    "textPromptTemplate": "500 - Analyse et recommandation finale par le Quality Manager\n\nUne non-conformité apparait selon le contexte suivant :\n- label: {{ nc_label }}\n- cause primaire: {{ nc_primary_cause }}\n- analyse: {{ nc_analysis }}\n- impact  : {{ nc_impact }} \n- impact quantitatif:  {{ nc_quantitative_impact }} \n- si non traité :  {{ nc_unresolved_scenario }} \n- mitigation possible: {{ nc_mitigated_scenario }} \n- métriques:  {{ metrics }}\n- domaine ATA  : {{ ATA code }} {{ ATA category }}\n- domaines ATA connexes : {{ ATA code }} \n- parties concernées de l\u0027A220: {{ parts }} \n- méthode d\u0027observation: {{ 000_observation }} \n\nCes données ne sont pas formalisées par les opérateurs, qui doivent les découvrir (données cachées) selon le processus de gestion standardisé suivant :\n000 - rapport de non-conformité par le Quality Controler\n100 - analyse et recommandation / plan d\u0027action par le Design Office\n200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n400 - du calcul / plan d\u0027action amendé par le Stress Manager\n500 - plan d\u0027action final validé par le Quality Manager\n\nUn premier rapport a été formalisé en 000 par le Quality Controler :\n- description : {{ 000_rapport_description }}\n\nPuis analysée en 100 par le Design Office:\n- description : {{ 100_analysis }}\n\nEt validé en 200 par le Design manager:\n- description :  {{ 200_analysis_validation }}\n\nEt  les calculs de stress ont été assurés par en 300 par le Stress Office:\n- description :  {{ 300_stress }}\n\nEt validé en 200 par le Stress Manager:\n- description :  {{ 400_stress_validation }}\n \nExtraire la dernière date de cette dernière description, connue comme étant la valeur DERNIERE_DATE\n\nLe travail de calcul du Quality Manager est d\u0027apporter l\u0027analyse et la recommandation finale incluant le plan d\u0027action, synthèse le cas échéant et mise en consistance.\n\nLe nom du Quality Manager est  PRENOM_NOM (générer un nom prénom statistiquement aléatoire pour la region de Quebec, différent de celui du Quality Controller {{ 000_rapport_name }}) et de ceux du son Design Office, du Design Manager et des gens du Stress Office, et du Stress Manager.\n\nLe Design Office a le STYLE suivant utilisé pour son style rédactionnel: {{ 300_style }}. \nElusif voudra dire trop synthéthique, verbose un peu trop de mots.\nDans tous les cas il s\u0027agit de style ingénieur, donc plus télégraphique que pleinement rédigé (pas de phrases compliquées)\n\nEn sortie, est attendu un json brut sans mise en forme (sans ```json) composé de:\n- role: Quality Manager\n- name: PRENOM_NOM (du Quality Manager)\n- style: STYLE (celui du Quality Manager)\n- label: \"Validation de l\u0027Analyse et Recommandation Finale\"\n- date: DERNIERE_DATE incrémentée de quelques heures à un ou 2 jours (L\u0027heure doit être une heure naturelle, pas une heure arrondie)\n- description: description de  l\u0027analyse et le plan d\u0027action de son équipe et d\u0027apporter la recommandation finale, synthèse le cas échéant et mise en consistance, le cas échéant, pas une simple mention à un rapport externe (elle doit être autoporteuse) - et formattée en markdown multilignes\n\nLes textes sont en anglais",
-    "textPromptTemplateInputs": [
-      {
-        "datasetColumnName": "nc_label",
-        "name": " nc_label ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "nc_primary_cause",
-        "name": " nc_primary_cause ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "nc_impact",
-        "name": " nc_impact ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "nc_quantitative_impact",
-        "name": " nc_quantitative_impact ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "nc_mitigated_scenario",
-        "name": " nc_mitigated_scenario ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "nc_analysis",
-        "name": " nc_analysis ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "nc_unresolved_scenario",
-        "name": " nc_unresolved_scenario ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "metrics",
-        "name": " metrics ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "ATA_code",
-        "name": " ATA code ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "ATA_category",
-        "name": " ATA category ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "parts",
-        "name": " parts ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "000_rapport_description",
-        "name": " 000_rapport_description ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "000_rapport_observation",
-        "name": " 000_observation ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "000_rapport_name",
-        "name": " 000_rapport_name ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "100_analysis",
-        "name": " 100_analysis ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "200_analysis_validation",
-        "name": " 200_analysis_validation ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "300_stress",
-        "name": " 300_stress ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "300_style",
-        "name": " 300_style ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "400_stress_validation",
-        "name": " 400_stress_validation ",
-        "type": "TEXT"
-      }
-    ],
-    "textPromptSystemTemplate": "",
-    "promptMode": "PROMPT_TEMPLATE_TEXT"
-  }
+  "llmId": "openai:OpenAI-FA:gpt-4o"
 }
