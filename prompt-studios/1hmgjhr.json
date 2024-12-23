@@ -20,6 +20,7 @@
           },
           {
             "name": " nc_impact ",
+            "datasetColumnName": "nc_impact",
             "type": "TEXT"
           },
           {
