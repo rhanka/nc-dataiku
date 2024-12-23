@@ -116,11 +116,15 @@
       {"name":"nc_event_seed","type":"bigint"},
       {"name":"nc_event_date","type":"date"},
       {"name":"nc_event_id","type":"string"},
-      {"name":"llm_output","type":"string"},
-      {"name":"llm_validation_status","type":"string"},
-      {"name":"llm_raw_response","type":"string"},
-      {"name":"llm_error_message","type":"string"},
-      {"name":"llm_raw_query","type":"string"}
+      {"name":"000_rapport","type":"map","mapKeys":{"type":"string"},
+        "mapValues": {"type":"string"}
+      },
+      {"name":"000_rapport_name","type":"string"},
+      {"name":"000_rapport_role","type":"string"},
+      {"name":"000_rapport_style","type":"string"},
+      {"name":"000_rapport_label","type":"string"},
+      {"name":"000_rapport_date","type":"date"},
+      {"name":"000_rapport_description","type":"string"}
     ],
     "userModified": true
   },
