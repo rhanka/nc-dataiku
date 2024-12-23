@@ -67,13 +67,79 @@
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
         "expression": "inc(now(),0-nc_event_seed,\u0027hours\u0027)",
         "column": "nc_event_date"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "[\"concise and precise\",\"not fully fluent\",\"elusive\",\"useless details\",\"skills limits\"][mod(nc_event_seed,5)]",
+        "column": "000_style"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "[\"skills limits\",\"elusive\",\"concise and precise\",\"not fully fluent\",\"useless details\"][mod(nc_event_seed,5)]",
+        "column": "100_style"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "[\"not fully fluent\",\"concise and precise\"][mod(nc_event_seed,2)]",
+        "column": "200_style"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "[\"not fully fluent\",\"useless details\",\"skills limits\",\"elusive\",\"concise and precise\"][mod(nc_event_seed,5)]",
+        "column": "300_style"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "[\"concise and precise\",\"not fully fluent\"][mod(nc_event_seed,2)]",
+        "column": "400_style"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "[\"concise and precise\"][mod(nc_event_seed,1)]",
+        "column": "500_style"
       },
       "alwaysShowComment": false
     }
@@ -108,21 +174,26 @@
     "nc_scenario_nc_contributory_causes": 300,
     "nc_scenario_nc_quantitative_impact": 300,
     "nc_scenario_nc_phase": 190,
+    "100_style": 148,
     "nc_scenario_nc_unresolved_scenario": 300,
     "detection_method": 300,
+    "300_style": 148,
     "ATA_description": 232,
     "nc_event_seed": 274,
     "nc_type": 100,
     "nc_scenario_detection_method": 300,
     "nc_scenario": 300,
     "nc_scenario_nc_aggravated_scenario": 300,
+    "200_style": 148,
     "nc_scenario_nc_mitigated_scenario": 300,
     "nc_scenario_metrics": 300,
     "nc_event_id": 274,
     "nc_scenario_parts": 300,
     "nc_unresolved_scenario": 300,
+    "500_style": 148,
     "ATA_code": 106,
     "nc_scenario_nc_primary_cause": 300,
+    "400_style": 148,
     "nc_scenario_nc_label": 300,
     "ATA_category": 134,
     "nc_aggravated_scenario": 300,
@@ -132,6 +203,7 @@
     "ATA_codes_linked": 135,
     "for_prompt": 300,
     "nc_scenario_nc_impact": 300,
+    "001_style": 148,
     "nc_analysis": 300,
     "nc_scenario_id": 176,
     "nc_label": 300,
@@ -144,6 +216,7 @@
     "nc_primary_cause": 300,
     "metrics": 300,
     "nc_contributory_causes": 300,
+    "000_style": 148,
     "nc_event_date": 183
   },
   "sorting": [],
