@@ -43,10 +43,12 @@
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "nc_mitigated_scenario",
         "name": " nc_mitigated_scenario ",
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "nc_analysis",
         "name": " nc_analysis ",
         "type": "TEXT"
       },
