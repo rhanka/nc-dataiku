@@ -114,6 +114,12 @@
       {"name":"nc_contributory_causes","type":"array","arrayContent":{"name":"","type":"string"}
       },
       {"name":"nc_event_seed","type":"bigint"},
+      {"name":"500_style","type":"string"},
+      {"name":"400_style","type":"string"},
+      {"name":"300_style","type":"string"},
+      {"name":"200_style","type":"string"},
+      {"name":"100_style","type":"string"},
+      {"name":"000_style","type":"string"},
       {"name":"nc_event_date","type":"date"},
       {"name":"nc_event_id","type":"string"},
       {"name":"000_rapport","type":"map","mapKeys":{"type":"string"},
