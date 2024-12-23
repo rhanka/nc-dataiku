@@ -23,34 +23,42 @@
     "textPromptTemplate": "200 - Validation par le Design Manager\n\nUne non-conformité apparait selon le contexte suivant :\n- label: {{ nc_label }}\n- cause primaire: {{ nc_primary_cause }}\n- analyse: {{ nc_analysis }}\n- impact  : {{ nc_impact }} \n- impact quantitatif:  {{ nc_quantitative_impact }} \n- si non traité :  {{ nc_unresolved_scenario }} \n- mitigation possible: {{ nc_mitigated_scenario }} \n- métriques:  {{ metrics }}\n- domaine ATA  : {{ ATA code }} {{ ATA category }}\n- domaines ATA connexes : {{ ATA code }} \n- parties concernées de l\u0027A220: {{ parts }} \n- méthode d\u0027observation: {{ 000_observation }} \n\nCes données ne sont pas formalisées par les opérateurs, qui doivent les découvrir (données cachées) selon le processus de gestion standardisé suivant :\n000 - rapport de non-conformité par le Quality Controler\n100 - analyse et recommandation / plan d\u0027action par le Design Office\n200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n400 - du calcul / plan d\u0027action amendé par le Stress Manager\n500 - plan d\u0027action final validé par le Quality Manager\n\nUn premier rapport a été formalisé en 000 par le Quality Controler :\n- date:  {{ 000_rapport_date }}\n- label : {{ 000_rapport_label }}\n- description : {{ 000_rapport_description }}\n \nPuis analysée par le Design office: \n-  {{ 100_analysis }}\n\nExtraire la dernière date comme étant la valeur DERNIERE_DATE\n\nLe travail de calcul du Design Manager Office est de valider l\u0027analyse et le plan d\u0027action de son équipe et d\u0027apporter la recommandation finale, synthèse le cas échéant et mise en consistance, toujours sans présumer des impacts de structure.\n\nLe nom du Design Manager est  PRENOM_NOM (générer un nom prénom statistiquement aléatoire pour la region de Quebec, différent de celui du Quality Controller {{ 000_rapport_name }}) et de ceux de son Design Office.\n\nLe Design Office a le STYLE suivant utilisé pour son style rédactionnel: {{ 200_style }}. \nElusif voudra dire trop synthéthique, verbose un peu trop de mots.\nDans tous les cas il s\u0027agit de style ingénieur, donc plus télégraphique que pleinement rédigé (pas de phrases compliquées)\n\nEn sortie, est attendu un json brut sans mise en forme (sans ```json) composé de:\n- role: Design Manager\n- name: PRENOM_NOM (du Design Manager)\n- style: STYLE (celui du Design Manager)\n- label: \"Validation de l\u0027Analyse et Recommandation Finale avant calculs\"\n- date: DERNIERE_DATE incrémentée de quelques heures à un ou 2 jours (L\u0027heure doit être une heure naturelle, pas une heure arrondie)\n- description: description de  l\u0027analyse et le plan d\u0027action de son équipe et d\u0027apporter la recommandation finale, synthèse le cas échéant et mise en consistance, toujours sans présumer des impacts de structure, le cas échéant, pas une simple mention à un rapport externe (elle doit être autoporteuse) - et formattée en markdown multilignes\n\nLes textes sont en anglais",
     "textPromptTemplateInputs": [
       {
+        "datasetColumnName": "nc_label",
         "name": " nc_label ",
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "nc_primary_cause",
         "name": " nc_primary_cause ",
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "nc_impact",
         "name": " nc_impact ",
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "nc_quantitative_impact",
         "name": " nc_quantitative_impact ",
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "nc_mitigated_scenario",
         "name": " nc_mitigated_scenario ",
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "nc_analysis",
         "name": " nc_analysis ",
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "nc_unresolved_scenario",
         "name": " nc_unresolved_scenario ",
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "metrics",
         "name": " metrics ",
         "type": "TEXT"
       },
@@ -65,26 +73,32 @@
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "parts",
         "name": " parts ",
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "000_rapport_description",
         "name": " 000_rapport_description ",
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "000_rapport_date",
         "name": " 000_rapport_date ",
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "000_rapport_label",
         "name": " 000_rapport_label ",
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "000_rapport_observation",
         "name": " 000_observation ",
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "000_rapport_name",
         "name": " 000_rapport_name ",
         "type": "TEXT"
       },
