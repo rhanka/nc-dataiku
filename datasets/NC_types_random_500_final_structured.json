@@ -151,7 +151,16 @@
       {"name":"400_stress_validation_style","type":"string"},
       {"name":"400_stress_validation_label","type":"string"},
       {"name":"400_stress_validation_date","type":"date"},
-      {"name":"400_stress_validation_description","type":"string"}
+      {"name":"400_stress_validation_description","type":"string"},
+      {"name":"500_stress_validation","type":"map","mapKeys":{"type":"string"},
+        "mapValues": {"type":"string"}
+      },
+      {"name":"500_stress_validation_role","type":"string"},
+      {"name":"500_stress_validation_name","type":"string"},
+      {"name":"500_stress_validation_style","type":"string"},
+      {"name":"500_stress_validation_label","type":"string"},
+      {"name":"500_stress_validation_date","type":"date"},
+      {"name":"500_stress_validation_description","type":"string"}
     ],
     "userModified": true
   },
