@@ -131,7 +131,8 @@
       {"name":"000_rapport_style","type":"string"},
       {"name":"000_rapport_label","type":"string"},
       {"name":"000_rapport_date","type":"date"},
-      {"name":"000_rapport_description","type":"string"}
+      {"name":"000_rapport_description","type":"string"},
+      {"name":"100_analysis","type":"string"}
     ],
     "userModified": true
   },
