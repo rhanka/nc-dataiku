@@ -57,6 +57,7 @@
           },
           {
             "name": " ATA category ",
+            "datasetColumnName": "ATA_category",
             "type": "TEXT"
           }
         ],
