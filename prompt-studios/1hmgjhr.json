@@ -768,10 +768,12 @@
           },
           {
             "name": " ATA code ",
+            "datasetColumnName": "ATA_code",
             "type": "TEXT"
           },
           {
             "name": " ATA category ",
+            "datasetColumnName": "ATA_category",
             "type": "TEXT"
           },
           {
