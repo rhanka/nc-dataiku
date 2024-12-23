@@ -116,6 +116,7 @@
           },
           {
             "name": " nc_impact ",
+            "datasetColumnName": "nc_impact",
             "type": "TEXT"
           },
           {
@@ -140,6 +141,7 @@
           },
           {
             "name": " metrics ",
+            "datasetColumnName": "metrics",
             "type": "TEXT"
           },
           {
