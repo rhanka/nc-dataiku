@@ -1,6 +1,7 @@
 import dataiku
 import pandas as pd
 from flask import request
+from flask_cors import CORS
 
 
 # Example:
