@@ -14,7 +14,7 @@ from flask import request
 def first_call():
     max_rows = request.args.get('max_rows') if 'max_rows' in request.args else 500
 
-    mydataset = dataiku.Dataset("REPLACE_WITH_YOUR_DATASET_NAME")
+    mydataset = dataiku.Dataset("NC_types_random_500_final_structured")
     mydataset_df = mydataset.get_dataframe(sampling='head', limit=max_rows)
 
     # Pandas dataFrames are not directly JSON serializable, use to_json()
