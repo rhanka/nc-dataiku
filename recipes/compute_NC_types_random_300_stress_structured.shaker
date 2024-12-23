@@ -1,0 +1,167 @@
+{
+  "columnsSelection": {
+    "mode": "ALL"
+  },
+  "explorationSampling": {
+    "_refreshTrigger": 0,
+    "selection": {
+      "latestPartitionsN": 1,
+      "maxRecords": 10000,
+      "maxRecordsForDisplay": -1,
+      "ordering": {
+        "rules": [],
+        "enabled": false
+      },
+      "withinFirstN": -1,
+      "maxStoredBytes": 104857600,
+      "ascending": true,
+      "timeout": -1,
+      "filter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "partitionSelectionMethod": "ALL",
+      "targetRatio": 0.02,
+      "maxReadUncompressedBytes": -1,
+      "samplingMethod": "HEAD_SEQUENTIAL"
+    },
+    "autoRefreshSample": false
+  },
+  "explorationFilters": [],
+  "columnUseScientificNotationByName": {},
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnRenamer",
+      "params": {
+        "renamings": [
+          {
+            "from": "llm_output",
+            "to": "100_analysis"
+          }
+        ]
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsSelector",
+      "params": {
+        "columns": [
+          "llm"
+        ],
+        "keep": false,
+        "appliesTo": "PATTERN",
+        "appliesToPattern": "llm_.*"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "if(contains(100_analysis,\u0027\"steps\"\u0027),parseJson(100_analysis)[\"steps\"],parseJson(100_analysis))",
+        "column": "100_analysis"
+      },
+      "alwaysShowComment": false
+    }
+  ],
+  "maxProcessedMemTableBytes": -1,
+  "previewMode": "ALL_ROWS",
+  "vizSampling": {
+    "_refreshTrigger": 0,
+    "selection": {
+      "useMemTable": false,
+      "filter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "latestPartitionsN": 1,
+      "maxRecords": -1,
+      "ordering": {
+        "rules": [],
+        "enabled": false
+      },
+      "withinFirstN": -1,
+      "partitionSelectionMethod": "ALL",
+      "targetRatio": 0.02,
+      "maxReadUncompressedBytes": -1,
+      "samplingMethod": "FULL",
+      "ascending": true
+    },
+    "autoRefreshSample": false
+  },
+  "analysisColumnData": {},
+  "columnWidthsByName": {
+    "100_analysis_steps": 300,
+    "detection_method": 300,
+    "nc_scenario": 300,
+    "200_style": 148,
+    "100_analysis_style": 150,
+    "nc_event_id": 246,
+    "nc_unresolved_scenario": 300,
+    "ATA_code": 106,
+    "000_rapport_steps": 300,
+    "100_analysis": 300,
+    "400_style": 148,
+    "ATA_category": 134,
+    "nc_aggravated_scenario": 300,
+    "000_rapport_description": 300,
+    "llm_error_message": 143,
+    "llm_raw_response": 300,
+    "100_analysis_role": 143,
+    "for_prompt": 300,
+    "nc_analysis": 300,
+    "llm_validation_status": 173,
+    "000_rapport_name": 135,
+    "llm_output": 300,
+    "nc_scenario_id": 211,
+    "llm_raw_query": 300,
+    "nc_phase": 225,
+    "000_rapport_role": 162,
+    "000_rapport_label": 300,
+    "parts": 300,
+    "nc_quantitative_impact": 300,
+    "metrics": 300,
+    "nc_contributory_causes": 300,
+    "000_style": 148,
+    "100_analysis_name": 143,
+    "100_style": 148,
+    "300_style": 148,
+    "ATA_description": 225,
+    "nc_event_seed": 113,
+    "nc_type": 100,
+    "500_style": 148,
+    "000_rapport_date": 183,
+    "nc_impact": 300,
+    "ATA_codes_linked": 135,
+    "000_rapport_observation": 300,
+    "100_analysis_date": 143,
+    "000_rapport": 300,
+    "nc_label": 300,
+    "000_rapport_style": 300,
+    "nc_mitigated_scenario": 300,
+    "100_analysis_description": 232,
+    "100_analysis_label": 176,
+    "nc_primary_cause": 300,
+    "nc_event_date": 183
+  },
+  "sorting": [],
+  "globalSearchQuery": "",
+  "coloring": {
+    "scheme": "MEANING_AND_STATUS",
+    "individualColumns": [],
+    "valueColoringMode": "HASH",
+    "individualColumnsRules": []
+  }
+}
