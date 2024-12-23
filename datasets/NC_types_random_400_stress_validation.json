@@ -240,7 +240,7 @@
         "id": "TRTbzJE1",
         "displayName": "Validation JSON sortie LLM OK",
         "computeOnBuildMode": "PARTITION",
-        "autoRun": false,
+        "autoRun": true,
         "enabled": true
       }
     ],
