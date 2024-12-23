@@ -7,11 +7,11 @@
         "name": "ATA_category"
       },
       {
-        "d": false,
+        "d": true,
         "name": "nc_aggravated_scenario"
       },
       {
-        "d": false,
+        "d": true,
         "name": "nc_impact"
       },
       {
@@ -19,31 +19,31 @@
         "name": "ATA_code"
       },
       {
-        "d": false,
+        "d": true,
         "name": "nc_quantitative_impact"
       },
       {
-        "d": false,
+        "d": true,
         "name": "nc_primary_cause"
       },
       {
-        "d": false,
+        "d": true,
         "name": "metrics"
       },
       {
-        "d": false,
+        "d": true,
         "name": "ATA_description"
       },
       {
-        "d": false,
+        "d": true,
         "name": "nc_scenario"
       },
       {
-        "d": false,
+        "d": true,
         "name": "nc_analysis"
       },
       {
-        "d": false,
+        "d": true,
         "name": "nc_type"
       },
       {
@@ -51,39 +51,39 @@
         "name": "nc_label"
       },
       {
-        "d": false,
+        "d": true,
         "name": "nc_mitigated_scenario"
       },
       {
-        "d": false,
+        "d": true,
         "name": "nc_phase"
       },
       {
-        "d": false,
+        "d": true,
         "name": "nc_unresolved_scenario"
       },
       {
-        "d": false,
+        "d": true,
         "name": "for_prompt"
       },
       {
-        "d": false,
+        "d": true,
         "name": "nc_scenario_id"
       },
       {
-        "d": false,
+        "d": true,
         "name": "ATA_codes_linked"
       },
       {
-        "d": false,
+        "d": true,
         "name": "detection_method"
       },
       {
-        "d": false,
+        "d": true,
         "name": "parts"
       },
       {
-        "d": false,
+        "d": true,
         "name": "nc_contributory_causes"
       },
       {
@@ -91,27 +91,27 @@
         "name": "nc_event_seed"
       },
       {
-        "d": false,
+        "d": true,
         "name": "500_style"
       },
       {
-        "d": false,
+        "d": true,
         "name": "400_style"
       },
       {
-        "d": false,
+        "d": true,
         "name": "300_style"
       },
       {
-        "d": false,
+        "d": true,
         "name": "200_style"
       },
       {
-        "d": false,
+        "d": true,
         "name": "100_style"
       },
       {
-        "d": false,
+        "d": true,
         "name": "000_style"
       },
       {
@@ -123,103 +123,103 @@
         "name": "nc_event_id"
       },
       {
-        "d": false,
+        "d": true,
         "name": "000_rapport"
       },
       {
-        "d": false,
+        "d": true,
         "name": "000_rapport_name"
       },
       {
-        "d": false,
+        "d": true,
         "name": "000_rapport_observation"
       },
       {
-        "d": false,
+        "d": true,
         "name": "000_rapport_role"
       },
       {
-        "d": false,
+        "d": true,
         "name": "000_rapport_style"
       },
       {
-        "d": false,
+        "d": true,
         "name": "000_rapport_label"
       },
       {
-        "d": false,
+        "d": true,
         "name": "000_rapport_date"
       },
       {
-        "d": false,
+        "d": true,
         "name": "000_rapport_description"
       },
       {
-        "d": false,
+        "d": true,
         "name": "100_analysis"
       },
       {
-        "d": false,
+        "d": true,
         "name": "200_analysis_validation"
       },
       {
-        "d": false,
+        "d": true,
         "name": "200_analysis_validation_role"
       },
       {
-        "d": false,
+        "d": true,
         "name": "200_analysis_validation_name"
       },
       {
-        "d": false,
+        "d": true,
         "name": "200_analysis_validation_style"
       },
       {
-        "d": false,
+        "d": true,
         "name": "200_analysis_validation_label"
       },
       {
-        "d": false,
+        "d": true,
         "name": "200_analysis_validation_date"
       },
       {
-        "d": false,
+        "d": true,
         "name": "200_analysis_validation_description"
       },
       {
-        "d": false,
+        "d": true,
         "name": "300_stress"
       },
       {
-        "d": false,
+        "d": true,
         "name": "400_stress_validation"
       },
       {
-        "d": false,
+        "d": true,
         "name": "400_stress_validation_role"
       },
       {
-        "d": false,
+        "d": true,
         "name": "400_stress_validation_name"
       },
       {
-        "d": false,
+        "d": true,
         "name": "400_stress_validation_style"
       },
       {
-        "d": false,
+        "d": true,
         "name": "400_stress_validation_label"
       },
       {
-        "d": false,
+        "d": true,
         "name": "400_stress_validation_date"
       },
       {
-        "d": false,
+        "d": true,
         "name": "400_stress_validation_description"
       },
       {
-        "d": false,
+        "d": true,
         "name": "500_final"
       },
       {
@@ -227,27 +227,27 @@
         "name": "analysis_history"
       },
       {
-        "d": false,
+        "d": true,
         "name": "500_final_role"
       },
       {
-        "d": false,
+        "d": true,
         "name": "500_final_name"
       },
       {
-        "d": false,
+        "d": true,
         "name": "500_final_style"
       },
       {
-        "d": false,
+        "d": true,
         "name": "500_final_label"
       },
       {
-        "d": false,
+        "d": true,
         "name": "500_final_date"
       },
       {
-        "d": false,
+        "d": true,
         "name": "500_final_description"
       }
     ]
@@ -330,13 +330,34 @@
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
         "expression": "concat(\u0027{\"000\":\u0027 ,concat(\"[\",parseJson(000_rapport),\"]\") , \u0027,\u0027,\n\u0027\"100\":\u0027 , parseJson(100_analysis) , \u0027,\u0027,\n\u0027\"200\":\u0027 , concat(\"[\",parseJson(200_analysis_validation),\"]\") , \u0027,\u0027,\n\u0027\"300\":\u0027 , parseJson(300_stress) , \u0027,\u0027,\n\u0027\"400\":\u0027 , concat(\"[\",parseJson(400_stress_validation),\"]\"), \u0027,\u0027,\n\u0027\"500\":\u0027 , concat(\"[\",parseJson(500_final),\"]\"),\n\u0027}\u0027)",
         "column": "analysis_history"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsSelector",
+      "params": {
+        "columns": [
+          "ATA_category",
+          "ATA_code",
+          "nc_event_id",
+          "nc_event_date",
+          "nc_event_seed",
+          "nc_label",
+          "analysis_history",
+          "nc_scenario_id"
+        ],
+        "keep": true,
+        "appliesTo": "COLUMNS"
       },
       "alwaysShowComment": false
     }
