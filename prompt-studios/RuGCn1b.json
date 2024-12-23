@@ -36,7 +36,7 @@
         "stopSequences": []
       },
       "dataset": "ATA_Categories",
-      "nbRows": 8,
+      "nbRows": 2,
       "inlinePromptTemplateQueries": [],
       "tags": [],
       "starred": false
