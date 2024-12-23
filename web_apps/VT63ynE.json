@@ -2,7 +2,7 @@
   "type": "DASH",
   "hasLegacyBackendURL": false,
   "params": {
-    "autoStartBackend": true,
+    "autoStartBackend": false,
     "envSelection": {
       "envMode": "EXPLICIT_ENV",
       "envName": "dash"
