@@ -10,22 +10,18 @@
         "textPromptTemplateInputs": [
           {
             "name": " nc_label ",
-            "datasetColumnName": "nc_label",
             "type": "TEXT"
           },
           {
             "name": " nc_primary_cause ",
-            "datasetColumnName": "nc_primary_cause",
             "type": "TEXT"
           },
           {
             "name": " nc_impact ",
-            "datasetColumnName": "nc_impact",
             "type": "TEXT"
           },
           {
             "name": " nc_quantitative_impact ",
-            "datasetColumnName": "nc_quantitative_impact",
             "type": "TEXT"
           },
           {
@@ -38,12 +34,10 @@
           },
           {
             "name": " nc_unresolved_scenario ",
-            "datasetColumnName": "nc_unresolved_scenario",
             "type": "TEXT"
           },
           {
             "name": " metrics ",
-            "datasetColumnName": "metrics",
             "type": "TEXT"
           },
           {
@@ -58,12 +52,10 @@
           },
           {
             "name": " detection_method",
-            "datasetColumnName": "detection_method",
             "type": "TEXT"
           },
           {
             "name": " parts ",
-            "datasetColumnName": "parts",
             "type": "TEXT"
           },
           {
