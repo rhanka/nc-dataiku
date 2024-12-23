@@ -87,13 +87,33 @@
   "schema": {
     "columns": [
       {"name":"ATA_category","type":"string"},
+      {"name":"nc_aggravated_scenario","type":"string"},
+      {"name":"nc_impact","type":"string"},
       {"name":"ATA_code","type":"string"},
+      {"name":"nc_probability","type":"double"},
+      {"name":"nc_quantitative_impact","type":"string"},
+      {"name":"nc_primary_cause","type":"string"},
+      {"name":"metrics","type":"string"},
       {"name":"ATA_description","type":"string"},
       {"name":"nc_scenario","type":"map","mapKeys":{"name":"","type":"string"},
         "mapValues": {"name":"","type":"string"}
       },
+      {"name":"nc_analysis","type":"string"},
+      {"name":"nc_type","type":"string"},
+      {"name":"nc_label","type":"string"},
+      {"name":"nc_mitigated_scenario","type":"string"},
+      {"name":"nc_phase","type":"string"},
+      {"name":"nc_unresolved_scenario","type":"string"},
       {"name":"for_prompt","type":"string"},
       {"name":"nc_scenario_id","type":"string"},
+      {"name":"ATA_codes_linked","type":"array","arrayContent":{"type":"string"}
+      },
+      {"name":"detection_method","type":"array","arrayContent":{"type":"string"}
+      },
+      {"name":"parts","type":"array","arrayContent":{"type":"string"}
+      },
+      {"name":"nc_contributory_causes","type":"array","arrayContent":{"type":"string"}
+      },
       {"name":"nc_event_seed","type":"bigint"},
       {"name":"500_style","type":"string"},
       {"name":"400_style","type":"string"},
