@@ -10,7 +10,7 @@
       "envMode": "INHERIT"
     },
     "nbProcesses": 1,
-    "backendAPIAccessEnabled": false,
+    "backendAPIAccessEnabled": true,
     "libraries": [
       "jquery",
       "dataiku"
@@ -42,7 +42,7 @@
   },
   "config": {},
   "name": "Synth-data-API",
-  "apiKey": "e:AES:X2:4f3K8sQyZf6xjvQnIZA+mc97nLwV/OMh6ZDU/0YggiVrKLHCiupOJnzj5FF8WTiQJhukrvh8ACGsg4LwEyMl3YlnsN1Y7hoObxj9nUKojXZJM2E9FXc7",
+  "apiKey": "e:AES:X2:bvIUOtLOGA/4PD+pEd6ps0fm32vvPd3rAX5nvX4Z+n4V0Og46sB5Inr3eV33a0ArNjMZ4chE8L0V4S/IGLrpN3dBbZ65lDedqBU1ogm5+7GG08GkXi/W",
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
