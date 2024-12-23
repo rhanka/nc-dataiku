@@ -10,7 +10,7 @@ from flask import request
 # From JavaScript, you can access the defined endpoints using
 # getWebAppBackendUrl('first_api_call')
 
-@app.route('/first_api_call')
+@app.route('/nc')
 def first_call():
     max_rows = request.args.get('max_rows') if 'max_rows' in request.args else 500
 
