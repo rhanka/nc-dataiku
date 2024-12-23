@@ -18,6 +18,8 @@ def first_call():
     mydataset_df = mydataset.get_dataframe(sampling='head', limit=max_rows)
 
     mydataset_df['nc_event_date'] = mydataset_df['nc_event_date'].astype(str)
+    mydataset_df['analysis_history'] = mydataset_df['analysis_history'].apply(json.loads)
+
     # Pandas dataFrames are not directly JSON serializable, use to_json()
     data = mydataset_df.to_dict(orient='records')
     return json.dumps({"status": "ok", "data": data})
