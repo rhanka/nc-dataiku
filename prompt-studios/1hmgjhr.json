@@ -75,6 +75,7 @@
           },
           {
             "name": " nc_event_seed ",
+            "datasetColumnName": "nc_event_seed",
             "type": "TEXT"
           }
         ],
