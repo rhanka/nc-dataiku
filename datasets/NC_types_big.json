@@ -104,7 +104,6 @@
       {"name":"nc_mitigated_scenario","type":"string"},
       {"name":"nc_phase","type":"string"},
       {"name":"nc_unresolved_scenario","type":"string"},
-      {"name":"for_prompt","type":"string"},
       {"name":"nc_scenario_id","type":"string"},
       {"name":"ATA_codes_linked","type":"array","arrayContent":{"type":"string"}
       },
