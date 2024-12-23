@@ -66,7 +66,7 @@ dataiku.listDatasets(
         displayMessage('The datasets cannot be retrieved. Please check your API Key.', 'error-message');
     }
 );
-$.getJSON(getWebAppBackendUrl('/first_api_call'), function(data) {
+$.getJSON(getWebAppBackendUrl('/nc'), function(data) {
     console.log('Received data from backend', data)
     const output = $('<pre />').text('Backend reply: ' + JSON.stringify(data));
     $('body').append(output)
