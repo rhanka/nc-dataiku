@@ -51,14 +51,6 @@
       "objectType": "DATASET"
     },
     {
-      "objectId": "compute_NC_types_workflows",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "NC_types_workflows",
-      "objectType": "DATASET"
-    },
-    {
       "objectId": "compute_NC_types_random_000_rapport",
       "objectType": "RECIPE"
     },
