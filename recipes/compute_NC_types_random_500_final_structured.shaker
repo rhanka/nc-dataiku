@@ -1,6 +1,256 @@
 {
   "columnsSelection": {
-    "mode": "ALL"
+    "mode": "SELECT",
+    "list": [
+      {
+        "d": true,
+        "name": "ATA_category"
+      },
+      {
+        "d": false,
+        "name": "nc_aggravated_scenario"
+      },
+      {
+        "d": false,
+        "name": "nc_impact"
+      },
+      {
+        "d": true,
+        "name": "ATA_code"
+      },
+      {
+        "d": false,
+        "name": "nc_quantitative_impact"
+      },
+      {
+        "d": false,
+        "name": "nc_primary_cause"
+      },
+      {
+        "d": false,
+        "name": "metrics"
+      },
+      {
+        "d": false,
+        "name": "ATA_description"
+      },
+      {
+        "d": false,
+        "name": "nc_scenario"
+      },
+      {
+        "d": false,
+        "name": "nc_analysis"
+      },
+      {
+        "d": false,
+        "name": "nc_type"
+      },
+      {
+        "d": true,
+        "name": "nc_label"
+      },
+      {
+        "d": false,
+        "name": "nc_mitigated_scenario"
+      },
+      {
+        "d": false,
+        "name": "nc_phase"
+      },
+      {
+        "d": false,
+        "name": "nc_unresolved_scenario"
+      },
+      {
+        "d": false,
+        "name": "for_prompt"
+      },
+      {
+        "d": false,
+        "name": "nc_scenario_id"
+      },
+      {
+        "d": false,
+        "name": "ATA_codes_linked"
+      },
+      {
+        "d": false,
+        "name": "detection_method"
+      },
+      {
+        "d": false,
+        "name": "parts"
+      },
+      {
+        "d": false,
+        "name": "nc_contributory_causes"
+      },
+      {
+        "d": true,
+        "name": "nc_event_seed"
+      },
+      {
+        "d": false,
+        "name": "500_style"
+      },
+      {
+        "d": false,
+        "name": "400_style"
+      },
+      {
+        "d": false,
+        "name": "300_style"
+      },
+      {
+        "d": false,
+        "name": "200_style"
+      },
+      {
+        "d": false,
+        "name": "100_style"
+      },
+      {
+        "d": false,
+        "name": "000_style"
+      },
+      {
+        "d": true,
+        "name": "nc_event_date"
+      },
+      {
+        "d": true,
+        "name": "nc_event_id"
+      },
+      {
+        "d": false,
+        "name": "000_rapport"
+      },
+      {
+        "d": false,
+        "name": "000_rapport_name"
+      },
+      {
+        "d": false,
+        "name": "000_rapport_observation"
+      },
+      {
+        "d": false,
+        "name": "000_rapport_role"
+      },
+      {
+        "d": false,
+        "name": "000_rapport_style"
+      },
+      {
+        "d": false,
+        "name": "000_rapport_label"
+      },
+      {
+        "d": false,
+        "name": "000_rapport_date"
+      },
+      {
+        "d": false,
+        "name": "000_rapport_description"
+      },
+      {
+        "d": false,
+        "name": "100_analysis"
+      },
+      {
+        "d": false,
+        "name": "200_analysis_validation"
+      },
+      {
+        "d": false,
+        "name": "200_analysis_validation_role"
+      },
+      {
+        "d": false,
+        "name": "200_analysis_validation_name"
+      },
+      {
+        "d": false,
+        "name": "200_analysis_validation_style"
+      },
+      {
+        "d": false,
+        "name": "200_analysis_validation_label"
+      },
+      {
+        "d": false,
+        "name": "200_analysis_validation_date"
+      },
+      {
+        "d": false,
+        "name": "200_analysis_validation_description"
+      },
+      {
+        "d": false,
+        "name": "300_stress"
+      },
+      {
+        "d": false,
+        "name": "400_stress_validation"
+      },
+      {
+        "d": false,
+        "name": "400_stress_validation_role"
+      },
+      {
+        "d": false,
+        "name": "400_stress_validation_name"
+      },
+      {
+        "d": false,
+        "name": "400_stress_validation_style"
+      },
+      {
+        "d": false,
+        "name": "400_stress_validation_label"
+      },
+      {
+        "d": false,
+        "name": "400_stress_validation_date"
+      },
+      {
+        "d": false,
+        "name": "400_stress_validation_description"
+      },
+      {
+        "d": false,
+        "name": "500_final"
+      },
+      {
+        "d": true,
+        "name": "analysis_history"
+      },
+      {
+        "d": false,
+        "name": "500_final_role"
+      },
+      {
+        "d": false,
+        "name": "500_final_name"
+      },
+      {
+        "d": false,
+        "name": "500_final_style"
+      },
+      {
+        "d": false,
+        "name": "500_final_label"
+      },
+      {
+        "d": false,
+        "name": "500_final_date"
+      },
+      {
+        "d": false,
+        "name": "500_final_description"
+      }
+    ]
   },
   "explorationSampling": {
     "_refreshTrigger": 0,
@@ -43,7 +293,7 @@
         "renamings": [
           {
             "from": "llm_output",
-            "to": "500_stress_validation"
+            "to": "500_final"
           }
         ]
       },
@@ -65,17 +315,28 @@
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "JSONFlattener",
       "params": {
         "maxDepth": 10,
-        "inCol": "500_stress_validation",
+        "inCol": "500_final",
         "nullAsEmpty": true,
         "prefixOutputs": true,
         "flattenArrays": false,
         "separator": "_"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "concat(\u0027{\"000\":\u0027 ,parseJson(000_rapport) , \u0027,\u0027,\n\u0027\"100\":\u0027 , parseJson(100_analysis) , \u0027,\u0027,\n\u0027\"200\":\u0027 , parseJson(200_analysis_validation) , \u0027,\u0027,\n\u0027\"300\":\u0027 , parseJson(300_stress) , \u0027,\u0027,\n\u0027\"400\":\u0027 , parseJson(400_stress_validation), \u0027,\u0027,\n\u0027\"500\":\u0027 , parseJson(500_final),\n\u0027}\u0027)",
+        "column": "analysis_history"
       },
       "alwaysShowComment": false
     }
@@ -109,8 +370,10 @@
   "columnWidthsByName": {
     "400_stress_validation_role": 210,
     "detection_method": 300,
+    "500_final_name": 169,
     "nc_scenario": 300,
     "200_style": 148,
+    "analysis_history": 300,
     "nc_event_id": 246,
     "nc_unresolved_scenario": 300,
     "ATA_code": 106,
@@ -122,6 +385,8 @@
     "000_rapport_description": 300,
     "400_stress_validation_style": 218,
     "500_stress_validation_date": 232,
+    "500_final_role": 148,
+    "500_final_style": 155,
     "llm_error_message": 143,
     "llm_raw_response": 300,
     "500_stress_validation_name": 232,
@@ -144,6 +409,7 @@
     "metrics": 300,
     "nc_contributory_causes": 300,
     "000_style": 148,
+    "500_final_description": 300,
     "500_stress_validation": 300,
     "400_stress_validation_date": 232,
     "200_analysis_validation_label": 300,
@@ -155,6 +421,8 @@
     "200_analysis_validation_description": 300,
     "500_stress_validation_role": 232,
     "500_style": 148,
+    "500_final_date": 183,
+    "500_final": 300,
     "000_rapport_date": 183,
     "200_analysis_validation_date": 246,
     "nc_impact": 300,
@@ -171,6 +439,7 @@
     "500_stress_validation_label": 300,
     "300_stress": 300,
     "400_stress_validation_description": 300,
+    "500_final_label": 300,
     "nc_primary_cause": 300,
     "nc_event_date": 183
   },
