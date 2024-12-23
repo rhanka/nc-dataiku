@@ -2,7 +2,7 @@
   "type": "STANDARD",
   "hasLegacyBackendURL": false,
   "params": {
-    "backendEnabled": false,
+    "backendEnabled": true,
     "enableJavascriptModules": false,
     "autoStartBackend": false,
     "hideJSSecurityPanel": false,
@@ -42,7 +42,7 @@
   },
   "config": {},
   "name": "Synth-data-API",
-  "apiKey": "e:AES:X2:tZV9Aq4/+KVuXd00Ud33SW0rCYg15TVXieJCPFxNhvwBWjRhp3qzTHVz9y/+45QDbdRnERytc88rhCll2iN5uzKcYNTZqbzV3G4gfgyTHl2nNrgQowpl",
+  "apiKey": "e:AES:X2:VYjOJjxflsF7vaFFyX10/IfCD04W/q3ND2+Av4vVqqF9fV0w867c9XytyAffaDqVvaF7eBky0NgFUCt7Dyrtyim8CqjNlJK6QoTmJBorQxx4tneo6CfZ",
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
