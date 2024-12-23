@@ -1,35 +1,35 @@
 {
-  "prompt": {
-    "promptMode": "PROMPT_TEMPLATE_TEXT",
-    "promptTemplateInputs": [],
-    "structuredPromptExamples": [],
-    "textPromptTemplateInputs": [
-      {
-        "name": " ATA code ",
-        "datasetColumnName": "ATA_code",
-        "type": "TEXT"
-      },
-      {
-        "name": " ATA category ",
-        "datasetColumnName": "ATA_category",
-        "type": "TEXT"
-      }
-    ],
-    "textPromptTemplate": "Cette étape vise à créer des scénarios types de non-conformités applicables à l\u0027A220, qui serviront de base pour la génération de tickets. L’objectif est de maximiser les gains en termes de coût, de temps, et de pertinence industrielle dans le traitement des non-conformités.\nPour chaque code ATA {{ ATA code }}, une liste de 30 types de non-conformités doit être élaborée. Ces scénarios peuvent inclure des impacts sur plusieurs composants ATA. Chaque scénario doit répondre aux critères suivants :\n•\tIdentifier les pièces, sous-ensembles, ou ensembles concernés.\n•\tDécrire comment la non-conformité devient visible, notamment pour les opérateurs ou experts qualité.\n•\tFournir une analyse détaillée, comprenant les causes, les étapes d’investigation, et les impacts industriels directs ou indirects.\nOrientation sur les gains industriels :\n1.\tRéduction des coûts : Prioriser les scénarios ayant un fort impact financier ou nécessitant des corrections coûteuses si non détectées.\n2.\tEfficacité temporelle : Inclure des étapes d’analyse optimisées et des moyens de détection rapide pour réduire les délais de production.\n3.\tPertinence industrielle : Adopter une approche réaliste et contextualisée à l’industrie aéronautique, notamment pour garantir la navigabilité, la fiabilité, et la conformité des produits.\nExemples de scénarios inspirants :\nStructure :\n1.\tDésaffleurement entre -0,20 mm et -0,25 mm sur une série de rivets du revêtement extérieur, près de la glace du pare-brise droit. Nécessité d’une expertise pour valider les critères aérodynamiques.\n2.\tRayure de 10 cm de long et 0,1 mm de profondeur sur une structure aluminium, zone C2-2, avec un impact potentiel sur la corrosion.\nCarburant :\n3. Débit insuffisant sur une crépine d’aspiration dans le réservoir principal de l’aile gauche, risquant d’affecter l’alimentation en carburant.\n4. Mauvaise conductivité des fils de décharge électrostatique entre le tuyau et la structure dans le réservoir secondaire de l’aile droite.\nÉlectrique :\n5. Dysfonctionnement de l’éclairage au niveau du siège 5A, causant un inconfort passager et nécessitant un remplacement immédiat.\n6. Résistivité excessive dans le circuit de commande de la pompe carburant du réservoir principal droit, posant un risque opérationnel.\nStructure JSON attendue :\nLe format de sortie doit être uniquement en anglais et respecter strictement la structure ci-dessous :\n[\n  {\n    \"ATA_code\": \"{{ ATA code }}\",\n    \"ATA_category\": \"{{ ATA category }}\",\n    \"nc_label\": \"Brief description of the non-conformance in English\",\n    \"ATA_codes_linked\": [\"list of linked ATA codes if applicable\"],\n    \"nc_phase\": \"Phase when the non-conformance was detected (sub part construction, sub part assembly, assembly line, maintenance)\",\n    \"nc_type\": \"human or material\",\n    \"nc_primary_cause\": \"Main cause of the non-conformance, with detailed and realistic descriptions relevant to the A220\",\n    \"nc_probability\": \"Probability of the non-conformance occurring (0 to 1)\",\n    \"nc_contributory_causes\": [\"List of contributory causes, if applicable\"],\n    \"detection_method\": [\n      \"Description of how the non-conformance might be discovered by visible indicators\",\n      \"Additional scenario of discovery by a quality operator, if relevant\"\n    ],\n    \"nc_analysis\": \"Detailed analysis of the root causes, in English\",\n    \"nc_impact\": \"Direct effects of the non-conformance (e.g., production delays)\",\n    \"nc_quantitative_impact\": \"Quantification of impacts (e.g., costs, time, affected units)\",\n    \"nc_unresolved_scenario\": \"Scenario if the non-conformance is not corrected\",\n    \"nc_mitigated_scenario\": \"Scenario after successful correction\",\n    \"nc_aggravated_scenario\": \"Scenario if the issue escalates\",\n    \"metrics\": \"Specific metrics (e.g., failure rates, frequency)\",\n    \"parts\": [\n      {\n        \"part_num\": \"Standardized part number\",\n        \"serial\": \"Part serial number\",\n        \"supplier\": \"Supplier of the part\"\n      }\n    ]\n  }\n]\nInstructions supplémentaires :\n•\tAnalyse des causes : La probabilité et les causes doivent être réalistes et adaptées au contexte de l’A220.\n•\tCauses internes et externes : Différencier les causes internes (ex. : erreur d’assemblage, mauvaise calibration) des causes externes (ex. : défauts fournisseurs, intempéries).\n•\tOrientation industrielle : Prioriser les scénarios ayant des implications directes sur la navigabilité, la résistance, ou les coûts de production.\nNote : Ne met bien que le json, aucune mise en forme (pas de quotes de type ```json)",
-    "textPromptSystemTemplate": "",
-    "resultValidation": {
-      "expectedFormat": "JSON_ARRAY",
-      "requiredJSONObjectKeys": [],
-      "forbiddenTerms": []
-    },
-    "promptTemplateQueriesSource": "DATASET"
-  },
-  "associatedPromptStudioId": "RuGCn1b",
   "associatedPromptStudioPromptId": "jdsrkas912",
+  "associatedPromptStudioId": "RuGCn1b",
   "rawQueryOutputMode": "RAW",
-  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
   "completionSettings": {
     "stopSequences": []
   },
-  "llmId": "openai:OpenAI-FA:gpt-4o"
+  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
+  "llmId": "openai:OpenAI-FA:gpt-4o",
+  "prompt": {
+    "promptTemplateInputs": [],
+    "resultValidation": {
+      "requiredJSONObjectKeys": [],
+      "expectedFormat": "JSON_ARRAY",
+      "forbiddenTerms": []
+    },
+    "promptTemplateQueriesSource": "DATASET",
+    "structuredPromptExamples": [],
+    "textPromptTemplate": "Cette étape vise à créer des scénarios types de non-conformités applicables à l\u0027A220, qui serviront de base pour la génération de tickets. L’objectif est de maximiser les gains en termes de coût, de temps, et de pertinence industrielle dans le traitement des non-conformités.\nPour chaque code ATA {{ ATA code }}, une liste de 30 types de non-conformités doit être élaborée. Ces scénarios peuvent inclure des impacts sur plusieurs composants ATA. Chaque scénario doit répondre aux critères suivants :\n•\tIdentifier les pièces, sous-ensembles, ou ensembles concernés.\n•\tDécrire comment la non-conformité devient visible, notamment pour les opérateurs ou experts qualité.\n•\tFournir une analyse détaillée, comprenant les causes, les étapes d’investigation, et les impacts industriels directs ou indirects.\nOrientation sur les gains industriels :\n1.\tRéduction des coûts : Prioriser les scénarios ayant un fort impact financier ou nécessitant des corrections coûteuses si non détectées.\n2.\tEfficacité temporelle : Inclure des étapes d’analyse optimisées et des moyens de détection rapide pour réduire les délais de production.\n3.\tPertinence industrielle : Adopter une approche réaliste et contextualisée à l’industrie aéronautique, notamment pour garantir la navigabilité, la fiabilité, et la conformité des produits.\nExemples de scénarios inspirants :\nStructure :\n1.\tDésaffleurement entre -0,20 mm et -0,25 mm sur une série de rivets du revêtement extérieur, près de la glace du pare-brise droit. Nécessité d’une expertise pour valider les critères aérodynamiques.\n2.\tRayure de 10 cm de long et 0,1 mm de profondeur sur une structure aluminium, zone C2-2, avec un impact potentiel sur la corrosion.\nCarburant :\n3. Débit insuffisant sur une crépine d’aspiration dans le réservoir principal de l’aile gauche, risquant d’affecter l’alimentation en carburant.\n4. Mauvaise conductivité des fils de décharge électrostatique entre le tuyau et la structure dans le réservoir secondaire de l’aile droite.\nÉlectrique :\n5. Dysfonctionnement de l’éclairage au niveau du siège 5A, causant un inconfort passager et nécessitant un remplacement immédiat.\n6. Résistivité excessive dans le circuit de commande de la pompe carburant du réservoir principal droit, posant un risque opérationnel.\nStructure JSON attendue :\nLe format de sortie doit être uniquement en anglais et respecter strictement la structure ci-dessous :\n[\n  {\n    \"ATA_code\": \"{{ ATA code }}\",\n    \"ATA_category\": \"{{ ATA category }}\",\n    \"nc_label\": \"Brief description of the non-conformance in English\",\n    \"ATA_codes_linked\": [\"list of linked ATA codes if applicable\"],\n    \"nc_phase\": \"Phase when the non-conformance was detected (sub part construction, sub part assembly, assembly line, maintenance)\",\n    \"nc_type\": \"human or material\",\n    \"nc_primary_cause\": \"Main cause of the non-conformance, with detailed and realistic descriptions relevant to the A220\",\n    \"nc_probability\": \"Probability of the non-conformance occurring (0 to 1)\",\n    \"nc_contributory_causes\": [\"List of contributory causes, if applicable\"],\n    \"detection_method\": [\n      \"Description of how the non-conformance might be discovered by visible indicators\",\n      \"Additional scenario of discovery by a quality operator, if relevant\"\n    ],\n    \"nc_analysis\": \"Detailed analysis of the root causes, in English\",\n    \"nc_impact\": \"Direct effects of the non-conformance (e.g., production delays)\",\n    \"nc_quantitative_impact\": \"Quantification of impacts (e.g., costs, time, affected units)\",\n    \"nc_unresolved_scenario\": \"Scenario if the non-conformance is not corrected\",\n    \"nc_mitigated_scenario\": \"Scenario after successful correction\",\n    \"nc_aggravated_scenario\": \"Scenario if the issue escalates\",\n    \"metrics\": \"Specific metrics (e.g., failure rates, frequency)\",\n    \"parts\": [\n      {\n        \"part_num\": \"Standardized part number\",\n        \"serial\": \"Part serial number\",\n        \"supplier\": \"Supplier of the part\"\n      }\n    ]\n  }\n]\nInstructions supplémentaires :\n•\tAnalyse des causes : La probabilité et les causes doivent être réalistes et adaptées au contexte de l’A220.\n•\tCauses internes et externes : Différencier les causes internes (ex. : erreur d’assemblage, mauvaise calibration) des causes externes (ex. : défauts fournisseurs, intempéries).\n•\tOrientation industrielle : Prioriser les scénarios ayant des implications directes sur la navigabilité, la résistance, ou les coûts de production.\nNote : Ne met bien que le json, aucune mise en forme (pas de quotes de type ```json)",
+    "textPromptTemplateInputs": [
+      {
+        "datasetColumnName": "ATA_code",
+        "name": " ATA code ",
+        "type": "TEXT"
+      },
+      {
+        "datasetColumnName": "ATA_category",
+        "name": " ATA category ",
+        "type": "TEXT"
+      }
+    ],
+    "textPromptSystemTemplate": "",
+    "promptMode": "PROMPT_TEMPLATE_TEXT"
+  }
 }
