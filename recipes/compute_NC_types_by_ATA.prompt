@@ -3,7 +3,10 @@
   "associatedPromptStudioId": "RuGCn1b",
   "rawQueryOutputMode": "RAW",
   "completionSettings": {
-    "stopSequences": []
+    "stopSequences": [],
+    "responseFormat": {
+      "type": "json"
+    }
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
   "llmId": "openai:OpenAI-FA:gpt-4o",
