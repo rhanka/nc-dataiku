@@ -226,7 +226,7 @@
     }
   },
   "metricsChecks": {
-    "monitor": false,
+    "monitor": true,
     "checks": [
       {
         "type": "ValuesInSetRule",
