@@ -217,7 +217,7 @@
           "VALID"
         ],
         "id": "SVuVNewg",
-        "displayName": "All values of llm_validation_status are in set",
+        "displayName": "Validation JSON OK",
         "computeOnBuildMode": "PARTITION",
         "autoRun": true,
         "enabled": true
