@@ -17,9 +17,9 @@ url_bar_and_content_div = html.Div([
 ])
 
 layout_index = html.Div([
-    dcc.Link('Navigate to "page-1"', href='page-1'),
+    dcc.Link('Navigate to "Non Conformities"', href='nc'),
     html.Br(),
-    dcc.Link('Navigate to "page-2"', href='page-2'),
+    dcc.Link('Navigate to "Statistiques"', href='stats'),
 ])
 
 layout_page_1 = html.Div([
