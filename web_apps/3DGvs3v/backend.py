@@ -8,7 +8,7 @@ from flask import request
 # documentation for more information about how to adapt this
 # example to your needs.
 # From JavaScript, you can access the defined endpoints using
-# getWebAppBackendUrl('first_api_call')
+# getWebAppBackendUrl('nc')
 
 @app.route('/nc')
 def first_call():
