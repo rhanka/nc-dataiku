@@ -1297,34 +1297,42 @@
         "textPromptTemplateInputs": [
           {
             "name": " nc_label ",
+            "datasetColumnName": "nc_label",
             "type": "TEXT"
           },
           {
             "name": " nc_primary_cause ",
+            "datasetColumnName": "nc_primary_cause",
             "type": "TEXT"
           },
           {
             "name": " nc_impact ",
+            "datasetColumnName": "nc_impact",
             "type": "TEXT"
           },
           {
             "name": " nc_quantitative_impact ",
+            "datasetColumnName": "nc_quantitative_impact",
             "type": "TEXT"
           },
           {
             "name": " nc_mitigated_scenario ",
+            "datasetColumnName": "nc_mitigated_scenario",
             "type": "TEXT"
           },
           {
             "name": " nc_analysis ",
+            "datasetColumnName": "nc_analysis",
             "type": "TEXT"
           },
           {
             "name": " nc_unresolved_scenario ",
+            "datasetColumnName": "nc_unresolved_scenario",
             "type": "TEXT"
           },
           {
             "name": " metrics ",
+            "datasetColumnName": "metrics",
             "type": "TEXT"
           },
           {
@@ -1339,22 +1347,27 @@
           },
           {
             "name": " parts ",
+            "datasetColumnName": "parts",
             "type": "TEXT"
           },
           {
             "name": " 000_rapport_description ",
+            "datasetColumnName": "000_rapport_description",
             "type": "TEXT"
           },
           {
             "name": " 000_observation ",
+            "datasetColumnName": "000_rapport_observation",
             "type": "TEXT"
           },
           {
             "name": " 000_rapport_name ",
+            "datasetColumnName": "000_rapport_name",
             "type": "TEXT"
           },
           {
             "name": " 100_analysis ",
+            "datasetColumnName": "100_analysis",
             "type": "TEXT"
           },
           {
