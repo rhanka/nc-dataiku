@@ -23,7 +23,7 @@ layout_index = html.Div([
 ])
 
 layout_page_1 = html.Div([
-    html.H2('Page 1'),
+    html.H2('Non Conformities'),
     dcc.Input(id='input-1-state', type='text', value='Montreal'),
     dcc.Input(id='input-2-state', type='text', value='Canada'),
     html.Button(id='submit-button', n_clicks=0, children='Submit'),
@@ -31,11 +31,11 @@ layout_page_1 = html.Div([
     html.Br(),
     dcc.Link('Navigate to "/"', id='page-1-root-link', href=''),
     html.Br(),
-    dcc.Link('Navigate to "/page-2"', href='page-2'),
+    dcc.Link('Navigate to "/stats"', href='page-2'),
 ])
 
 layout_page_2 = html.Div([
-    html.H2('Page 2'),
+    html.H2('Statistiques'),
     dcc.Dropdown(
         id='page-2-dropdown',
         options=[{'label': i, 'value': i} for i in ['LA', 'NYC', 'MTL']],
@@ -45,7 +45,7 @@ layout_page_2 = html.Div([
     html.Br(),
     dcc.Link('Navigate to "/"', id='page-2-root-link', href=''),
     html.Br(),
-    dcc.Link('Navigate to "/page-1"', href='page-1'),
+    dcc.Link('Navigate to "/nc"', href='page-1'),
 ])
 
 # index layout
@@ -88,9 +88,9 @@ def update_root_link(root_url):
                   dash.dependencies.Input('url', 'pathname')
               ])
 def display_page(root_url, pathname):
-    if root_url + "page-1" == pathname :
+    if root_url + "nc" == pathname :
         return layout_page_1
-    elif root_url + "page-2" == pathname :
+    elif root_url + "stats" == pathname :
         return layout_page_2
     else:
         return layout_index
