@@ -126,6 +126,7 @@
         "mapValues": {"type":"string"}
       },
       {"name":"000_rapport_name","type":"string"},
+      {"name":"000_rapport_observation","type":"string"},
       {"name":"000_rapport_role","type":"string"},
       {"name":"000_rapport_style","type":"string"},
       {"name":"000_rapport_label","type":"string"},
