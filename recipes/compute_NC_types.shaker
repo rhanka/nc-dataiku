@@ -252,6 +252,7 @@
     "ATA_description": 225,
     "ATA 06": 100,
     "nc_scenario_parts": 300,
+    "nc_probability": 134,
     "nc_scenario_nc_label": 300,
     "nc_impact": 300,
     "ATA 05": 100,
