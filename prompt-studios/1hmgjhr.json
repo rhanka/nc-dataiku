@@ -9,12 +9,71 @@
         "structuredPromptExamples": [],
         "textPromptTemplateInputs": [
           {
-            "name": "input",
-            "datasetColumnName": "nc_scenario",
+            "name": " nc_label ",
+            "datasetColumnName": "nc_label",
+            "type": "TEXT"
+          },
+          {
+            "name": " nc_primary_cause ",
+            "datasetColumnName": "nc_primary_cause",
+            "type": "TEXT"
+          },
+          {
+            "name": " nc_impact ",
+            "type": "TEXT"
+          },
+          {
+            "name": " nc_quantitative_impact ",
+            "datasetColumnName": "nc_quantitative_impact",
+            "type": "TEXT"
+          },
+          {
+            "name": " nc_mitigated_scenario ",
+            "datasetColumnName": "nc_mitigated_scenario",
+            "type": "TEXT"
+          },
+          {
+            "name": " nc_analysis ",
+            "datasetColumnName": "nc_analysis",
+            "type": "TEXT"
+          },
+          {
+            "name": " nc_unresolved_scenario ",
+            "datasetColumnName": "nc_unresolved_scenario",
+            "type": "TEXT"
+          },
+          {
+            "name": " metrics ",
+            "datasetColumnName": "metrics",
+            "type": "TEXT"
+          },
+          {
+            "name": " ATA code ",
+            "datasetColumnName": "ATA_code",
+            "type": "TEXT"
+          },
+          {
+            "name": " ATA category ",
+            "datasetColumnName": "ATA_category",
+            "type": "TEXT"
+          },
+          {
+            "name": " detection_method",
+            "datasetColumnName": "detection_method",
+            "type": "TEXT"
+          },
+          {
+            "name": " parts ",
+            "datasetColumnName": "parts",
+            "type": "TEXT"
+          },
+          {
+            "name": " nc_event_date ",
+            "datasetColumnName": "nc_event_date",
             "type": "TEXT"
           }
         ],
-        "textPromptTemplate": "Le workflow de gestion de non-conformité pour l\u0027A220 respecte les rôles suivants:\n- Quality Controler: en charge du workflow de la non-conformité saisit le rapport de non-conformité initial, et assure la convergence du ticket\n- Design Office: tâche 100 - en charge de l\u0027analyse, le cas échange selon un spécialiste, et des recommandations (proposition d\u0027action corrective). Peut impliquer plusieurs personnes et plusieurs compétences (électrique, mécanique, ... - on parle alors de Design Office Electrical Expert, etc)\n- Design Manager: tâche 200 - manager du Design office, challenge le cas échéant, valide l\u0027analyse les les recommandations (proposition d\u0027action corrective)\n- Stress Office: tâche 300 - en charge des calculs d\u0027ingénierie de structure de l\u0027A220 - analyse l\u0027impact et propose des recommandations complémentaire vis à vis de l\u0027action corrective le cas échéant\n- Stress Manager: tâche 400 - en charge de la validation des calculs de structure - valide les recommandations du stress office le cas échéant\n- Quality Manager: tâche 500 - procède à une recommandation complémentaire le cas échéant, et valide la recommandation (plan d\u0027actions correctives) finale\n\nLes tâches du workflow:\n- Identification de la non-conformité - inscription initiale et description breve par le Quality Controler\n- Rapport de non-conformité: rapport détaillé par le Quality Contoler\n- Tâche 100: analyse initiale de la non conformité par un premier acteur du design office, et demande d\u0027analyses complémentaires le cas échéant au sein du Design office, ou demandes de complément du au Quality controler \n- Tâche 101: analyse technique complémentaire le cas échéant en fonction du problème par un premier expert technique du Design office\n- Tâche 102: analyse complémentaire le cas échéant par un autre acteur si besoin d\u0027une autre compétence\n- Tâche 103: recommandation d\u0027un plan d\u0027action corrective par le Design office\n- Tâche 200 : validation de la recommandation par le Design Manager, le cas échéant retour en tâche 104 etc\n- Tâche 300: selon le plan d\u0027action corrective, calcul du Stress office des impacts de structure et préconisation complémentaire\n- Tâche 301: validation du Stress Manager\n- Tâche 500 : validation finale du plan d\u0027action ou retour en 10x pour cycle suppléementaire\n\nLe traitement du workflow peut dépendre de la qualité de chacun des intervenants, à la fois dans ses compétences techniques et ses compétences rédactionnelles :\n- très compétent, capacité de rédaction synthétique et fluide, peu verbeuse, compréhensible par un ingénieur\n- très compétent, défaut de maîtrise de la langue, utilise des mots ou expression de contournement\n- très compétent, mais trop élusif\n- très compétent, mais ne va pas droit au but (tend à s\u0027arrêter sur des détails inutiles)\n- moyennement compétents, mais bonne capacité communicationnelle\n\nPour un scénario donné:\n {{input}} \n\nDéfinit un workflow correspondant au traitement du sujet, sous la forme d\u0027un json comportant de facon hiérarchique:\n- nc_scenario: reprise integrale du json d\u0027entree¨\n- nc_delay_total: durée totale du workflow, en nombre de jours (correspondant environ à 7 jours au total, 10j maximum)\n- nc_delay_analysis: durée totale, en nombre de jours, selon la compétence et la difficulté du probleme\n- nc_date: date du début de l\u0027observation\n- actors: liste des acteurs impliqués, le cas échéant en ajoutant des acteurs pour le design office en fonction des sous-spécialités. Pour chaque acteur: rôle et type de qualité (compétence et style rédactionnel, cf supra), et un nom/prenom fictif - le tout en anglais\n- workflow_complexity: description de la complexité du workflow, étant donnée a compétence des acteurs, et du problème à résoudre - en anglais\n- workflow_tasks: array liste des étapes selon le workflow ci-dessus, avec pour chaque étape:\n  - la date / heure\n  - la tâche ou sous-tâche parmi les tâches listées ci-dessus (libellé en anglais)\n  - rôle en charge (Quality Controler, Design Office,  Design Office selon l\u0027expertise mobilisée, ...) - en anglais\n   - l\u0027acteur (nom prenom selon la liste supra)\n  - aleas: genere un element de contexte précisant l\u0027état de comprehension du probleme étant donné l\u0027historique (et qualité de description et compétence des acteurs) - en anglais\n\nToutes les metadonnees et données textuelles doivent être en anglais, et on ne doit pas avoir de ```json en formattage.\n\nSeul le json doit être renvoyé, sans formattage ni quotes ```json",
+        "textPromptTemplate": "Une non-conformité apparait selon le contexte suivant :\n- label: {{ nc_label }}\n- cause primaire: {{ nc_primary_cause }}\n- analyse: {{ nc_analysis }}\n- impact  : {{ nc_impact }} \n- impact quantitatif:  {{ nc_quantitative_impact }} \n- si non traité :  {{ nc_unresolved_scenario }} \n- mitigation possible: {{ nc_mitigated_scenario }} \n- métriques:  {{ metrics }}\n- domaine ATA  : {{ ATA code }} {{ ATA category }}\n- domaines ATA connexes : {{ ATA code }} \n- parties concernées de l\u0027A220: {{ parts }} \n\nCes données ne sont pas formalisées par les opérateurs, qui doivent les découvrir (données cachées) selon le processus de gestion standardisé suivant :\n000 - rapport de non-conformité par le Quality Controler\n100 - analyse et recommandation / plan d\u0027action par le Design Office\n200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n400 - du calcul / plan d\u0027action amendé par le Stress Manager\n500 - plan d\u0027action final validé par le Quality Manager\n\nAu stade 000, \nChoisir aleatoirement dans  {{ detection_method}} en tant qu\u0027OBSERVATION. OBSERVATION est la seule donnée directement accessible à cette étape.\nUn Quality Controler de l\u0027A220 est en charge de la gestion d\u0027une non-conformité vous a été reporté par un technicien de production selon l\u0027OBSERVATION. \n\nSon premier travail est de saisir un rapport de non-conformité, ce rapport comporte une DESCRIPTION issue d\u0027une formalisation de l\u0027OBSERVATION : un rapport relatif à votre observation de la non-conformité, incluant les observations spécifiques, les mesures , pouvant le cas échéant aller prendre des métriques {{ metrics }} et les problèmes notés dans les parties ({{ parts }})\nLe titre associé est un LABEL inspiré d\u0027un résumé de la DESCRIPTION ou de l\u0027OBSERVATION\n\nLe nom du Quality Controler est  PRENOM_NOM\n\nLe Quality Controler a l\u0027un des styles suivants ou STYLE:\n- fortes compétences techniques, problème dans la synthèse (détails inutiles)\n- fortes compétences techniques, problèmes de maîtrise de la langue\n- fortes compétence technique, mais tendance à l\u0027élusion (trop synthétique, manque de détail pour les personnes pas 100% compétentes en face)\n- compétence limitiée, mais bonne capacité formalisation\n\nEn sortie, est attendu un json brut sans mise en forme comprenant:\n- name: PRENOM_NOM\n- role: \"Quality Controler\"\n- style: STYLE\n- label: LABEL\n- date: {{ nc_event_date }} \n- description: DESCRIPTION",
         "textPromptSystemTemplate": "",
         "resultValidation": {
           "expectedFormat": "JSON_OBJECT",
