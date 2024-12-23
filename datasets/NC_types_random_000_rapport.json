@@ -217,7 +217,7 @@
           "VALID"
         ],
         "id": "SVuVNewg",
-        "displayName": "Validation JSON OK",
+        "displayName": "Validation JSON sortie LLM OK",
         "computeOnBuildMode": "PARTITION",
         "autoRun": true,
         "enabled": true
