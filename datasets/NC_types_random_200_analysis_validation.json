@@ -122,8 +122,8 @@
       {"name":"000_style","type":"string"},
       {"name":"nc_event_date","type":"date"},
       {"name":"nc_event_id","type":"string"},
-      {"name":"000_rapport","type":"map","mapKeys":{"type":"string"},
-        "mapValues": {"type":"string"}
+      {"name":"000_rapport","type":"map","mapKeys":{"name":"","type":"string"},
+        "mapValues": {"name":"","type":"string"}
       },
       {"name":"000_rapport_name","type":"string"},
       {"name":"000_rapport_observation","type":"string"},
@@ -135,9 +135,9 @@
       {"name":"100_analysis","type":"string"},
       {"name":"llm_output","type":"string"},
       {"name":"llm_validation_status","type":"string"},
-      {"name":"llm_raw_query","type":"string"},
       {"name":"llm_raw_response","type":"string"},
-      {"name":"llm_error_message","type":"string"}
+      {"name":"llm_error_message","type":"string"},
+      {"name":"llm_raw_query","type":"string"}
     ],
     "userModified": true
   },
