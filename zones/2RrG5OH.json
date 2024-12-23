@@ -85,6 +85,14 @@
     {
       "objectId": "compute_NC_types_random_100_analysis_structured",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_NC_types_random_200_analysis_validation",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "NC_types_random_200_analysis_validation",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
