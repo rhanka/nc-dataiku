@@ -75,6 +75,7 @@
           },
           {
             "name": " 000_style ",
+            "datasetColumnName": "000_style",
             "type": "TEXT"
           }
         ],
