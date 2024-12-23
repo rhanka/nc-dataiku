@@ -9,14 +9,6 @@
     {
       "objectId": "NC_types_random_400_stress_validation",
       "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_NC_types_random_500_final",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "NC_types_random_500_final",
-      "objectType": "DATASET"
     }
   ],
   "shared": [],
