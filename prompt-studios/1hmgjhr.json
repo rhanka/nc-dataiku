@@ -1011,6 +1011,7 @@
           },
           {
             "name": " 000_observation ",
+            "datasetColumnName": "000_rapport_observation",
             "type": "TEXT"
           },
           {
