@@ -17,6 +17,14 @@
     {
       "objectId": "NC_types_random_200_analysis_validation",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_NC_types_random_300_stress",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "NC_types_random_300_stress",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
