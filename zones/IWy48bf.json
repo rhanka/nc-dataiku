@@ -1,7 +1,16 @@
 {
   "name": "300 - Stress Office",
   "color": "#8C2DA7",
-  "items": [],
+  "items": [
+    {
+      "objectId": "compute_NC_types_random_300_stress",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "NC_types_random_300_stress",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
