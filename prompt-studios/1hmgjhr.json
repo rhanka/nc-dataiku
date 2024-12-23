@@ -163,11 +163,6 @@
             "type": "TEXT"
           },
           {
-            "name": " detection_method",
-            "datasetColumnName": "detection_method",
-            "type": "TEXT"
-          },
-          {
             "name": " parts ",
             "datasetColumnName": "parts",
             "type": "TEXT"
@@ -178,12 +173,33 @@
             "type": "TEXT"
           },
           {
-            "name": " 000_style ",
-            "datasetColumnName": "000_style",
+            "name": " 000_rapport_description ",
+            "type": "TEXT"
+          },
+          {
+            "name": " 000_rapport_date ",
+            "datasetColumnName": "000_rapport_date",
+            "type": "TEXT"
+          },
+          {
+            "name": " 000_rapport_label ",
+            "datasetColumnName": "000_rapport_label",
+            "type": "TEXT"
+          },
+          {
+            "name": " 000_observation ",
+            "type": "TEXT"
+          },
+          {
+            "name": " 100_style ",
+            "type": "TEXT"
+          },
+          {
+            "name": " 000_rapport_name ",
             "type": "TEXT"
           }
         ],
-        "textPromptTemplate": "100 - Analyse par le Design Office\n\nUne non-conformité apparait selon le contexte suivant :\n- label: {{ nc_label }}\n- cause primaire: {{ nc_primary_cause }}\n- analyse: {{ nc_analysis }}\n- impact  : {{ nc_impact }} \n- impact quantitatif:  {{ nc_quantitative_impact }} \n- si non traité :  {{ nc_unresolved_scenario }} \n- mitigation possible: {{ nc_mitigated_scenario }} \n- métriques:  {{ metrics }}\n- domaine ATA  : {{ ATA code }} {{ ATA category }}\n- domaines ATA connexes : {{ ATA code }} \n- parties concernées de l\u0027A220: {{ parts }} \n\nCes données ne sont pas formalisées par les opérateurs, qui doivent les découvrir (données cachées) selon le processus de gestion standardisé suivant :\n000 - rapport de non-conformité par le Quality Controler\n100 - analyse et recommandation / plan d\u0027action par le Design Office\n200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n400 - du calcul / plan d\u0027action amendé par le Stress Manager\n500 - plan d\u0027action final validé par le Quality Manager\n\nUn premier rapport a été formalisé en 000 par le Quality Controler en {{ detection_method}} \nOn est \nChoisir aleatoirement dans  {{ detection_method}} en tant qu\u0027OBSERVATION. OBSERVATION est la seule donnée directement accessible à cette étape.\nUn Quality Controler de l\u0027A220 est en charge de la gestion d\u0027une non-conformité vous a été reporté par un technicien de production selon l\u0027OBSERVATION. \n\nSon premier travail est de saisir un rapport de non-conformité, ce rapport comporte une DESCRIPTION issue d\u0027une formalisation de l\u0027OBSERVATION : un rapport relatif à votre observation de la non-conformité, incluant les observations spécifiques, les mesures, et les problèmes notés dans les parties si elles sont observables en premier regard (parmi {{ parts }}). Le rapport ne pose que les observation et aucune analyse. Inutile de le préciser puisque c\u0027est le processus.\nLe titre associé est un LABEL inspiré d\u0027un résumé de la DESCRIPTION ou de l\u0027OBSERVATION\n\nLe nom du Quality Controler est  PRENOM_NOM (générer un nom prénom statistiquement aléatoire pour la region de Quebec)\n\nLe Quality Controler a le STYLE suivant utilisé pour son style rédactionnel: {{ 000_style }}. \nElusif voudra dire trop synthéthique, verbose un peu trop de mots.\nDans tous les cas il s\u0027agit de style ingénieur, donc plus télégraphique que pleinement rédigé (pas de phrases compliquées)\n\n\nEn sortie, est attendu un json brut sans mise en forme (sans ```json) comprenant:\n- name: PRENOM_NOM\n- role: \"Quality Controler\"\n- style: STYLE (Assure toi de bien raisonner pour cela, pour calculer le module puis slectionner le bonne élément de la lisse. N\u0027affiche pas le raisonnement mais assure toi de bien le faire pour ne pas te tromper)\n- label: LABEL\n- date: {{ nc_event_date }} \n- description: DESCRIPTION - formatté en markdown multiligne \n\nLes textes sont en anglais",
+        "textPromptTemplate": "100 - Analyse par le Design Office\n\nUne non-conformité apparait selon le contexte suivant :\n- label: {{ nc_label }}\n- cause primaire: {{ nc_primary_cause }}\n- analyse: {{ nc_analysis }}\n- impact  : {{ nc_impact }} \n- impact quantitatif:  {{ nc_quantitative_impact }} \n- si non traité :  {{ nc_unresolved_scenario }} \n- mitigation possible: {{ nc_mitigated_scenario }} \n- métriques:  {{ metrics }}\n- domaine ATA  : {{ ATA code }} {{ ATA category }}\n- domaines ATA connexes : {{ ATA code }} \n- parties concernées de l\u0027A220: {{ parts }} \n- méthode d\u0027observation: {{ 000_observation }} \n\nCes données ne sont pas formalisées par les opérateurs, qui doivent les découvrir (données cachées) selon le processus de gestion standardisé suivant :\n000 - rapport de non-conformité par le Quality Controler\n100 - analyse et recommandation / plan d\u0027action par le Design Office\n200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n400 - du calcul / plan d\u0027action amendé par le Stress Manager\n500 - plan d\u0027action final validé par le Quality Manager\n\nUn premier rapport a été formalisé en 000 par le Quality Controler :\n- date:  {{ 000_rapport_date }}\n- label : {{ 000_rapport_label }}\n- description : {{ 000_rapport_description }}\n \nOn est a l\u0027étape : 100 - Analyse par le Design Office\n\nLe travail de l\u0027analyste du Design office est d\u0027analyser plus en détail les éléments fournis dans le rapport 000, et de proposer un plan d\u0027action de mitigation, sans présumer des impacts de struture à ce stade.\n\nLe nom du Design Office est  PRENOM_NOM (générer un nom prénom statistiquement aléatoire pour la region de Quebec, différent de celui du Quality Controller {{ 000_rapport_name }})\n\nLe Design Office a le STYLE suivant utilisé pour son style rédactionnel: {{ 100_style }}. \nElusif voudra dire trop synthéthique, verbose un peu trop de mots.\nDans tous les cas il s\u0027agit de style ingénieur, donc plus télégraphique que pleinement rédigé (pas de phrases compliquées)\n\nSelon ses compétences et le besoin d\u0027examen complémentaire dans le domaine ATA, il pourra affaire a un ou plusieurs techniciens (Design Office Expert Elec, Design Office Expert Hydro, ...), ou des demandes complémentaires au Quality Controler. En ce cas, sa demande de complément est précisé dans son ticket. Si plusieurs demandes de précision sont faites, chaque acteur complète et passe la main, et statue quand l\u0027analyse semble complète, et le plan d\u0027action / la recommandation consolidée.\n\nEn sortie, est attendu un json brut sans mise en forme (sans ```json) comprenant, un array de la ou des étapes nécessaire pour mener à bien l\u0027analyse, avec pour chaque étape:\n- role: Design Office, ou Quality Controler, ou Design Office Expert Elec, etc \n- name: PRENOM_NOM (de l\u0027acteur concerné, en gardant une cohérence)\n- style: STYLE (celui du Design office, ou bien du Quality Controller)\n- label: libellé de l\u0027étape d\u0027analyse / recommandation\n- date: {{ nc_event_date }} s\u0027incrémentait de quelques heures à un ou 2 jours\n- description: description de l\u0027analyse, le cas échéant des besoin de complément ou sinon du plan d\u0027action \n\nLes textes sont en anglais",
         "textPromptSystemTemplate": "",
         "resultValidation": {
           "expectedFormat": "JSON_OBJECT",
@@ -203,7 +219,7 @@
           "type": "json"
         }
       },
-      "dataset": "NC_types_random",
+      "dataset": "NC_types_random_000_rapport_structured",
       "nbRows": 2,
       "inlinePromptTemplateQueries": [],
       "tags": [],
