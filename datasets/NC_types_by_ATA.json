@@ -173,7 +173,7 @@
     }
   },
   "metricsChecks": {
-    "monitor": false,
+    "monitor": true,
     "checks": [],
     "displayedState": {
       "checks": []
