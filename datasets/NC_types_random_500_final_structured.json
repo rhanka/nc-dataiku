@@ -88,14 +88,14 @@
     "columns": [
       {"name":"ATA_category","type":"string"},
       {"name":"ATA_code","type":"string"},
+      {"name":"nc_label","type":"string"},
       {"name":"nc_scenario_id","type":"string"},
       {"name":"nc_event_seed","type":"bigint"},
       {"name":"nc_event_date","type":"date"},
       {"name":"nc_event_id","type":"string"},
       {"name":"analysis_history","type":"map","mapKeys":{"type":"string"},
         "mapValues": {"type":"string"}
-      },
-      {"name":"nc_label","type":"string"}
+      }
     ],
     "userModified": true
   },
