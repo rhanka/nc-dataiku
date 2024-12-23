@@ -43,7 +43,7 @@
         "renamings": [
           {
             "from": "llm_output",
-            "to": "400_stress_validation"
+            "to": "500_stress_validation"
           }
         ]
       },
@@ -71,7 +71,7 @@
       "type": "JSONFlattener",
       "params": {
         "maxDepth": 10,
-        "inCol": "400_stress_validation",
+        "inCol": "500_stress_validation",
         "nullAsEmpty": true,
         "prefixOutputs": true,
         "flattenArrays": false,
@@ -121,9 +121,12 @@
     "nc_aggravated_scenario": 300,
     "000_rapport_description": 300,
     "400_stress_validation_style": 218,
+    "500_stress_validation_date": 232,
     "llm_error_message": 143,
     "llm_raw_response": 300,
+    "500_stress_validation_name": 232,
     "for_prompt": 300,
+    "500_stress_validation_style": 218,
     "nc_analysis": 300,
     "llm_validation_status": 173,
     "000_rapport_name": 135,
@@ -131,6 +134,7 @@
     "400_stress_validation_name": 210,
     "nc_scenario_id": 211,
     "llm_raw_query": 300,
+    "500_stress_validation_description": 300,
     "nc_phase": 225,
     "200_analysis_validation_style": 253,
     "000_rapport_role": 162,
@@ -140,6 +144,7 @@
     "metrics": 300,
     "nc_contributory_causes": 300,
     "000_style": 148,
+    "500_stress_validation": 300,
     "400_stress_validation_date": 232,
     "200_analysis_validation_label": 300,
     "100_style": 148,
@@ -148,6 +153,7 @@
     "nc_event_seed": 113,
     "nc_type": 100,
     "200_analysis_validation_description": 300,
+    "500_stress_validation_role": 232,
     "500_style": 148,
     "000_rapport_date": 183,
     "200_analysis_validation_date": 246,
@@ -162,6 +168,7 @@
     "200_analysis_validation_role": 225,
     "nc_mitigated_scenario": 300,
     "200_analysis_validation_name": 225,
+    "500_stress_validation_label": 300,
     "300_stress": 300,
     "400_stress_validation_description": 300,
     "nc_primary_cause": 300,
