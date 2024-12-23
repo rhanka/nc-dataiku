@@ -60,9 +60,24 @@
       "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
+      "type": "JSONFlattener",
+      "params": {
+        "maxDepth": 10,
+        "inCol": "llm_output",
+        "nullAsEmpty": true,
+        "prefixOutputs": true,
+        "flattenArrays": false,
+        "separator": "_"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "ArrayFold",
       "params": {
-        "column": "llm_output"
+        "column": "llm_output_scenarios"
       },
       "alwaysShowComment": false
     },
@@ -74,7 +89,7 @@
       "params": {
         "renamings": [
           {
-            "from": "llm_output",
+            "from": "llm_output_scenarios",
             "to": "nc_scenario"
           }
         ]
@@ -159,7 +174,8 @@
           "llm_raw_response"
         ],
         "keep": false,
-        "appliesTo": "COLUMNS"
+        "appliesTo": "PATTERN",
+        "appliesToPattern": "llm_.*"
       },
       "alwaysShowComment": false
     },
@@ -228,6 +244,7 @@
   "columnWidthsByName": {
     "nc_scenario_nc_phase": 190,
     "detection_method": 300,
+    "scenarios": 300,
     "nc_scenario": 457,
     "nc_scenario_nc_aggravated_scenario": 300,
     "nc_scenario_metrics": 300,
@@ -284,6 +301,7 @@
     "ATA 28": 100,
     "nc_unresolved_scenario": 300,
     "ATA 29": 100,
+    "llm_output_scenarios": 190,
     "ATA 20": 100,
     "ATA 21": 100,
     "ATA 22": 100,
