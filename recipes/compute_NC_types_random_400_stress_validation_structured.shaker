@@ -43,7 +43,7 @@
         "renamings": [
           {
             "from": "llm_output",
-            "to": "200_analysis_validation"
+            "to": "400_stress_validation"
           }
         ]
       },
@@ -71,7 +71,7 @@
       "type": "JSONFlattener",
       "params": {
         "maxDepth": 10,
-        "inCol": "200_analysis_validation",
+        "inCol": "400_stress_validation",
         "nullAsEmpty": true,
         "prefixOutputs": true,
         "flattenArrays": false,
