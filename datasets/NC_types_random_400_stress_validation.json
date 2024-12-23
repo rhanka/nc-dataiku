@@ -211,7 +211,22 @@
   },
   "metricsChecks": {
     "monitor": false,
-    "checks": [],
+    "checks": [
+      {
+        "type": "ValuesInSetRule",
+        "columns": [
+          "llm_validation_status"
+        ],
+        "valueSet": [
+          "VALID"
+        ],
+        "id": "TRTbzJE1",
+        "displayName": "Validation JSON sortie LLM OK",
+        "computeOnBuildMode": "PARTITION",
+        "autoRun": false,
+        "enabled": true
+      }
+    ],
     "displayedState": {
       "checks": []
     }
