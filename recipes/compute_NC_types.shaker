@@ -38,6 +38,28 @@
       "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
+      "type": "FilterOnValue",
+      "params": {
+        "normalizationMode": "EXACT",
+        "booleanMode": "AND",
+        "columns": [
+          "llm_validation_status"
+        ],
+        "values": [
+          "VALID"
+        ],
+        "matchingMode": "FULL_STRING",
+        "action": "KEEP_ROW",
+        "appliesTo": "SINGLE_COLUMN",
+        "exclude": false,
+        "processNullOrEmptyValues": false
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "ArrayFold",
       "params": {
         "column": "llm_output"
@@ -242,6 +264,7 @@
     "ATA 71": 100,
     "ATA 72": 100,
     "nc_scenario_nc_impact": 300,
+    "llm_valid_": 120,
     "ATA 73": 100,
     "ATA 74": 100,
     "nc_description": 300,
@@ -297,6 +320,7 @@
     "ATA_codes_linked": 135,
     "79": 100,
     "ATA 30": 100,
+    "```json": 100,
     "nc_label": 300,
     "nc_mitigated_scenario": 300,
     "nc_scenario_ATA_codes_linked": 225,
