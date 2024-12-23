@@ -18,5 +18,5 @@ def first_call():
     mydataset_df = mydataset.get_dataframe(sampling='head', limit=max_rows)
 
     # Pandas dataFrames are not directly JSON serializable, use to_json()
-    data = mydataset_df.to_json()
-    return json.dumps({"status": "ok", "data": json.loads(data)})
+    data = mydataset_df.to_dict(orient='records')
+    return json.dumps({"status": "ok", "data": data})
