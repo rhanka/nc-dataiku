@@ -228,7 +228,7 @@
           "VALID"
         ],
         "id": "FZEr5wAV",
-        "displayName": "All values of llm_validation_status are in set",
+        "displayName": "Validation JSON sortie LLM OK",
         "computeOnBuildMode": "PARTITION",
         "autoRun": true,
         "enabled": true
