@@ -5,7 +5,43 @@
     "columnsSelection": {
       "mode": "ALL"
     },
-    "columnWidthsByName": {},
+    "columnWidthsByName": {
+      "ATA_category": 134,
+      "nc_aggravated_scenario": 300,
+      "nc_impact": 300,
+      "ATA_code": 106,
+      "nc_probability": 134,
+      "nc_quantitative_impact": 300,
+      "nc_primary_cause": 300,
+      "metrics": 300,
+      "ATA_description": 169,
+      "nc_scenario": 300,
+      "nc_analysis": 300,
+      "nc_type": 100,
+      "nc_label": 300,
+      "nc_mitigated_scenario": 300,
+      "nc_phase": 225,
+      "nc_unresolved_scenario": 300,
+      "nc_scenario_id": 204,
+      "ATA_codes_linked": 169,
+      "detection_method": 300,
+      "parts": 300,
+      "nc_contributory_causes": 300,
+      "nc_event_seed": 113,
+      "500_style": 148,
+      "400_style": 148,
+      "300_style": 288,
+      "200_style": 148,
+      "100_style": 288,
+      "000_style": 288,
+      "nc_event_date": 183,
+      "nc_event_id": 239,
+      "llm_output": 300,
+      "llm_validation_status": 173,
+      "llm_raw_response": 300,
+      "llm_error_message": 143,
+      "llm_raw_query": 300
+    },
     "columnUseScientificNotationByName": {},
     "coloring": {
       "scheme": "MEANING_AND_STATUS",
@@ -63,9 +99,45 @@
       "autoRefreshSample": false,
       "_refreshTrigger": 0
     },
-    "exploreUIParams": {},
+    "exploreUIParams": {
+      "autoRefresh": true
+    },
     "globalSearchQuery": "",
-    "explorationFilters": [],
+    "explorationFilters": [
+      {
+        "column": "llm_validation_status",
+        "type": "columnFilter",
+        "currentMode": "FACET",
+        "active": true,
+        "facet": {
+          "type": "facet",
+          "column": "llm_validation_status",
+          "columnType": "ALPHANUM",
+          "currentMode": "ALPHANUM",
+          "sort": "count",
+          "selectedValues": {}
+        },
+        "alphanumFilter": {
+          "type": "alphanum",
+          "column": "llm_validation_status",
+          "selectedValues": [],
+          "params": {
+            "mode": "full_string",
+            "normalization": "exact"
+          }
+        },
+        "validityFilter": {
+          "type": "validity",
+          "column": "llm_validation_status",
+          "params": {
+            "type": "Text",
+            "ok": true,
+            "nok": true,
+            "empty": true
+          }
+        }
+      }
+    ],
     "previewMode": "ALL_ROWS"
   },
   "charts": [
@@ -308,6 +380,7 @@
           "defaultRadius": 5.0,
           "singleShape": "FILLED_CIRCLE"
         },
+        "computeMode": "NORMAL",
         "xAxisMode": "NORMAL",
         "yAxisMode": "NORMAL",
         "pieOptions": {
