@@ -1383,10 +1383,12 @@
           },
           {
             "name": " 100_style ",
+            "datasetColumnName": "100_style",
             "type": "TEXT"
           },
           {
             "name": " nc_event_date ",
+            "datasetColumnName": "nc_event_date",
             "type": "TEXT"
           }
         ],
