@@ -1,114 +1,124 @@
 {
-  "associatedPromptStudioPromptId": "mmlcrkn2vt",
+  "prompt": {
+    "promptMode": "PROMPT_TEMPLATE_TEXT",
+    "promptTemplateInputs": [],
+    "structuredPromptExamples": [],
+    "textPromptTemplateInputs": [
+      {
+        "name": " nc_label ",
+        "datasetColumnName": "nc_label",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_primary_cause ",
+        "datasetColumnName": "nc_primary_cause",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_impact ",
+        "datasetColumnName": "nc_impact",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_quantitative_impact ",
+        "datasetColumnName": "nc_quantitative_impact",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_mitigated_scenario ",
+        "datasetColumnName": "nc_mitigated_scenario",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_analysis ",
+        "datasetColumnName": "nc_analysis",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_unresolved_scenario ",
+        "datasetColumnName": "nc_unresolved_scenario",
+        "type": "TEXT"
+      },
+      {
+        "name": " metrics ",
+        "datasetColumnName": "metrics",
+        "type": "TEXT"
+      },
+      {
+        "name": " ATA code ",
+        "datasetColumnName": "ATA_code",
+        "type": "TEXT"
+      },
+      {
+        "name": " ATA category ",
+        "datasetColumnName": "ATA_category",
+        "type": "TEXT"
+      },
+      {
+        "name": " parts ",
+        "datasetColumnName": "parts",
+        "type": "TEXT"
+      },
+      {
+        "name": " 000_rapport_description ",
+        "datasetColumnName": "000_rapport_description",
+        "type": "TEXT"
+      },
+      {
+        "name": " 000_observation ",
+        "datasetColumnName": "000_rapport_observation",
+        "type": "TEXT"
+      },
+      {
+        "name": " 000_rapport_name ",
+        "datasetColumnName": "000_rapport_name",
+        "type": "TEXT"
+      },
+      {
+        "name": " 100_analysis ",
+        "datasetColumnName": "100_analysis",
+        "type": "TEXT"
+      },
+      {
+        "name": " 200_analysis_validation ",
+        "datasetColumnName": "200_analysis_validation",
+        "type": "TEXT"
+      },
+      {
+        "name": " 300_style ",
+        "datasetColumnName": "300_style",
+        "type": "TEXT"
+      },
+      {
+        "name": " 100_style ",
+        "datasetColumnName": "100_style",
+        "type": "TEXT"
+      },
+      {
+        "name": " nc_event_date ",
+        "datasetColumnName": "nc_event_date",
+        "type": "TEXT"
+      }
+    ],
+    "textPromptTemplate": "300 - Calculs par le Stress Office\n\nUne non-conformité apparaît dans le contexte suivant :\n•\tlabel : {{ nc_label }}\n•\tcause primaire : {{ nc_primary_cause }}\n•\tanalyse : {{ nc_analysis }}\n•\timpact : {{ nc_impact }}\n•\timpact quantitatif : {{ nc_quantitative_impact }}\n•\tsi non traité : {{ nc_unresolved_scenario }}\n•\tmitigation possible : {{ nc_mitigated_scenario }}\n•\tmétriques : {{ metrics }}\n•\tdomaine ATA : {{ ATA code }} {{ ATA category }}\n•\tdomaines ATA connexes : {{ ATA code }}\n•\tparties concernées de l\u0027A220 : {{ parts }}\n•\tméthode d\u0027observation : {{ 000_observation }}\n\nCes données ne sont pas formalisées par les opérateurs et doivent être découvertes (données cachées) en suivant le processus de gestion standardisé suivant :\n•\t000 : rapport de non-conformité par le Quality Controller\n•\t100 : analyse et recommandation / plan d\u0027action par le Design Office\n•\t200 : validation de l\u0027analyse / plan d\u0027action par le Design Manager\n•\t300 : calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n•\t400 : du calcul / plan d\u0027action amendé par le Stress Manager\n•\t500 : plan d\u0027action final validé par le Quality Manager\n\nUn premier rapport a été formalisé en 000 par le Quality Controller :\n•\tdescription : {{ 000_rapport_description }}\n\nPuis analysé en 100 par le Design Office :\n•\tdescription : {{ 100_analysis }}\n\nEt validé en 200 par le Design Manager :\n•\tdescription : {{ 200_analysis_validation }}\n\nExtraire la dernière date de cette validation en 200, connue sous le nom de DERNIERE_DATE.\nNous sommes maintenant à l\u0027étape 300 : calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office.\n\nLe rôle du Stress Office est de garantir l\u0027intégrité de la structure de l\u0027avion et d\u0027effectuer les calculs de stress. Cela implique la modélisation du problème (à l\u0027aide de logiciels comme MATLAB, Simulink ou autres, selon l\u0027ATA concerné) pour évaluer les impacts sur la structure. L\u0027objectif est de s\u0027assurer que toute modification proposée ne compromette pas la résistance, la navigabilité, ni les coûts de production. Un simple ajustement de la structure peut avoir un impact important sur la performance, la résistance ou d\u0027autres facteurs techniques. L\u0027analyste du Stress Office devra aussi proposer des recommandations fondées sur ces calculs, en fonction des résultats obtenus.\n\nLe nom de l\u0027ingénieur responsable au Stress Office est PRENOM_NOM (générer un prénom et nom statistiquement aléatoires pour la région de Québec, différent de celui du Quality Controller, {{ 000_rapport_name }}, ex Christophe Trembley).\n\nLe Stress Office adopte le STYLE suivant pour son style rédactionnel : {{ 300_style }}. Elusif signifiant trop synthétique et verbose signifiant un excès de mots. En général, il s\u0027agit d\u0027un style ingénieur, plus direct et télégraphique que rédiger des phrases longues et complexes.\n\nSelon les besoins et les résultats des calculs, l\u0027ingénieur du Stress Office peut être amené à solliciter des informations complémentaires de la part du Quality Controller ou du Design Manager. Si plusieurs demandes sont faites, chaque acteur complet la tâche et passe la main jusqu\u0027à ce que l\u0027analyse soit considérée comme complète.\n\nEn sortie, il est attendu un tableau JSON brut, contenant chaque tâche nécessaire pour mener à bien l\u0027analyse, composée des éléments suivants :\n•\trole : Stress Office, ou Quality Controller, ou Stress Office Expert, etc.\n•\tname : PRENOM_NOM (de l\u0027acteur concerné, en gardant une cohérence avec les noms précédents, ex Éric Roy)\n•\tstyle : STYLE (celui du Stress Office, ou du Quality Controller, etc.)\n•\tlabel : Libellé de l\u0027étape d\u0027analyse / recommandation\n•\tdate : DERNIERE_DATE, incrémentée de quelques heures à un ou deux jours (l\u0027heure doit être une heure naturelle, pas arrondie)\n•\tdescription : Description selon le STYLE des résultats de l\u0027analyse après les calculs de stress sur la structure. Le cas échéant, inclure les besoins de complément ou sinon le plan d\u0027action consolidé. La description doit comprendre l\u0027analyse complète et les recommandations (plan d\u0027action détaillé), et être formulée en markdown multilignes.\n\nIntervention de plusieurs acteurs:\n•\tUniquement si un besoin de calcul de structure statique et un calcul de structure dynamique, ce sont des expertises différentes.\n\nInstructions supplémentaires :\n•\tAnalyse des causes : Les causes doivent être réalistes et adaptées au contexte de l\u0027A220.\n•\tCauses internes et externes : Différencier les causes internes (ex. : erreur d\u0027assemblage, mauvaise calibration) des causes externes (ex. : défauts fournisseurs, intempéries).\n•\tOrientation industrielle : Prioriser les scénarios ayant des implications directes sur la navigabilité, la résistance, ou les coûts de production.\n•\tRéduction des coûts : Privilégier les scénarios ayant un impact financier significatif ou nécessitant des corrections coûteuses si non détectées.\n•\tEfficacité temporelle : Optimiser les étapes d’analyse et les moyens de détection rapide pour réduire les délais de production.\n•\tPertinence industrielle : Adopter une approche réaliste et contextualisée à l’industrie aéronautique, en garantissant la navigabilité, la fiabilité et la conformité des produits.",
+    "textPromptSystemTemplate": "300 - Calculs par le Stress Office\nEn sortie, un tableau au format JSON brut (sans mise en forme) est attendu, comprenant les éléments suivants pour chaque tâche nécessaire à l\u0027analyse :\n•\trole : Design Office, ou Design Office Expert Elec, etc.\n•\tname : PRENOM_NOM (prénom nom de l\u0027acteur concerné ex Dominic Lavoie)\n•\tstyle : {{ 100_style }} (celui du Design Office ou du Quality Controler)\n•\tlabel : Libellé de l\u0027étape d\u0027analyse / recommandation\n•\tdate : {{ nc_event_date }} (date incrémentée de quelques heures ou à un ou deux jours près, l\u0027heure doit être naturelle)\n•\tdescription : Description selon le STYLE des résultats de l\u0027analyse après les calculs de stress sur la structure. Le cas échéant, inclure les besoins de complément ou sinon le plan d\u0027action consolidé. La description doit comprendre l\u0027analyse complète et les recommandations (plan d\u0027action détaillé), et être formulée en markdown multilignes.\n\nL\u0027ensemble de ces activités sont retranscrites dans la description des sous-tâches, et le json apparait alors ainsi:\n{ \"tasks\" : [{ name1, role1, description1, label1, style1, date1},{ name2, role2, description2, label2, style1, date2},...]}\nMême s\u0027il n\u0027y a qu\u0027une sous-tâche.\nTout est en anglais, et la description est bien en markdown",
+    "resultValidation": {
+      "expectedFormat": "JSON_OBJECT",
+      "requiredJSONObjectKeys": [],
+      "forbiddenTerms": []
+    },
+    "promptTemplateQueriesSource": "DATASET"
+  },
   "associatedPromptStudioId": "1hmgjhr",
+  "associatedPromptStudioPromptId": "mmlcrkn2vt",
   "rawQueryOutputMode": "RAW",
+  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
   "completionSettings": {
-    "stopSequences": [],
     "temperature": 0.3,
+    "stopSequences": [],
     "responseFormat": {
       "type": "json"
     }
   },
-  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "openai:OpenAI-FA:gpt-4o-mini",
-  "prompt": {
-    "promptTemplateInputs": [],
-    "resultValidation": {
-      "requiredJSONObjectKeys": [],
-      "expectedFormat": "JSON_OBJECT",
-      "forbiddenTerms": []
-    },
-    "promptTemplateQueriesSource": "DATASET",
-    "structuredPromptExamples": [],
-    "textPromptTemplate": "300 - Calculs par le Stress Office\nUne non-conformité apparaît dans le contexte suivant :\n•\tlabel : {{ nc_label }}\n•\tcause primaire : {{ nc_primary_cause }}\n•\tanalyse : {{ nc_analysis }}\n•\timpact : {{ nc_impact }}\n•\timpact quantitatif : {{ nc_quantitative_impact }}\n•\tsi non traité : {{ nc_unresolved_scenario }}\n•\tmitigation possible : {{ nc_mitigated_scenario }}\n•\tmétriques : {{ metrics }}\n•\tdomaine ATA : {{ ATA code }} {{ ATA category }}\n•\tdomaines ATA connexes : {{ ATA code }}\n•\tparties concernées de l\u0027A220 : {{ parts }}\n•\tméthode d\u0027observation : {{ 000_observation }}\nCes données ne sont pas formalisées par les opérateurs et doivent être découvertes (données cachées) en suivant le processus de gestion standardisé suivant :\n•\t000 : rapport de non-conformité par le Quality Controller\n•\t100 : analyse et recommandation / plan d\u0027action par le Design Office\n•\t200 : validation de l\u0027analyse / plan d\u0027action par le Design Manager\n•\t300 : calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n•\t400 : du calcul / plan d\u0027action amendé par le Stress Manager\n•\t500 : plan d\u0027action final validé par le Quality Manager\nUn premier rapport a été formalisé en 000 par le Quality Controller :\n•\tdescription : {{ 000_rapport_description }}\nPuis analysé en 100 par le Design Office :\n•\tdescription : {{ 100_analysis }}\nEt validé en 200 par le Design Manager :\n•\tdescription : {{ 200_analysis_validation }}\nExtraire la dernière date de cette validation en 200, connue sous le nom de DERNIERE_DATE.\nNous sommes maintenant à l\u0027étape 300 : calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office.\nLe rôle du Stress Office est de garantir l\u0027intégrité de la structure de l\u0027avion et d\u0027effectuer les calculs de stress. Cela implique la modélisation du problème (à l\u0027aide de logiciels comme MATLAB, Simulink ou autres, selon l\u0027ATA concerné) pour évaluer les impacts sur la structure. L\u0027objectif est de s\u0027assurer que toute modification proposée ne compromette pas la résistance, la navigabilité, ni les coûts de production. Un simple ajustement de la structure peut avoir un impact important sur la performance, la résistance ou d\u0027autres facteurs techniques. L\u0027analyste du Stress Office devra aussi proposer des recommandations fondées sur ces calculs, en fonction des résultats obtenus.\nLe nom de l\u0027ingénieur responsable au Stress Office est PRENOM_NOM (générer un prénom et nom statistiquement aléatoires pour la région de Québec, différent de celui du Quality Controller, {{ 000_rapport_name }}).\nLe Stress Office adopte le STYLE suivant pour son style rédactionnel : {{ 300_style }}. Elusif signifiant trop synthétique et verbose signifiant un excès de mots. En général, il s\u0027agit d\u0027un style ingénieur, plus direct et télégraphique que rédiger des phrases longues et complexes.\nSelon les besoins et les résultats des calculs, l\u0027ingénieur du Stress Office peut être amené à solliciter des informations complémentaires de la part du Quality Controller ou du Design Manager. Si plusieurs demandes sont faites, chaque acteur complet la tâche et passe la main jusqu\u0027à ce que l\u0027analyse soit considérée comme complète.\nEn sortie, il est attendu un tableau JSON brut, contenant chaque étape nécessaire pour mener à bien l\u0027analyse, composée des éléments suivants :\n•\trole : Stress Office, ou Quality Controller, ou Stress Office Expert, etc.\n•\tname : PRENOM_NOM (de l\u0027acteur concerné, en gardant une cohérence avec les noms précédents)\n•\tstyle : STYLE (celui du Stress Office, ou du Quality Controller, etc.)\n•\tlabel : Libellé de l\u0027étape d\u0027analyse / recommandation\n•\tdate : DERNIERE_DATE, incrémentée de quelques heures à un ou deux jours (l\u0027heure doit être une heure naturelle, pas arrondie)\n•\tdescription : Description des résultats de l\u0027analyse après les calculs de stress sur la structure. Le cas échéant, inclure les besoins de complément ou sinon le plan d\u0027action consolidé. La description doit comprendre l\u0027analyse complète et les recommandations (plan d\u0027action détaillé), et être formulée en markdown multilignes.\nInstructions supplémentaires :\n•\tAnalyse des causes : Les causes doivent être réalistes et adaptées au contexte de l\u0027A220.\n•\tCauses internes et externes : Différencier les causes internes (ex. : erreur d\u0027assemblage, mauvaise calibration) des causes externes (ex. : défauts fournisseurs, intempéries).\n•\tOrientation industrielle : Prioriser les scénarios ayant des implications directes sur la navigabilité, la résistance, ou les coûts de production.\n•\tRéduction des coûts : Privilégier les scénarios ayant un impact financier significatif ou nécessitant des corrections coûteuses si non détectées.\n•\tEfficacité temporelle : Optimiser les étapes d’analyse et les moyens de détection rapide pour réduire les délais de production.\n•\tPertinence industrielle : Adopter une approche réaliste et contextualisée à l’industrie aéronautique, en garantissant la navigabilité, la fiabilité et la conformité des produits.",
-    "textPromptTemplateInputs": [
-      {
-        "datasetColumnName": "nc_label",
-        "name": " nc_label ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "nc_primary_cause",
-        "name": " nc_primary_cause ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "nc_impact",
-        "name": " nc_impact ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "nc_quantitative_impact",
-        "name": " nc_quantitative_impact ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "nc_mitigated_scenario",
-        "name": " nc_mitigated_scenario ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "nc_analysis",
-        "name": " nc_analysis ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "nc_unresolved_scenario",
-        "name": " nc_unresolved_scenario ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "metrics",
-        "name": " metrics ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "ATA_code",
-        "name": " ATA code ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "ATA_category",
-        "name": " ATA category ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "parts",
-        "name": " parts ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "000_rapport_description",
-        "name": " 000_rapport_description ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "000_rapport_observation",
-        "name": " 000_observation ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "000_rapport_name",
-        "name": " 000_rapport_name ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "100_analysis",
-        "name": " 100_analysis ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "200_analysis_validation",
-        "name": " 200_analysis_validation ",
-        "type": "TEXT"
-      },
-      {
-        "datasetColumnName": "300_style",
-        "name": " 300_style ",
-        "type": "TEXT"
-      }
-    ],
-    "textPromptSystemTemplate": "",
-    "promptMode": "PROMPT_TEMPLATE_TEXT"
-  }
+  "llmId": "openai:OpenAI-FA:gpt-4o-mini"
 }
