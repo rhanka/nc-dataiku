@@ -70,7 +70,7 @@
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
-        "expression": "if(contains(100_analysis,\u0027\"steps\"\u0027),parseJson(100_analysis)[\"steps\"],concat(\"[\",100_analysis,\"]\"))",
+        "expression": "if(contains(100_analysis,\u0027\"tasks\"\u0027),parseJson(100_analysis)[\"tasks\"],concat(\"[\",100_analysis,\"]\"))",
         "column": "100_analysis"
       },
       "alwaysShowComment": false
