@@ -11,6 +11,8 @@ from flask_cors import CORS
 # From JavaScript, you can access the defined endpoints using
 # getWebAppBackendUrl('nc')
 
+CORS(app)
+
 @app.route('/nc')
 def first_call():
     max_rows = request.args.get('max_rows') if 'max_rows' in request.args else 500
