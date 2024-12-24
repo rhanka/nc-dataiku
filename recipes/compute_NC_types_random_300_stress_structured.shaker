@@ -70,7 +70,7 @@
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
-        "expression": "if(contains(300_stress,\u0027\"steps\"\u0027),parseJson(300_stress)[\"steps\"],concat(\"[\",parseJson(300_stress),\"]\"))",
+        "expression": "if(contains(300_stress,\u0027\"tasks\"\u0027),parseJson(300_stress)[\"tasks\"],concat(\"[\",parseJson(300_stress),\"]\"))",
         "column": "300_stress"
       },
       "alwaysShowComment": false
@@ -145,6 +145,7 @@
     "nc_type": 100,
     "200_analysis_validation_description": 300,
     "500_style": 148,
+    "nc_probability": 134,
     "000_rapport_date": 183,
     "200_analysis_validation_date": 246,
     "nc_impact": 300,
