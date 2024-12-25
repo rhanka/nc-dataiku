@@ -39,11 +39,11 @@
         "config": {}
       }
     },
-    "forceAuthentication": true
+    "forceAuthentication": false
   },
   "config": {},
   "name": "Synth-data-API",
-  "apiKey": "e:AES:X2:Ke4giaO2nUc9xoQkNLBnxLZt4hO76Ay4RFsvhwtcTBwCmLsOpH8k81mhz9LWLZHAVbicI33a8AQmK23ss/7g4URUDXT21Iw9rmVgB1v85vFrmpF/xBEC",
+  "apiKey": "e:AES:X2:irfOKEhrfNEktpAkSO6iMx5OTQbzwjBHqOBhsTij8qmdsgJh8H8aFtq2Rl2irTUQ42ToQz+ga6Zfatux6X7iR7w0DXrLbaD3jSk9OnWz88m9Ipgqfmq0",
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
