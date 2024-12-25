@@ -17,6 +17,10 @@
     {
       "objectId": "AXB1Cyno",
       "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_AXB1Cyno",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
