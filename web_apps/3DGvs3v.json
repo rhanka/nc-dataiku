@@ -11,7 +11,7 @@
       "envName": "flask"
     },
     "nbProcesses": 1,
-    "backendAPIAccessEnabled": true,
+    "backendAPIAccessEnabled": false,
     "libraries": [
       "jquery",
       "dataiku"
@@ -39,11 +39,11 @@
         "config": {}
       }
     },
-    "forceAuthentication": false
+    "forceAuthentication": true
   },
   "config": {},
   "name": "Synth-data-API",
-  "apiKey": "e:AES:X2:yyIG7VUKtv49w5EPWuicay9bxl4BlDfHEvQAzokBz0zFNtB8i0CZgvUBxSXVVHnjnxxyWwX8OS/u5EtpeIx2Y7kLztw+8/O1Swz147vkNeMckAxVNFj9",
+  "apiKey": "e:AES:X2:dCx8lUToRB62JIIMVYlKEsJpzb5faLJTModQEWmEXw0XEHXu/SuZwP9tqj2FRYQvLdMIW53i/s0Neb4/PQMnVjSI7VLUJIudNDmUJAA4dTELgNB+gV5n",
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
