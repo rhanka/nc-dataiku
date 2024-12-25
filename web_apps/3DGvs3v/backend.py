@@ -11,7 +11,7 @@ from flask_cors import CORS
 # From JavaScript, you can access the defined endpoints using
 # getWebAppBackendUrl('nc')
 
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "https://svelte.dev"}})
 
 @app.route('/nc')
 def first_call():
