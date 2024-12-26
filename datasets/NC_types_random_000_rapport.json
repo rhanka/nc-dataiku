@@ -257,7 +257,7 @@
         "basic:COUNT_FILES",
         "basic:SIZE",
         "records:COUNT_RECORDS",
-        "check:CHECK:SVuVNewg"
+        "adv_col_stats:TOP10_WITH_COUNTS:llm_validation_status"
       ]
     }
   },
