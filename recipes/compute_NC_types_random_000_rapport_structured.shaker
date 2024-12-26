@@ -38,6 +38,28 @@
       "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
+      "type": "FilterOnValue",
+      "params": {
+        "normalizationMode": "EXACT",
+        "booleanMode": "AND",
+        "columns": [
+          "llm_validation_status"
+        ],
+        "values": [
+          "INVALID"
+        ],
+        "matchingMode": "FULL_STRING",
+        "action": "REMOVE_ROW",
+        "appliesTo": "SINGLE_COLUMN",
+        "exclude": false,
+        "processNullOrEmptyValues": false
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "ColumnRenamer",
       "params": {
         "renamings": [
@@ -65,7 +87,7 @@
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "JSONFlattener",
@@ -107,15 +129,21 @@
   },
   "analysisColumnData": {},
   "columnWidthsByName": {
+    "100_style": 288,
     "detection_method": 300,
+    "300_style": 288,
     "ATA_description": 225,
     "nc_event_seed": 113,
     "nc_type": 100,
     "nc_scenario": 300,
+    "200_style": 148,
     "nc_event_id": 246,
     "nc_unresolved_scenario": 300,
+    "500_style": 148,
     "ATA_code": 106,
+    "nc_probability": 134,
     "000_rapport_date": 183,
+    "400_style": 148,
     "ATA_category": 134,
     "nc_aggravated_scenario": 300,
     "000_rapport_description": 300,
@@ -123,6 +151,7 @@
     "llm_error_message": 143,
     "ATA_codes_linked": 135,
     "llm_raw_response": 300,
+    "000_rapport_observation": 300,
     "for_prompt": 300,
     "000_rapport": 300,
     "nc_analysis": 300,
@@ -142,6 +171,7 @@
     "nc_primary_cause": 300,
     "metrics": 300,
     "nc_contributory_causes": 300,
+    "000_style": 288,
     "nc_event_date": 183
   },
   "sorting": [],
