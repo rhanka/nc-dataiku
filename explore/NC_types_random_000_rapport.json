@@ -186,6 +186,8 @@
               "measureIdx": 0,
               "label": "Count of records, descending"
             },
+            "prefix": "",
+            "suffix": "",
             "multiplier": "Auto",
             "hideTrailingZeros": true,
             "digitGrouping": "DEFAULT",
@@ -211,6 +213,8 @@
             "useParenthesesForNegativeValues": false,
             "shouldFormatInPercentage": false,
             "hideTrailingZeros": true,
+            "prefix": "",
+            "suffix": "",
             "showValue": true,
             "showDisplayLabel": true,
             "labelPosition": "BOTTOM",
