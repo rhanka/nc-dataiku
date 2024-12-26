@@ -46,10 +46,10 @@
           "llm_validation_status"
         ],
         "values": [
-          "INVALID"
+          "VALID"
         ],
         "matchingMode": "FULL_STRING",
-        "action": "REMOVE_ROW",
+        "action": "KEEP_ROW",
         "appliesTo": "SINGLE_COLUMN",
         "exclude": false,
         "processNullOrEmptyValues": false
