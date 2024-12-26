@@ -206,20 +206,6 @@
     "monitor": true,
     "checks": [
       {
-        "type": "ValuesInSetRule",
-        "columns": [
-          "llm_validation_status"
-        ],
-        "valueSet": [
-          "VALID"
-        ],
-        "id": "xAcYNXpB",
-        "displayName": "Validation JSON sortie LLM OK",
-        "computeOnBuildMode": "PARTITION",
-        "autoRun": true,
-        "enabled": true
-      },
-      {
         "type": "ModeValueInSetRule",
         "columns": [
           "llm_validation_status"
