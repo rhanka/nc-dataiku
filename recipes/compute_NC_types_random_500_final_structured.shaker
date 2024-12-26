@@ -8,63 +8,7 @@
       },
       {
         "d": true,
-        "name": "nc_aggravated_scenario"
-      },
-      {
-        "d": true,
-        "name": "nc_impact"
-      },
-      {
-        "d": true,
         "name": "ATA_code"
-      },
-      {
-        "d": true,
-        "name": "nc_quantitative_impact"
-      },
-      {
-        "d": true,
-        "name": "nc_primary_cause"
-      },
-      {
-        "d": true,
-        "name": "metrics"
-      },
-      {
-        "d": true,
-        "name": "ATA_description"
-      },
-      {
-        "d": true,
-        "name": "nc_scenario"
-      },
-      {
-        "d": true,
-        "name": "nc_analysis"
-      },
-      {
-        "d": true,
-        "name": "nc_type"
-      },
-      {
-        "d": true,
-        "name": "nc_label"
-      },
-      {
-        "d": true,
-        "name": "nc_mitigated_scenario"
-      },
-      {
-        "d": true,
-        "name": "nc_phase"
-      },
-      {
-        "d": true,
-        "name": "nc_unresolved_scenario"
-      },
-      {
-        "d": true,
-        "name": "for_prompt"
       },
       {
         "d": true,
@@ -72,47 +16,7 @@
       },
       {
         "d": true,
-        "name": "ATA_codes_linked"
-      },
-      {
-        "d": true,
-        "name": "detection_method"
-      },
-      {
-        "d": true,
-        "name": "parts"
-      },
-      {
-        "d": true,
-        "name": "nc_contributory_causes"
-      },
-      {
-        "d": true,
         "name": "nc_event_seed"
-      },
-      {
-        "d": true,
-        "name": "500_style"
-      },
-      {
-        "d": true,
-        "name": "400_style"
-      },
-      {
-        "d": true,
-        "name": "300_style"
-      },
-      {
-        "d": true,
-        "name": "200_style"
-      },
-      {
-        "d": true,
-        "name": "100_style"
-      },
-      {
-        "d": true,
-        "name": "000_style"
       },
       {
         "d": true,
@@ -124,131 +28,11 @@
       },
       {
         "d": true,
-        "name": "000_rapport"
-      },
-      {
-        "d": true,
-        "name": "000_rapport_name"
-      },
-      {
-        "d": true,
-        "name": "000_rapport_observation"
-      },
-      {
-        "d": true,
-        "name": "000_rapport_role"
-      },
-      {
-        "d": true,
-        "name": "000_rapport_style"
-      },
-      {
-        "d": true,
-        "name": "000_rapport_label"
-      },
-      {
-        "d": true,
-        "name": "000_rapport_date"
-      },
-      {
-        "d": true,
-        "name": "000_rapport_description"
-      },
-      {
-        "d": true,
-        "name": "100_analysis"
-      },
-      {
-        "d": true,
-        "name": "200_analysis_validation"
-      },
-      {
-        "d": true,
-        "name": "200_analysis_validation_role"
-      },
-      {
-        "d": true,
-        "name": "200_analysis_validation_name"
-      },
-      {
-        "d": true,
-        "name": "200_analysis_validation_style"
-      },
-      {
-        "d": true,
-        "name": "200_analysis_validation_label"
-      },
-      {
-        "d": true,
-        "name": "200_analysis_validation_date"
-      },
-      {
-        "d": true,
-        "name": "200_analysis_validation_description"
-      },
-      {
-        "d": true,
-        "name": "300_stress"
-      },
-      {
-        "d": true,
-        "name": "400_stress_validation"
-      },
-      {
-        "d": true,
-        "name": "400_stress_validation_role"
-      },
-      {
-        "d": true,
-        "name": "400_stress_validation_name"
-      },
-      {
-        "d": true,
-        "name": "400_stress_validation_style"
-      },
-      {
-        "d": true,
-        "name": "400_stress_validation_label"
-      },
-      {
-        "d": true,
-        "name": "400_stress_validation_date"
-      },
-      {
-        "d": true,
-        "name": "400_stress_validation_description"
-      },
-      {
-        "d": true,
-        "name": "500_final"
-      },
-      {
-        "d": true,
         "name": "analysis_history"
       },
       {
         "d": true,
-        "name": "500_final_role"
-      },
-      {
-        "d": true,
-        "name": "500_final_name"
-      },
-      {
-        "d": true,
-        "name": "500_final_style"
-      },
-      {
-        "d": true,
-        "name": "500_final_label"
-      },
-      {
-        "d": true,
-        "name": "500_final_date"
-      },
-      {
-        "d": true,
-        "name": "500_final_description"
+        "name": "nc_label"
       }
     ]
   },
@@ -284,6 +68,28 @@
     "autoRefresh": true
   },
   "steps": [
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "FilterOnValue",
+      "params": {
+        "normalizationMode": "EXACT",
+        "booleanMode": "AND",
+        "columns": [
+          "llm_validation_status"
+        ],
+        "values": [
+          "VALID"
+        ],
+        "matchingMode": "FULL_STRING",
+        "action": "KEEP_ROW",
+        "appliesTo": "SINGLE_COLUMN",
+        "exclude": false,
+        "processNullOrEmptyValues": false
+      },
+      "alwaysShowComment": false
+    },
     {
       "preview": false,
       "metaType": "PROCESSOR",
@@ -341,7 +147,7 @@
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "ColumnsSelector",
@@ -391,78 +197,103 @@
   "columnWidthsByName": {
     "400_stress_validation_role": 210,
     "detection_method": 300,
-    "500_final_name": 169,
     "nc_scenario": 300,
-    "200_style": 148,
     "analysis_history": 300,
-    "nc_event_id": 246,
-    "nc_unresolved_scenario": 300,
     "ATA_code": 106,
-    "400_stress_validation": 300,
-    "100_analysis": 300,
     "400_style": 148,
-    "ATA_category": 134,
+    "llm_raw_response_6": 176,
+    "llm_raw_response_5": 176,
     "nc_aggravated_scenario": 300,
     "000_rapport_description": 300,
-    "400_stress_validation_style": 218,
-    "500_stress_validation_date": 232,
-    "500_final_role": 148,
     "500_final_style": 155,
-    "llm_error_message": 143,
-    "llm_raw_response": 300,
-    "500_stress_validation_name": 232,
-    "for_prompt": 300,
     "500_stress_validation_style": 218,
     "nc_analysis": 300,
     "llm_validation_status": 173,
     "000_rapport_name": 135,
-    "llm_output": 300,
     "400_stress_validation_name": 210,
     "nc_scenario_id": 211,
     "llm_raw_query": 300,
     "500_stress_validation_description": 300,
     "nc_phase": 225,
-    "200_analysis_validation_style": 253,
     "000_rapport_role": 162,
     "000_rapport_label": 300,
-    "parts": 300,
-    "nc_quantitative_impact": 300,
     "metrics": 300,
     "nc_contributory_causes": 300,
     "000_style": 148,
-    "500_final_description": 300,
-    "500_stress_validation": 300,
-    "400_stress_validation_date": 232,
     "200_analysis_validation_label": 300,
-    "100_style": 148,
     "300_style": 148,
     "ATA_description": 225,
     "nc_event_seed": 113,
-    "nc_type": 100,
     "200_analysis_validation_description": 300,
     "500_stress_validation_role": 232,
+    "000_rapport_date": 183,
+    "llm_validation_status_6": 211,
+    "llm_validation_status_5": 211,
+    "llm_validation_status_2": 211,
+    "nc_impact": 300,
+    "llm_validation_status_1": 211,
+    "llm_validation_status_4": 211,
+    "llm_validation_status_3": 211,
+    "200_analysis_validation": 300,
+    "llm_raw_response_4": 176,
+    "000_rapport": 300,
+    "400_stress_validation_label": 300,
+    "llm_raw_response_3": 176,
+    "llm_raw_response_2": 176,
+    "llm_raw_response_1": 176,
+    "500_stress_validation_label": 300,
+    "500_final_label": 300,
+    "nc_event_date": 183,
+    "500_final_name": 169,
+    "200_style": 148,
+    "nc_event_id": 246,
+    "nc_unresolved_scenario": 300,
+    "400_stress_validation": 300,
+    "100_analysis": 300,
+    "ATA_category": 134,
+    "400_stress_validation_style": 218,
+    "500_stress_validation_date": 232,
+    "500_final_role": 148,
+    "llm_error_message": 143,
+    "llm_raw_response": 300,
+    "500_stress_validation_name": 232,
+    "for_prompt": 300,
+    "llm_output": 300,
+    "200_analysis_validation_style": 253,
+    "parts": 300,
+    "nc_quantitative_impact": 300,
+    "500_final_description": 300,
+    "500_stress_validation": 300,
+    "400_stress_validation_date": 232,
+    "llm_output_1": 134,
+    "100_style": 148,
+    "nc_type": 100,
     "500_style": 148,
     "500_final_date": 183,
     "500_final": 300,
-    "000_rapport_date": 183,
     "200_analysis_validation_date": 246,
-    "nc_impact": 300,
     "ATA_codes_linked": 135,
     "000_rapport_observation": 300,
-    "200_analysis_validation": 300,
-    "000_rapport": 300,
-    "400_stress_validation_label": 300,
+    "llm_error_message_2": 183,
+    "llm_error_message_1": 183,
+    "llm_error_message_4": 183,
+    "llm_error_message_3": 183,
     "nc_label": 300,
     "000_rapport_style": 300,
+    "llm_error_message_6": 183,
     "200_analysis_validation_role": 225,
+    "llm_error_message_5": 183,
     "nc_mitigated_scenario": 300,
     "200_analysis_validation_name": 225,
-    "500_stress_validation_label": 300,
     "300_stress": 300,
     "400_stress_validation_description": 300,
-    "500_final_label": 300,
+    "llm_raw_query_6": 155,
+    "llm_raw_query_4": 155,
     "nc_primary_cause": 300,
-    "nc_event_date": 183
+    "llm_raw_query_5": 155,
+    "llm_raw_query_2": 155,
+    "llm_raw_query_3": 155,
+    "llm_raw_query_1": 155
   },
   "sorting": [],
   "globalSearchQuery": "",
