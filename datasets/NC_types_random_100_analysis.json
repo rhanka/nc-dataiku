@@ -213,6 +213,20 @@
         "computeOnBuildMode": "PARTITION",
         "autoRun": true,
         "enabled": true
+      },
+      {
+        "type": "ModeValueInSetRule",
+        "columns": [
+          "llm_validation_status"
+        ],
+        "valueSet": [
+          "VALID"
+        ],
+        "id": "FqZL7OXF",
+        "displayName": "Most frequent value of llm_validation_status is in set",
+        "computeOnBuildMode": "PARTITION",
+        "autoRun": true,
+        "enabled": true
       }
     ],
     "displayedState": {
