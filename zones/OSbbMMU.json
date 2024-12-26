@@ -23,10 +23,6 @@
       "objectType": "RECIPE"
     },
     {
-      "objectId": "compute_a220_tech_docs_content",
-      "objectType": "RECIPE"
-    },
-    {
       "objectId": "a220_tech_docs_content",
       "objectType": "DATASET"
     }
