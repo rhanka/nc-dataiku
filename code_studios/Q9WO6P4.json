@@ -1,0 +1,19 @@
+{
+  "name": "Code Studio",
+  "libName": "Code_Studio",
+  "templateId": "VSCode",
+  "params": {},
+  "owner": "fabien.antoine@cgi.com",
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "fabien.antoine@cgi.com"
+    },
+    "lastModifiedOn": 1735173113042
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}
