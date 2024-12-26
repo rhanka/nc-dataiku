@@ -9,7 +9,7 @@
     }
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "openai:OpenAI-FA:o1-mini",
+  "llmId": "openai:OpenAI-FA:gpt-4o",
   "prompt": {
     "promptTemplateInputs": [],
     "resultValidation": {
