@@ -38,6 +38,28 @@
       "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
+      "type": "FilterOnValue",
+      "params": {
+        "normalizationMode": "EXACT",
+        "booleanMode": "AND",
+        "columns": [
+          "llm_validation_status"
+        ],
+        "values": [
+          "VALID"
+        ],
+        "matchingMode": "FULL_STRING",
+        "action": "KEEP_ROW",
+        "appliesTo": "SINGLE_COLUMN",
+        "exclude": false,
+        "processNullOrEmptyValues": false
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
       "type": "ColumnRenamer",
       "params": {
         "renamings": [
@@ -65,7 +87,7 @@
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "JSONFlattener",
@@ -137,6 +159,7 @@
     "nc_contributory_causes": 300,
     "000_style": 148,
     "200_analysis_validation_label": 300,
+    "llm_output_1": 134,
     "100_style": 148,
     "300_style": 148,
     "ATA_description": 225,
@@ -147,18 +170,30 @@
     "nc_probability": 134,
     "000_rapport_date": 183,
     "200_analysis_validation_date": 246,
+    "llm_validation_status_2": 211,
     "nc_impact": 300,
+    "llm_validation_status_1": 211,
+    "llm_validation_status_3": 211,
     "ATA_codes_linked": 135,
     "000_rapport_observation": 300,
     "200_analysis_validation": 300,
     "000_rapport": 300,
+    "llm_raw_response_3": 176,
+    "llm_raw_response_2": 176,
+    "llm_raw_response_1": 176,
+    "llm_error_message_2": 183,
+    "llm_error_message_1": 183,
+    "llm_error_message_3": 183,
     "nc_label": 300,
     "000_rapport_style": 300,
     "200_analysis_validation_role": 225,
     "nc_mitigated_scenario": 300,
     "200_analysis_validation_name": 225,
     "nc_primary_cause": 300,
-    "nc_event_date": 183
+    "llm_raw_query_2": 155,
+    "llm_raw_query_3": 155,
+    "nc_event_date": 183,
+    "llm_raw_query_1": 155
   },
   "sorting": [],
   "globalSearchQuery": "",
