@@ -225,6 +225,20 @@
         "computeOnBuildMode": "PARTITION",
         "autoRun": true,
         "enabled": true
+      },
+      {
+        "type": "ModeValueInSetRule",
+        "columns": [
+          "llm_validation_status"
+        ],
+        "valueSet": [
+          "VALID"
+        ],
+        "id": "DwLB51tq",
+        "displayName": "Validation JSON sortie LLM mostly OK",
+        "computeOnBuildMode": "PARTITION",
+        "autoRun": true,
+        "enabled": true
       }
     ],
     "displayedState": {
