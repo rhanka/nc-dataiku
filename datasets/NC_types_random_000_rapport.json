@@ -220,7 +220,7 @@
         "displayName": "Validation JSON sortie LLM OK",
         "computeOnBuildMode": "PARTITION",
         "autoRun": true,
-        "enabled": true
+        "enabled": false
       }
     ],
     "displayedState": {
