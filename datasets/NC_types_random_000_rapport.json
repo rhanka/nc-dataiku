@@ -277,28 +277,6 @@
         "computeOnBuildMode": "PARTITION",
         "autoRun": false,
         "enabled": true
-      },
-      {
-        "type": "numericRange",
-        "minimum": 0.0,
-        "maximum": 0.0,
-        "softMinimum": 0.0,
-        "softMaximum": 0.0,
-        "minimumEnabled": false,
-        "maximumEnabled": false,
-        "softMinimumEnabled": false,
-        "softMaximumEnabled": false,
-        "metricId": "reporting:WARNING_COUNT",
-        "autoComputeMetric": false,
-        "meta": {
-          "name": "",
-          "label": ""
-        },
-        "id": "FrqJHivl",
-        "displayName": "Build warning count is in range",
-        "computeOnBuildMode": "PARTITION",
-        "autoRun": true,
-        "enabled": true
       }
     ],
     "displayedState": {
