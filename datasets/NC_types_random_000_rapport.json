@@ -273,7 +273,7 @@
           "VALID"
         ],
         "id": "HK9sZsCV",
-        "displayName": "Most frequent value of llm_validation_status is in set",
+        "displayName": "Validation JSON sortie LLM mostly OK",
         "computeOnBuildMode": "PARTITION",
         "autoRun": false,
         "enabled": true
