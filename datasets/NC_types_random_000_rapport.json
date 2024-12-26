@@ -251,7 +251,8 @@
         "basic:COUNT_COLUMNS",
         "basic:COUNT_FILES",
         "basic:SIZE",
-        "records:COUNT_RECORDS"
+        "records:COUNT_RECORDS",
+        "check:CHECK:SVuVNewg"
       ]
     }
   },
