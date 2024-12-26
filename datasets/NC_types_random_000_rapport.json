@@ -155,7 +155,7 @@
       },
       {
         "type": "col_stats",
-        "enabled": true,
+        "enabled": false,
         "computeOnBuildMode": "PARTITION",
         "meta": {
           "name": "Columns statistics",
@@ -167,14 +167,19 @@
       },
       {
         "type": "adv_col_stats",
-        "enabled": false,
-        "computeOnBuildMode": "NO",
+        "enabled": true,
+        "computeOnBuildMode": "PARTITION",
         "meta": {
           "name": "Most frequent values",
           "level": 3
         },
         "configuration": {
-          "aggregates": [],
+          "aggregates": [
+            {
+              "column": "llm_validation_status",
+              "aggregated": "TOP10_WITH_COUNTS"
+            }
+          ],
           "numberTopValues": 10
         }
       },
