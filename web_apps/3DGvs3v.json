@@ -4,7 +4,7 @@
   "params": {
     "backendEnabled": true,
     "enableJavascriptModules": false,
-    "autoStartBackend": false,
+    "autoStartBackend": true,
     "hideJSSecurityPanel": false,
     "envSelection": {
       "envMode": "EXPLICIT_ENV",
@@ -43,7 +43,7 @@
   },
   "config": {},
   "name": "Synth-data-API",
-  "apiKey": "e:AES:X2:irfOKEhrfNEktpAkSO6iMx5OTQbzwjBHqOBhsTij8qmdsgJh8H8aFtq2Rl2irTUQ42ToQz+ga6Zfatux6X7iR7w0DXrLbaD3jSk9OnWz88m9Ipgqfmq0",
+  "apiKey": "e:AES:X2:bMQUtgKlYphrgrojWcBUr5i4xL5Mgg0Mtyse3iKpEmkcKaWr+NmA+Hz2i/Rxbr5v5dZyqoG/huIXVkLAZO8uo2rOLtB6bk354ONs3bHiopbYYQ1zspls",
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
