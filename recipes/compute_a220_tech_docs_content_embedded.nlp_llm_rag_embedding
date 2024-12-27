@@ -1,10 +1,11 @@
 {
   "metadataColumns": [
     {
-      "column": "url"
+      "column": "doc"
     },
-    {},
-    {}
+    {
+      "column": "chunk_id"
+    }
   ],
   "chunkOverlapCharacters": 120,
   "chunkSizeCharacters": 3000,
