@@ -87,7 +87,7 @@
   "schema": {
     "columns": [
       {"name":"chunk","type":"string"},
-      {"name":"url","type":"string"},
+      {"name":"doc","type":"string"},
       {"name":"chunk_id","type":"bigint"}
     ],
     "userModified": false
