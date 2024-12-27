@@ -5,10 +5,11 @@
   "vectorStoreType": "CHROMA",
   "embeddingLLMId": "openai:OpenAI-FA:text-embedding-3-small",
   "envSelection": {
-    "envMode": "INHERIT"
+    "envMode": "EXPLICIT_ENV",
+    "envName": "markitdown"
   },
   "containerExecSelection": {
-    "containerMode": "INHERIT"
+    "containerMode": "NONE"
   },
   "llmsExposedWith": [],
   "creationTag": {
