@@ -29,10 +29,10 @@ md_splitter = MarkdownHeaderTextSplitter(
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-d = {"chunk": [], "url": []}
+d = {"chunk": [], "doc": []}
 
 for path in folder.list_paths_in_partition():
-    url = path[1:].replace("=", "/")
+    doc = path[1:].replace("=", "/")
     with folder.get_download_stream(path) as stream:
         s = io.BytesIO(stream.read()).read().decode("utf-8")
         result = text_splitter.split_documents(md_splitter.split_text(s))
@@ -48,7 +48,7 @@ for path in folder.list_paths_in_partition():
         )
 
         d["chunk"].append((header + "\n\n" + result[i].page_content).strip())
-        d["url"].append(url)
+        d["doc"].append(doc)
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 df = pd.DataFrame.from_dict(d)
