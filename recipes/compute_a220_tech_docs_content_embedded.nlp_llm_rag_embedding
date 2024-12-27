@@ -1,7 +1,14 @@
 {
-  "metadataColumns": [],
+  "metadataColumns": [
+    {
+      "column": "url"
+    },
+    {},
+    {}
+  ],
   "chunkOverlapCharacters": 120,
   "chunkSizeCharacters": 3000,
+  "knowledgeColumn": "chunk",
   "clearVectorStore": false,
   "documentSplittingMode": "CHARACTERS_BASED",
   "vectorStoreUpdateMethod": "OVERWRITE"
