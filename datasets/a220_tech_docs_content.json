@@ -86,13 +86,11 @@
   },
   "schema": {
     "columns": [
-      {"name":"path","type":"string"},
-      {"name":"basename","type":"string"},
-      {"name":"extension","type":"string"},
-      {"name":"last_modified","type":"date"},
-      {"name":"size","type":"bigint"}
+      {"name":"chunk","type":"string"},
+      {"name":"url","type":"string"},
+      {"name":"chunk_id","type":"bigint"}
     ],
-    "userModified": true
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {
