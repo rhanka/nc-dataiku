@@ -37,6 +37,14 @@
     {
       "objectId": "zQ92IhQ9",
       "objectType": "RETRIEVABLE_KNOWLEDGE"
+    },
+    {
+      "objectId": "compute_a220_nc_images_list",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "a220_nc_images_list",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
