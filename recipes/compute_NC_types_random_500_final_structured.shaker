@@ -12,6 +12,10 @@
       },
       {
         "d": true,
+        "name": "nc_label"
+      },
+      {
+        "d": true,
         "name": "nc_scenario_id"
       },
       {
@@ -29,10 +33,6 @@
       {
         "d": true,
         "name": "analysis_history"
-      },
-      {
-        "d": true,
-        "name": "nc_label"
       }
     ]
   },
@@ -164,6 +164,20 @@
         ],
         "keep": true,
         "appliesTo": "COLUMNS"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "RemoveRowsOnEmpty",
+      "params": {
+        "columns": [
+          "analysis_history"
+        ],
+        "keep": false,
+        "appliesTo": "SINGLE_COLUMN"
       },
       "alwaysShowComment": false
     }
