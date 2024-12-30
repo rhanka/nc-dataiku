@@ -29,7 +29,7 @@ VERSION = "1.0" # Version of the app (logged when a conversation is flagged)
 answers_folder = dataiku.Folder("bsdWEIKi")
 
 LLM_ID = "retrievalaugmented:zQ92IhQ9:gpt-4o-mini-a220-rag"
-llm = DKUChatLLM(llm_id=LLM_ID, temperature=0)
+
 
 KB_ID = "zQ92IhQ9"
 documents = dataiku.Folder("SoQWOnhR")
@@ -55,7 +55,6 @@ class GetNonConformityInfo(BaseTool):
     name = "GetNonConformityInfo"
     description = "Provide the history of the non conformity; given the Non Conformity ID"
     args_schema: Type[BaseModel] = NonConformityInfo
-
 
     def _run(self, id: str):
         dataset = documents_md_table
@@ -90,7 +89,6 @@ Final Answer: the final answer to the original input question
 Begin!
 Question: {input}
 Thought:{agent_scratchpad}""")
-
 
 
 CONNECTION_AVAILABLE = len(LLM_ID) > 0
