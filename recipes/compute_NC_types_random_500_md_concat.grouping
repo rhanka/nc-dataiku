@@ -5,7 +5,19 @@
   },
   "keys": [
     {
-      "column": "doc"
+      "last": false,
+      "max": false,
+      "column": "doc",
+      "count": false,
+      "sum": false,
+      "concat": false,
+      "type": "string",
+      "countDistinct": false,
+      "min": false,
+      "avg": false,
+      "median": false,
+      "stddev": false,
+      "first": false
     }
   ],
   "values": [
@@ -15,8 +27,10 @@
       "firstLastNotNull": false,
       "column": "chunk_id",
       "count": false,
+      "$idx": 0,
       "sum": false,
       "concat": false,
+      "type": "string",
       "concatDistinct": false,
       "sum2": false,
       "min": false,
@@ -32,16 +46,21 @@
       "firstLastNotNull": false,
       "column": "chunk",
       "count": false,
+      "$idx": 1,
       "sum": false,
-      "concat": false,
+      "concat": true,
+      "type": "string",
       "concatDistinct": false,
       "sum2": false,
       "min": false,
       "countDistinct": false,
       "avg": false,
       "median": false,
+      "$selected": false,
       "stddev": false,
-      "first": false
+      "first": false,
+      "orderColumn": "doc",
+      "concatSeparator": "\\n\\n"
     }
   ],
   "globalCount": true,
@@ -83,8 +102,28 @@
     }
   },
   "enlargeYourBits": true,
+  "outputColumnNameOverrides": {},
   "computedColumns": [],
   "postFilter": {
+    "$status": {
+      "schema": {
+        "columns": [
+          {
+            "name": "doc",
+            "type": "string"
+          },
+          {
+            "name": "chunk_concat",
+            "type": "string"
+          },
+          {
+            "name": "count",
+            "type": "bigint"
+          }
+        ],
+        "userModified": false
+      }
+    },
     "distinct": false,
     "enabled": false
   }
