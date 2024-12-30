@@ -41,6 +41,10 @@
     {
       "objectId": "NC_types_random_500_md_concat",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "gZC3bHFN",
+      "objectType": "MANAGED_FOLDER"
     }
   ],
   "shared": [],
