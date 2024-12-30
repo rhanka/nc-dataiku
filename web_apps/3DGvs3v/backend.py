@@ -29,7 +29,7 @@ def first_call():
 
     # Si un id est fourni, filtrez les données
     if record_id:
-        filtered_df = mydataset_df[mydataset_df['id'] == record_id]
+        filtered_df = mydataset_df[mydataset_df['nc_event_id'] == record_id]
         data = filtered_df.to_dict(orient='records')
     else:
         # Sinon, limitez à max_rows
