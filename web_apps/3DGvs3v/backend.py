@@ -44,3 +44,52 @@ def non_conformities():
     
     return json.dumps(data)
 
+@app.route('/ai', methods=['POST'])
+def ai():
+    app.logger.info("Handling /ai endpoint.")
+    # Récupérer le JSON envoyé dans la requête POST
+    data = request.json
+
+    # Vérifier que le champ "messages" est présent
+    if not data or "messages" not in data:
+        return json.dumps({"error": "Invalid input: 'messages' field is required."}), 400
+
+    # Récupérer le dernier message utilisateur (assumé en dernier dans l'historique)
+    messages = data["messages"]
+    if not messages or len(messages) == 0:
+        return json.dumps({"error": "Invalid input: 'messages' cannot be empty."}), 400
+
+    user_message = messages[-1]["text"] if messages[-1]["role"] == "user" else ""
+
+    # Construire le prompt pour le modèle
+    prompt = (
+        f"You're supporting Quality Controller for A220 and rely on the knowledge from the A220 technical "
+        f"doc and non conformity knowledge base. When answering questions, be sure to provide "
+        f"answers that reflect the content of the knowledge base, but avoid saying things like "
+        "'according to the knowledge base'. Instead, subtly mention that the information is based "
+        "on the A220 knowledge base."
+        f"Now try to answer the following question: {user_message}\n"
+    )
+    # Préparer et exécuter la requête au modèle LLM
+    completion = llm.new_completion()
+    completion.with_message(prompt)
+    resp = completion.execute()
+
+    # Vérifier le succès de la réponse
+    if resp.success:
+        try:
+            # Tenter de convertir le texte en JSON si applicable
+            parsed_response = json.loads(resp.text)
+            response_text = json.dumps(parsed_response)  # Convertir en chaîne si c'est un JSON
+        except json.JSONDecodeError:
+            # Utiliser le texte brut si ce n'est pas un JSON valide
+            response_text = resp.text
+
+        # Structure compatible DeepChat
+        deep_chat_response = { "text": response_text }
+        return json.dumps(deep_chat_response)
+
+    else:
+        # En cas d'échec du modèle, retourner une réponse d'erreur
+        deep_chat_response = { "text": "I'm sorry, I couldn't process your request.", error: "500" }
+        return json.dumps(deep_chat_response), 500
