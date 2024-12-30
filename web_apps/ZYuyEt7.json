@@ -5,7 +5,7 @@
     "autoStartBackend": false,
     "envSelection": {
       "envMode": "EXPLICIT_ENV",
-      "envName": "markitdown"
+      "envName": "dash"
     },
     "nbProcesses": 1,
     "serveLocally": true,
