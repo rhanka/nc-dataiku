@@ -34,7 +34,7 @@ LLM_ID = "retrievalaugmented:zQ92IhQ9:gpt-4o-mini-a220-rag"
 
 
 KB_ID = "zQ92IhQ9"
-documents = dataiku.Folder("SoQWOnhR")
+folder = dataiku.Folder("SoQWOnhR")
 documents_md = dataiku.Folder("AXB1Cyno")
 documents_md_table = dataiku.Dataset("NC_types_random_500_md_concat")
 non_conformities = dataiku.Folder("gZC3bHFN")
