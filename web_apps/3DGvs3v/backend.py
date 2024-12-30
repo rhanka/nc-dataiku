@@ -67,6 +67,12 @@ def ai():
 
     # Vérifier le succès de la réponse
     if resp.success:
-        return json.dumps({"msg": resp.text})  # Retourne la réponse du LLM
+        try:
+            # Tenter de convertir le texte en JSON
+            parsed_response = json.loads(resp.text)
+            return json.dumps({"status":"ok","reponse": parsed_response})
+        except json.JSONDecodeError:
+            # Retourner le texte brut si ce n'est pas un JSON valide
+            return json.dumps({"status":"ok","response": resp.text})
     else:
-        return json.dumps({"msg": "failed"}), 500  # Retourne une erreur 500 si le modèle échoue
+        return json.dumps({"status":"ko"}), 500  # Retourne une erreur 500 si le modèle échoue
