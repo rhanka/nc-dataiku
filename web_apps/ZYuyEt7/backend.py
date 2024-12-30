@@ -29,26 +29,36 @@ VERSION = "1.0" # Version of the app (logged when a conversation is flagged)
 answers_folder = dataiku.Folder("bsdWEIKi")
 
 LLM_ID = "retrievalaugmented:zQ92IhQ9:gpt-4o-mini-a220-rag"
-KB_ID = "zQ92IhQ9"
 llm = DKUChatLLM(llm_id=LLM_ID, temperature=0)
 
+KB_ID = "zQ92IhQ9"
+documents = dataiku.Folder("SoQWOnhR")
+documents_md = dataiku.Folder("AXB1Cyno")
+documents_md_table = dataiku.Dataset("NC_types_random_500_md_concat")
+non_conformities = dataiku.Folder("gZC3bHFN")
+template = """Use the following pieces of context to answer the question at the end.
+If you don't know the answer, just say that you don't know, don't try to make up an answer.
+{context}
+Question: {question}
+Helpful Answer:"""
 
 ## Tools
 
-class CustomerInfo(BaseModel):
-    """Parameter for GetCustomerInfo"""
-    id: str = Field(description="customer ID")
+class NonConformityInfo(BaseModel):
+    """Parameter for GetNonConformityInfo"""
+    id: str = Field(description="Non Conformity ID")
 
 
-class GetCustomerInfo(BaseTool):
+class GetNonConformityInfo(BaseTool):
     """Gathering customer information"""
 
-    name = "GetCustomerInfo"
-    description = "Provide a name, job title and company of a customer, given the customer's ID"
-    args_schema: Type[BaseModel] = CustomerInfo
+    name = "GetNonConformityInfo"
+    description = "Provide the history of the non conformity; given the Non Conformity ID"
+    args_schema: Type[BaseModel] = class NonConformityInfo(BaseModel):
+
 
     def _run(self, id: str):
-        dataset = dataiku.Dataset(DATASET_NAME)
+        dataset = documents_md_table
         table_name = dataset.get_location_info().get('info', {}).get('table')
         executor = SQLExecutor2(dataset=dataset)
         eid = id.replace("'", "\\'")
@@ -56,12 +66,12 @@ class GetCustomerInfo(BaseTool):
             f"""SELECT name, job, company FROM "{table_name}" WHERE id = '{eid}'""")
         for (name, job, company) in query_reader.iter_tuples():
             return f"The customer's name is \"{name}\", holding the position \"{job}\" at the company named {company}"
-        return f"No information can be found about the customer {id}"
+        return f"No information can be found about the non conformity {id}"
 
     def _arun(self, id: str):
         raise NotImplementedError("This tool does not support async") 
 
-tools = [GetCustomerInfo(), GetCompanyInfo()]
+tools = [GetNC(), GetCompanyInfo()]
 tool_names = [tool.name for tool in tools]
 
 # Initializes the agent
@@ -81,14 +91,7 @@ Begin!
 Question: {input}
 Thought:{agent_scratchpad}""")
 
-documents = dataiku.Folder("SoQWOnhR")
-documents_md = dataiku.Folder("AXB1Cyno")
-non_conformities = dataiku.Folder("gZC3bHFN")
-template = """Use the following pieces of context to answer the question at the end.
-If you don't know the answer, just say that you don't know, don't try to make up an answer.
-{context}
-Question: {question}
-Helpful Answer:"""
+
 
 CONNECTION_AVAILABLE = len(LLM_ID) > 0
 
