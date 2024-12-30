@@ -1,6 +1,11 @@
 {
   "mode": "UNION",
   "originColumnName": "original_dataset",
+  "selectedColumns": [
+    "chunk",
+    "doc",
+    "chunk_id"
+  ],
   "engineParams": {
     "hive": {
       "skipPrerunValidate": false,
@@ -57,6 +62,25 @@
     }
   ],
   "postFilter": {
+    "$status": {
+      "schema": {
+        "columns": [
+          {
+            "name": "chunk",
+            "type": "string"
+          },
+          {
+            "name": "doc",
+            "type": "string"
+          },
+          {
+            "name": "chunk_id",
+            "type": "string"
+          }
+        ],
+        "userModified": false
+      }
+    },
     "distinct": false,
     "enabled": false
   },
