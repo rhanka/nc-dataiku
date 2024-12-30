@@ -24,6 +24,14 @@ completion = llm.new_completion()
 
 langchain_llm = DKUChatLLM(llm_id=LLM_ID)
 
+@app.before_request
+def log_request_info():
+    app.logger.debug(f"Request method: {request.method}")
+    app.logger.debug(f"Request URL: {request.url}")
+    if request.json:
+        app.logger.debug(f"Request JSON body: {request.json}")
+    else:
+        app.logger.debug("No JSON body in the request.")
 
 @app.route('/nc')
 def non_conformities():
