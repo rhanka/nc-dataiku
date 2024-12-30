@@ -47,11 +47,6 @@ def non_conformities():
 
 @app.route('/ai')
 def ai():
-    input = request.args.get('input')  # Récupère la valeur du paramètre "input"
-    print(input)  # Affiche l'entrée dans la console pour le debug
-    return json.dumps({"msg": input})  # Retourne une clé "msg" et sa valeur
-
-def bob():
     prompt = (
         f"Non conformity label: {input}\n"
         f"You're Quality Controler for A220 and rely on the knowledge from the A220 technical "
@@ -66,7 +61,7 @@ def bob():
     # Display the LLM output
     if resp.success:
         print(resp.text)
-        return json.dumps({msg: text.encode('utf-8')})
+        return json.dumps({"msg": text.encode('utf-8')})
     else:
-        return json.dumps({msg:"failed"})
+        return json.dumps({"msg":"failed"})
     
