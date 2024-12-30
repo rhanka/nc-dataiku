@@ -14,7 +14,7 @@
             "type": "TEXT"
           }
         ],
-        "textPromptTemplate": "Given the label of this non conformity {{input}} get the best proposal you can do given to format a 000 non conformity report given the documents you retrieved",
+        "textPromptTemplate": "Non conformity label: {{input}} \nGiven the label of this non conformity, retrieve documents and propose a list of past similar non conformity and list of documents that could help to write a non conformity report",
         "textPromptSystemTemplate": "",
         "resultValidation": {
           "expectedFormat": "NONE",
