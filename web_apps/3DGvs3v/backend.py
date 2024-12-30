@@ -48,16 +48,17 @@ def non_conformities():
 @app.route('/ai')
 def ai():
     # Récupérer le paramètre "input" de la requête
-    user_input = request.args.get('input', '')  # Valeur par défaut vide si non fournie
+    prompt = request.args.get('prompt', '')  # Valeur par défaut vide si non fournie
+    role = request.args.get('role', 'Quality Controller')  # Valeur par défaut vide si non fournie
 
     # Construire le prompt pour le modèle
     prompt = (
-        f"Non conformity label: {user_input}\n"
-        f"You're Quality Controller for A220 and rely on the knowledge from the A220 technical "
+        f"You're supporting {role} for A220 and rely on the knowledge from the A220 technical "
         f"doc and non conformity knowledge base. When answering questions, be sure to provide "
         f"answers that reflect the content of the knowledge base, but avoid saying things like "
         "'according to the knowledge base'. Instead, subtly mention that the information is based "
         "on the A220 knowledge base."
+        f"Now try to answer following question: {prompt}\n"
     )
 
     # Préparer et exécuter la requête au modèle LLM
