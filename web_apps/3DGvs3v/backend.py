@@ -48,6 +48,7 @@ def non_conformities():
 @app.route('/ai')
 def ai():
     input = request.args.get('input')
+    print(input)
     return json.dumps({msg: input})
 
 def bob():
