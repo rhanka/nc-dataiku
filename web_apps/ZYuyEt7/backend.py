@@ -16,7 +16,7 @@ from langchain.agents import AgentExecutor
 from langchain.agents import create_react_agent
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.tools import BaseTool, StructuredTool
-from langchain.pydantic.v1 import BaseModel, Field
+from langchain.pydantic_v1 import BaseModel, Field
 from typing import Type
 
 from textwrap import dedent
@@ -107,7 +107,7 @@ if CONNECTION_AVAILABLE:
     qa_chain = RetrievalQA.from_chain_type(
         llm,
         retriever=ensemble_retriever,
-        chain_type_kwargs={"prompt": prompt},
+        chain_type_kwargs={"prompt": PromptTemplate.from_template(template)},
         return_source_documents=True
     )
 
