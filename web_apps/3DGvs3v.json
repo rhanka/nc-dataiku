@@ -8,7 +8,7 @@
     "hideJSSecurityPanel": false,
     "envSelection": {
       "envMode": "EXPLICIT_ENV",
-      "envName": "dash"
+      "envName": "flask"
     },
     "nbProcesses": 1,
     "backendAPIAccessEnabled": true,
@@ -43,7 +43,7 @@
   },
   "config": {},
   "name": "Synth-data-API",
-  "apiKey": "e:AES:X2:ZXAjDvlzMRdZQ3zltHV7tHTgDwpWwlRr68BWZaBQeJUBpBUsKpPsi0chVOcwZnKkKfTDxRztPfWjVvElivNVD7I47UxGaU/6EwDUQz6io6S4Qg3lfQg1",
+  "apiKey": "e:AES:X2:kmpBqpCDv2Pjgrv4S/w552eHPPQuDUbRtRsOxrmvhMe+GstSuudu6LTofpIIOZMAuREPAqMaRK1jj02G5GmLbMTb3GpPOIAK7Swkpmd6Mhe5Kqs4pHqR",
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
