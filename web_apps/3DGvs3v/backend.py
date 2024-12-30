@@ -2,7 +2,7 @@ import dataiku
 import pandas as pd
 from flask import request
 from flask_cors import CORS
-#import logging
+import logging
 import json
 
 #logging.basicConfig(level=logging.DEBUG, format='%(asctime)s [%(levelname)s] %(message)s')
