@@ -21,6 +21,14 @@
     {
       "objectId": "PfntrBrh",
       "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "NC_types_random_500_pre_embed",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_NC_types_random_500_pre_embed",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
