@@ -51,6 +51,7 @@ def non_conformities():
 
 @app.route('/ai', methods=['POST'])
 def ai():
+    app.logger.info("Handling /ai endpoint.")
     # Récupérer le JSON envoyé dans la requête POST
     data = request.json
 
