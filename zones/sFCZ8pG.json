@@ -1,7 +1,16 @@
 {
   "name": "knowledge base",
   "color": "#C82423",
-  "items": [],
+  "items": [
+    {
+      "objectId": "zQ92IhQ9",
+      "objectType": "RETRIEVABLE_KNOWLEDGE"
+    },
+    {
+      "objectId": "compute_a220_tech_docs_content_embedded",
+      "objectType": "RECIPE"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],

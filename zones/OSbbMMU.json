@@ -31,14 +31,6 @@
       "objectType": "RECIPE"
     },
     {
-      "objectId": "compute_a220_tech_docs_content_embedded",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "zQ92IhQ9",
-      "objectType": "RETRIEVABLE_KNOWLEDGE"
-    },
-    {
       "objectId": "compute_a220_nc_images_list",
       "objectType": "RECIPE"
     },
