@@ -107,7 +107,7 @@ if CONNECTION_AVAILABLE:
     qa_chain = RetrievalQA.from_chain_type(
         llm,
         retriever=ensemble_retriever,
-        chain_type_kwargs={"prompt": PromptTemplate.from_template(template)},
+        chain_type_kwargs={"prompt": prompt},
         return_source_documents=True
     )
 
