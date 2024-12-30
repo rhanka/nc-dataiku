@@ -11,6 +11,6 @@
   "chunkSizeCharacters": 3000,
   "knowledgeColumn": "chunk",
   "clearVectorStore": false,
-  "documentSplittingMode": "CHARACTERS_BASED",
+  "documentSplittingMode": "NONE",
   "vectorStoreUpdateMethod": "OVERWRITE"
 }
