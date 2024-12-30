@@ -21,7 +21,7 @@
           "requiredJSONObjectKeys": [],
           "forbiddenTerms": []
         },
-        "promptTemplateQueriesSource": "DATASET"
+        "promptTemplateQueriesSource": "INLINE"
       },
       "llmId": "retrievalaugmented:zQ92IhQ9:gpt-4o-mini-a220-rag",
       "containerSelection": {
@@ -32,7 +32,14 @@
       },
       "dataset": "NC_types_random_000_rapport_structured",
       "nbRows": 8,
-      "inlinePromptTemplateQueries": [],
+      "inlinePromptTemplateQueries": [
+        {
+          "data": {
+            "input": "Pipe broken"
+          },
+          "singleInputData": ""
+        }
+      ],
       "tags": [],
       "starred": false
     }
