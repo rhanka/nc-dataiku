@@ -45,20 +45,30 @@ def non_conformities():
     
     return json.dumps(data)
 
-@app.route('/ai')
+@app.route('/ai', methods=['POST'])
 def ai():
-    # Récupérer le paramètre "input" de la requête
-    prompt = request.args.get('prompt', '')  # Valeur par défaut vide si non fournie
-    role = request.args.get('role', 'Quality Controller')  # Valeur par défaut vide si non fournie
+    # Récupérer le JSON envoyé dans la requête POST
+    data = request.json
+
+    # Vérifier que le champ "messages" est présent
+    if not data or "messages" not in data:
+        return json.dumps({"error": "Invalid input: 'messages' field is required."}), 400
+
+    # Récupérer le dernier message utilisateur (assumé en dernier dans l'historique)
+    messages = data["messages"]
+    if not messages or len(messages) == 0:
+        return json.dumps({"error": "Invalid input: 'messages' cannot be empty."}), 400
+
+    user_message = messages[-1]["text"] if messages[-1]["role"] == "user" else ""
 
     # Construire le prompt pour le modèle
     prompt = (
-        f"You're supporting {role} for A220 and rely on the knowledge from the A220 technical "
+        f"You're supporting Quality Controller for A220 and rely on the knowledge from the A220 technical "
         f"doc and non conformity knowledge base. When answering questions, be sure to provide "
         f"answers that reflect the content of the knowledge base, but avoid saying things like "
         "'according to the knowledge base'. Instead, subtly mention that the information is based "
         "on the A220 knowledge base."
-        f"Now try to answer following question: {prompt}\n"
+        f"Now try to answer the following question: {user_message}\n"
     )
 
     # Préparer et exécuter la requête au modèle LLM
@@ -69,11 +79,24 @@ def ai():
     # Vérifier le succès de la réponse
     if resp.success:
         try:
-            # Tenter de convertir le texte en JSON
+            # Tenter de convertir le texte en JSON si applicable
             parsed_response = json.loads(resp.text)
-            return json.dumps({"status":"ok","reponse": parsed_response})
+            response_text = json.dumps(parsed_response)  # Convertir en chaîne si c'est un JSON
         except json.JSONDecodeError:
-            # Retourner le texte brut si ce n'est pas un JSON valide
-            return json.dumps({"status":"ok","response": resp.text})
+            # Utiliser le texte brut si ce n'est pas un JSON valide
+            response_text = resp.text
+
+        # Structure compatible DeepChat
+        deep_chat_response = [
+            { "role": "user", "text": user_message },
+            { "role": "assistant", "text": response_text }
+        ]
+        return json.dumps(deep_chat_response)
+
     else:
-        return json.dumps({"status":"ko"}), 500  # Retourne une erreur 500 si le modèle échoue
+        # En cas d'échec du modèle, retourner une réponse d'erreur
+        deep_chat_response = [
+            { "role": "user", "text": user_message },
+            { "role": "assistant", "text": "I'm sorry, I couldn't process your request." }
+        ]
+        return json.dumps(deep_chat_response), 500
