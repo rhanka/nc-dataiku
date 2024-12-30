@@ -48,6 +48,9 @@ def non_conformities():
 @app.route('/ai')
 def ai():
     input = request.args.get('input')
+    return json.dumps({msg: input.encode('utf-8')})
+
+def bob():
     prompt = (
         f"Non conformity label: {input}\n"
         f"You're Quality Controler for A220 and rely on the knowledge from the A220 technical "
