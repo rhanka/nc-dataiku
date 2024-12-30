@@ -61,7 +61,7 @@ def ai():
     # Display the LLM output
     if resp.success:
         print(resp.text)
-        return json.dumps({"msg": text.encode('utf-8')})
+        return json.dumps({"msg": resp.text.encode('utf-8')})
     else:
         return json.dumps({"msg":"failed"})
     
