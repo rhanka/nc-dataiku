@@ -54,7 +54,7 @@ class GetNonConformityInfo(BaseTool):
 
     name = "GetNonConformityInfo"
     description = "Provide the history of the non conformity; given the Non Conformity ID"
-    args_schema: Type[BaseModel] = class NonConformityInfo(BaseModel):
+    args_schema: Type[BaseModel] = NonConformityInfo(BaseModel):
 
 
     def _run(self, id: str):
