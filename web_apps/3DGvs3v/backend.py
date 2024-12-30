@@ -47,9 +47,9 @@ def non_conformities():
 
 @app.route('/ai')
 def ai():
-    input = request.args.get('input')
-    print(input)
-    return json.dumps({msg: input})
+    input = request.args.get('input')  # Récupère la valeur du paramètre "input"
+    print(input)  # Affiche l'entrée dans la console pour le debug
+    return json.dumps({"msg": input})  # Retourne une clé "msg" et sa valeur
 
 def bob():
     prompt = (
