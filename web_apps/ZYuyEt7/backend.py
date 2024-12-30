@@ -1,114 +1,265 @@
+import time
+import functools
+import io
+import pickle
 import dataiku
+from datetime import datetime
+import json
+
+from langchain_community.vectorstores import FAISS
+from langchain_community.callbacks import MlflowCallbackHandler,get_openai_callback
+from langchain.chat_models import ChatOpenAI
+from langchain.prompts import PromptTemplate
+from langchain.chains import RetrievalQA
+from langchain.schema import Document
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from dataiku.langchain.dku_llm import DKUChatLLM
+from langchain.retrievers import TFIDFRetriever,EnsembleRetriever
+from langchain.chains.question_answering import load_qa_chain
+
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 from dash.dependencies import Input, Output, State
-from dash.exceptions import PreventUpdate
+import dash_bootstrap_components as dbc
 
-# use the style of examples on the Plotly documentation
-app.config.external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+LOG_ALL_ANSWERS = False # Whether all answers or only answers with user feedback should be logged
+WEBAPP_NAME = "qanda_webapp" # Name of the app (logged when a conversation is flagged)
+VERSION = "1.0" # Version of the app (logged when a conversation is flagged)
 
-# url, root-url and first-loading are used for routing
-url_bar_and_content_div = html.Div([
-    dcc.Location(id='url', refresh=False),
-    html.Div(id='root-url', style={'display': 'none'}),
-    html.Div(id='first-loading', style={'display': 'none'}),
-    html.Div(id='page-content')
-])
+# Folder to log answers and positive/negative reactions
+answers_folder = dataiku.Folder("r2k5Yq70")
 
-layout_index = html.Div([
-    dcc.Link('Navigate to "page-1"', href='page-1'),
-    html.Br(),
-    dcc.Link('Navigate to "page-2"', href='page-2'),
-])
+LLM_ID = dataiku.get_custom_variables()["LLM_id"]
+KB_ID = "YK6IMhfU"
+folder = dataiku.Folder("qkyfR2rB")
+template = """Use the following pieces of context to answer the question at the end.
+If you don't know the answer, just say that you don't know, don't try to make up an answer.
+{context}
+Question: {question}
+Helpful Answer:"""
 
-layout_page_1 = html.Div([
-    html.H2('Page 1'),
-    dcc.Input(id='input-1-state', type='text', value='Montreal'),
-    dcc.Input(id='input-2-state', type='text', value='Canada'),
-    html.Button(id='submit-button', n_clicks=0, children='Submit'),
-    html.Div(id='output-state'),
-    html.Br(),
-    dcc.Link('Navigate to "/"', id='page-1-root-link', href=''),
-    html.Br(),
-    dcc.Link('Navigate to "/page-2"', href='page-2'),
-])
+CONNECTION_AVAILABLE = len(LLM_ID) > 0
 
-layout_page_2 = html.Div([
-    html.H2('Page 2'),
-    dcc.Dropdown(
-        id='page-2-dropdown',
-        options=[{'label': i, 'value': i} for i in ['LA', 'NYC', 'MTL']],
-        value='LA'
-    ),
-    html.Div(id='page-2-display-value'),
-    html.Br(),
-    dcc.Link('Navigate to "/"', id='page-2-root-link', href=''),
-    html.Br(),
-    dcc.Link('Navigate to "/page-1"', href='page-1'),
-])
+if CONNECTION_AVAILABLE:
+    llm = DKUChatLLM(llm_id=LLM_ID, temperature=0)
+    project = dataiku.api_client().get_default_project()
+    kb = project.get_knowledge_bank(KB_ID).as_core_knowledge_bank()
+    with folder.get_download_stream('/bm25result.pkl') as stream:
+        sparse_retriever = pickle.load(io.BytesIO(stream.read()))
+    dense_retriever = kb.as_langchain_retriever(search_kwargs={"k": 5})
+    ensemble_retriever = EnsembleRetriever(
+        retrievers=[dense_retriever, sparse_retriever],
+        weights=[0.5, 0.5]
+    )
+    qa_chain = RetrievalQA.from_chain_type(
+        llm,
+        retriever=ensemble_retriever,
+        chain_type_kwargs={"prompt": PromptTemplate.from_template(template)},
+        return_source_documents=True
+    )
 
-# index layout
-app.layout = url_bar_and_content_div
+ERROR_MESSAGE_MISSING_KEY = """
+LLM Connection missing. You need to add it as a project variable. Cf. this project's [wiki](https://gallery.dataiku.com/projects/EX_ADVANCED_RAG/wiki/1/Project%20description).
 
-# "complete" layout, need at least Dash 1.12
-app.validation_layout = html.Div([
-    url_bar_and_content_div,
-    layout_index,
-    layout_page_1,
-    layout_page_2,
-])
+**Please note that the question answering web app is not live on Dataiku’s public project gallery but you can test it by downloading the project and providing an LLM Connection**.
 
-# The following callback is used to dynamically instantiate the root-url
-@app.callback([dash.dependencies.Output('root-url', 'children'), dash.dependencies.Output('first-loading', 'children')],
-              dash.dependencies.Input('url', 'pathname'),
-              dash.dependencies.State('first-loading', 'children')
-              )
-def update_root_url(pathname, first_loading):
-    if first_loading is None:
-        return pathname, True
-    else:
-        raise PreventUpdate
+You can find examples of answers in the `answers` dataset.
+"""
 
-# We can now use the hidden root-url div to update the link in page-1 and page-2
-@app.callback(dash.dependencies.Output('page-1-root-link', 'href'),
-              [dash.dependencies.Input('root-url', 'children')])
-def update_root_link(root_url):
-    return root_url
+# Question answering prompt
 
-@app.callback(dash.dependencies.Output('page-2-root-link', 'href'),
-              [dash.dependencies.Input('root-url', 'children')])
-def update_root_link(root_url):
-    return root_url
+def escape_markdown(text):
+    return text.replace('\\`', '`').replace('\\_', '_')\
+        .replace('\\~', '~').replace('\\>', '>')\
+        .replace('\\[', '[').replace('\\]', ']')\
+        .replace('\\(', '(').replace('\\)', ')')\
+        .replace('`', '\\`').replace('_', '\\_')\
+        .replace('~', '\\~').replace('>', '\\>').replace('[', '\\[')\
+        .replace(']', '\\]').replace('(', '\\(').replace(')', '\\)')
 
-# This is the callback doing the routing
-@app.callback(dash.dependencies.Output('page-content', 'children'),
-              [
-                  dash.dependencies.Input('root-url', 'children'),
-                  dash.dependencies.Input('url', 'pathname')
-              ])
-def display_page(root_url, pathname):
-    if root_url + "page-1" == pathname :
-        return layout_page_1
-    elif root_url + "page-2" == pathname :
-        return layout_page_2
-    else:
-        return layout_index
+def format_sources(sources):
+    result = "\n\n**Sources**:"
+    for d in sources:
+        chunk = escape_markdown(d.page_content)
+        if "url" in d.metadata:
+            splitted = chunk.split("\n")
+            chunk = f"[{splitted[0]}]({d.metadata['url']})" + "\n" + "\n".join(splitted[1:])
+        result = result + "\n\n" + chunk
+    return result
+        
+@functools.lru_cache()
+def get_answer(query):
+    """
+    Provide the LLM with the query and chunks extracted from the source documents and get an answer.
+    """
+    result = qa_chain({"query": query})
+    return escape_markdown(result['result']) + format_sources(result['source_documents'])
 
-# Page 1 callbacks
-@app.callback(Output('output-state', 'children'),
-              [Input('submit-button', 'n_clicks')],
-              [State('input-1-state', 'value'),
-               State('input-2-state', 'value')])
-def update_output(n_clicks, input1, input2):
-    return ('The Button has been pressed {} times,'
-            'Input 1 is "{}",'
-            'and Input 2 is "{}"').format(n_clicks, input1, input2)
+# Layout
 
+STYLE_ANSWER = {
+    "margin-top": "20px",
+    "align-items": "flex-start",
+    "display": "flex",
+    "height": "auto"
+}
 
-# Page 2 callbacks
-@app.callback(Output('page-2-display-value', 'children'),
-              [Input('page-2-dropdown', 'value')])
-def display_value(value):
-    print('display_value')
-    return 'You have selected "{}"'.format(value)
+STYLE_BUTTON = {
+    "width": "20px",  
+    "text-align": "center",
+    "margin": "0px 5px",
+}
+
+STYLE_FEEDBACK = {
+    "margin-left": "10px",
+    "display": "none"
+}
+
+ok_icon_fill = html.Span(html.I(className="bi bi-emoji-smile-fill"))
+nok_icon_fill = html.Span(html.I(className="bi bi-emoji-frown-fill"))
+ok_icon = html.Span(html.I(className="bi bi-emoji-smile"))
+nok_icon = html.Span(html.I(className="bi bi-emoji-frown"))
+
+send_icon = html.Span(html.I(className="bi bi-send"))
+question_bar = dbc.InputGroup(
+    [
+        dbc.Input(id='query', value='', type='text', minLength=0),
+        dbc.Button(send_icon, id='send-btn', title='Get an answer')
+    ],
+    style = {"margin-top": "20px"}
+)
+
+app.title = "Question answering"
+app.config.external_stylesheets = [
+    dbc.themes.ZEPHYR,
+    dbc.icons.BOOTSTRAP
+]
+app.layout = html.Div(
+    [
+        html.H4(
+            "Question answering over documents",
+            style={"margin-top": "20px", "text-align": "center"}
+        ),
+        question_bar,   
+        html.Div(
+            [
+                dbc.Spinner(
+                    dcc.Markdown(
+                        id='answer',
+                        link_target="_blank",
+                        style={"min-width": "100px"}
+                    ),
+                    color="primary"
+                ),
+                html.Div(
+                    [
+                        html.A(ok_icon, id="link_ok", href="#", style=STYLE_BUTTON),
+                        html.A(nok_icon, id="link_nok", href="#", style=STYLE_BUTTON)   
+                    ],
+                    id="feedback_buttons",
+                    style=STYLE_FEEDBACK)
+            ],
+            style=STYLE_ANSWER
+        ),
+        html.Div(id='debug'),
+        dcc.Store(id='feedback', data=2, storage_type='memory'),
+        dcc.Store(id='question', storage_type='memory'),
+        dcc.Store(id='question_id', storage_type='memory'),
+    ],
+    style={
+        "margin": "auto",
+        "text-align": "left",
+        "max-width": "800px"
+    }
+)
+
+# Callbacks
+
+@app.callback(
+    Output('answer', 'children'),
+    Output('feedback_buttons', 'style'),
+    Output('question', 'data'),
+    Output('question_id', 'data'),
+    Input('send-btn', 'n_clicks'),
+    Input('query', 'n_submit'),
+    State('query', 'value'),
+)
+def answer_question(n_clicks, n_submit, query):
+    """
+    Display the answer
+    """
+    if len(query) == 0:
+        return "", STYLE_FEEDBACK, query, 0
+    start = time.time()
+    if len(LLM_ID) == 0 or not CONNECTION_AVAILABLE:
+        return ERROR_MESSAGE_MISSING_KEY, STYLE_ANSWER, query, 0
+    style = dict(STYLE_FEEDBACK)
+    style["display"] = "flex"
+    answer = get_answer(query)
+    answer = f"{answer}\n\n{(time.time()-start):.1f} seconds"
+    return answer, style, query, hash(str(start) + query)
+
+@app.callback(
+    Output('debug', 'children'),
+    Input('answer', 'children'),
+    Input('link_ok', 'children'),
+    Input('link_nok', 'children'),
+    State('query', 'value'),
+    State('question_id', 'data'),
+    State('feedback', 'data'),
+)
+def log_answer(answer, ok, nok, query, question_id, feedback):
+    """
+    Log the question and the answer
+    """
+    if len(LLM_ID) > 0 and len(answer) > 0:
+        path = f"/{str(question_id)}.json"
+        if LOG_ALL_ANSWERS or feedback in [1, -1]:
+            with answers_folder.get_writer(path) as w:
+                w.write(bytes(json.dumps({
+                    "question": query,
+                    "answer": answer,
+                    "feedback": 0 if feedback == 2 else feedback,
+                    "timestamp": str(datetime.now()),
+                    "webapp": WEBAPP_NAME,
+                    "version": VERSION
+                }), "utf-8"))
+        else:
+            if path in answers_folder.list_paths_in_partition():
+                answers_folder.delete_path(path)
+    return ""
+
+@app.callback(
+    Output('link_ok', 'children'),
+    Output('link_nok', 'children'),
+    Input('feedback', 'data')
+)
+def update_icons(value):
+    """
+    Update the feedback icons when the user likes or dislikes an answer
+    """
+    ok = ok_icon_fill if value is not None and value == 1 else ok_icon
+    nok = nok_icon_fill if value is not None and value == -1 else nok_icon
+    return ok, nok
+
+@app.callback(
+    Output('feedback', 'data'),
+    Input('link_ok', 'n_clicks'),
+    Input('link_nok', 'n_clicks'),
+    Input('send-btn', 'n_clicks'),
+    Input('query', 'n_submit'),
+    State('feedback', 'data'),
+    State('query', 'value'),
+    State('question', 'data'),
+)
+def provide_feedback(ts_ok, ts_nok, click, submit, value, question, previous_question):
+    """
+    Record the feedback of the user
+    """
+    triggered = dash.ctx.triggered_id
+    if triggered == "link_ok":
+        return 1 if value != 1 else 0
+    elif triggered == "link_nok":
+        return -1 if value != -1 else 0
+    return value if question == previous_question else 2
