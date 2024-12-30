@@ -53,7 +53,6 @@ def non_conformities():
 def ai():
     app.logger.info("Handling /ai endpoint.")
     # Récupérer le JSON envoyé dans la requête POST
-    return json.dumps({"messages": {"role": "user", "text": "ok"}})
     data = request.json
 
     # Vérifier que le champ "messages" est présent
