@@ -31,7 +31,7 @@ VERSION = "1.0" # Version of the app (logged when a conversation is flagged)
 answers_folder = dataiku.Folder("r2k5Yq70")
 
 LLM_ID = "retrievalaugmented:zQ92IhQ9:gpt-4o-mini-a220-rag"
-KB_ID = "YK6IMhfU"
+KB_ID = "zQ92IhQ9"
 documents = dataiku.Folder("SoQWOnhR")
 documents_md = dataiku.Folder("AXB1Cyno")
 non_conformities = dataiku.Folder("gZC3bHFN")
