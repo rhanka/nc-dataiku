@@ -75,7 +75,7 @@ def ai():
         "on the A220 knowledge base."
         f"Now try to answer the following question: {user_message}\n"
     )
-
+    return json.dumps({"messages": {"role": "user", "text": "ok"}})
     # Préparer et exécuter la requête au modèle LLM
     completion = llm.new_completion()
     completion.with_message(prompt)
