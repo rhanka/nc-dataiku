@@ -44,54 +44,6 @@ If you don't know the answer, just say that you don't know, don't try to make up
 Question: {question}
 Helpful Answer:"""
 
-## Tools
-
-class NonConformityInfo(BaseModel):
-    """Parameter for GetNonConformityInfo"""
-    id: str = Field(description="Non Conformity ID")
-
-
-class GetNonConformityInfo(BaseTool):
-    """Gathering non conformity information"""
-
-    name = "GetNonConformityInfo"
-    description = "Provide the history of the non conformity; given the Non Conformity ID"
-    args_schema: Type[BaseModel] = NonConformityInfo
-
-    def _run(self, id: str):
-        dataset = documents_md_table
-        table_name = dataset.get_location_info().get('info', {}).get('table')
-        executor = SQLExecutor2(dataset=dataset)
-        eid = id.replace("'", "\\'")
-        query_reader = executor.query_to_iter(
-            f"""SELECT name, job, company FROM "{table_name}" WHERE id = '{eid}'""")
-        for (name, job, company) in query_reader.iter_tuples():
-            return f"The customer's name is \"{name}\", holding the position \"{job}\" at the company named {company}"
-        return f"No information can be found about the non conformity {id}"
-
-    def _arun(self, id: str):
-        raise NotImplementedError("This tool does not support async") 
-
-tools = [GetNC()]
-tool_names = [tool.name for tool in tools]
-
-# Initializes the agent
-prompt = ChatPromptTemplate.from_template(
-    """Answer the following questions as best you can. You have only access to the following tools:
-{tools}
-Use the following format:
-Question: the input question you must answer
-Thought: you should always think about what to do
-Action: the action to take, should be one of [{tool_names}]
-Action Input: the input to the action
-Observation: the result of the action
-... (this Thought/Action/Action Input/Observation can repeat N times)
-Thought: I now know the final answer
-Final Answer: the final answer to the original input question
-Begin!
-Question: {input}
-Thought:{agent_scratchpad}""")
-
 
 CONNECTION_AVAILABLE = len(LLM_ID) > 0
 
@@ -99,7 +51,7 @@ if CONNECTION_AVAILABLE:
     llm = DKUChatLLM(llm_id=LLM_ID, temperature=0)
     project = dataiku.api_client().get_default_project()
     kb = project.get_knowledge_bank(KB_ID).as_core_knowledge_bank()
-    with documents.get_download_stream('/bm25result.pkl') as stream:
+    with folder.get_download_stream('/bm25result.pkl') as stream:
         sparse_retriever = pickle.load(io.BytesIO(stream.read()))
     dense_retriever = kb.as_langchain_retriever(search_kwargs={"k": 5})
     ensemble_retriever = EnsembleRetriever(
@@ -109,7 +61,7 @@ if CONNECTION_AVAILABLE:
     qa_chain = RetrievalQA.from_chain_type(
         llm,
         retriever=ensemble_retriever,
-        chain_type_kwargs={"prompt": prompt},
+        chain_type_kwargs={"prompt": PromptTemplate.from_template(template)},
         return_source_documents=True
     )
 
