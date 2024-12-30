@@ -14,7 +14,7 @@ from flask_cors import CORS
 CORS(app, resources={r"/*": {"origins": "https://svelte.dev"}})
 
 @app.route('/nc')
-def first_call():
+def non_conformities():
     # Récupération des arguments de requête
     max_rows = int(request.args.get('max_rows', 500))  # Par défaut, limite à 500 lignes
     record_id = request.args.get('id')  # Récupère l'id s'il est présent dans la requête
@@ -36,3 +36,7 @@ def first_call():
         data = mydataset_df.head(max_rows).to_dict(orient='records')
     
     return json.dumps(data)
+
+@app.route('/ai')
+def ai():
+    
