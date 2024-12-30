@@ -86,8 +86,9 @@
   },
   "schema": {
     "columns": [
-      {"name":"nc_event_id","type":"string"},
-      {"name":"doc","type":"string"}
+      {"name":"doc","type":"string"},
+      {"name":"chunk_id","type":"string"},
+      {"name":"chunk","type":"string"}
     ],
     "userModified": true
   },
