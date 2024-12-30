@@ -30,6 +30,57 @@ answers_folder = dataiku.Folder("bsdWEIKi")
 
 LLM_ID = "retrievalaugmented:zQ92IhQ9:gpt-4o-mini-a220-rag"
 KB_ID = "zQ92IhQ9"
+llm = DKUChatLLM(llm_id=LLM_ID, temperature=0)
+
+
+## Tools
+
+class CustomerInfo(BaseModel):
+    """Parameter for GetCustomerInfo"""
+    id: str = Field(description="customer ID")
+
+
+class GetCustomerInfo(BaseTool):
+    """Gathering customer information"""
+
+    name = "GetCustomerInfo"
+    description = "Provide a name, job title and company of a customer, given the customer's ID"
+    args_schema: Type[BaseModel] = CustomerInfo
+
+    def _run(self, id: str):
+        dataset = dataiku.Dataset(DATASET_NAME)
+        table_name = dataset.get_location_info().get('info', {}).get('table')
+        executor = SQLExecutor2(dataset=dataset)
+        eid = id.replace("'", "\\'")
+        query_reader = executor.query_to_iter(
+            f"""SELECT name, job, company FROM "{table_name}" WHERE id = '{eid}'""")
+        for (name, job, company) in query_reader.iter_tuples():
+            return f"The customer's name is \"{name}\", holding the position \"{job}\" at the company named {company}"
+        return f"No information can be found about the customer {id}"
+
+    def _arun(self, id: str):
+        raise NotImplementedError("This tool does not support async") 
+
+tools = [GetCustomerInfo(), GetCompanyInfo()]
+tool_names = [tool.name for tool in tools]
+
+# Initializes the agent
+prompt = ChatPromptTemplate.from_template(
+    """Answer the following questions as best you can. You have only access to the following tools:
+{tools}
+Use the following format:
+Question: the input question you must answer
+Thought: you should always think about what to do
+Action: the action to take, should be one of [{tool_names}]
+Action Input: the input to the action
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat N times)
+Thought: I now know the final answer
+Final Answer: the final answer to the original input question
+Begin!
+Question: {input}
+Thought:{agent_scratchpad}""")
+
 documents = dataiku.Folder("SoQWOnhR")
 documents_md = dataiku.Folder("AXB1Cyno")
 non_conformities = dataiku.Folder("gZC3bHFN")
