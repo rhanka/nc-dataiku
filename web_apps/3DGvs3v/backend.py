@@ -37,4 +37,7 @@ def non_conformities():
     
     return json.dumps(data)
 
+@app.route('/ai')
+def ai():
+    return json.dumps({})
     
