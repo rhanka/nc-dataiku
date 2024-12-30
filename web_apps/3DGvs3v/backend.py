@@ -86,7 +86,7 @@ def ai():
             response_text = resp.text
 
         # Structure compatible DeepChat
-        deep_chat_response = { "text": response_text }
+        deep_chat_response = { "text": response_text, "role": "ai" }
         return json.dumps(deep_chat_response)
 
     else:
