@@ -30,9 +30,11 @@ VERSION = "1.0" # Version of the app (logged when a conversation is flagged)
 # Folder to log answers and positive/negative reactions
 answers_folder = dataiku.Folder("r2k5Yq70")
 
-LLM_ID = dataiku.get_custom_variables()["LLM_id"]
+LLM_ID = "retrievalaugmented:zQ92IhQ9:gpt-4o-mini-a220-rag"
 KB_ID = "YK6IMhfU"
-folder = dataiku.Folder("qkyfR2rB")
+documents = dataiku.Folder("SoQWOnhR")
+documents_md = dataiku.Folder("AXB1Cyno")
+non_conformities = dataiku.Folder("gZC3bHFN")
 template = """Use the following pieces of context to answer the question at the end.
 If you don't know the answer, just say that you don't know, don't try to make up an answer.
 {context}
