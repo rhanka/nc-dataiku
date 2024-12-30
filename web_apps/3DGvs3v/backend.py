@@ -53,6 +53,7 @@ def non_conformities():
 def ai():
     app.logger.info("Handling /ai endpoint.")
     # Récupérer le JSON envoyé dans la requête POST
+    return json.dumps({"messages": {"role": "user", "text": "ok"}})
     data = request.json
 
     # Vérifier que le champ "messages" est présent
@@ -75,7 +76,6 @@ def ai():
         "on the A220 knowledge base."
         f"Now try to answer the following question: {user_message}\n"
     )
-    return json.dumps({"messages": {"role": "user", "text": "ok"}})
     # Préparer et exécuter la requête au modèle LLM
     completion = llm.new_completion()
     completion.with_message(prompt)
