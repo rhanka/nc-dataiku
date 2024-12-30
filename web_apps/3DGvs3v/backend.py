@@ -4,14 +4,22 @@ from flask import request
 from flask_cors import CORS
 
 
-# Example:
-# As the Python webapp backend is a Flask app, refer to the Flask
-# documentation for more information about how to adapt this
-# example to your needs.
-# From JavaScript, you can access the defined endpoints using
-# getWebAppBackendUrl('nc')
-
 CORS(app, resources={r"/*": {"origins": "https://svelte.dev"}})
+
+from dataiku.langchain.dku_llm import DKULLM, DKUChatLLM
+
+LLM_ID = "retrievalaugmented:zQ92IhQ9:gpt-4o-mini-a220-rag"
+
+# Create a handle for the LLM of your choice
+client = dataiku.api_client()
+project = client.get_default_project()
+llm = project.get_llm(LLM_ID)
+
+# Create and run a completion query
+completion = llm.new_completion()
+
+langchain_llm = DKUChatLLM(llm_id=LLM_ID)
+
 
 @app.route('/nc')
 def non_conformities():
@@ -39,5 +47,22 @@ def non_conformities():
 
 @app.route('/ai')
 def ai():
-    return json.dumps({})
+    input = request.args.get('input')
+    prompt = (
+        f"Non conformity label: {input}\n"
+        f"You're Quality Controler for A220 and rely on the knowledge from the A220 technical "
+        f"doc and non conformity knowledge base. When answering questions, be sure to provide "
+        f"answers that reflect the content of the knowledge base, but avoid saying things like "
+        "'according to the knowledge base'. Instead, subtly mention that the information is based "
+        "on the A220 knowledge base."
+    )
+    completion.with_message(prompt)
+    resp = completion.execute()
+
+    # Display the LLM output
+    if resp.success:
+        print(resp.text)
+        return json.dumps({msg: text.encode('utf-8')})
+    else:
+        return json.dumps({msg:"failed"})
     
