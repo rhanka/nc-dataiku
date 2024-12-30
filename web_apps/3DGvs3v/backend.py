@@ -91,16 +91,20 @@ def ai():
             response_text = resp.text
 
         # Structure compatible DeepChat
-        deep_chat_response = [
-            { "role": "user", "text": user_message },
-            { "role": "assistant", "text": response_text }
-        ]
+        deep_chat_response = {
+            "messages": [
+                { "role": "user", "text": user_message },
+                { "role": "assistant", "text": response_text }
+            ]
+        }
         return json.dumps(deep_chat_response)
 
     else:
         # En cas d'échec du modèle, retourner une réponse d'erreur
-        deep_chat_response = [
-            { "role": "user", "text": user_message },
-            { "role": "assistant", "text": "I'm sorry, I couldn't process your request." }
-        ]
+        deep_chat_response = {
+            "messages": [
+                { "role": "user", "text": user_message },
+                { "role": "assistant", "text": "I'm sorry, I couldn't process your request." }
+            ]
+        }
         return json.dumps(deep_chat_response), 500
