@@ -15,14 +15,24 @@ CORS(app, resources={r"/*": {"origins": "https://svelte.dev"}})
 
 @app.route('/nc')
 def first_call():
-    max_rows = request.args.get('max_rows') if 'max_rows' in request.args else 500
+    # Récupération des arguments de requête
+    max_rows = int(request.args.get('max_rows', 500))  # Par défaut, limite à 500 lignes
+    record_id = request.args.get('id')  # Récupère l'id s'il est présent dans la requête
 
+    # Charger le dataset
     mydataset = dataiku.Dataset("NC_types_random_500_final_structured")
-    mydataset_df = mydataset.get_dataframe(sampling='head', limit=max_rows)
+    mydataset_df = mydataset.get_dataframe()
 
+    # Convertir la colonne de date et analyser le champ JSON
     mydataset_df['nc_event_date'] = mydataset_df['nc_event_date'].astype(str)
     mydataset_df['analysis_history'] = mydataset_df['analysis_history'].apply(json.loads)
 
-    # Pandas dataFrames are not directly JSON serializable, use to_json()
-    data = mydataset_df.to_dict(orient='records')
+    # Si un id est fourni, filtrez les données
+    if record_id:
+        filtered_df = mydataset_df[mydataset_df['id'] == record_id]
+        data = filtered_df.to_dict(orient='records')
+    else:
+        # Sinon, limitez à max_rows
+        data = mydataset_df.head(max_rows).to_dict(orient='records')
+    
     return json.dumps(data)
