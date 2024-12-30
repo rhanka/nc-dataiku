@@ -45,6 +45,10 @@
     {
       "objectId": "gZC3bHFN",
       "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_gZC3bHFN",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
