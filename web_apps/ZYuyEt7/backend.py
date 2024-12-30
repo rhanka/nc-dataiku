@@ -97,7 +97,7 @@ if CONNECTION_AVAILABLE:
     llm = DKUChatLLM(llm_id=LLM_ID, temperature=0)
     project = dataiku.api_client().get_default_project()
     kb = project.get_knowledge_bank(KB_ID).as_core_knowledge_bank()
-    with folder.get_download_stream('/bm25result.pkl') as stream:
+    with documents.get_download_stream('/bm25result.pkl') as stream:
         sparse_retriever = pickle.load(io.BytesIO(stream.read()))
     dense_retriever = kb.as_langchain_retriever(search_kwargs={"k": 5})
     ensemble_retriever = EnsembleRetriever(
