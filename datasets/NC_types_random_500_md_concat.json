@@ -87,6 +87,7 @@
   "schema": {
     "columns": [
       {"name":"doc","type":"string"},
+      {"name":"chunk_concat","type":"string"},
       {"name":"count","type":"bigint"}
     ],
     "userModified": true
