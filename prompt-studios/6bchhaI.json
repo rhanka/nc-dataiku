@@ -14,7 +14,7 @@
             "type": "TEXT"
           }
         ],
-        "textPromptTemplate": "Given the {{input}} get the docs and provide the best 000 report",
+        "textPromptTemplate": "Given the label of this non conformity {{input}} get the best proposal you can do given to format a 000 non conformity report given the documents you retrieved",
         "textPromptSystemTemplate": "",
         "resultValidation": {
           "expectedFormat": "NONE",
