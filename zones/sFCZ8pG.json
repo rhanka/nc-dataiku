@@ -17,6 +17,14 @@
     {
       "objectId": "compute_a220_tech_docs_content",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "NC_types_random_500_pre_embed",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_NC_types_random_500_pre_embed",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
