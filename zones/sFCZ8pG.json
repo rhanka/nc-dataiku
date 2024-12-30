@@ -25,6 +25,14 @@
     {
       "objectId": "compute_NC_types_random_500_pre_embed",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_all_sources_chunks",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "all_sources_chunks",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
