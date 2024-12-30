@@ -2,7 +2,6 @@ import dataiku
 import pandas as pd
 from flask import request
 from flask_cors import CORS
-import json
 
 CORS(app, resources={r"/*": {"origins": "https://svelte.dev"}})
 
