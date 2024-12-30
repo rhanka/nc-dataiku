@@ -23,14 +23,6 @@
       "objectType": "RECIPE"
     },
     {
-      "objectId": "a220_tech_docs_content",
-      "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_a220_tech_docs_content",
-      "objectType": "RECIPE"
-    },
-    {
       "objectId": "compute_a220_nc_images_list",
       "objectType": "RECIPE"
     },
