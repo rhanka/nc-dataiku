@@ -49,6 +49,10 @@
     {
       "objectId": "compute_gZC3bHFN",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "bsdWEIKi",
+      "objectType": "MANAGED_FOLDER"
     }
   ],
   "shared": [],
