@@ -50,7 +50,7 @@ class NonConformityInfo(BaseModel):
 
 
 class GetNonConformityInfo(BaseTool):
-    """Gathering customer information"""
+    """Gathering non conformity information"""
 
     name = "GetNonConformityInfo"
     description = "Provide the history of the non conformity; given the Non Conformity ID"
@@ -70,7 +70,7 @@ class GetNonConformityInfo(BaseTool):
     def _arun(self, id: str):
         raise NotImplementedError("This tool does not support async") 
 
-tools = [GetNC(), GetCompanyInfo()]
+tools = [GetNC()]
 tool_names = [tool.name for tool in tools]
 
 # Initializes the agent
