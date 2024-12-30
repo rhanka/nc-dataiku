@@ -1,6 +1,42 @@
 {
   "name": "A220 KB prompts",
-  "prompts": [],
+  "prompts": [
+    {
+      "id": "0e8msdwg95",
+      "prompt": {
+        "promptMode": "PROMPT_TEMPLATE_TEXT",
+        "promptTemplateInputs": [],
+        "structuredPromptExamples": [],
+        "textPromptTemplateInputs": [
+          {
+            "name": "input",
+            "datasetColumnName": "nc_label",
+            "type": "TEXT"
+          }
+        ],
+        "textPromptTemplate": "Given the {{input}} get the docs and provide the best 000 report",
+        "textPromptSystemTemplate": "",
+        "resultValidation": {
+          "expectedFormat": "NONE",
+          "requiredJSONObjectKeys": [],
+          "forbiddenTerms": []
+        },
+        "promptTemplateQueriesSource": "DATASET"
+      },
+      "llmId": "retrievalaugmented:zQ92IhQ9:gpt-4o-mini-a220-rag",
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      },
+      "llmSettings": {
+        "stopSequences": []
+      },
+      "dataset": "NC_types_random_000_rapport_structured",
+      "nbRows": 8,
+      "inlinePromptTemplateQueries": [],
+      "tags": [],
+      "starred": false
+    }
+  ],
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
