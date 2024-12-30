@@ -313,7 +313,18 @@
       "type": "CreateColumnWithGREL",
       "params": {
         "expression": "\"##\" + parseJson(nc_metadata)[\"ATA_code\"] + \" (\" + parseJson(nc_metadata)[\"ATA_category\"] + \") - \" + parseJson(analysis_history)[\"task\"] + \": \" + parseJson(analysis_history)[\"label\"] + \"\\n\\n\"\n+ \"nc_event_id: \" + parseJson(nc_metadata)[\"nc_event_id\"] +\"\\n\"\n+ \"nc_event_date: \" + parseJson(nc_metadata)[\"nc_event_date\"] +\"\\n\"\n+ \"task_date:\" + parseJson(analysis_history)[\"date\"] +\"\\n\"\n+ \"author:\" + parseJson(analysis_history)[\"name\"] +\"\\n\"\n+ \"role:\" + parseJson(analysis_history)[\"role\"] +\"\\n\"\n+ \"\\n\"\n+ parseJson(analysis_history)[\"description\"]",
-        "column": "doc"
+        "column": "chunk"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "parseJson(nc_metadata)[\"nc_event_id\"] + \"-\" + parseJson(analysis_history)[\"task\"] + \"-\" + parseJson(analysis_history)[\"date\"]",
+        "column": "chunk_id"
       },
       "alwaysShowComment": false
     },
@@ -335,19 +346,20 @@
       "type": "CreateColumnWithGREL",
       "params": {
         "expression": "parseJson(nc_metadata)[\u0027nc_event_id\u0027]",
-        "column": "nc_event_id"
+        "column": "doc"
       },
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "ColumnsSelector",
       "params": {
         "columns": [
           "doc",
-          "nc_event_id"
+          "chunk",
+          "chunk_id"
         ],
         "keep": true,
         "appliesTo": "COLUMNS"
@@ -1115,6 +1127,7 @@
     "{\"ATA_category\":\"Aircraft Systems\",\"nc_event_id\":\"ATA-28-a621bc0824a212b38-6d75\",\"nc_event_date\":\"2020-12-03T08:40:26.872Z\"}": 300,
     "{\"ATA_category\":\"Aircraft Systems\",\"nc_event_id\":\"ATA-29-caec2e88202c8f9-c016\",\"nc_event_date\":\"2021-02-25T18:40:27.248Z\"}": 300,
     "{\"ATA_category\":\"Structures\",\"nc_event_id\":\"ATA-52-c41d74001994a02e-809a\",\"nc_event_date\":\"2022-07-15T17:40:28.425Z\"}": 300,
+    "chunk": 100,
     "{\"ATA_category\":\"Aircraft Systems\",\"nc_event_id\":\"ATA-52-91b47ee691510779-4d33\",\"nc_event_date\":\"2024-01-07T00:40:28.536Z\"}": 300,
     "{\"ATA_category\":\"Structures\",\"nc_event_id\":\"ATA-53-73b6d0203e440a0a-6528\",\"nc_event_date\":\"2023-09-23T08:40:28.222Z\"}": 300,
     "{\"ATA_category\":\"Aircraft Systems\",\"nc_event_id\":\"ATA-35-6661ecee85fff9bb-1066\",\"nc_event_date\":\"2023-11-05T18:40:27.812Z\"}": 300,
@@ -1542,6 +1555,7 @@
     "{\"ATA_category\":\"Aircraft Systems\",\"nc_event_id\":\"ATA-25-0b0e0509e367c3-7980\",\"nc_event_date\":\"2023-12-20T23:40:26.738Z\"}": 300,
     "{\"ATA_category\":\"Aircraft Systems\",\"nc_event_id\":\"ATA-29-93593a46aa0d7333-28ba\",\"nc_event_date\":\"2021-10-31T21:40:27.216Z\"}": 300,
     "{\"ATA_category\":\"Aircraft Systems\",\"nc_event_id\":\"ATA-36-7f4154a63af29810-eff2\",\"nc_event_date\":\"2024-01-10T01:40:28.115Z\"}": 300,
+    "chunk_id": 300,
     "{\"ATA_category\":\"Aircraft Systems\",\"nc_event_id\":\"ATA-27-818f95753323da87-a4b6\",\"nc_event_date\":\"2024-08-14T18:40:27.322Z\"}": 300,
     "{\"ATA_category\":\"Aircraft Systems\",\"nc_event_id\":\"ATA-29-83302a46aa64d660-276c\",\"nc_event_date\":\"2024-06-04T05:40:27.213Z\"}": 300,
     "{\"ATA_category\":\"Aircraft Systems\",\"nc_event_id\":\"ATA-36-7f4154a63af13528-32df\",\"nc_event_date\":\"2021-03-05T05:40:28.118Z\"}": 300,
