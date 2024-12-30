@@ -86,13 +86,8 @@
   },
   "schema": {
     "columns": [
-      {"name":"nc_metadata","type":"map","mapKeys":{"type":"string"},
-        "mapValues": {"type":"string"}
-      },
-      {"name":"task","type":"array","arrayContent":{"type":"string"}
-      },
-      {"name":"label","type":"string"},
-      {"name":"0","type":"bigint"}
+      {"name":"nc_event_id","type":"string"},
+      {"name":"doc","type":"string"}
     ],
     "userModified": true
   },
