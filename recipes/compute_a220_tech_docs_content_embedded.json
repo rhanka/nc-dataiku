@@ -18,7 +18,7 @@
     "main": {
       "items": [
         {
-          "ref": "NC_types_random_500_pre_embed",
+          "ref": "all_sources_chunks",
           "deps": []
         }
       ]
