@@ -8,6 +8,7 @@
     }
   ],
   "chunkOverlapCharacters": 120,
+  "datasetBatchSize": 1000,
   "chunkSizeCharacters": 3000,
   "knowledgeColumn": "chunk",
   "clearVectorStore": false,
