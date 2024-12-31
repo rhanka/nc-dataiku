@@ -50,7 +50,7 @@
         "promptTemplateInputs": [],
         "structuredPromptExamples": [],
         "textPromptTemplateInputs": [],
-        "rawPromptText": "Ask a question to your Retrieval-Augmented LLM.",
+        "rawPromptText": "Please provide hydro documents",
         "resultValidation": {
           "expectedFormat": "NONE",
           "requiredJSONObjectKeys": [],
