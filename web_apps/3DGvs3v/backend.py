@@ -8,6 +8,8 @@ CORS(app, resources={r"/*": {"origins": "https://svelte.dev"}})
 from dataiku.langchain.dku_llm import DKULLM, DKUChatLLM
 
 LLM_ID = "retrievalaugmented:8jpMQW44:gpt-4o-mini-a220-all-sources"
+LLM_ID = "retrievalaugmented:WnKb6p17:gpt-4o-mini-a220-nc"
+LLM_ID = "retrievalaugmented:zQ92IhQ9:gpt-4o-mini-a220-tech-docs"
 
 # Create a handle for the LLM of your choice
 client = dataiku.api_client()
