@@ -13,7 +13,7 @@
   },
   "llmsExposedWith": [
     {
-      "ragModelId": "fast-sneaky-chicken",
+      "ragModelId": "gpt-4o-mini-a220-nc",
       "llmId": "openai:OpenAI-FA:gpt-4o-mini",
       "maxDocuments": 20,
       "useMMR": true,
