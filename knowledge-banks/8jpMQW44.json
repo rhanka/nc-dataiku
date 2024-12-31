@@ -11,7 +11,22 @@
   "containerExecSelection": {
     "containerMode": "NONE"
   },
-  "llmsExposedWith": [],
+  "llmsExposedWith": [
+    {
+      "ragModelId": "gpt-4o-mini-a220-all-sources",
+      "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+      "maxDocuments": 20,
+      "useMMR": true,
+      "mmrK": 50,
+      "mmrDiversity": 0.25,
+      "printSources": true,
+      "includeContentInSources": true,
+      "outputFormat": "JSON",
+      "retrievalSource": "EMBEDDING",
+      "customizeContextMessage": false,
+      "contextMessage": "Use the following pieces of context to answer the question at the end.\nIf you do not know the answer, just say that you do not know, do not try to make up an answer."
+    }
+  ],
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
