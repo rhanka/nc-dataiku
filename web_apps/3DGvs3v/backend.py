@@ -79,14 +79,13 @@ def ai():
     if resp.success:
         try:
             # Tenter de convertir le texte en JSON si applicable
-            parsed_response = json.loads(resp.text)
-            response_text = json.dumps(parsed_response)  # Convertir en chaîne si c'est un JSON
+            response_content = json.loads(resp.text)  # Convertir en chaîne si c'est un JSON
         except json.JSONDecodeError:
             # Utiliser le texte brut si ce n'est pas un JSON valide
-            response_text = resp.text
+            response_content = resp.text
 
         # Structure compatible DeepChat
-        deep_chat_response = { "text": response_text, "role": "ai" }
+        deep_chat_response = { "text": response_content, "role": "ai" }
         return json.dumps(deep_chat_response)
 
     else:
