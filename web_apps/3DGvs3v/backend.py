@@ -82,7 +82,7 @@ def ai():
             response_content = json.loads(resp.text)
             deep_chat_response = {
                 "text": response_content.result,
-                "sources": response_content.sources
+                "sources": response_content.sources,
                 "role": "ai"
             }
         except json.JSONDecodeError:
