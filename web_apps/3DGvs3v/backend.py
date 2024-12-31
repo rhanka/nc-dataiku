@@ -1,6 +1,7 @@
 import dataiku
 import pandas as pd
 from flask import request
+from flask import make_response
 from flask_cors import CORS
 
 CORS(app, resources={r"/*": {"origins": "https://svelte.dev"}})
@@ -87,9 +88,10 @@ def ai():
 
         # Structure compatible DeepChat
         deep_chat_response = { "text": response_text, "role": "ai" }
-        return json.dumps(deep_chat_response)
-
     else:
         # En cas d'échec du modèle, retourner une réponse d'erreur
         deep_chat_response = { "text": "I'm sorry, I couldn't process your request.", error: "500" }
-        return json.dumps(deep_chat_response), 500
+
+    response = make_response(jsonify(deep_chat_response))
+    response.headers["Content-Type"] = "application/json"
+    return response
