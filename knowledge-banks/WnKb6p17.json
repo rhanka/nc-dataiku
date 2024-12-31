@@ -1,0 +1,26 @@
+{
+  "name": "a220_nc_embedded",
+  "retrieverType": "VECTOR_STORE_BACKED",
+  "rebuildBehavior": "EXPLICIT",
+  "vectorStoreType": "CHROMA",
+  "embeddingLLMId": "openai:OpenAI-FA:text-embedding-3-small",
+  "envSelection": {
+    "envMode": "INHERIT"
+  },
+  "containerExecSelection": {
+    "containerMode": "INHERIT"
+  },
+  "llmsExposedWith": [],
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "fabien.antoine@cgi.com"
+    },
+    "lastModifiedOn": 1735655663350
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}
