@@ -1,8 +1,16 @@
 {
-  "metadataColumns": [],
+  "metadataColumns": [
+    {
+      "column": "chunk"
+    },
+    {
+      "column": "chunk_id"
+    }
+  ],
   "chunkOverlapCharacters": 120,
   "chunkSizeCharacters": 3000,
+  "knowledgeColumn": "chunk",
   "clearVectorStore": false,
-  "documentSplittingMode": "CHARACTERS_BASED",
+  "documentSplittingMode": "NONE",
   "vectorStoreUpdateMethod": "OVERWRITE"
 }
