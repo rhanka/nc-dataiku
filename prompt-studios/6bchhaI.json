@@ -42,6 +42,32 @@
       ],
       "tags": [],
       "starred": false
+    },
+    {
+      "id": "k2hmqSbD6a",
+      "prompt": {
+        "promptMode": "RAW_PROMPT",
+        "promptTemplateInputs": [],
+        "structuredPromptExamples": [],
+        "textPromptTemplateInputs": [],
+        "rawPromptText": "Ask a question to your Retrieval-Augmented LLM.",
+        "resultValidation": {
+          "expectedFormat": "NONE",
+          "requiredJSONObjectKeys": [],
+          "forbiddenTerms": []
+        }
+      },
+      "llmId": "retrievalaugmented:8jpMQW44:gpt-4o-mini-a220-all-sources",
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      },
+      "llmSettings": {
+        "stopSequences": []
+      },
+      "nbRows": 8,
+      "inlinePromptTemplateQueries": [],
+      "tags": [],
+      "starred": false
     }
   ],
   "creationTag": {
