@@ -14,7 +14,7 @@
             "type": "TEXT"
           }
         ],
-        "textPromptTemplate": "Non conformity label: {{input}} \n\nYou\u0027re Quality Controler for A220and rely on the knowledge from the A220 technical doc and non conformity knowledge base. When answering questions, be sure to provide answers that reflect the content of the knowledge base, but avoid saying things like \u0027according to the knowledge base\u0027. Instead, subtly mention that the information is based on the A220 knowledge base.",
+        "textPromptTemplate": "Non conformity label: {{input}} \n\nYou\u0027re Quality Controler for A220 and rely on the knowledge from the A220 technical doc and non conformity knowledge base. When answering questions, be sure to provide answers that reflect the content of the knowledge base, but avoid saying things like \u0027according to the knowledge base\u0027. Instead, subtly mention that the information is based on the A220 knowledge base.",
         "textPromptSystemTemplate": "",
         "resultValidation": {
           "expectedFormat": "NONE",
