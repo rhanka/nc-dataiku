@@ -1,7 +1,7 @@
 {
   "metadataColumns": [
     {
-      "column": "chunk"
+      "column": "doc"
     },
     {
       "column": "chunk_id"
