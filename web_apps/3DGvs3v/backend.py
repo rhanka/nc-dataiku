@@ -65,7 +65,8 @@ def ai():
     prompt = (
         f"You're supporting Quality Controller for A220 and rely on the knowledge from the A220 technical "
         f"doc and non conformity knowledge base. When answering questions, be sure to provide "
-        f"answers that reflect the content of the knowledge base, but avoid saying things like "
+        f"answers that reflect the content of the knowledge base, including both pdf (tech docs) and "
+        "md (non conformitities tasks) but avoid saying things like "
         "'according to the knowledge base'. Instead, subtly mention that the information is based "
         "on the A220 knowledge base."
         f"Now try to answer the following question: {user_message}\n"
