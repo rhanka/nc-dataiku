@@ -50,7 +50,7 @@
         "promptTemplateInputs": [],
         "structuredPromptExamples": [],
         "textPromptTemplateInputs": [],
-        "rawPromptText": "Please provide hydro documents",
+        "rawPromptText": "Please provide hydro pdf documents",
         "resultValidation": {
           "expectedFormat": "NONE",
           "requiredJSONObjectKeys": [],
