@@ -15,9 +15,9 @@
     {
       "ragModelId": "gpt-4o-mini-a220-rag",
       "llmId": "openai:OpenAI-FA:gpt-4o-mini",
-      "maxDocuments": 20,
+      "maxDocuments": 100,
       "useMMR": true,
-      "mmrK": 50,
+      "mmrK": 200,
       "mmrDiversity": 0.25,
       "printSources": true,
       "includeContentInSources": true,
