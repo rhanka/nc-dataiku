@@ -139,7 +139,7 @@ def ai():
         prompt = """
             #Processus
             Une non conformité de l'A220 doit être traitée selon le processus suivant :
-            
+
             000 - rapport de non-conformité par le Quality Controler
             100 - analyse et recommandation / plan d'action par le Design Office
             200 - validation de l'analyse / plan d'action par le Design Manager
@@ -149,41 +149,65 @@ def ai():
 
             Vous supportez le role de l'étape {000} et devez rédiger de la facon la plus explicite en prenant
             les exemples fournis et la documentation technique.
-            
+
             #Exemples et documentation technique:
             {json.dumps(search_results)}
-            
+
             #La requête utilisateur est la suivante:
             {user_message}
-            
+
             #Réponse
-            Veuillez répondre pour l'étape {role}, sans rajout de message complémentaire, 
-            en fournissant le meilleur 'label' et la meilleure 'description' possible selon les exemples, n'hésitant pas à illustrer selon les
-            documentation technique le cas échéant.
+            ## Instruction globales du processus
+            **Instructions du processus** :
+            - **Analyse des causes** : Les causes doivent être réalistes et adaptées au contexte spécifique de l'A220, en tenant compte des impacts possibles.
+            - **Causes internes et externes** : Différencier les causes internes (ex. : erreurs d'assemblage, calibrations incorrectes) et externes (ex. : défauts fournisseurs, intempéries).
+            - **Orientation industrielle** : Prioriser les scénarios ayant un impact direct sur la navigabilité, la résistance (statique et fatigue), ou les coûts de production.
+
+            **Orientation sur les gains industriels** :
+            - **Réduction des coûts** : Prioriser les scénarios avec un impact financier élevé ou nécessitant des corrections coûteuses si elles ne sont pas détectées à temps.
+            - **Efficacité temporelle** : Mettre en place des étapes d’analyse optimisées et des moyens de détection rapide pour réduire les délais de production.
+            - **Pertinence industrielle** : Adopter une approche réaliste et contextuellement adaptée à l’industrie aéronautique, afin de garantir la navigabilité, la fiabilité et la conformité des produits.
+
+            Les principes relatifs aux **non-conformités significatives** stipulent qu'une non-conformité qui peut affecter la navigabilité, la résistance (statique et fatigue), l’installation, le fonctionnement, ou tout autre domaine impactant la qualité et la sécurité doit être soigneusement évaluée et traitée. 
+
+            Chaque **non-conformité significative** doit faire l'objet d'une demande de dérogation soumise à l'ingénierie pour une évaluation approfondie. Le processus de dérogation ne doit pas être utilisé pour des erreurs de conception ou des problèmes de configuration non anticipée. En outre, les **suffixes de dérogation** doivent être attribués pour définir les limitations permanentes ou temporaires sur les articles concernés.
+
+
+            ## Instructions de réponse    
+            Veuillez répondre pour l'étape {role}, en fournissant le meilleur 'label' et la meilleure 'description' possible selon les exemples, n'hésitant pas à illustrer selon les
+            documentation technique le cas échéant. La description fournie doit être complètement rédigée.
+            Si l'utilisateur a fourni un json avec un 'label' et une 'description' vous modifierez la description ou
+            le titre selon les instruction de l'utilisateur, en maintenant un rôle de conseil vis à vis des exemples et
+            de la documentation technique.
+
+
+            ##Format de réponse
             Répondez en anglais sauf si l'utilisateur utilise une autre langue ou précise des instructions de langue.
+            Format de réponse attendu en json sans autre mise en forme (pas de ```json). Vos commentaires sont fournis
+            dans l'item 'comment':
+            \{label: ..., description: ..., comment: ...\}
+            - 'description' est en markdown. Dans tous les cas, le style reste technique et concis, 
+            avec une approche plus télégraphique que rédigée de manière complexe (pas de phrases longues 
+            ou compliquées). Faire comme dans les exemples, sans ajouter de termes de type "ce rapport précise",
+            le rapport sera fourni dans un outil de ticketting, il faut rester concis et précis.
+            - label : ne pas mentionner 'A220 Non-Conformity Report', juste le label de la non conformité, 
+            comme dans les exemples
+            - comment: fourni le cas échéant en markdwon pour l'interaction en mode canevas avec l'utilisateur {role}
+
         """
-        )
+        
         completion = llm.new_completion()
         completion.with_message(prompt)
         resp = completion.execute()
         
         # Vérifier le succès de la réponse
         if resp.success:
-            try:
-                # Tenter de convertir le texte en JSON si applicable
-                response_content = json.loads(resp.text)
-                deep_chat_response = {
-                    "text": response_content["result"],
-                    "sources": response_content["sources"],
-                    "role": "ai"
-                }
-            except json.JSONDecodeError:
-                # Utiliser le texte brut si ce n'est pas un JSON valide
-                deep_chat_response = { "text": resp.text, "role": "ai" }
-
-            # Structure compatible DeepChat
+            deep_chat_response = {
+                "text": json.loads(resp.text),
+                "sources": search_results,
+                "role": "ai"
+            }
             return json.dumps(deep_chat_response)
-
         else:
             # En cas d'échec du modèle, retourner une réponse d'erreur
             deep_chat_response = { "text": "I'm sorry, I couldn't process your request.", error: "500" }
