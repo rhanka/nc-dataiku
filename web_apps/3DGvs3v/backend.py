@@ -139,7 +139,7 @@ def ai():
         except Exception as e:
             deep_chat_response = {
                     "text": f"Error while generating response",
-                    "error": f"{e}"
+                    "error": f"{e}",
                     "role": "ai"
                 }
             return json.dumps(deep_chat_response)
