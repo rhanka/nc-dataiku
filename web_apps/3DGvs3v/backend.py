@@ -121,7 +121,7 @@ def ai():
         query = resp.text
         
         deep_chat_response = {
-                "text": query
+                "text": query,
                 "role": "ai"
             }
         return json.dumps(deep_chat_response)
