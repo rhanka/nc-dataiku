@@ -134,9 +134,10 @@ def ai():
                 }
                 for s in search_results
             ]
-        catch:
+            
+        except Exception as e:
             deep_chat_response = {
-                    "text": "Erreur",
+                    "text": "Erreur {e}",
                     "role": "ai"
                 }
             return json.dumps(deep_chat_response)
