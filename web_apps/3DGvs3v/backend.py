@@ -137,7 +137,7 @@ def ai():
             
         except Exception as e:
             deep_chat_response = {
-                    "text": f"Erreur {e}",
+                    "text": f"Erreur {e} {KB_IDs} {KBs} {vector_stores}",
                     "role": "ai"
                 }
             return json.dumps(deep_chat_response)
