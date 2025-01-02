@@ -58,7 +58,6 @@ vector_stores = {
     for key, value in KBs.items()
 }
 # Create and run a completion query
-completion = llm.new_completion()
 
 langchain_llm = DKUChatLLM(llm_id=LLM_ID, temperature=0)
 chain = load_qa_chain(langchain_llm, chain_type="stuff")
@@ -120,25 +119,27 @@ def ai():
     if resp.success:
         query = resp.text
         
-        # 2nd step : gather documents relative to query
-        search_results = [
-            result
-            for key, value in vector_stores.items() 
-            for result in value.similarity_search(query)
-        ]
-        deep_chat_response = {
-                "text": query,
-                "sources": search_results,
-                "role": "ai"
-            }
-        return json.dumps(deep_chat_response)
-        search_results = [ {
-                "doc": s.metadata['doc'],
-                "chunk_id": s.metadata['chunk_id'],
-                #"chunk": s.page_content
-            }
-            for s in search_results
-        ]
+        try:
+            # 2nd step : gather documents relative to query
+            search_results = [
+                result
+                for key, value in vector_stores.items() 
+                for result in value.similarity_search(query)
+            ]
+            
+            search_results = [ {
+                    "doc": s.metadata['doc'],
+                    "chunk_id": s.metadata['chunk_id'],
+                    #"chunk": s.page_content
+                }
+                for s in search_results
+            ]
+        catch:
+            deep_chat_response = {
+                    "text": "Erreur",
+                    "role": "ai"
+                }
+            return json.dumps(deep_chat_response)
         
 
     
