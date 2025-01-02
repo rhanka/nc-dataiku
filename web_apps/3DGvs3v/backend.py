@@ -120,12 +120,6 @@ def ai():
     if resp.success:
         query = resp.text
         
-        deep_chat_response = {
-                "text": query,
-                "role": "ai"
-            }
-        return json.dumps(deep_chat_response)
-        
         # 2nd step : gather documents relative to query
         search_results = [
             result
@@ -140,6 +134,13 @@ def ai():
             for s in search_results
         ]
         
+        deep_chat_response = {
+                "text": query,
+                "sources": search_results,
+                "role": "ai"
+            }
+        return json.dumps(deep_chat_response)
+    
         # 3rd step : give the best advice given the documents
         
         prompt = """
