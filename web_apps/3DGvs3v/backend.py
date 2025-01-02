@@ -126,6 +126,12 @@ def ai():
             for key, value in vector_stores.items() 
             for result in value.similarity_search(query)
         ]
+        deep_chat_response = {
+                "text": query,
+                "sources": search_results,
+                "role": "ai"
+            }
+        return json.dumps(deep_chat_response)
         search_results = [ {
                 "doc": s.metadata['doc'],
                 "chunk_id": s.metadata['chunk_id'],
@@ -134,12 +140,7 @@ def ai():
             for s in search_results
         ]
         
-        deep_chat_response = {
-                "text": query,
-                "sources": search_results,
-                "role": "ai"
-            }
-        return json.dumps(deep_chat_response)
+
     
         # 3rd step : give the best advice given the documents
         
