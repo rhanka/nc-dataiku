@@ -127,21 +127,23 @@ def ai():
                 for result in value.similarity_search(query)
             ]
             
+            search_results = [
+                    {
+                        "doc": s.metadata['doc'],
+                        "chunk_id": s.metadata['chunk_id'],
+                        #"chunk": s.page_content
+                    }
+                    for s in search_results
+                ]
+
         except Exception as e:
             deep_chat_response = {
-                    "text": f"Erreur {e} {KB_IDs} {KBs} {vector_stores}",
+                    "text": f"Error while generating response",
+                    "error": f"{e}"
                     "role": "ai"
                 }
             return json.dumps(deep_chat_response)
         
-        search_results = [
-                {
-                    "doc": s.metadata['doc'],
-                    "chunk_id": s.metadata['chunk_id'],
-                    #"chunk": s.page_content
-                }
-                for s in search_results
-            ]
 
     
         # 3rd step : give the best advice given the documents
