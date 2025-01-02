@@ -131,7 +131,7 @@ def ai():
                     {
                         "doc": s.metadata['doc'],
                         "chunk_id": s.metadata['chunk_id'],
-                        #"chunk": s.page_content
+                        "chunk": s.page_content
                     }
                     for s in search_results
                 ]
