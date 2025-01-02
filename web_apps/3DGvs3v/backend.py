@@ -80,8 +80,7 @@ def ai():
 
     roles = ["000", "100", "200", "300", "400", "500"]
     
-    user_message = messages[-1]["text"] if messages[-1]["role"] in roles else
-        return json.dumps({"error": "Invalid input: 'role' must be user or 000, 100, 200, 300, 400, 500"}) 
+    user_message = messages[-1]["text"] if messages[-1]["role"] in roles else return json.dumps({"error": "Invalid input: 'role' must be user or 000, 100, 200, 300, 400, 500"}) 
 
     role = messages[-1]["text"] if messages[-1]["role"] in roles else "000"
     
@@ -202,8 +201,11 @@ def ai():
         
         # Vérifier le succès de la réponse
         if resp.success:
+            response_content = json.loads(resp.text)
             deep_chat_response = {
-                "text": json.loads(resp.text),
+                "text": response_content['comment'],
+                "label": response_content['label'],
+                "description": response_content['description'],
                 "sources": search_results,
                 "role": "ai"
             }
