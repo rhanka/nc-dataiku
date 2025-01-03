@@ -96,14 +96,12 @@ def ai():
         
         You're supporting the role for {role} and rely on the knowledge from the A220 technical 
         doc and non conformity knowledge base (vector databases). You must provide an optimized expanded 
-        prompt towards those vector databases to enable the best retrieval given the user input. 
-        The expansion should only concern specificity around the user query and avoid retrieval of non specific
-        vocabulary, as knowledge databses will contain any past non conformity. Avoid generic vocabulary like 
-        'non-conformity', 'issue', 'specification', 'standard', 'operations', 'maintainance'. But expand 
-        domain vocabulary.
+        prompt towards those langchain vector databases to enable the best retrieval given the user input. 
+        The expansion should only concern specificity of the domain vocabulary and should not include any word
+        about the processus itself (like non-conformity, words not relative to {role} itself).
         
-        Format of the output: Please just provide the query in engish without any comment to be reused as is. 
-        Optimal request should be between 20 and 50 words
+        Format of the output: Please just provide a liste of words for vectord db query in engish without any comment to be reused as is. 
+        Optimal request should be between 10 and 20 words
         
         The user is the following:
         {user_message}
@@ -114,6 +112,7 @@ def ai():
     llm = project.get_llm(LLM_ID)
     completion = llm.new_completion()
     completion.with_message(prompt)
+    completion.settings["temperature"] = 0
     resp = completion.execute()
     
     if resp.success:
@@ -159,7 +158,7 @@ def ai():
             400 - du calcul / plan d'action amendé par le Stress Manager
             500 - plan d'action final validé par le Quality Manager
 
-            Vous supportez le role de l'étape {role} et devez rédiger de la facon la plus explicite en prenant
+            Vous supportez le role de l'étape {000} et devez rédiger de la facon la plus explicite en prenant
             les exemples fournis et la documentation technique.
 
             #Exemples et documentation technique:
@@ -191,13 +190,17 @@ def ai():
             Si l'utilisateur a fourni un json avec un 'label' et une 'description' vous modifierez la description ou
             le titre selon les instruction de l'utilisateur, en maintenant un rôle de conseil vis à vis des exemples et
             de la documentation technique.
+            Ne pas empiéter sur les rôles autres que {role}. Ainsi, a l'étape 000 on se contente de formuler le rapport de
+            description de la non-conformité observée, on ne prend pas les rôles d'analyse et de préconisation ni de calcul
+            des structures. Idem pour 100: on ne fait pas le calcul des structure, on se concentre sur l'analyse.
+
 
 
             ##Format de réponse
             Répondez en anglais sauf si l'utilisateur utilise une autre langue ou précise des instructions de langue.
             Format de réponse attendu en json sans autre mise en forme (pas de ```json). Vos commentaires sont fournis
             dans l'item 'comment':
-            \{label: ..., description: ..., comment: ...\}
+            \\{{ label: ..., description: ..., comment: ...\\}}
             - 'description' est en markdown. Dans tous les cas, le style reste technique et concis, 
             avec une approche plus télégraphique que rédigée de manière complexe (pas de phrases longues 
             ou compliquées). Faire comme dans les exemples, sans ajouter de termes de type "ce rapport précise",
@@ -205,11 +208,11 @@ def ai():
             - label : ne pas mentionner 'A220 Non-Conformity Report', juste le label de la non conformité, 
             comme dans les exemples
             - comment: fourni le cas échéant en markdwon pour l'interaction en mode canevas avec l'utilisateur {role}
-
         """
         
         completion = llm.new_completion()
         completion.with_message(prompt)
+        completion.settings["temperature"] = 0
         resp = completion.execute()
         
         # Vérifier le succès de la réponse
