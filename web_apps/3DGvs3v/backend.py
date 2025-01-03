@@ -232,6 +232,8 @@ def ai():
             comme dans les exemples
             - comment: fourni le cas échéant en markdwon pour l'interaction en mode canevas avec l'utilisateur {role}
             
+            ## Spécification complémentaire pour la description
+            {description_prompt}
         """
         
         completion = llm.new_completion()
