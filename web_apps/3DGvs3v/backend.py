@@ -59,8 +59,8 @@ vector_stores = {
 }
 # Create and run a completion query
 
-langchain_llm = DKUChatLLM(llm_id=LLM_ID, temperature=0)
-chain = load_qa_chain(langchain_llm, chain_type="stuff")
+#langchain_llm = DKUChatLLM(llm_id=LLM_ID, temperature=0)
+#chain = load_qa_chain(langchain_llm, chain_type="stuff")
 
 @app.route('/ai', methods=['POST'])
 def ai():
@@ -84,7 +84,7 @@ def ai():
     user_message = messages[-1]["text"]
     
     # 1s step: expand query
-    prompt = """
+    prompt = f"""
         Une non conformité de l'A220 doit être traitée selon le processus suivant :
             
             000 - rapport de non-conformité par le Quality Controler
@@ -148,7 +148,7 @@ def ai():
     
         # 3rd step : give the best advice given the documents
         
-        prompt = """
+        prompt = f"""
             #Processus
             Une non conformité de l'A220 doit être traitée selon le processus suivant :
 
@@ -159,7 +159,7 @@ def ai():
             400 - du calcul / plan d'action amendé par le Stress Manager
             500 - plan d'action final validé par le Quality Manager
 
-            Vous supportez le role de l'étape {000} et devez rédiger de la facon la plus explicite en prenant
+            Vous supportez le role de l'étape {role} et devez rédiger de la facon la plus explicite en prenant
             les exemples fournis et la documentation technique.
 
             #Exemples et documentation technique:
