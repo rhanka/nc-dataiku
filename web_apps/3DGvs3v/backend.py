@@ -167,7 +167,7 @@ def ai():
             """
         }
         
-        description_prompt = description_prompts['000']
+        description_prompt = description_prompts[role]
  
         prompt = f"""
             #Processus
