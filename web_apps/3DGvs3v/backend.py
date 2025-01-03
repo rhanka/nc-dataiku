@@ -165,7 +165,7 @@ def ai():
             - Classification: Classification de la non-conformité (T, C, R, etc.) selon son importance.
             - Resolution: Description de la solution retenue pour mettre en conformité (réparation, remplacement, etc.).
             - References: Lien vers les documents de référence (fabrication et/ou assemblage liés).
-            """,
+            """
         }
         
         
@@ -232,7 +232,8 @@ def ai():
             comme dans les exemples
             - comment: fourni le cas échéant en markdwon pour l'interaction en mode canevas avec l'utilisateur {role}
             
-            ## Instruction relatives à la description
+            ## Instruction relatives à la description:
+            {description_prompt[role]}
             
         """
         
