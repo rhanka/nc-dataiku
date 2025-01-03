@@ -167,7 +167,7 @@ def ai():
             """
         }
         
-        description_prompt = description_prompts[role]
+        description_prompt = description_prompts['000']
  
         prompt = f"""
             #Processus
@@ -180,7 +180,7 @@ def ai():
             400 - du calcul / plan d'action amendé par le Stress Manager
             500 - plan d'action final validé par le Quality Manager
 
-            Vous supportez le role de l'étape {000} et devez rédiger de la facon la plus explicite en prenant
+            Vous supportez le role de l'étape {role} et devez rédiger de la facon la plus explicite en prenant
             les exemples fournis et la documentation technique.
 
             #Exemples et documentation technique:
