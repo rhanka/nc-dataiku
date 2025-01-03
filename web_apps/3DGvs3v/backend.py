@@ -79,7 +79,7 @@ def ai():
 
     roles = ["000", "100", "200", "300", "400", "500"]
     
-    role = messages[-1]["text"] if messages[-1]["role"] in roles else "000"
+    role = messages[-1]["role"] if messages[-1] and (messages[-1]["role"] in roles) else "000"
     
     user_message = messages[-1]["text"]
     
