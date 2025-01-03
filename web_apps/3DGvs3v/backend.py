@@ -223,7 +223,7 @@ def ai():
                 "label": response_content['label'],
                 "description": response_content['description'],
                 "sources": search_results,
-                "user_query": user_request
+                "user_query": user_request,
                 "knowledge_query": query,
                 "role": "ai"
             }
