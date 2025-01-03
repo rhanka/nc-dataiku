@@ -97,8 +97,11 @@ def ai():
         You're supporting the role for {role} and rely on the knowledge from the A220 technical 
         doc and non conformity knowledge base (vector databases). You must provide an optimized expanded 
         prompt towards those langchain vector databases to enable the best retrieval given the user input. 
-        The expansion should only concern specificity of the domain vocabulary and should not include any word
-        about the processus itself (like non-conformity, words not relative to {role} itself).
+        The expansion should only concern specificity of the domain (eg variants for wings or fuel) vocabulary and should NOT include any word
+        about the processus itself (like non-conformity, words not relative to the process itself and especialy not
+        further steps beyon {role} itself).
+        Avoid too generic words like system integrity operations, efficiency, standards, component, procedure, failure,
+        repair, troubleshooting.
         
         Format of the output: Please just provide a liste of words for vectord db query in engish without any comment to be reused as is. 
         Optimal request should be between 10 and 20 words
@@ -116,7 +119,7 @@ def ai():
     resp = completion.execute()
     
     if resp.success:
-        query = resp.text
+        query = f"task {role} for {resp.text}"
         
         try:
             # 2nd step : gather documents relative to query
@@ -191,8 +194,9 @@ def ai():
             le titre selon les instruction de l'utilisateur, en maintenant un rôle de conseil vis à vis des exemples et
             de la documentation technique.
             Ne pas empiéter sur les rôles autres que {role}. Ainsi, a l'étape 000 on se contente de formuler le rapport de
-            description de la non-conformité observée, on ne prend pas les rôles d'analyse et de préconisation ni de calcul
-            des structures. Idem pour 100: on ne fait pas le calcul des structure, on se concentre sur l'analyse.
+            description de la non-conformité observée, on ne prend pas les rôles d'analyse des primary causes ni
+            de préconisation de plan d'action ni d'analyse d'impact ou de calcul des structures. 
+            Idem pour 100: on ne fait pas le calcul des structure, on se concentre sur l'analyse.
 
 
 
