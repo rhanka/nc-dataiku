@@ -149,7 +149,23 @@ def ai():
 
     
         # 3rd step : give the best advice given the documents
-        
+        description_prompt = {
+            "000": """La description doit contenir les section suivantes (rappel: en anglais, toujours et en markdown):
+            - Designation: numéro de série de l'avion (MSN5020...), zone sur l'avion, code ATA, numério de pièce, date
+            - Observation : Description factuelle de la non-conformité (sans jugement ou interprétation), avec des références aux documents de fabrication et/ou d’assemblage pertinents.
+            - Root Cause: Cause identifiée de la non-conformité, ou mention « inconnue » si non déterminée.
+            - Dimensions: Mesures (système métrique) caractérisant la non-conformité.
+            - References: Lien vers les documents de référence (fabrication et/ou assemblage liés).
+            A cette étape, la description ne contient ni l'analyse, ni la classification, ni la résolution ou plan d'action correctif.
+            """,
+            "100": """La description doit contenir les section suivantes (rappel: en anglais, toujours et en markdown):
+            - Synthesis: Synthèse de l’analyse pour l’ATA concerné.
+            - Subtasks demands: Demandes d’analyses supplémentaires (Tâches 101, 102, etc.) pour les ATA tiers impactés si nécessaire.
+            - Classification: Classification de la non-conformité (T, C, R, etc.) selon son importance.
+            - Resolution: Description de la solution retenue pour mettre en conformité (réparation, remplacement, etc.).
+            - References: Lien vers les documents de référence (fabrication et/ou assemblage liés).
+            """
+        }
  
         prompt = f"""
             #Processus
