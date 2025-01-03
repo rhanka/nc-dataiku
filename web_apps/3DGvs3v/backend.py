@@ -245,17 +245,28 @@ def ai():
         
         # Vérifier le succès de la réponse
         if resp.success:
-            response_content = json.loads(resp.text)
-            deep_chat_response = {
-                "text": response_content['comment'],
-                "label": response_content['label'],
-                "description": response_content['description'],
-                "sources": search_results,
-                "user_query": user_message,
-                "knowledge_query": query,
-                "role": "ai"
-            }
-            return json.dumps(deep_chat_response)
+            try:
+                response_content = json.loads(resp.text)
+                deep_chat_response = {
+                    "text": response_content['comment'],
+                    "label": response_content['label'],
+                    "description": response_content['description'],
+                    "sources": search_results,
+                    "user_query": user_message,
+                    "knowledge_query": query,
+                    "role": "ai"
+                }
+                return json.dumps(deep_chat_response)
+            except:
+                deep_chat_response = {
+                    "text": f"I couldn't update the form: \n{resp.text}",
+                    "sources": search_results,
+                    "user_query": user_message,
+                    "knowledge_query": query,
+                    "role": "ai"
+                }
+                return json.dumps(deep_chat_response)
+
         else:
             # En cas d'échec du modèle, retourner une réponse d'erreur
             deep_chat_response = { "text": "I'm sorry, I couldn't process your request.", error: "500" }
