@@ -251,7 +251,8 @@ def ai():
                 "sources": search_results,
                 "user_query": user_message,
                 "knowledge_query": query,
-                "role": "ai"
+                "role": "ai",
+                "user_role": role
             }
             return json.dumps(deep_chat_response)
         else:
