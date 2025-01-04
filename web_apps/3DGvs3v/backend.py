@@ -6,7 +6,7 @@ import json
 from langchain.chains.question_answering import load_qa_chain
 from dataiku.langchain.dku_llm import DKULLM, DKUChatLLM
 
-CORS(app, resources={r"/*": {"origins": "https://svelte.dev"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/nc')
 def non_conformities():
