@@ -1,6 +1,6 @@
 import dataiku
 import pandas as pd
-from flask import request
+from flask import request, Response
 from flask_cors import CORS
 import json
 from langchain.chains.question_answering import load_qa_chain
