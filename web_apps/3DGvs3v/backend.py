@@ -8,6 +8,33 @@ from dataiku.langchain.dku_llm import DKULLM, DKUChatLLM
 
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+
+@app.route('/doc/<filename>', methods=['GET'])
+def get_doc(filename):
+    """
+    Serve a PDF file from a folder dataset based on the filename.
+    """
+    try:
+        # Replace "pdf_folder_dataset" with the actual folder dataset name
+        folder = dataiku.Folder("SoQWOnhR")
+        folder_path = folder.get_path()
+
+        # Build the file path
+        file_path = f"{folder_path}/{filename}"
+
+        # Serve the file if it exists
+        with open(file_path, 'rb') as pdf_file:
+            return Response(
+                pdf_file.read(),
+                mimetype='application/pdf',
+                headers={"Content-Disposition": f"inline; filename={filename}"}
+            )
+    except FileNotFoundError:
+        return json.dumps({"error": f"File {filename} not found."}), 404
+    except Exception as e:
+        return json.dumps({"error": f"An error occurred: {str(e)}"}), 500
+
+
 @app.route('/nc')
 def non_conformities():
     # Récupération des arguments de requête
