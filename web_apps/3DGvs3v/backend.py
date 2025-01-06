@@ -178,7 +178,7 @@ def ai():
         # 3rd step : give the best advice given the documents
         description_prompts = {
             "000": """La description doit contenir les section suivantes (rappel: en anglais, toujours et en markdown):
-            - Designation: numéro de série de l'avion (MSN5020...), zone sur l'avion, code ATA, numério de pièce, date
+            - Designation: numéro de série de l'avion (MSN5020...), zone sur l'avion, code ATA consistant avec la zone, numério de pièce, date
             - Observation : Description factuelle de la non-conformité (sans jugement ou interprétation), avec des références aux documents de fabrication et/ou d’assemblage pertinents.
             - Root Cause: Cause identifiée de la non-conformité, ou mention « inconnue » si non déterminée.
             - Dimensions: Mesures (système métrique) caractérisant la non-conformité.
