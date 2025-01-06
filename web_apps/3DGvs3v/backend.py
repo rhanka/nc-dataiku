@@ -154,16 +154,17 @@ def ai():
             search_results = [
                 result
                 for key, value in vector_stores.items() 
-                for result in value.similarity_search(query, k = 10)
+                for result in value.similarity_search_with_relevance_scores(query, k = 10)
             ]
             
             search_results = [
                     {
-                        "doc": s.metadata['doc'],
-                        "chunk_id": s.metadata['chunk_id'],
-                        "chunk": s.page_content
+                        "doc": doc.metadata['doc'],
+                        "chunk_id": doc.metadata['chunk_id'],
+                        "relevance_score": score,
+                        "chunk": doc.page_content
                     }
-                    for s in search_results
+                    for doc, score in search_results
                 ]
 
         except Exception as e:
