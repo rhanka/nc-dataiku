@@ -84,7 +84,10 @@ vector_stores = {
     key: value.as_langchain_vectorstore()
     for key, value in KBs.items()
 }
-k = 10 # number of docs to retrive
+k = {
+    "tech_docs": 40,
+    "non_conformities": 20
+} # number of docs to retrive
 # Create and run a completion query
 
 #langchain_llm = DKUChatLLM(llm_id=LLM_ID, temperature=0)
@@ -154,7 +157,7 @@ def ai():
             search_results = [
                 result
                 for key, value in vector_stores.items() 
-                for result in value.similarity_search_with_relevance_scores(query, k = 10)
+                for result in value.similarity_search_with_relevance_scores(query, k = k[key])
             ]
             
             search_results = [
