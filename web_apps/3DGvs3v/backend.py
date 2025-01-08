@@ -319,6 +319,8 @@ def ai():
 # Base de données simulée (dictionnaire)
 users = { MY_APP_USERNAME: MY_APP_PASSWORD}
 
+app.logger.info(users)
+
 # Route d'inscription
 @app.route('/register', methods=['POST'])
 def register():
