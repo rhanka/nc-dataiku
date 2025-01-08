@@ -11,6 +11,15 @@ from langchain.chains.question_answering import load_qa_chain
 from dataiku.langchain.dku_llm import DKULLM, DKUChatLLM
 
 
+client = dataiku.api_client()
+project = client.get_default_project()
+auth_info = client.get_auth_info(with_secrets=True)
+secret_value = None
+for secret in auth_info["secrets"]:
+        if secret["key"] == "credential-for-my-api":
+                secret_value = secret["JWT_SECRET_KEY"]
+                break
+
 if not secret_value:
         raise Exception("secret not found")
         
@@ -79,8 +88,6 @@ KB_IDs = {
 }
 
 # Create a handle for the LLM of your choice
-client = dataiku.api_client()
-project = client.get_default_project()
 llm = project.get_llm(LLM_ID)
 
 
@@ -302,17 +309,9 @@ def ai():
             deep_chat_response = { "text": "I'm sorry, I couldn't process your request.", error: "500" }
             return json.dumps(deep_chat_response), 500
         
-auth_info = client.get_auth_info(with_secrets=True)
-secret_value = None
-for secret in auth_info["secrets"]:
-        if secret["key"] == "credential-for-my-api":
-                secret_value = secret["JWT_SECRET_KEY"]
-                break
-        
+
 # Base de données simulée (dictionnaire)
 users = {}
-
-
 
 # Route d'inscription
 @app.route('/register', methods=['POST'])
