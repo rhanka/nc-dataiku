@@ -16,8 +16,8 @@ project = client.get_default_project()
 auth_info = client.get_auth_info(with_secrets=True)
 secret_value = None
 for secret in auth_info["secrets"]:
-    if secret["key"] == "credential-for-my-api":
-        secret_value = secret["JWT_SECRET_KEY"]
+    if secret["key"] == "JWT_SECRET_KEY":
+        secret_value = secret["value"]
         break
 
 if not secret_value:
