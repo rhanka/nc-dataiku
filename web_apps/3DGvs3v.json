@@ -16,6 +16,7 @@
       "jquery",
       "dataiku"
     ],
+    "runAs": "fabien.antoine@cgi.com",
     "infra": {
       "containerSelection": {
         "containerMode": "INHERIT"
@@ -43,7 +44,7 @@
   },
   "config": {},
   "name": "Synth-data-API",
-  "apiKey": "e:AES:X2:CHQ3L165LhEbwyeRDsBowc+CYd0RxHvbB/xjQG+yFTgqfkeIVQrq6BRqzwdLBYzGCYCKNWAtZpuNcPHmsgNt23nn0fRH/0+ROeblfIWo7Pz6U6PHIxAn",
+  "apiKey": "e:AES:X2:ALRu9vdegqTJEPiKu3qeeS5/WZ9rJoo898PvScHX6ehaoGE8QpQATwpvMnJyxFV+otj9Hl4qjRzYm+e51lXfxQnUFZ1+T8Q8PKB3xAOfuz6aKwnujPHx",
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {

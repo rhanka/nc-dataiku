@@ -1,12 +1,28 @@
 import dataiku
 import pandas as pd
-from flask import request, Response
+from flask import request, Response, jsonify
 from flask_cors import CORS
+from flask_jwt_extended import (
+    JWTManager, create_access_token, create_refresh_token, jwt_required, get_jwt_identity
+)
+from werkzeug.security import generate_password_hash, check_password_hash
 import json
 from langchain.chains.question_answering import load_qa_chain
 from dataiku.langchain.dku_llm import DKULLM, DKUChatLLM
 
+auth_info = client.get_auth_info(with_secrets=True)
+secret_value = None
+for secret in auth_info["secrets"]:
+        if secret["key"] == "credential-for-my-api":
+                secret_value = secret["JWT_SECRET_KEY"]
+                break
+
+if not secret_value:
+        raise Exception("secret not found")
+        
 CORS(app, resources={r"/*": {"origins": "*"}})
+app.config['JWT_SECRET_KEY'] = secret_value
+jwt = JWTManager(app)
 
 
 @app.route('/doc/<filename>', methods=['GET'])
@@ -291,3 +307,52 @@ def ai():
             # En cas d'échec du modèle, retourner une réponse d'erreur
             deep_chat_response = { "text": "I'm sorry, I couldn't process your request.", error: "500" }
             return json.dumps(deep_chat_response), 500
+        
+
+# Base de données simulée (dictionnaire)
+users = {}
+
+# Route d'inscription
+@app.route('/register', methods=['POST'])
+def register():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+
+    if username in users:
+        return jsonify({"message": "User already exists"}), 400
+
+    # Hachage du mot de passe
+    hashed_password = generate_password_hash(password)
+    users[username] = hashed_password
+    return jsonify({"message": "User registered successfully"}), 201
+
+# Route de connexion
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+
+    if username not in users or not check_password_hash(users[username], password):
+        return jsonify({"message": "Invalid credentials"}), 401
+
+    # Génération du token JWT
+    access_token = create_access_token(identity=username)
+    refresh_token = create_refresh_token(identity=username)
+    return jsonify(access_token=access_token, refresh_token=refresh_token), 200
+
+# Route pour accéder aux ressources protégées
+@app.route('/protected', methods=['GET'])
+@jwt_required()
+def protected():
+    current_user = get_jwt_identity()
+    return jsonify({"message": f"Welcome {current_user}!"}), 200
+
+# Route pour rafraîchir le token
+@app.route('/refresh', methods=['POST'])
+@jwt_required(refresh=True)
+def refresh():
+    current_user = get_jwt_identity()
+    new_access_token = create_access_token(identity=current_user)
+    return jsonify(access_token=new_access_token), 200
