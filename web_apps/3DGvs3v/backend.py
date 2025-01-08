@@ -14,17 +14,23 @@ from dataiku.langchain.dku_llm import DKULLM, DKUChatLLM
 client = dataiku.api_client()
 project = client.get_default_project()
 auth_info = client.get_auth_info(with_secrets=True)
-secret_value = None
+JWT_SECRET_KEY = None
+MY_APP_USERNAME = None
+MY_APP_PASSWORD = None
 for secret in auth_info["secrets"]:
     if secret["key"] == "JWT_SECRET_KEY":
-        secret_value = secret["value"]
-        break
+        JWT_SECRET_KEY = secret["value"]
+    elif secret["key"] == "MY_APP_USERNAME":
+        MY_APP_USERNAME = secret["value"]
+    elif secret["key"] == "MY_APP_PASSWORD":
+        MY_APP_PASSWORD = secret["value"]
+        
 
-if not secret_value:
+if not JWT_SECRET_KEY or not MY_APP_USERNAME or not MY_APP_PASSWORD:
         raise Exception("secret not found")
         
 CORS(app, resources={r"/*": {"origins": "*"}})
-app.config['JWT_SECRET_KEY'] = secret_value
+app.config['JWT_SECRET_KEY'] = JWT_SECRET_KEY
 jwt = JWTManager(app)
 
 
@@ -311,7 +317,7 @@ def ai():
         
 
 # Base de données simulée (dictionnaire)
-users = {}
+users = { MY_APP_USERNAME: MY_APP_PASSWORD}
 
 # Route d'inscription
 @app.route('/register', methods=['POST'])
