@@ -317,7 +317,7 @@ def ai():
         
 
 # Base de données simulée (dictionnaire)
-users = { MY_APP_USERNAME: MY_APP_PASSWORD}
+users = { MY_APP_USERNAME: generate_password_hash(MY_APP_PASSWORD)}
 
 app.logger.info(users)
 
