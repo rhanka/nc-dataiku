@@ -339,8 +339,8 @@ def login():
         return jsonify({"message": "Invalid credentials"}), 401
 
     # Génération du token JWT
-    access_token = create_access_token(identity=username)
-    refresh_token = create_refresh_token(identity=username)
+    access_token = create_access_token(identity=str(username))
+    refresh_token = create_refresh_token(identity=str(username))
     return jsonify(access_token=access_token, refresh_token=refresh_token), 200
 
 # Route pour accéder aux ressources protégées
