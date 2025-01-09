@@ -138,7 +138,6 @@ def ai():
     user_message = messages[-1]["text"]
     
     # 1s step: expand query
-    role="000"
     prompt = f"""
             Une non conformité de l'A220 doit être traitée selon le processus suivant :
 
