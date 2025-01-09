@@ -138,60 +138,64 @@ def ai():
     user_message = messages[-1]["text"]
     
     # 1s step: expand query
+    role="000"
     prompt = f"""
-        Une non conformité de l'A220 doit être traitée selon le processus suivant :
-            
-            000 - rapport de non-conformité par le Quality Controler
-            100 - analyse et recommandation / plan d'action par le Design Office
-            200 - validation de l'analyse / plan d'action par le Design Manager
-            300 - calcul de structure lié au plan d'action et recommandation / selon le Stress Office
-            400 - du calcul / plan d'action amendé par le Stress Manager
-            500 - plan d'action final validé par le Quality Manager
-        
-        You're supporting the role for {role} and rely on the knowledge from the A220 technical 
-        doc and non conformity knowledge base (vector databases). You must provide an optimized expanded 
-        prompt towards those langchain vector databases to enable the best retrieval given the user input. 
-        The expansion should only concern specificity of the domain (eg variants for wings or fuel) vocabulary and should NOT include any word
-        about the processus itself (like non-conformity, words not relative to the process itself and especialy not
-        further steps beyon {role} itself).
-        Avoid too generic words like system integrity operations, efficiency, standards, component, procedure, failure,
-        repair, troubleshooting.
-        
-        Format of the output: Please just provide a liste of words for vectord db query in engish without any comment to be reused as is. 
-        Optimal request should be between 10 and 20 words
-        
-        The user is the following:
-        {user_message}
-        
-        
-        Remember to only provide the requested query for the knowledge database without any comment.
-    """
+            Une non conformité de l'A220 doit être traitée selon le processus suivant :
+
+                000 - rapport de non-conformité par le Quality Controler
+                100 - analyse et recommandation / plan d'action par le Design Office
+                200 - validation de l'analyse / plan d'action par le Design Manager
+                300 - calcul de structure lié au plan d'action et recommandation / selon le Stress Office
+                400 - du calcul / plan d'action amendé par le Stress Manager
+                500 - plan d'action final validé par le Quality Manager
+
+            You're supporting the role for {role} and rely on the knowledge from the A220 technical 
+            doc and non conformity knowledge base (vector databases). You must provide an optimized expanded 
+            prompt towards those langchain vector databases to enable the best retrieval given the user input. 
+            The expansion should only concern specificity of the domain (eg variants for wings or fuel) vocabulary and should NOT include any word
+            about the processus itself (like non-conformity, words not relative to the process itself and especialy not
+            further steps beyon {role} itself).
+            Avoid too generic words like system integrity operations, efficiency, standards, component, procedure, failure,
+            repair, troubleshooting.
+
+            Format of the output: Please just provide a liste of words for vectord db query in engish without any comment to be reused as is. 
+            Optimal request should be between 10 and 20 words
+
+            The user is the following:
+            {user_message}
+
+
+            Remember to only provide the requested query for the knowledge database without any comment.
+            If the user request seems not to concern the A220 non-conformity request provide an empty response.
+        """
     llm = project.get_llm(LLM_ID)
     completion = llm.new_completion()
     completion.with_message(prompt)
     completion.settings["temperature"] = 0
     resp = completion.execute()
-    
+
     if resp.success:
-        query = f"task {role} for {resp.text}"
+        query = f"task {role} for {resp.text}" if resp.text else ""
         
         try:
             # 2nd step : gather documents relative to query
-            search_results = [
-                result
-                for key, value in vector_stores.items() 
-                for result in value.similarity_search_with_relevance_scores(query, k = k[key])
-            ]
-            
-            search_results = [
-                    {
-                        "doc": doc.metadata['doc'],
-                        "chunk_id": doc.metadata['chunk_id'],
-                        "relevance_score": score,
-                        "chunk": doc.page_content
-                    }
-                    for doc, score in search_results
+            search_results = []
+            if query:
+                search_results = [
+                    result
+                    for key, value in vector_stores.items() 
+                    for result in value.similarity_search_with_relevance_scores(query, k = k[key])
                 ]
+
+                search_results = [
+                        {
+                            "doc": doc.metadata['doc'],
+                            "chunk_id": doc.metadata['chunk_id'],
+                            "relevance_score": score,
+                            "chunk": doc.page_content
+                        }
+                        for doc, score in search_results
+                    ]
 
         except Exception as e:
             deep_chat_response = {
@@ -202,16 +206,24 @@ def ai():
             return json.dumps(deep_chat_response)
         
 
-    
         # 3rd step : give the best advice given the documents
         description_prompts = {
             "000": """La description doit contenir les section suivantes (rappel: en anglais, toujours et en markdown):
-            - Designation: numéro de série de l'avion (MSN5020...), zone sur l'avion, code ATA consistant avec la zone, numério de pièce, date
-            - Observation : Description factuelle de la non-conformité (sans jugement ou interprétation), avec des références aux documents de fabrication et/ou d’assemblage pertinents.
+            - Designation: 
+                - numéro de série de l'avion ([a préciser] si non retrouvé dans la description) 
+                - zone sur l'avion, 
+                - code ATA consistant avec la zone, sous la forme ATA-NN (code à deux chiffres)
+                - numério de pièce
+                - date
+            - Observation : Description factuelle de la non-conformité (sans jugement ou aucune interprétation), avec des références aux documents de fabrication et/ou d’assemblage pertinents.
             - Root Cause: Cause identifiée de la non-conformité, ou mention « inconnue » si non déterminée.
             - Dimensions: Mesures (système métrique) caractérisant la non-conformité.
             - References: Lien vers les documents de référence (fabrication et/ou assemblage liés).
-            A cette étape, la description ne contient ni l'analyse, ni la classification, ni la résolution ou plan d'action correctif.
+            A cette étape, la description ne contient ni l'analyse, ni la classification, ni la résolution ou plan
+            d'action correctif. Aucune information n'est générée (si une information est manquante, indiquer [à compléter]).
+            La description peut être formalisée à partir des documents technique retrouvés et Non-conformités de référence
+            uniquement, et pas interprétés. Préciser dans le commentaire de réponse le cas échéant qu'aucun document pertinent
+            n'a été retrouvé.
             """,
             "100": """La description doit contenir les section suivantes (rappel: en anglais, toujours et en markdown):
             - Synthesis: Synthèse de l’analyse pour l’ATA concerné.
@@ -221,9 +233,9 @@ def ai():
             - References: Lien vers les documents de référence (fabrication et/ou assemblage liés).
             """
         }
-        
+
         description_prompt = description_prompts[role]
- 
+
         prompt = f"""
             #Processus
             Une non conformité de l'A220 doit être traitée selon le processus suivant :
@@ -238,11 +250,24 @@ def ai():
             Vous supportez le role de l'étape {role} et devez rédiger de la facon la plus explicite en prenant
             les exemples fournis et la documentation technique.
 
-            #Exemples et documentation technique:
+            # Sources: Documentation technique et Non-conformités historiques
+
+            Les sources comportent deux types de documents:
+            - Les non-conformités historiques (NCH) ont un identifiant 'doc' en ATA-XX-xxxxxx...
+            - Les documents technique (DOCT) de référence 'doc' *.md
+            Voici la liste des sources ou références pertinentes retrouvées au format json, avec l'extrait textuel pertinent (chunk).
             {json.dumps(search_results)}
 
             #La requête utilisateur est la suivante:
+            ---------debut de la requête utilisateur--------
             {user_message}
+            -------fin de la requête utilisateur--------
+
+            Note: Eviter de traiter les requêtes utilisateur hors champ de compétence : demande n'ayant rien à voir avec le processus de non-conformité de l'avion A220
+            comme une recette, une préconisation de voyage, ou un problème de lamborghini. Il faut alors couper court et retourner
+            le format minimaliste \\{{ label: ..., description: ..., comment: ...\\}} en fournissant les 'label' et 'description'
+            d'entrée et précisant dans le 'comment' que la requête est hors champ de compétence.
+
 
             #Réponse
             ## Instruction globales du processus
@@ -279,15 +304,23 @@ def ai():
             Format de réponse attendu en json sans autre mise en forme (pas de ```json). Vos commentaires sont fournis
             dans l'item 'comment':
             \\{{ label: ..., description: ..., comment: ...\\}}
-            - 'description' est en markdown. Dans tous les cas, le style reste technique et concis, 
+            - 'description' est en markdown. Dans tous les cas, le style reste technique et concis, sans jugement
             avec une approche plus télégraphique que rédigée de manière complexe (pas de phrases longues 
             ou compliquées). Faire comme dans les exemples, sans ajouter de termes de type "ce rapport précise",
             le rapport sera fourni dans un outil de ticketting, il faut rester concis et précis.
             - label : ne pas mentionner 'A220 Non-Conformity Report', juste le label de la non conformité, 
             comme dans les exemples
-            - comment: fourni le cas échéant en markdwon pour l'interaction en mode canevas avec l'utilisateur {role}
-            
-            ## Spécification complémentaire pour la description
+            - comment: au format markdown multiligne, accompagne l'interaction en mode canevas avec l'utilisateur {role},
+            et justifie l'approche employée pour rédiger les 'label' et 'description', et le cas échéant fournit en plus une synthèse très brève des documents pertinents (# Sources) retrouvés et plus particulierement
+            mentionner la liste des NCH avec leur référence utilisés pour inspirer la description, les références de DOCT
+            le cas échéant, en mentionnant les points particulier, précisant le cas échéant les informations manquantes,
+            ou même l'absence de NCH ou DOCT pertinents dans les sources (si aucune référence ne pas modifier 'label'
+            et 'description' par rapport à l'entrée utilisateur)
+
+            ## Instruction relatives à la description:
+            Eviter de facon global les jugements et improvisations, rester concis et précis. Eviter de répondre si l'on ne
+            trouve pas d'information pertinente (reprendre la description initiale et apporter la mention supra dans le champ
+            'commentaire') et apporter la meilleure modification relative à la demande.
             {description_prompt}
         """
         
