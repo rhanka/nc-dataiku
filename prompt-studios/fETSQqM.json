@@ -76,6 +76,41 @@
       "inlinePromptTemplateQueries": [],
       "tags": [],
       "starred": false
+    },
+    {
+      "id": "qqqd0liifx",
+      "prompt": {
+        "promptMode": "PROMPT_TEMPLATE_TEXT",
+        "promptTemplateInputs": [],
+        "structuredPromptExamples": [],
+        "textPromptTemplateInputs": [
+          {
+            "name": "input",
+            "datasetColumnName": "llm_output",
+            "type": "TEXT"
+          }
+        ],
+        "textPromptTemplate": "{{input}}",
+        "textPromptSystemTemplate": "Recherche dans la base de documentations techniques de l\u0027A220\nIl s\u0027agit de retrouver les non-conformités similaires.\nRepondre en anglais, en markdown",
+        "resultValidation": {
+          "expectedFormat": "NONE",
+          "requiredJSONObjectKeys": [],
+          "forbiddenTerms": []
+        },
+        "promptTemplateQueriesSource": "DATASET"
+      },
+      "llmId": "retrievalaugmented:8jpMQW44:gpt-4o-mini-a220-all-sources",
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      },
+      "llmSettings": {
+        "stopSequences": []
+      },
+      "dataset": "nc_scenarios_query",
+      "nbRows": 8,
+      "inlinePromptTemplateQueries": [],
+      "tags": [],
+      "starred": false
     }
   ],
   "creationTag": {
