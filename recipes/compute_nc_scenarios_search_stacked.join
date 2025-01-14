@@ -6,72 +6,184 @@
       "conditionsMode": "AND",
       "type": "LEFT",
       "outerJoinOnTheLeft": true,
-      "on": []
+      "on": [
+        {
+          "column1": {
+            "name": "nc_event_id",
+            "table": 0
+          },
+          "dateDiffUnit": "DAY",
+          "windowFrom": 0,
+          "column2": {
+            "name": "nc_event_id",
+            "table": 1
+          },
+          "maxMatches": 1,
+          "caseInsensitive": false,
+          "maxDistance": 0,
+          "normalizeText": false,
+          "type": "EQ",
+          "strict": false,
+          "windowTo": 0
+        },
+        {
+          "column1": {
+            "name": "aircraft_model",
+            "table": 0
+          },
+          "dateDiffUnit": "DAY",
+          "windowFrom": 0,
+          "column2": {
+            "name": "aircraft_model",
+            "table": 1
+          },
+          "maxMatches": 1,
+          "caseInsensitive": false,
+          "maxDistance": 0,
+          "normalizeText": false,
+          "type": "EQ",
+          "strict": false,
+          "windowTo": 0
+        },
+        {
+          "column1": {
+            "name": "aircraft_id",
+            "table": 0
+          },
+          "dateDiffUnit": "DAY",
+          "windowFrom": 0,
+          "column2": {
+            "name": "aircraft_id",
+            "table": 1
+          },
+          "maxMatches": 1,
+          "caseInsensitive": false,
+          "maxDistance": 0,
+          "normalizeText": false,
+          "type": "EQ",
+          "strict": false,
+          "windowTo": 0
+        },
+        {
+          "column1": {
+            "name": "zone",
+            "table": 0
+          },
+          "dateDiffUnit": "DAY",
+          "windowFrom": 0,
+          "column2": {
+            "name": "zone",
+            "table": 1
+          },
+          "maxMatches": 1,
+          "caseInsensitive": false,
+          "maxDistance": 0,
+          "normalizeText": false,
+          "type": "EQ",
+          "strict": false,
+          "windowTo": 0
+        },
+        {
+          "column1": {
+            "name": "description",
+            "table": 0
+          },
+          "dateDiffUnit": "DAY",
+          "windowFrom": 0,
+          "column2": {
+            "name": "description",
+            "table": 1
+          },
+          "maxMatches": 1,
+          "caseInsensitive": false,
+          "maxDistance": 0,
+          "normalizeText": false,
+          "type": "EQ",
+          "strict": false,
+          "windowTo": 0
+        }
+      ]
     }
   ],
   "selectedColumns": [
     {
       "name": "nc_event_id",
+      "type": "string",
       "table": 0
     },
     {
       "name": "aircraft_model",
+      "type": "string",
       "table": 0
     },
     {
       "name": "aircraft_id",
+      "type": "string",
       "table": 0
     },
     {
       "name": "zone",
+      "type": "string",
       "table": 0
     },
     {
       "name": "description",
+      "type": "string",
       "table": 0
     },
     {
       "name": "role",
+      "type": "string",
       "table": 0
     },
     {
       "name": "llm_output",
+      "type": "string",
       "table": 0
     },
     {
       "name": "llm_validation_status",
+      "type": "string",
       "table": 0
     },
     {
       "name": "llm_raw_response",
+      "type": "string",
       "table": 0
     },
     {
       "name": "llm_error_message",
+      "type": "string",
       "table": 0
     },
     {
       "name": "llm_raw_query",
+      "type": "string",
       "table": 0
     },
     {
       "name": "llm_output_1",
+      "type": "string",
       "table": 0
     },
     {
       "name": "llm_validation_status_1",
+      "type": "string",
       "table": 0
     },
     {
       "name": "llm_raw_response_1",
+      "type": "string",
       "table": 0
     },
     {
       "name": "llm_error_message_1",
+      "type": "string",
       "table": 0
     },
     {
       "name": "llm_raw_query_1",
+      "type": "string",
       "table": 0
     }
   ],
@@ -115,7 +227,7 @@
   },
   "virtualInputs": [
     {
-      "outputColumnsSelectionMode": "AUTO_NON_CONFLICTING",
+      "outputColumnsSelectionMode": "MANUAL",
       "preFilter": {
         "distinct": false,
         "enabled": false
@@ -125,7 +237,7 @@
       "computedColumns": []
     },
     {
-      "outputColumnsSelectionMode": "AUTO_NON_CONFLICTING",
+      "outputColumnsSelectionMode": "MANUAL",
       "preFilter": {
         "distinct": false,
         "enabled": false
@@ -135,5 +247,80 @@
       "computedColumns": []
     }
   ],
+  "computedColumns": [],
+  "postFilter": {
+    "$status": {
+      "schema": {
+        "columns": [
+          {
+            "name": "nc_event_id",
+            "type": "string"
+          },
+          {
+            "name": "aircraft_model",
+            "type": "string"
+          },
+          {
+            "name": "aircraft_id",
+            "type": "string"
+          },
+          {
+            "name": "zone",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "comment": "rôle pour l\u0027opérateur (ici Quality Controller \u003d 000)",
+            "type": "string"
+          },
+          {
+            "name": "llm_output",
+            "type": "string"
+          },
+          {
+            "name": "llm_validation_status",
+            "type": "string"
+          },
+          {
+            "name": "llm_raw_response",
+            "type": "string"
+          },
+          {
+            "name": "llm_error_message",
+            "type": "string"
+          },
+          {
+            "name": "llm_raw_query",
+            "type": "string"
+          },
+          {
+            "name": "llm_output_1",
+            "type": "string"
+          },
+          {
+            "name": "llm_validation_status_1",
+            "type": "string"
+          },
+          {
+            "name": "llm_raw_response_1",
+            "type": "string"
+          },
+          {
+            "name": "llm_error_message_1",
+            "type": "string"
+          },
+          {
+            "name": "llm_raw_query_1",
+            "type": "string"
+          }
+        ],
+        "userModified": false
+      }
+    }
+  },
   "enableAutoCastInJoinConditions": false
 }
