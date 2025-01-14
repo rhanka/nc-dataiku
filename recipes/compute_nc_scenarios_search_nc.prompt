@@ -1,31 +1,31 @@
 {
+  "associatedPromptStudioPromptId": "jffsj2u4a9",
+  "associatedPromptStudioId": "fETSQqM",
+  "rawQueryOutputMode": "RAW",
+  "completionSettings": {
+    "stopSequences": [],
+    "temperature": 0
+  },
+  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
+  "llmId": "retrievalaugmented:8jpMQW44:gpt-4o-mini-a220-all-sources",
   "prompt": {
-    "promptMode": "PROMPT_TEMPLATE_TEXT",
     "promptTemplateInputs": [],
+    "resultValidation": {
+      "requiredJSONObjectKeys": [],
+      "expectedFormat": "NONE",
+      "forbiddenTerms": []
+    },
+    "promptTemplateQueriesSource": "DATASET",
     "structuredPromptExamples": [],
+    "textPromptTemplate": "{{input}}",
     "textPromptTemplateInputs": [
       {
-        "name": "input",
         "datasetColumnName": "llm_output",
+        "name": "input",
         "type": "TEXT"
       }
     ],
-    "textPromptTemplate": "{{input}}",
     "textPromptSystemTemplate": "Recherche dans la base de non-conformités\nIl s\u0027agit de retrouver les non-conformités similaires.\nRepondre en anglais, en markdown",
-    "resultValidation": {
-      "expectedFormat": "NONE",
-      "requiredJSONObjectKeys": [],
-      "forbiddenTerms": []
-    },
-    "promptTemplateQueriesSource": "DATASET"
-  },
-  "associatedPromptStudioId": "fETSQqM",
-  "associatedPromptStudioPromptId": "jffsj2u4a9",
-  "rawQueryOutputMode": "RAW",
-  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "completionSettings": {
-    "temperature": 0.0,
-    "stopSequences": []
-  },
-  "llmId": "retrievalaugmented:8jpMQW44:gpt-4o-mini-a220-all-sources"
+    "promptMode": "PROMPT_TEMPLATE_TEXT"
+  }
 }

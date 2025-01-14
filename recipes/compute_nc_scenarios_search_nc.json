@@ -24,7 +24,12 @@
       ]
     },
     "model": {
-      "items": []
+      "items": [
+        {
+          "ref": "8jpMQW44",
+          "deps": []
+        }
+      ]
     }
   },
   "outputs": {
