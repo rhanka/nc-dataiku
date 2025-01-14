@@ -5,28 +5,32 @@
       "Airbus A220-200",
       "0070",
       "Revêtement extérieur -Pare-brise droit",
-      "Description du Problème :\nLors du contrôle de qualité du numéro d’avion MSN 0070, une non-conformité a été identifiée concernant le perçage d\u0027une série de rivets sur le revêtement extérieur, sous la glace du pare-brise droit. Un désaffleurement a été mesuré entre -0,20 mm et -0,25 mm, dépassant les tolérances spécifiées dans les normes d\u0027assemblage.\nDétails Techniques :\n•\tLocalisation : Zone en dessous du pare-brise droit\n•\tMesure de Désaffleurement : -0,20 mm à -0,25 mm\n•\tNorme Acceptable : Tolérance maximale de -0,10 mm selon la spécification interne (Réf. SP-2023-078)\n"
+      "Description du Problème :\nLors du contrôle de qualité du numéro d’avion MSN 0070, une non-conformité a été identifiée concernant le perçage d\u0027une série de rivets sur le revêtement extérieur, sous la glace du pare-brise droit. Un désaffleurement a été mesuré entre -0,20 mm et -0,25 mm, dépassant les tolérances spécifiées dans les normes d\u0027assemblage.\nDétails Techniques :\n•\tLocalisation : Zone en dessous du pare-brise droit\n•\tMesure de Désaffleurement : -0,20 mm à -0,25 mm\n•\tNorme Acceptable : Tolérance maximale de -0,10 mm selon la spécification interne (Réf. SP-2023-078)\n",
+      "000"
     ],
     [
       "NC-2024-004",
       "Airbus A220-200",
       "0070",
       "Structure aluminium - Zone C2-2",
-      "Description du Problème :\nLors d’un contrôle qualité sur le numéro d’avion 0070, une non-conformité a été identifiée : une rayure de 10 cm de long et 0,1 cm de profondeur a été observée sur une structure en aluminium dans la zone C2-2. Ce défaut soulève des préoccupations concernant le risque potentiel de corrosion, nécessitant la validation d’un expert pour évaluer l\u0027impact sur l\u0027intégrité structurelle.\nDétails Techniques :\n•\tLocalisation : Zone C2-2, structure en aluminium.\n•\tDimensions de la Rayure : 10 cm de long, 0,1 cm de profondeur.\n•\tNorme Acceptable : Aucun défaut de surface n\u0027est toléré selon les spécifications (Réf. SP-2023-092). \n"
+      "Description du Problème :\nLors d’un contrôle qualité sur le numéro d’avion 0070, une non-conformité a été identifiée : une rayure de 10 cm de long et 0,1 cm de profondeur a été observée sur une structure en aluminium dans la zone C2-2. Ce défaut soulève des préoccupations concernant le risque potentiel de corrosion, nécessitant la validation d’un expert pour évaluer l\u0027impact sur l\u0027intégrité structurelle.\nDétails Techniques :\n•\tLocalisation : Zone C2-2, structure en aluminium.\n•\tDimensions de la Rayure : 10 cm de long, 0,1 cm de profondeur.\n•\tNorme Acceptable : Aucun défaut de surface n\u0027est toléré selon les spécifications (Réf. SP-2023-092). \n",
+      "000"
     ],
     [
       "NC-2024-005",
       "Airbus A220-200",
       "0070",
       "Système de carburant - Réservoir principal aile gauche",
-      "Description du Problème :\nLors des tests de débit effectués sur le réservoir principal de l\u0027aile gauche du numéro d’avion 0070, une non-conformité a été identifiée : un débit faible a été mesuré au niveau de la crépine d’aspiration. Ce problème pourrait compromettre l\u0027alimentation en carburant et nécessite une investigation approfondie pour évaluer les causes et les impacts.\nDétails Techniques :\n•\tLocalisation : Réservoir principal aile gauche.\n•\tProblème identifié : Débit faible de la crépine d\u0027aspiration.\n•\tNorme Acceptable : Débit minimum requis selon la spécification interne (Réf. SP-2023-101).\n"
+      "Description du Problème :\nLors des tests de débit effectués sur le réservoir principal de l\u0027aile gauche du numéro d’avion 0070, une non-conformité a été identifiée : un débit faible a été mesuré au niveau de la crépine d’aspiration. Ce problème pourrait compromettre l\u0027alimentation en carburant et nécessite une investigation approfondie pour évaluer les causes et les impacts.\nDétails Techniques :\n•\tLocalisation : Réservoir principal aile gauche.\n•\tProblème identifié : Débit faible de la crépine d\u0027aspiration.\n•\tNorme Acceptable : Débit minimum requis selon la spécification interne (Réf. SP-2023-101).\n",
+      "000"
     ],
     [
       "NC-2024-006",
       "Airbus A220-200",
       "0070",
       "Système de décharge électrostatique - Réservoir secondaire aile droit",
-      "Description du Problème :\nLors de l\u0027inspection des systèmes de décharge électrostatique du numéro d’avion 0070, une non-conformité a été détectée concernant la conductivité des fils de décharge électrostatique entre le tuyau et la structure au niveau du réservoir secondaire de l’aile droite. Les tests ont révélé des valeurs de conductivité supérieures aux tolérances spécifiées, ce qui pourrait compromettre l\u0027efficacité du système.\nDétails Techniques :\n•\tLocalisation : Réservoir secondaire aile droite.\n•\tProblème identifié : Conductivité des fils de décharge électrostatique non conforme.\n•\tNorme Acceptable : Conductivité requise selon la spécification interne (Réf. SP-2023-115).\n"
+      "Description du Problème :\nLors de l\u0027inspection des systèmes de décharge électrostatique du numéro d’avion 0070, une non-conformité a été détectée concernant la conductivité des fils de décharge électrostatique entre le tuyau et la structure au niveau du réservoir secondaire de l’aile droite. Les tests ont révélé des valeurs de conductivité supérieures aux tolérances spécifiées, ce qui pourrait compromettre l\u0027efficacité du système.\nDétails Techniques :\n•\tLocalisation : Réservoir secondaire aile droite.\n•\tProblème identifié : Conductivité des fils de décharge électrostatique non conforme.\n•\tNorme Acceptable : Conductivité requise selon la spécification interne (Réf. SP-2023-115).\n",
+      "000"
     ]
   ],
   "schema": {
@@ -35,7 +39,8 @@
       {"name":"aircraft_model","type":"string"},
       {"name":"aircraft_id","type":"string"},
       {"name":"zone","type":"string"},
-      {"name":"description","type":"string"}
+      {"name":"description","type":"string"},
+      {"name":"role","type":"string","comment":"rôle pour l\u0027opérateur (ici Quality Controller \u003d 000)"}
     ],
     "userModified": false
   }

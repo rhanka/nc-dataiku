@@ -57,7 +57,8 @@
       {"name":"aircraft_model","type":"string"},
       {"name":"aircraft_id","type":"string"},
       {"name":"zone","type":"string"},
-      {"name":"description","type":"string"}
+      {"name":"description","type":"string"},
+      {"name":"role","type":"string","comment":"rôle pour l\u0027opérateur (ici Quality Controller \u003d 000)"}
     ],
     "userModified": true
   },
