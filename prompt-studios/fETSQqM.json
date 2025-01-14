@@ -99,7 +99,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "retrievalaugmented:8jpMQW44:gpt-4o-mini-a220-all-sources",
+      "llmId": "retrievalaugmented:zQ92IhQ9:gpt-4o-mini-a220-tech-docs",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
