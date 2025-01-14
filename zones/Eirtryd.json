@@ -17,6 +17,14 @@
     {
       "objectId": "compute_nc_scenarios_query",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_nc_scenarios_search_techdocs",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "nc_scenarios_search_techdocs",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
