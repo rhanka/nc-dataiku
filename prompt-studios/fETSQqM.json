@@ -1,6 +1,41 @@
 {
   "name": "Prompts for application",
-  "prompts": [],
+  "prompts": [
+    {
+      "id": "441rcri8ig",
+      "prompt": {
+        "promptMode": "PROMPT_TEMPLATE_TEXT",
+        "promptTemplateInputs": [],
+        "structuredPromptExamples": [],
+        "textPromptTemplateInputs": [
+          {
+            "name": "role",
+            "type": "TEXT"
+          }
+        ],
+        "textPromptTemplate": "Une non conformité de l\u0027A220 doit être traitée selon le processus suivant :\n\n                000 - rapport de non-conformité par le Quality Controler\n                100 - analyse et recommandation / plan d\u0027action par le Design Office\n                200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n                300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n                400 - du calcul / plan d\u0027action amendé par le Stress Manager\n                500 - plan d\u0027action final validé par le Quality Manager\n\nVous supportez You\u0027re supporting the role for {{role}} and rely on the knowledge from the A220 technical \n            doc and non conformity knowledge base (vector databases). You must provide an optimized expanded \n            prompt towards those langchain vector databases to enable the best retrieval given the user input. \n            The expansion should only concern specificity of the domain (eg variants for wings or fuel) vocabulary and should NOT include any word\n            about the processus itself (like non-conformity, words not relative to the process itself and especialy not\n            further steps beyon {role} itself).\n            Avoid too generic words like system integrity operations, efficiency, standards, component, procedure, failure,\n            repair, troubleshooting.\n\n            Format of the output: Please just provide a liste of words for vectord db query in engish without any comment to be reused as is. \n            Optimal request should be between 10 and 20 words\n\n            The user is the following:\n            {user_message}\n\n\n            Remember to only provide the requested query for the knowledge database without any comment.\n            If the user request seems not to concern the A220 non-conformity request provide an empty response.",
+        "textPromptSystemTemplate": "",
+        "resultValidation": {
+          "expectedFormat": "NONE",
+          "requiredJSONObjectKeys": [],
+          "forbiddenTerms": []
+        },
+        "promptTemplateQueriesSource": "DATASET"
+      },
+      "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      },
+      "llmSettings": {
+        "stopSequences": []
+      },
+      "dataset": "nc_scenarios_test",
+      "nbRows": 8,
+      "inlinePromptTemplateQueries": [],
+      "tags": [],
+      "starred": false
+    }
+  ],
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
