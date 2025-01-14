@@ -19,7 +19,7 @@
             "type": "TEXT"
           }
         ],
-        "textPromptTemplate": "Vous soutenez le rôle de {{role}} et vous vous appuyez sur les connaissances de la documentation technique A220 et de la base de connaissances sur la non-conformité (bases de données vectorielles type RAG). L\u0027utilisateur va fournir une description, et vous devez à partir de cette description extraire les terme techniques pertinents afin de fournir un prompt optimisé vers ces bases RAG afin de permettre la meilleure recherche possible compte tenu des données fournies par l\u0027utilisateur. \n\nLe prompt doit etre fourni sous la forme suivante, en anglais\n- role: {{role}}\n- label : synthese de la description\n- label_alt: synthese alternative avec un vocabulaire totalemeent orthogonal (sinon ne pas fournir label_alt)\n- parts: pièces concernées\n- zone: zone de l\u0027avion\n\nLe prompt ne contient pas  la description complète du problème\n\nLa description fournie par l\u0027utilisateur est la suivante:\n{{description}}",
+        "textPromptTemplate": "Prompt Query\n\nVous soutenez le rôle de {{role}} et vous vous appuyez sur les connaissances de la documentation technique A220 et de la base de connaissances sur la non-conformité (bases de données vectorielles type RAG). L\u0027utilisateur va fournir une description, et vous devez à partir de cette description extraire les terme techniques pertinents afin de fournir un prompt optimisé vers ces bases RAG afin de permettre la meilleure recherche possible compte tenu des données fournies par l\u0027utilisateur. \n\nLe prompt doit etre fourni sous la forme suivante, en anglais\n- role: {{role}}\n- label : synthese de la description\n- label_alt: synthese alternative avec un vocabulaire totalemeent orthogonal (sinon ne pas fournir label_alt)\n- parts: pièces concernées\n- zone: zone de l\u0027avion\n\nLe prompt ne contient pas  la description complète du problème\n\nLa description fournie par l\u0027utilisateur est la suivante:\n{{description}}",
         "textPromptSystemTemplate": "",
         "resultValidation": {
           "expectedFormat": "NONE",
@@ -36,6 +36,41 @@
         "stopSequences": []
       },
       "dataset": "nc_scenarios_test",
+      "nbRows": 8,
+      "inlinePromptTemplateQueries": [],
+      "tags": [],
+      "starred": false
+    },
+    {
+      "id": "jffsj2u4a9",
+      "prompt": {
+        "promptMode": "PROMPT_TEMPLATE_TEXT",
+        "promptTemplateInputs": [],
+        "structuredPromptExamples": [],
+        "textPromptTemplateInputs": [
+          {
+            "name": "input",
+            "datasetColumnName": "llm_output",
+            "type": "TEXT"
+          }
+        ],
+        "textPromptTemplate": "{{input}}",
+        "textPromptSystemTemplate": "",
+        "resultValidation": {
+          "expectedFormat": "NONE",
+          "requiredJSONObjectKeys": [],
+          "forbiddenTerms": []
+        },
+        "promptTemplateQueriesSource": "DATASET"
+      },
+      "llmId": "retrievalaugmented:8jpMQW44:gpt-4o-mini-a220-all-sources",
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      },
+      "llmSettings": {
+        "stopSequences": []
+      },
+      "dataset": "nc_scenarios_query",
       "nbRows": 8,
       "inlinePromptTemplateQueries": [],
       "tags": [],
