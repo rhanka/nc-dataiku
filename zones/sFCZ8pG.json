@@ -69,6 +69,14 @@
     {
       "objectId": "8jpMQW44",
       "objectType": "RETRIEVABLE_KNOWLEDGE"
+    },
+    {
+      "objectId": "compute_nc_scenarios_search_techdocs",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "nc_scenarios_search_techdocs",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
