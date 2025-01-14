@@ -3,7 +3,8 @@
   "associatedPromptStudioId": "fETSQqM",
   "rawQueryOutputMode": "RAW",
   "completionSettings": {
-    "stopSequences": []
+    "stopSequences": [],
+    "temperature": 0
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
   "llmId": "retrievalaugmented:8jpMQW44:gpt-4o-mini-a220-all-sources",
