@@ -94,9 +94,9 @@
       {"name":"role","type":"string","comment":"rôle pour l\u0027opérateur (ici Quality Controller \u003d 000)"},
       {"name":"llm_output","type":"string"},
       {"name":"llm_validation_status","type":"string"},
-      {"name":"llm_raw_query","type":"string"},
       {"name":"llm_raw_response","type":"string"},
-      {"name":"llm_error_message","type":"string"}
+      {"name":"llm_error_message","type":"string"},
+      {"name":"llm_raw_query","type":"string"}
     ],
     "userModified": true
   },
