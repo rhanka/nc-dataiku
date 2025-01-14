@@ -52,7 +52,13 @@
     "importSourceType": "NONE"
   },
   "schema": {
-    "columns": [],
+    "columns": [
+      {"name":"nc_event_id","type":"string"},
+      {"name":"aircraft_model","type":"string"},
+      {"name":"aircraft_id","type":"string"},
+      {"name":"zone","type":"string"},
+      {"name":"description","type":"string"}
+    ],
     "userModified": true
   },
   "dkuProperties": [],
