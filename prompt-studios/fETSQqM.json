@@ -54,8 +54,8 @@
             "type": "TEXT"
           }
         ],
-        "textPromptTemplate": "Reponds en anglais si tu as trouvé des résultats proches dans la liste des non conformité selon le prompt suivant. Le cas échéant fourni une description des documents les plus pertinents\nSi tu ne trouve rien de perinent, réponds \"No relevant documents found\".\n\nPormpt:\n{{input}}",
-        "textPromptSystemTemplate": "",
+        "textPromptTemplate": "{{input}}",
+        "textPromptSystemTemplate": "Recherche dans la base de non-conformités\nIl s\u0027agit de retrouver les non-conformités similaires.\nRepondre en anglais",
         "resultValidation": {
           "expectedFormat": "NONE",
           "requiredJSONObjectKeys": [],
