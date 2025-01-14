@@ -61,6 +61,10 @@
     {
       "objectId": "compute_NC_types_by_ATA_bis",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "nc_scenarios_tests",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
