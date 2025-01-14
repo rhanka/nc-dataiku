@@ -138,53 +138,21 @@
     },
     {
       "name": "llm_output",
-      "type": "string",
-      "table": 0
-    },
-    {
-      "name": "llm_validation_status",
-      "type": "string",
-      "table": 0
-    },
-    {
-      "name": "llm_raw_response",
-      "type": "string",
-      "table": 0
-    },
-    {
-      "name": "llm_error_message",
-      "type": "string",
-      "table": 0
-    },
-    {
-      "name": "llm_raw_query",
+      "alias": "query",
       "type": "string",
       "table": 0
     },
     {
       "name": "llm_output_1",
+      "alias": "search_nc",
       "type": "string",
       "table": 0
     },
     {
-      "name": "llm_validation_status_1",
+      "name": "llm_output_1",
+      "alias": "search_docs",
       "type": "string",
-      "table": 0
-    },
-    {
-      "name": "llm_raw_response_1",
-      "type": "string",
-      "table": 0
-    },
-    {
-      "name": "llm_error_message_1",
-      "type": "string",
-      "table": 0
-    },
-    {
-      "name": "llm_raw_query_1",
-      "type": "string",
-      "table": 0
+      "table": 1
     }
   ],
   "resolvedSelectedColumns": [],
@@ -278,43 +246,15 @@
             "type": "string"
           },
           {
-            "name": "llm_output",
+            "name": "query",
             "type": "string"
           },
           {
-            "name": "llm_validation_status",
+            "name": "search_nc",
             "type": "string"
           },
           {
-            "name": "llm_raw_response",
-            "type": "string"
-          },
-          {
-            "name": "llm_error_message",
-            "type": "string"
-          },
-          {
-            "name": "llm_raw_query",
-            "type": "string"
-          },
-          {
-            "name": "llm_output_1",
-            "type": "string"
-          },
-          {
-            "name": "llm_validation_status_1",
-            "type": "string"
-          },
-          {
-            "name": "llm_raw_response_1",
-            "type": "string"
-          },
-          {
-            "name": "llm_error_message_1",
-            "type": "string"
-          },
-          {
-            "name": "llm_raw_query_1",
+            "name": "search_docs",
             "type": "string"
           }
         ],
