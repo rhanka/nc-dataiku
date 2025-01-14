@@ -25,6 +25,14 @@
     {
       "objectId": "nc_scenarios_search_techdocs",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_nc_scenarios_search_stacked",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "nc_scenarios_search_stacked",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],

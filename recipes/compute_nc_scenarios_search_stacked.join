@@ -1,0 +1,139 @@
+{
+  "joins": [
+    {
+      "table2": 1,
+      "table1": 0,
+      "conditionsMode": "AND",
+      "type": "LEFT",
+      "outerJoinOnTheLeft": true,
+      "on": []
+    }
+  ],
+  "selectedColumns": [
+    {
+      "name": "nc_event_id",
+      "table": 0
+    },
+    {
+      "name": "aircraft_model",
+      "table": 0
+    },
+    {
+      "name": "aircraft_id",
+      "table": 0
+    },
+    {
+      "name": "zone",
+      "table": 0
+    },
+    {
+      "name": "description",
+      "table": 0
+    },
+    {
+      "name": "role",
+      "table": 0
+    },
+    {
+      "name": "llm_output",
+      "table": 0
+    },
+    {
+      "name": "llm_validation_status",
+      "table": 0
+    },
+    {
+      "name": "llm_raw_response",
+      "table": 0
+    },
+    {
+      "name": "llm_error_message",
+      "table": 0
+    },
+    {
+      "name": "llm_raw_query",
+      "table": 0
+    },
+    {
+      "name": "llm_output_1",
+      "table": 0
+    },
+    {
+      "name": "llm_validation_status_1",
+      "table": 0
+    },
+    {
+      "name": "llm_raw_response_1",
+      "table": 0
+    },
+    {
+      "name": "llm_error_message_1",
+      "table": 0
+    },
+    {
+      "name": "llm_raw_query_1",
+      "table": 0
+    }
+  ],
+  "resolvedSelectedColumns": [],
+  "engineParams": {
+    "hive": {
+      "skipPrerunValidate": false,
+      "hiveconf": [],
+      "inheritConf": "default",
+      "addDkuUdf": false,
+      "executionEngine": "HIVESERVER2"
+    },
+    "sqlPipelineParams": {
+      "pipelineAllowMerge": true,
+      "pipelineAllowStart": true
+    },
+    "impala": {
+      "forceStreamMode": true
+    },
+    "containerSelection": {
+      "containerMode": "INHERIT"
+    },
+    "lowerCaseSchemaIfEngineRequiresIt": true,
+    "sparkSQL": {
+      "skipPrerunValidate": false,
+      "pipelineAllowMerge": true,
+      "useGlobalMetastore": false,
+      "pipelineAllowStart": true,
+      "readParams": {
+        "mode": "AUTO",
+        "autoModeRepartitionInto": 10,
+        "map": {}
+      },
+      "overwriteOutputSchema": false,
+      "executionEngine": "SPARK_SUBMIT",
+      "sparkConfig": {
+        "inheritConf": "default",
+        "conf": []
+      }
+    }
+  },
+  "virtualInputs": [
+    {
+      "outputColumnsSelectionMode": "AUTO_NON_CONFLICTING",
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "originLabel": "nc_scenarios_search_nc",
+      "index": 0,
+      "computedColumns": []
+    },
+    {
+      "outputColumnsSelectionMode": "AUTO_NON_CONFLICTING",
+      "preFilter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "originLabel": "nc_scenarios_search_techdocs",
+      "index": 1,
+      "computedColumns": []
+    }
+  ],
+  "enableAutoCastInJoinConditions": false
+}
