@@ -9,15 +9,17 @@
         "structuredPromptExamples": [],
         "textPromptTemplateInputs": [
           {
-            "name": "rôle",
+            "name": "role",
+            "datasetColumnName": "role",
             "type": "TEXT"
           },
           {
-            "name": "role",
+            "name": "description",
+            "datasetColumnName": "description",
             "type": "TEXT"
           }
         ],
-        "textPromptTemplate": "Vous soutenez le rôle de {{rôle}} et vous vous appuyez sur les connaissances de la documentation technique A220 et de la base de connaissances sur la non-conformité (bases de données vectorielles type RAG). L\u0027utilisateur va fournir une description, et vous devez à partir de cette description extraire les terme techniques pertinents afin de fournir un prompt optimisé vers ces bases RAG afin de permettre la meilleure recherche possible compte tenu des données fournies par l\u0027utilisateur. \n\nLe prompt doit etre fourni sous la forme suivante :\n- role: {{role}}\n- label1 : synthese de la description\n- label2: synthese alternative avec un vocabulaire orthogonal \n- parts: pièces concernées\n- zone: zone de l\u0027avion\n\nLe prompt ne contient pas  la description complète du problème",
+        "textPromptTemplate": "Vous soutenez le rôle de {{role}} et vous vous appuyez sur les connaissances de la documentation technique A220 et de la base de connaissances sur la non-conformité (bases de données vectorielles type RAG). L\u0027utilisateur va fournir une description, et vous devez à partir de cette description extraire les terme techniques pertinents afin de fournir un prompt optimisé vers ces bases RAG afin de permettre la meilleure recherche possible compte tenu des données fournies par l\u0027utilisateur. \n\nLe prompt doit etre fourni sous la forme suivante :\n- role: {{role}}\n- label1 : synthese de la description\n- label2: synthese alternative avec un vocabulaire orthogonal \n- parts: pièces concernées\n- zone: zone de l\u0027avion\n\nLe prompt ne contient pas  la description complète du problème\n\nLa description fournie par l\u0027utilisateur est la suivante:\n{{description}}",
         "textPromptSystemTemplate": "",
         "resultValidation": {
           "expectedFormat": "NONE",
