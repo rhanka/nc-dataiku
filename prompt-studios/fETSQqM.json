@@ -54,7 +54,7 @@
             "type": "TEXT"
           }
         ],
-        "textPromptTemplate": "{{input}}",
+        "textPromptTemplate": "Reponds en anglais si tu as trouvé des résultats pertinents dans la liste des non conformité selon le prompt suivant.\nLe cas échéant fourni une description des documents les plus pertinents\n\nPormpt:\n{{input}}",
         "textPromptSystemTemplate": "",
         "resultValidation": {
           "expectedFormat": "NONE",
