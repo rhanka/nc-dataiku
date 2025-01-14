@@ -1,0 +1,30 @@
+{
+  "associatedPromptStudioPromptId": "jffsj2u4a9",
+  "associatedPromptStudioId": "fETSQqM",
+  "rawQueryOutputMode": "RAW",
+  "completionSettings": {
+    "stopSequences": []
+  },
+  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
+  "llmId": "retrievalaugmented:8jpMQW44:gpt-4o-mini-a220-all-sources",
+  "prompt": {
+    "promptTemplateInputs": [],
+    "resultValidation": {
+      "requiredJSONObjectKeys": [],
+      "expectedFormat": "NONE",
+      "forbiddenTerms": []
+    },
+    "promptTemplateQueriesSource": "DATASET",
+    "structuredPromptExamples": [],
+    "textPromptTemplate": "{{input}}",
+    "textPromptTemplateInputs": [
+      {
+        "datasetColumnName": "llm_output",
+        "name": "input",
+        "type": "TEXT"
+      }
+    ],
+    "textPromptSystemTemplate": "Recherche dans la base de non-conformités\nIl s\u0027agit de retrouver les non-conformités similaires.\nRepondre en anglais, en markdown",
+    "promptMode": "PROMPT_TEMPLATE_TEXT"
+  }
+}

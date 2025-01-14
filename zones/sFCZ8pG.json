@@ -77,6 +77,14 @@
     {
       "objectId": "compute_nc_scenarios_query",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_nc_scenarios_search_nc",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "nc_scenarios_search_nc",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
