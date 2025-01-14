@@ -56,7 +56,7 @@
           }
         ],
         "textPromptTemplate": "{{input}}",
-        "textPromptSystemTemplate": "Recherche dans la base de non-conformités\nIl s\u0027agit de retrouver les non-conformités similaires.\nRepondre en anglais",
+        "textPromptSystemTemplate": "Recherche dans la base de non-conformités\nIl s\u0027agit de retrouver les non-conformités similaires.\nRepondre en anglais, en markdown",
         "resultValidation": {
           "expectedFormat": "NONE",
           "requiredJSONObjectKeys": [],
