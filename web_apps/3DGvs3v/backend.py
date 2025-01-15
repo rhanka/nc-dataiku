@@ -163,6 +163,16 @@ def ai():
         "description" : user_message
     })
 
+    return json.dumps({
+        "text": query,
+        "label": "",
+        "description": "",
+        "sources": "",
+        "user_query": "",
+        "knowledge_query": "",
+        "role": "ai",
+        "user_role": role
+    })
     # 2nd step : gather documents relative to query
     search_nc = exec_prompt_recipe(agents["nc_search"], {"input": query})
     search_docs = exec_prompt_recipe(agents["doc_search"], {"input": query})
@@ -175,7 +185,7 @@ def ai():
         "search_nc": json.dumps(search_nc),
         "history": json.dumps(history)
     })
-    deep_chat_response = {
+    return json.dumps({
         "text": response_content['comment'],
         "label": response_content['label'],
         "description": response_content['description'],
@@ -184,8 +194,7 @@ def ai():
         "knowledge_query": query,
         "role": "ai",
         "user_role": role
-    }
-    return json.dumps(deep_chat_response)
+    })
         
 
 # Base de données simulée (dictionnaire)
