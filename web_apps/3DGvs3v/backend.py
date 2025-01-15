@@ -175,7 +175,6 @@ def ai():
         return json.dumps(deep_chat_response)
     except e:
         # En cas d'échec du modèle, retourner une réponse d'erreur
-        app.logger.error(json.dumps(e))
         deep_chat_response = { "text": "I'm sorry, I couldn't process your request.", error: "500" }
         return json.dumps(deep_chat_response), 500
         
