@@ -92,7 +92,7 @@
           }
         ],
         "textPromptTemplate": "{{input}}",
-        "textPromptSystemTemplate": "Recherche dans la base de documentations techniques de l\u0027A220\nIl s\u0027agit de retrouver les documentations techniques pertinentes relatives au problème de la non-conformité (relatives aux pièces ou a la zone, et au label).\nRegroupe les mentions aux même documents en fournissant le cas échéant un résumé des passages pertinents.\nRepondre en anglais, en markdown",
+        "textPromptSystemTemplate": "Recherche dans la base de documentations techniques de l\u0027A220\nIl s\u0027agit de retrouver les documentations techniques pertinentes relatives au problème de la non-conformité (relatives aux pièces ou a la zone, et au label).\nLes documents sont fournits sous le format \"sources\":[{\"doc\": \"...md\", \"chunk\": ..., \"chunk_id\": ...}] .\nfait un group_by \"doc\" concat des \"chunks\" avant de repondre\n\nRepondre ensuite en anglais, en markdown sous la forme suivante:\n- Une phrase concise sans complexité pour décrire la pertinence des documents retrouvés vis-à-vis de la requête\n- En bullet points la liste des trois \"doc\" les plus pertinents, et pour chacun:\n  valeur du champ \"doc\" (doit contenir a la source un .md, a remplacer par .pdf): synthèse concise en une phrase des passages retrouvés, sans phrase complexe",
         "resultValidation": {
           "expectedFormat": "NONE",
           "requiredJSONObjectKeys": [],
