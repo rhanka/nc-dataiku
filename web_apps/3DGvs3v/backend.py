@@ -155,7 +155,7 @@ def ai():
     role = messages[-1]["role"] if messages[-1] and (messages[-1]["role"] in roles) else "000"
     
     user_message = messages[-1]["text"]
-    history = messages[-2]["text"]
+    #history = messages[-2]["text"]
     
     # 1s step: expand query
     query = exec_prompt_recipe(agents["query"], {
