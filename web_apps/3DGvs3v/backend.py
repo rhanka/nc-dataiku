@@ -157,40 +157,35 @@ def ai():
     user_message = messages[-1]["text"]
     history = messages[-2]["text"]
     
-    try:
-        # 1s step: expand query
-        query = exec_prompt_recipe(agents["query"], {
-            "role": role,
-            "description" : user_message
-        })
+    # 1s step: expand query
+    query = exec_prompt_recipe(agents["query"], {
+        "role": role,
+        "description" : user_message
+    })
 
-        # 2nd step : gather documents relative to query
-        search_nc = exec_prompt_recipe(agents["nc_search"], {"input": query})
-        search_docs = exec_prompt_recipe(agents["doc_search"], {"input": query})
+    # 2nd step : gather documents relative to query
+    search_nc = exec_prompt_recipe(agents["nc_search"], {"input": query})
+    search_docs = exec_prompt_recipe(agents["doc_search"], {"input": query})
 
-        # 3rd step : give the best advice given the documents
-        response_content = exec_prompt_recipe(agents[role], {
-            "role": role,
-            "description": user_message,
-            "search_docs": json.dumps(doc_search),
-            "search_nc": json.dumps(search_nc),
-            "history": json.dumps(history)
-        })
-        deep_chat_response = {
-            "text": response_content['comment'],
-            "label": response_content['label'],
-            "description": response_content['description'],
-            "sources": search_results,
-            "user_query": user_message,
-            "knowledge_query": query,
-            "role": "ai",
-            "user_role": role
-        }
-        return json.dumps(deep_chat_response)
-    except e:
-        # En cas d'échec du modèle, retourner une réponse d'erreur
-        deep_chat_response = { "text": "I'm sorry, I couldn't process your request.", error: "500" }
-        return json.dumps(deep_chat_response), 500
+    # 3rd step : give the best advice given the documents
+    response_content = exec_prompt_recipe(agents[role], {
+        "role": role,
+        "description": user_message,
+        "search_docs": json.dumps(doc_search),
+        "search_nc": json.dumps(search_nc),
+        "history": json.dumps(history)
+    })
+    deep_chat_response = {
+        "text": response_content['comment'],
+        "label": response_content['label'],
+        "description": response_content['description'],
+        "sources": search_results,
+        "user_query": user_message,
+        "knowledge_query": query,
+        "role": "ai",
+        "user_role": role
+    }
+    return json.dumps(deep_chat_response)
         
 
 # Base de données simulée (dictionnaire)
