@@ -100,11 +100,11 @@
       {"name":"llm_raw_response","type":"string"},
       {"name":"llm_error_message","type":"string"},
       {"name":"llm_raw_query","type":"string"},
-      {"name":"llm_output","type":"string"},
-      {"name":"llm_validation_status","type":"string"},
-      {"name":"llm_raw_query","type":"string"},
-      {"name":"llm_raw_response","type":"string"},
-      {"name":"llm_error_message","type":"string"}
+      {"name":"llm_output_1","type":"string"},
+      {"name":"llm_validation_status_1","type":"string"},
+      {"name":"llm_raw_response_1","type":"string"},
+      {"name":"llm_error_message_1","type":"string"},
+      {"name":"llm_raw_query_1","type":"string"}
     ],
     "userModified": true
   },
