@@ -97,7 +97,6 @@ KB_IDs = {
 llm = project.get_llm(LLM_ID)
 
 
-
 # Preparing the Knowledge Bank, Vector store and LLM
 KBs = {
     key: dataiku.KnowledgeBank(id=value, project_key=project.project_key)
@@ -115,6 +114,29 @@ k = {
 
 #langchain_llm = DKUChatLLM(llm_id=LLM_ID, temperature=0)
 #chain = load_qa_chain(langchain_llm, chain_type="stuff")
+
+def completion_from_prompt_recipe(recipe_name, inputs):
+    #partial method
+    recipe = project.get_recipe(recipe_name)
+    config = recipe.get_settings().get_json_payload()
+    promptStudioId = { "id": config["associatedPromptStudioId"], "prompt_id": config["associatedPromptStudioPromptId"] }
+    llm_id = config["llmId"]
+    prompt_inputs = config["prompt"]["textPromptTemplateInputs"]
+    system_prompt = config["prompt"]["textPromptSystemTemplate"]
+    user_prompt = config["prompt"]["textPromptTemplate"]
+    temperature = config["completionSettings"]["temperature"]
+    for input_def in prompt_inputs:
+        placeholder = f"{{{{{input_def['name']}}}}}"  # Exemple : {{description}}
+        system_prompt = system_prompt.replace(placeholder, inputs[input_def["name"]])
+        user_prompt = user_prompt.replace(placeholder, inputs[input_def["name"]])
+    llm = project.get_llm(llm_id)
+    completion = llm.new_completion()
+    completion.settings["temperature"] = temperature
+    completion.with_message(system_prompt, role='system')
+    completion.with_message(user_prompt, role='user')
+    return completion
+
+
 
 @app.route('/ai', methods=['POST'])
 def ai():
@@ -138,43 +160,16 @@ def ai():
     user_message = messages[-1]["text"]
     
     # 1s step: expand query
-    prompt = f"""
-            Une non conformité de l'A220 doit être traitée selon le processus suivant :
-
-                000 - rapport de non-conformité par le Quality Controler
-                100 - analyse et recommandation / plan d'action par le Design Office
-                200 - validation de l'analyse / plan d'action par le Design Manager
-                300 - calcul de structure lié au plan d'action et recommandation / selon le Stress Office
-                400 - du calcul / plan d'action amendé par le Stress Manager
-                500 - plan d'action final validé par le Quality Manager
-
-            You're supporting the role for {role} and rely on the knowledge from the A220 technical 
-            doc and non conformity knowledge base (vector databases). You must provide an optimized expanded 
-            prompt towards those langchain vector databases to enable the best retrieval given the user input. 
-            The expansion should only concern specificity of the domain (eg variants for wings or fuel) vocabulary and should NOT include any word
-            about the processus itself (like non-conformity, words not relative to the process itself and especialy not
-            further steps beyon {role} itself).
-            Avoid too generic words like system integrity operations, efficiency, standards, component, procedure, failure,
-            repair, troubleshooting.
-
-            Format of the output: Please just provide a liste of words for vectord db query in engish without any comment to be reused as is. 
-            Optimal request should be between 10 and 20 words
-
-            The user is the following:
-            {user_message}
-
-
-            Remember to only provide the requested query for the knowledge database without any comment.
-            If the user request seems not to concern the A220 non-conformity request provide an empty response.
-        """
-    llm = project.get_llm(LLM_ID)
-    completion = llm.new_completion()
-    completion.with_message(prompt)
-    completion.settings["temperature"] = 0
+    inputs = {
+        "role": role,
+        "description" : user_message
+    }
+    completion = completion_from_prompt_recipe('compute_nc_scenarios_query', inputs)
+    
     resp = completion.execute()
 
     if resp.success:
-        query = f"task {role} for {resp.text}" if resp.text else ""
+        query = resp.text if resp.text else ""
         
         try:
             # 2nd step : gather documents relative to query
