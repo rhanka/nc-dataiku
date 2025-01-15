@@ -163,33 +163,36 @@ def ai():
         "description" : user_message
     })
 
+    # 2nd step : gather documents relative to query
+    sources = {
+        "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
+        "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query})
+    }
+
     return json.dumps({
         "text": query,
         "label": "",
         "description": "",
-        "sources": "",
+        "sources": sources,
         "user_query": "",
         "knowledge_query": "",
         "role": "ai",
         "user_role": role
     })
-    # 2nd step : gather documents relative to query
-    search_nc = exec_prompt_recipe(agents["nc_search"], {"input": query})
-    search_docs = exec_prompt_recipe(agents["doc_search"], {"input": query})
-
+    
     # 3rd step : give the best advice given the documents
     response_content = exec_prompt_recipe(agents[role], {
         "role": role,
         "description": user_message,
-        "search_docs": json.dumps(doc_search),
-        "search_nc": json.dumps(search_nc),
+        "search_docs": json.dumps(sources["tech_docs"]),
+        "search_nc": json.dumps(sources["non_conformities"]),
         "history": json.dumps(history)
     })
     return json.dumps({
         "text": response_content['comment'],
         "label": response_content['label'],
         "description": response_content['description'],
-        "sources": search_results,
+        "sources": sources,
         "user_query": user_message,
         "knowledge_query": query,
         "role": "ai",
