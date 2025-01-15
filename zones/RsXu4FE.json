@@ -17,6 +17,14 @@
     {
       "objectId": "compute_NC_types_random_100_analysis",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_nc_scenarios_propose_100",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "nc_scenarios_propose_100",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],

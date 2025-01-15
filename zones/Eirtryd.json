@@ -33,14 +33,6 @@
     {
       "objectId": "nc_scenarios_search_stacked",
       "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_nc_scenarios_propose_100",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "nc_scenarios_propose_100",
-      "objectType": "DATASET"
     }
   ],
   "shared": [],
