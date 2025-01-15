@@ -155,7 +155,7 @@ def ai():
     role = messages[-1]["role"] if messages[-1] and (messages[-1]["role"] in roles) else "000"
     
     user_message = messages[-1]["text"]
-    #history = messages[-2]["text"]
+    history = {}
     
     # 1s step: expand query
     query = exec_prompt_recipe(agents["query"], {
@@ -167,19 +167,7 @@ def ai():
     sources = {
         "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
         "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query})
-    }
-
-    return json.dumps({
-        "text": query,
-        "label": "",
-        "description": "",
-        "sources": sources,
-        "user_query": user_message,
-        "knowledge_query": query,
-        "role": "ai",
-        "user_role": role
-    })
-        
+    }   
     
     # 3rd step : give the best advice given the documents
     response_content = exec_prompt_recipe(agents[role], {
