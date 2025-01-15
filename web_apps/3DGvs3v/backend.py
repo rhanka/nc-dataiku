@@ -84,38 +84,17 @@ def non_conformities():
     
     return json.dumps(data)
 
-#LLM_ID = "retrievalaugmented:8jpMQW44:gpt-4o-mini-a220-all-sources"
-#LLM_ID = "retrievalaugmented:WnKb6p17:gpt-4o-mini-a220-nc"
-#LLM_ID = "retrievalaugmented:zQ92IhQ9:gpt-4o-mini-a220-tech-docs"
-LLM_ID = "openai:OpenAI-FA:gpt-4o-mini"
-KB_IDs = {
-    "tech_docs": "zQ92IhQ9",
-    "non_conformities": "WnKb6p17"
+agents = {
+    "query": "compute_nc_scenarios_query",
+    "nc_search": "compute_nc_scenarios_search_nc",
+    "doc_search": "compute_nc_scenarios_search_techdocs",
+    "000": "compute_nc_scenarios_propose_000",
+    "propose_000": "compute_nc_scenarios_propose_000",
+    "propose_100": "compute_nc_scenarios_propose_100",
+    "100": "compute_nc_scenarios_propose_100"
 }
 
-# Create a handle for the LLM of your choice
-llm = project.get_llm(LLM_ID)
-
-
-# Preparing the Knowledge Bank, Vector store and LLM
-KBs = {
-    key: dataiku.KnowledgeBank(id=value, project_key=project.project_key)
-    for key, value in KB_IDs.items()
-}
-vector_stores = {
-    key: value.as_langchain_vectorstore()
-    for key, value in KBs.items()
-}
-k = {
-    "tech_docs": 40,
-    "non_conformities": 20
-} # number of docs to retrive
-# Create and run a completion query
-
-#langchain_llm = DKUChatLLM(llm_id=LLM_ID, temperature=0)
-#chain = load_qa_chain(langchain_llm, chain_type="stuff")
-
-def completion_from_prompt_recipe(recipe_name, inputs):
+def exec_prompt_recipe(recipe_name, inputs):
     #partial method
     recipe = project.get_recipe(recipe_name)
     config = recipe.get_settings().get_json_payload()
@@ -134,7 +113,11 @@ def completion_from_prompt_recipe(recipe_name, inputs):
     completion.settings["temperature"] = temperature
     completion.with_message(system_prompt, role='system')
     completion.with_message(user_prompt, role='user')
-    return completion
+    resp = completion.execute()
+    try:
+        return json.loads(resp.text)
+    except:
+        return resp.text
 
 
 
@@ -158,189 +141,43 @@ def ai():
     role = messages[-1]["role"] if messages[-1] and (messages[-1]["role"] in roles) else "000"
     
     user_message = messages[-1]["text"]
+    history = messages[-2]["text"]
     
-    # 1s step: expand query
-    inputs = {
-        "role": role,
-        "description" : user_message
-    }
-    completion = completion_from_prompt_recipe('compute_nc_scenarios_query', inputs)
-    
-    resp = completion.execute()
+    try:
+        # 1s step: expand query
+        query = exec_prompt_recipe(agents["query"], {
+            "role": role,
+            "description" : user_message
+        })
 
-    if resp.success:
-        query = resp.text if resp.text else ""
-        
-        try:
-            # 2nd step : gather documents relative to query
-            search_results = []
-            if query:
-                search_results = [
-                    result
-                    for key, value in vector_stores.items() 
-                    for result in value.similarity_search_with_relevance_scores(query, k = k[key])
-                ]
-
-                search_results = [
-                        {
-                            "doc": doc.metadata['doc'],
-                            "chunk_id": doc.metadata['chunk_id'],
-                            "relevance_score": score,
-                            "chunk": doc.page_content
-                        }
-                        for doc, score in search_results
-                    ]
-
-        except Exception as e:
-            deep_chat_response = {
-                    "text": f"Error while generating response",
-                    "error": f"{e}",
-                    "role": "ai"
-                }
-            return json.dumps(deep_chat_response)
-        
+        # 2nd step : gather documents relative to query
+        search_nc = exec_prompt_recipe(agents["nc_search"], {"input": query})
+        search_docs = exec_prompt_recipe(agents["doc_search"], {"input": query})
 
         # 3rd step : give the best advice given the documents
-        description_prompts = {
-            "000": """La description doit contenir les section suivantes (rappel: en anglais, toujours et en markdown):
-            - Designation: 
-                - numéro de série de l'avion ([a préciser] si non retrouvé dans la description) 
-                - zone sur l'avion, 
-                - code ATA consistant avec la zone, sous la forme ATA-NN (code à deux chiffres)
-                - numério de pièce
-                - date
-            - Observation : Description factuelle de la non-conformité (sans jugement ou aucune interprétation), avec des références aux documents de fabrication et/ou d’assemblage pertinents.
-            - Root Cause: Cause identifiée de la non-conformité, ou mention « inconnue » si non déterminée.
-            - Dimensions: Mesures (système métrique) caractérisant la non-conformité.
-            - References: Lien vers les documents de référence (fabrication et/ou assemblage liés).
-            A cette étape, la description ne contient ni l'analyse, ni la classification, ni la résolution ou plan
-            d'action correctif. Aucune information n'est générée (si une information est manquante, indiquer [à compléter]).
-            La description peut être formalisée à partir des documents technique retrouvés et Non-conformités de référence
-            uniquement, et pas interprétés. Préciser dans le commentaire de réponse le cas échéant qu'aucun document pertinent
-            n'a été retrouvé.
-            """,
-            "100": """La description doit contenir les section suivantes (rappel: en anglais, toujours et en markdown):
-            - Synthesis: Synthèse de l’analyse pour l’ATA concerné.
-            - Subtasks demands: Demandes d’analyses supplémentaires (Tâches 101, 102, etc.) pour les ATA tiers impactés si nécessaire.
-            - Classification: Classification de la non-conformité (T, C, R, etc.) selon son importance.
-            - Resolution: Description de la solution retenue pour mettre en conformité (réparation, remplacement, etc.).
-            - References: Lien vers les documents de référence (fabrication et/ou assemblage liés).
-            """
+        response_content = exec_prompt_recipe(agents[role], {
+            "role": role,
+            "description": user_message,
+            "search_docs": json.dumps(doc_search),
+            "search_nc": json.dumps(search_nc),
+            "history": json.dumps(history)
+        })
+        deep_chat_response = {
+            "text": response_content['comment'],
+            "label": response_content['label'],
+            "description": response_content['description'],
+            "sources": search_results,
+            "user_query": user_message,
+            "knowledge_query": query,
+            "role": "ai",
+            "user_role": role
         }
-
-        description_prompt = description_prompts[role]
-
-        prompt = f"""
-            #Processus
-            Une non conformité de l'A220 doit être traitée selon le processus suivant :
-
-            000 - rapport de non-conformité par le Quality Controler
-            100 - analyse et recommandation / plan d'action par le Design Office
-            200 - validation de l'analyse / plan d'action par le Design Manager
-            300 - calcul de structure lié au plan d'action et recommandation / selon le Stress Office
-            400 - du calcul / plan d'action amendé par le Stress Manager
-            500 - plan d'action final validé par le Quality Manager
-
-            Vous supportez le role de l'étape {role} et devez rédiger de la facon la plus explicite en prenant
-            les exemples fournis et la documentation technique.
-
-            # Sources: Documentation technique et Non-conformités historiques
-
-            Les sources comportent deux types de documents:
-            - Les non-conformités historiques (NCH) ont un identifiant 'doc' en ATA-XX-xxxxxx...
-            - Les documents technique (DOCT) de référence 'doc' *.md
-            Voici la liste des sources ou références pertinentes retrouvées au format json, avec l'extrait textuel pertinent (chunk).
-            {json.dumps(search_results)}
-
-            #La requête utilisateur est la suivante:
-            ---------debut de la requête utilisateur--------
-            {user_message}
-            -------fin de la requête utilisateur--------
-
-            Note: Eviter de traiter les requêtes utilisateur hors champ de compétence : demande n'ayant rien à voir avec le processus de non-conformité de l'avion A220
-            comme une recette, une préconisation de voyage, ou un problème de lamborghini. Il faut alors couper court et retourner
-            le format minimaliste \\{{ label: ..., description: ..., comment: ...\\}} en fournissant les 'label' et 'description'
-            d'entrée et précisant dans le 'comment' que la requête est hors champ de compétence.
-
-
-            #Réponse
-            ## Instruction globales du processus
-            **Instructions du processus** :
-            - **Analyse des causes** : Les causes doivent être réalistes et adaptées au contexte spécifique de l'A220, en tenant compte des impacts possibles.
-            - **Causes internes et externes** : Différencier les causes internes (ex. : erreurs d'assemblage, calibrations incorrectes) et externes (ex. : défauts fournisseurs, intempéries).
-            - **Orientation industrielle** : Prioriser les scénarios ayant un impact direct sur la navigabilité, la résistance (statique et fatigue), ou les coûts de production.
-
-            **Orientation sur les gains industriels** :
-            - **Réduction des coûts** : Prioriser les scénarios avec un impact financier élevé ou nécessitant des corrections coûteuses si elles ne sont pas détectées à temps.
-            - **Efficacité temporelle** : Mettre en place des étapes d’analyse optimisées et des moyens de détection rapide pour réduire les délais de production.
-            - **Pertinence industrielle** : Adopter une approche réaliste et contextuellement adaptée à l’industrie aéronautique, afin de garantir la navigabilité, la fiabilité et la conformité des produits.
-
-            Les principes relatifs aux **non-conformités significatives** stipulent qu'une non-conformité qui peut affecter la navigabilité, la résistance (statique et fatigue), l’installation, le fonctionnement, ou tout autre domaine impactant la qualité et la sécurité doit être soigneusement évaluée et traitée. 
-
-            Chaque **non-conformité significative** doit faire l'objet d'une demande de dérogation soumise à l'ingénierie pour une évaluation approfondie. Le processus de dérogation ne doit pas être utilisé pour des erreurs de conception ou des problèmes de configuration non anticipée. En outre, les **suffixes de dérogation** doivent être attribués pour définir les limitations permanentes ou temporaires sur les articles concernés.
-
-
-            ## Instructions de réponse    
-            Veuillez répondre pour l'étape {role}, en fournissant le meilleur 'label' et la meilleure 'description' possible selon les exemples, n'hésitant pas à illustrer selon les
-            documentation technique le cas échéant. La description fournie doit être complètement rédigée.
-            Si l'utilisateur a fourni un json avec un 'label' et une 'description' vous modifierez la description ou
-            le titre selon les instruction de l'utilisateur, en maintenant un rôle de conseil vis à vis des exemples et
-            de la documentation technique.
-            Ne pas empiéter sur les rôles autres que {role}. Ainsi, a l'étape 000 on se contente de formuler le rapport de
-            description de la non-conformité observée, on ne prend pas les rôles d'analyse des primary causes ni
-            de préconisation de plan d'action ni d'analyse d'impact ou de calcul des structures. 
-            Idem pour 100: on ne fait pas le calcul des structure, on se concentre sur l'analyse.
-
-
-
-            ## Format de réponse
-            Répondez en anglais sauf si l'utilisateur utilise une autre langue ou précise des instructions de langue.
-            Format de réponse attendu en json sans autre mise en forme (pas de ```json). Vos commentaires sont fournis
-            dans l'item 'comment':
-            \\{{ label: ..., description: ..., comment: ...\\}}
-            - 'description' est en markdown. Dans tous les cas, le style reste technique et concis, sans jugement
-            avec une approche plus télégraphique que rédigée de manière complexe (pas de phrases longues 
-            ou compliquées). Faire comme dans les exemples, sans ajouter de termes de type "ce rapport précise",
-            le rapport sera fourni dans un outil de ticketting, il faut rester concis et précis.
-            - label : ne pas mentionner 'A220 Non-Conformity Report', juste le label de la non conformité, 
-            comme dans les exemples
-            - comment: au format markdown multiligne, accompagne l'interaction en mode canevas avec l'utilisateur {role},
-            et justifie l'approche employée pour rédiger les 'label' et 'description', et le cas échéant fournit en plus une synthèse très brève des documents pertinents (# Sources) retrouvés et plus particulierement
-            mentionner la liste des NCH avec leur référence utilisés pour inspirer la description, les références de DOCT
-            le cas échéant, en mentionnant les points particulier, précisant le cas échéant les informations manquantes,
-            ou même l'absence de NCH ou DOCT pertinents dans les sources (si aucune référence ne pas modifier 'label'
-            et 'description' par rapport à l'entrée utilisateur)
-
-            ## Instruction relatives à la description:
-            Eviter de facon global les jugements et improvisations, rester concis et précis. Eviter de répondre si l'on ne
-            trouve pas d'information pertinente (reprendre la description initiale et apporter la mention supra dans le champ
-            'commentaire') et apporter la meilleure modification relative à la demande.
-            {description_prompt}
-        """
-        
-        completion = llm.new_completion()
-        completion.with_message(prompt)
-        completion.settings["temperature"] = 0
-        resp = completion.execute()
-        
-        # Vérifier le succès de la réponse
-        if resp.success:
-            response_content = json.loads(resp.text)
-            deep_chat_response = {
-                "text": response_content['comment'],
-                "label": response_content['label'],
-                "description": response_content['description'],
-                "sources": search_results,
-                "user_query": user_message,
-                "knowledge_query": query,
-                "role": "ai",
-                "user_role": role
-            }
-            return json.dumps(deep_chat_response)
-        else:
-            # En cas d'échec du modèle, retourner une réponse d'erreur
-            deep_chat_response = { "text": "I'm sorry, I couldn't process your request.", error: "500" }
-            return json.dumps(deep_chat_response), 500
+        return json.dumps(deep_chat_response)
+    except e:
+        # En cas d'échec du modèle, retourner une réponse d'erreur
+        app.logger.error(json.dumps(e)
+        deep_chat_response = { "text": "I'm sorry, I couldn't process your request.", error: "500" }
+        return json.dumps(deep_chat_response), 500
         
 
 # Base de données simulée (dictionnaire)
