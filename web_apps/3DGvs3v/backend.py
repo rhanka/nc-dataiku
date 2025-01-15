@@ -6,6 +6,8 @@ from flask_jwt_extended import (
     JWTManager, create_access_token, create_refresh_token, jwt_required, get_jwt_identity
 )
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.exceptions import HTTPException
+
 import json
 from langchain.chains.question_answering import load_qa_chain
 from dataiku.langchain.dku_llm import DKULLM, DKUChatLLM
@@ -32,6 +34,18 @@ if not JWT_SECRET_KEY or not MY_APP_USERNAME or not MY_APP_PASSWORD:
 CORS(app, resources={r"/*": {"origins": "*"}})
 app.config['JWT_SECRET_KEY'] = JWT_SECRET_KEY
 jwt = JWTManager(app)
+
+@app.errorhandler(HTTPException)
+def handle_http_exception(e):
+    """Transforme les erreurs HTTP en réponse JSON."""
+    response = e.get_response()
+    response.data = jsonify({
+        "error": e.name,
+        "description": e.description,
+        "status_code": e.code
+    }).get_data()
+    response.content_type = "application/json"
+    return response
 
 
 @app.route('/doc/<filename>', methods=['GET'])
