@@ -155,9 +155,18 @@ def ai():
     role = messages[-1]["role"] if messages[-1] and (messages[-1]["role"] in roles) else "000"
     
     user_message = messages[-1]["text"]
-    history = messages[-1]["history"] if messages[-1] and messages[-1]["history"] else {}
-    sources = messages[-1]["sources"] if messages[-1] and messages[-1]["history"] else None
-    
+    history = {}
+    sources = None
+    try:
+        history = json.loads(messages[-1]["history"]) if messages[-1] and messages[-1]["history"] else {}
+    except:
+        history = {}
+        
+    try:
+        sources = json.loads(messages[-1]["sources"]) if messages[-1] and messages[-1]["history"] else None
+    except:
+        sources = None
+        
     if (not sources):
         # 1s step: expand query
         query = exec_prompt_recipe(agents["query"], {
