@@ -155,19 +155,21 @@ def ai():
     role = messages[-1]["role"] if messages[-1] and (messages[-1]["role"] in roles) else "000"
     
     user_message = messages[-1]["text"]
-    history = {}
+    history = messages[-1]["history"] or {}
+    sources = messages[-1]["sources"] or None
     
-    # 1s step: expand query
-    query = exec_prompt_recipe(agents["query"], {
-        "role": role,
-        "description" : user_message
-    })
+    if (not sources):
+        # 1s step: expand query
+        query = exec_prompt_recipe(agents["query"], {
+            "role": role,
+            "description" : user_message
+        })
 
-    # 2nd step : gather documents relative to query
-    sources = {
-        "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
-        "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query})
-    }   
+        # 2nd step : gather documents relative to query
+        sources = {
+            "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
+            "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query})
+        }
     
     # 3rd step : give the best advice given the documents
     response_content = exec_prompt_recipe(agents[role], {
