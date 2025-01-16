@@ -92,7 +92,7 @@
           }
         ],
         "textPromptTemplate": "{{input}}",
-        "textPromptSystemTemplate": "Recherche dans la base de documentations techniques de l\u0027A220\nIl s\u0027agit de retrouver les documentations techniques pertinentes relatives au problème de la non-conformité (relatives aux pièces ou a la zone, et au label).\nRepondre ensuite en anglais, en une phrase concise sans complexité pour décrire la pertinence des documents retrouvés vis-à-vis de la requête",
+        "textPromptSystemTemplate": "Recherche dans la base de documentations techniques de l\u0027A220",
         "resultValidation": {
           "expectedFormat": "NONE",
           "requiredJSONObjectKeys": [],
