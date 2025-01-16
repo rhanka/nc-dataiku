@@ -91,7 +91,7 @@
             "type": "TEXT"
           }
         ],
-        "textPromptTemplate": "{{input}}\nAttention: \"FCOM Vol. 1\" n\u0027est pas un identifiant ou une valeur de \"doc\", c\u0027est un \"chunk\" et ne doit pas être pris pour un identifiant de doc. Les \"doc\" sont les valeurs du json retourné par la recherche, uniquement. Ne citer un identifiant doc qu\u0027une fois",
+        "textPromptTemplate": "{{input}}\nAttention: \"FCOM Vol. 1\" n\u0027est pas un identifiant ou une valeur de \"doc\", c\u0027est un \"content\" et ne doit pas être pris pour un identifiant de doc. Les \"doc\" sont les valeurs du json retourné par la recherche, uniquement. Ne citer un identifiant doc qu\u0027une fois",
         "textPromptSystemTemplate": "Recherche dans la base de documentations techniques de l\u0027A220\nIl s\u0027agit de retrouver les documentations techniques pertinentes relatives au problème de la non-conformité (relatives aux pièces ou a la zone, et au label).\nLes documents sont fournits sous le format \"sources\":{\"doc\": \"...md\", \"content\": ..., \"chunk_id\": ...} .\nChaque doc peut être fourni plusieurs fois. Ne pas citer un meme doc plusieurs fois\n\n\nRepondre ensuite en anglais, en markdown sous la forme suivante:\n- Une phrase concise sans complexité pour décrire la pertinence des documents retrouvés vis-à-vis de la requête\n- En bullet points la liste des trois \"doc\" les plus pertinents, et pour chacun (ne citer un \"doc\" qu\u0027une fois, eviter les doublons d\u0027identifiants)\nen gras, le nom du \"doc\" puis après deux points, synthèse concise en une phrase des passages retrouvés, sans phrase complexe.",
         "resultValidation": {
           "expectedFormat": "NONE",
