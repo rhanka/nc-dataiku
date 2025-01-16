@@ -28,7 +28,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "huggingfacelocal:HuggingFace-FA:microsoft/Phi-3-mini-4k-instruct:TEXT_GENERATION_PHI_3:promptDriven\u003dtrue",
+      "llmId": "openai:OpenAI-FA:gpt-4o-mini",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
