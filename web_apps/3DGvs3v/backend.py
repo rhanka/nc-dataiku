@@ -177,6 +177,7 @@ def ai():
         "search_nc": json.dumps(sources["non_conformities"]),
         "history": json.dumps(history)
     })
+    
     return json.dumps({
         "text": response_content['comment'],
         "label": response_content['label'],
@@ -187,7 +188,6 @@ def ai():
         "role": "ai",
         "user_role": role
     })
-        
 
 # Base de données simulée (dictionnaire)
 users = { MY_APP_USERNAME: generate_password_hash(MY_APP_PASSWORD)}
