@@ -155,8 +155,8 @@ def ai():
     role = messages[-1]["role"] if messages[-1] and (messages[-1]["role"] in roles) else "000"
     
     user_message = messages[-1]["text"]
-    history = messages[-1]["history"] or {}
-    sources = messages[-1]["sources"] or None
+    history = messages[-1]["history"] if messages[-1] and messages[-1]["history"] else {}
+    sources = messages[-1]["sources"] or messages[-1] and messages[-1]["history"] else None
     
     if (not sources):
         # 1s step: expand query
