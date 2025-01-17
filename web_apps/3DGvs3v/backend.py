@@ -155,7 +155,7 @@ def ai():
     app.logger.info("Handling /ai endpoint.")
     
     # Mode stream ou non
-    stream = (request.headers.get('accept') == 'text/event-stream')
+    # stream = (request.headers.get('accept') == 'text/event-stream')
 
     # Récupérer le JSON envoyé dans la requête POST
     data = request.json
@@ -186,7 +186,7 @@ def ai():
     except:
         sources = None
         
-    if (not stream):
+    if (True):
         if (not sources):
             # 1s step: expand query
             query = exec_prompt_recipe(agents["query"], {
