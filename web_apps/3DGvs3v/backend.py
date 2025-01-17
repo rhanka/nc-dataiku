@@ -199,7 +199,7 @@ def ai():
                 "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
                 "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query})
             }
-        
+            
         # 3rd step : give the best advice given the documents
         response_content = exec_prompt_recipe(agents[role], {
             "role": role,
@@ -208,7 +208,7 @@ def ai():
             "search_nc": json.dumps(sources["non_conformities"]),
             "history": json.dumps(history)
         })
-        
+           
         return json.dumps({
             "text": response_content['comment'],
             "label": response_content['label'],
