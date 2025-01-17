@@ -11,6 +11,7 @@ from werkzeug.exceptions import HTTPException
 import json
 from langchain.chains.question_answering import load_qa_chain
 from dataiku.langchain.dku_llm import DKULLM, DKUChatLLM
+from dataikuapi.dss.llm import DSSLLMStreamedCompletionChunk, DSSLLMStreamedCompletionFooter
 
 
 client = dataiku.api_client()
@@ -47,6 +48,11 @@ def handle_http_exception(e):
     response.content_type = "application/json"
     return response
 
+
+##########################################################################
+#####                       data endpoints                      ##########
+#####                 docs and non conformities                 ##########
+##########################################################################
 
 @app.route('/doc/<filename>', methods=['GET'])
 def get_doc(filename):
@@ -98,6 +104,13 @@ def non_conformities():
     
     return json.dumps(data)
 
+
+##########################################################################
+#####                       AI config                           ##########
+#####                     AI endpoints                          ##########
+##########################################################################
+
+
 agents = {
     "query": "compute_nc_scenarios_query",
     "nc_search": "compute_nc_scenarios_search_nc",
@@ -108,7 +121,7 @@ agents = {
     "100": "compute_nc_scenarios_propose_100"
 }
 
-def exec_prompt_recipe(recipe_name, inputs):
+def completion_from_prompt_recipe(recipe_name, inputs):
     #partial method
     recipe = project.get_recipe(recipe_name)
     config = recipe.get_settings().get_json_payload()
@@ -127,17 +140,23 @@ def exec_prompt_recipe(recipe_name, inputs):
     completion.settings["temperature"] = temperature
     completion.with_message(system_prompt, role='system')
     completion.with_message(user_prompt, role='user')
-    resp = completion.execute()
+    return completion
+    
+def exec_prompt_recipe(recipe_name, inputs):
+    resp = completion_from_prompt_recipe(recipe_name, inputs).execute()
     try:
         return json.loads(resp.text)
     except:
         return resp.text
 
 
-
 @app.route('/ai', methods=['POST'])
 def ai():
     app.logger.info("Handling /ai endpoint.")
+    
+    # Mode stream ou non
+    stream == request.headers.get('accept') == 'text/event-stream'
+
     # Récupérer le JSON envoyé dans la requête POST
     data = request.json
 
@@ -166,39 +185,65 @@ def ai():
         sources = json.loads(messages[-1]["sources"]) if messages[-1] and messages[-1]["history"] else None
     except:
         sources = None
-        
-    if (not sources):
-        # 1s step: expand query
-        query = exec_prompt_recipe(agents["query"], {
+    if (not stream):
+        if (not sources):
+            # 1s step: expand query
+            query = exec_prompt_recipe(agents["query"], {
+                "role": role,
+                "description" : user_message
+            })
+
+            # 2nd step : gather documents relative to query
+            sources = {
+                "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
+                "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query})
+            }
+
+        # 3rd step : give the best advice given the documents
+        response_content = exec_prompt_recipe(agents[role], {
             "role": role,
-            "description" : user_message
+            "description": user_message,
+            "search_docs": json.dumps(sources["tech_docs"]),
+            "search_nc": json.dumps(sources["non_conformities"]),
+            "history": json.dumps(history)
         })
 
-        # 2nd step : gather documents relative to query
-        sources = {
-            "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
-            "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query})
+        return json.dumps({
+            "text": response_content['comment'],
+            "label": response_content['label'],
+            "description": response_content['description'],
+            "sources": sources,
+            "user_query": user_message,
+            "knowledge_query": query,
+            "role": "ai",
+            "user_role": role
         }
-    
-    # 3rd step : give the best advice given the documents
-    response_content = exec_prompt_recipe(agents[role], {
-        "role": role,
-        "description": user_message,
-        "search_docs": json.dumps(sources["tech_docs"]),
-        "search_nc": json.dumps(sources["non_conformities"]),
-        "history": json.dumps(history)
-    })
-    
-    return json.dumps({
-        "text": response_content['comment'],
-        "label": response_content['label'],
-        "description": response_content['description'],
-        "sources": sources,
-        "user_query": user_message,
-        "knowledge_query": query,
-        "role": "ai",
-        "user_role": role
-    })
+    else:
+        def events():
+            if (not sources):
+            # 1s step: expand query
+                query_inputs = {
+                    "role": "000",
+                    "description" : user_message
+                }
+                for chunk in completion_from_prompt_recipe(agents["query"], query_inputs).execute_streamed():
+                    if isinstance(chunk, DSSLLMStreamedCompletionChunk):
+                        yield("data: %s" % chunk.data["text"])
+                    elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
+                        query = chunk.data
+                        print("data: %s" % chunk.data)
+                # 2nd step : gather documents relative to query
+                sources = {
+                    "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
+                    "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query})
+                }
+        return Response(events(), content_type='text/event-stream') 
+
+        
+##########################################################################
+#####                       auth endpoints                      ##########
+#####                       register, login                     ##########
+##########################################################################
 
 # Base de données simulée (dictionnaire)
 users = { MY_APP_USERNAME: generate_password_hash(MY_APP_PASSWORD)}
