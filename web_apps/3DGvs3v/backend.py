@@ -231,8 +231,8 @@ def ai():
                         yield f"data: {chunk.data['text']}\n"  # Envoi progressif du texte
                         app.logger.info(f"data: {chunk.data['text']}\n")
                     elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
-                        query = chunk.data
-                        yield f"data: {chunk.data['outputs']}\n"  # Indicateur de fin de la première étape
+                        query = json.loads(chunk.data)
+                        yield f"data: {chunk.data}\n"  # Indicateur de fin de la première étape
                 
                 # 2nd step : gather documents relative to query
                 sources = {
