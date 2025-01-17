@@ -218,7 +218,7 @@ def ai():
             "knowledge_query": query,
             "role": "ai",
             "user_role": role
-        }
+        })
     else:
         def events():
             if (not sources):
