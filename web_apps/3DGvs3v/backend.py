@@ -228,10 +228,10 @@ def ai():
                 }
                 for chunk in completion_from_prompt_recipe(agents["query"], query_inputs).execute_streamed():
                     if isinstance(chunk, DSSLLMStreamedCompletionChunk):
-                        yield f"data: {chunk.data['text']}\n"  # Envoi progressif du texte
+                        yield f"data: {chunk.data['text'].replace('\n', '\\n')}\n"  # Envoi progressif du texte
                         app.logger.info(f"data: {chunk.data['text']}\n")
                     elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
-                        query = chunk.data
+                        query = chunk.data['trace']['children'][0]['outputs']['text']
                         yield f"data: {chunk.data}\n"  # Indicateur de fin de la première étape
                 
                 # 2nd step : gather documents relative to query
