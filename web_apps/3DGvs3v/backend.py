@@ -135,7 +135,8 @@ def completion_from_prompt_recipe(recipe_name, inputs):
         placeholder = f"{{{{{input_def['name']}}}}}"  # Exemple : {{description}}
         replacement = str(inputs[input_def["name"]])
         system_prompt = system_prompt.replace(placeholder, replacement)
-        user_prompt = user_prompt.replace(placeholder, replacement)    llm = project.get_llm(llm_id)
+        user_prompt = user_prompt.replace(placeholder, replacement)
+    llm = project.get_llm(llm_id)
     completion = llm.new_completion()
     completion.settings["temperature"] = temperature
     completion.with_message(system_prompt, role='system')
