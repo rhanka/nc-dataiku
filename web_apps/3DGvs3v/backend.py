@@ -155,7 +155,7 @@ def exec_prompt_recipe(recipe_name, inputs):
 def ai():
     # Mode stream ou non
     stream = (request.headers.get('accept') == 'text/event-stream')
-    app.logger.error(f"stream {stream}")
+    app.logger.warning(f"stream {stream}")
     # Récupérer le JSON envoyé dans la requête POST
     data = request.json
 
