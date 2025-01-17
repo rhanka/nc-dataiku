@@ -218,7 +218,7 @@ def ai():
         "role": "ai",
         "user_role": role
     })
-    else:
+    if (False):
         def events():
             if (not sources):
             # 1s step: expand query
