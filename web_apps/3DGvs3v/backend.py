@@ -232,7 +232,7 @@ def ai():
                         app.logger.info(f"data: {chunk.data['text']}\n")
                     elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
                         query = chunk.data['trace']['children'][0]['outputs']['text']
-                        yield f"data: {chunk.data}\n"  # Indicateur de fin de la première étape
+                        yield f"data: {query}\n"  # Indicateur de fin de la première étape
                 
                 # 2nd step : gather documents relative to query
                 sources = {
