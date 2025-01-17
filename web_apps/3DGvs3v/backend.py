@@ -228,8 +228,8 @@ def ai():
                 }
                 for chunk in completion_from_prompt_recipe(agents["query"], query_inputs).execute_streamed():
                     if isinstance(chunk, DSSLLMStreamedCompletionChunk):
-                        text = chunk.data['text'].replace('\n', '\\n')
-                        yield f"data: {text}\n"  # Envoi progressif du texte
+                        text = json.dumps({'v': chunk.data['text'].replace('\n', '\\n')}
+                        yield f"event: delta\ndata: {text}\n"  # Envoi progressif du texte
                         app.logger.info(f"data: {text}\n")
                     elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
                         query = chunk.data['trace']['children'][0]['outputs']['text']
