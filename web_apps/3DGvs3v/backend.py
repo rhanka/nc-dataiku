@@ -157,7 +157,7 @@ def ai():
     
     # Mode stream ou non
     stream = (request.headers.get('accept') == 'text/event-stream')
-
+    app.logger.info(f"stream {stream}")
     # Récupérer le JSON envoyé dans la requête POST
     data = request.json
 
@@ -230,10 +230,10 @@ def ai():
                 }
                 for chunk in completion_from_prompt_recipe(agents["query"], query_inputs).execute_streamed():
                     if isinstance(chunk, DSSLLMStreamedCompletionChunk):
-                        yield("data: %s" % chunk.data["text"])
+                        yield f"data: {chunk.data['text']}\n\n"  # Envoi progressif du texte
                     elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
                         query = chunk.data
-                        print("data: %s" % chunk.data)
+                        yield f"data: [QUERY COMPLETE]\n\n"  # Indicateur de fin de la première étape
                 # 2nd step : gather documents relative to query
                 sources = {
                     "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
