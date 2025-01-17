@@ -219,7 +219,7 @@ def ai():
             "user_role": role
         })
     else:
-        def events():
+        def events(role,user_message,source,history):
             if (not sources):
             # 1s step: expand query
                 query_inputs = {
@@ -232,12 +232,13 @@ def ai():
                     elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
                         query = chunk.data
                         yield f"data: [QUERY COMPLETE]\n\n"  # Indicateur de fin de la première étape
+                
                 # 2nd step : gather documents relative to query
                 sources = {
                     "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
                     "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query})
                 }
-        return Response(events(), content_type='text/event-stream') 
+        return Response(events(role,user_message,source,history), content_type='text/event-stream') 
 
         
 ##########################################################################
