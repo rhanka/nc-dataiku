@@ -186,39 +186,38 @@ def ai():
     except:
         sources = None
         
-    if (True):
-        if (not sources):
-            # 1s step: expand query
-            query = exec_prompt_recipe(agents["query"], {
-                "role": role,
-                "description" : user_message
-            })
-
-            # 2nd step : gather documents relative to query
-            sources = {
-                "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
-                "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query})
-            }
-            
-        # 3rd step : give the best advice given the documents
-        response_content = exec_prompt_recipe(agents[role], {
+    if (not sources):
+        # 1s step: expand query
+        query = exec_prompt_recipe(agents["query"], {
             "role": role,
-            "description": user_message,
-            "search_docs": json.dumps(sources["tech_docs"]),
-            "search_nc": json.dumps(sources["non_conformities"]),
-            "history": json.dumps(history)
+            "description" : user_message
         })
-           
-        return json.dumps({
-            "text": response_content['comment'],
-            "label": response_content['label'],
-            "description": response_content['description'],
-            "sources": sources,
-            "user_query": user_message,
-            "knowledge_query": query,
-            "role": "ai",
-            "user_role": role
-        })
+
+        # 2nd step : gather documents relative to query
+        sources = {
+            "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
+            "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query})
+        }
+
+    # 3rd step : give the best advice given the documents
+    response_content = exec_prompt_recipe(agents[role], {
+        "role": role,
+        "description": user_message,
+        "search_docs": json.dumps(sources["tech_docs"]),
+        "search_nc": json.dumps(sources["non_conformities"]),
+        "history": json.dumps(history)
+    })
+
+    return json.dumps({
+        "text": response_content['comment'],
+        "label": response_content['label'],
+        "description": response_content['description'],
+        "sources": sources,
+        "user_query": user_message,
+        "knowledge_query": query,
+        "role": "ai",
+        "user_role": role
+    })
     else:
         def events():
             if (not sources):
