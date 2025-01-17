@@ -231,8 +231,9 @@ def ai():
                         text = json.dumps({'v': chunk.data['text'].replace('\n', '\\n')})
                         yield f"event: delta\ndata: {text}\n\n"  # Envoi progressif du texte
                     elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
-                        query = chunk.data['trace']['children'][0]['outputs']['text']
-                        yield f"data: {query}\n"  # Indicateur de fin de la première étape
+                        query = chunk.data
+                        app.logger.info(query)
+                        yield f"data: \n"  # Indicateur de fin de la première étape
                 
                 # 2nd step : gather documents relative to query
                 sources = {
