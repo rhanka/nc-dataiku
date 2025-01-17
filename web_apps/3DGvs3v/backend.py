@@ -219,7 +219,7 @@ def ai():
             "user_role": role
         })
     else:
-        def events(role,user_message,source,history):
+        def events(role,user_message,sources,history):
             if (not sources):
             # 1s step: expand query
                 query_inputs = {
@@ -238,7 +238,7 @@ def ai():
                     "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
                     "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query})
                 }
-        return Response(events(role,user_message,source,history), content_type='text/event-stream') 
+        return Response(events(role,user_message,sources,history), content_type='text/event-stream') 
 
         
 ##########################################################################
