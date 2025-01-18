@@ -159,18 +159,14 @@ def format_data_stream(type, input):
     return f"data: {text}\n\n"
 
 def stream_prompt_recipe(recipe_name, inputs):
-    yield format_event_stream(f"{recipe_name} ...")
+    yield format_data_stream("action",f"{recipe_name}")
     result = None
     for chunk in completion_from_prompt_recipe(recipe_name, inputs).execute_streamed():
         if isinstance(chunk, DSSLLMStreamedCompletionChunk):
             yield format_event_stream(chunk.data['text'])
         elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
             result = chunk.data['trace']['children'][1]['outputs']['text']
-            formatted_results = json.dumps({
-                'type': 'message_stream_complete',
-                'text': result.replace('\n', '\\n')
-            })
-            yield f"data: {formatted_results}\n\ndata: [DONE]\n\n"
+            yield format_data_stream("recipe_name",result)
     return result
 
 def consume(gen):
@@ -182,7 +178,6 @@ def consume(gen):
     except StopIteration as e:
         final = e.value
     return final
-
 
 @app.route('/ai', methods=['POST'])
 def ai():
@@ -267,9 +262,9 @@ def ai():
                 
                 # 2nd step : gather documents relative to query
                 exec_prompt_recipe
-                yield format_event_stream(f"nc_search ...")
+                yield format_data_stream("action","nc_search")
                 non_conformities = exec_prompt_recipe(agents["nc_search"], {"input": query})
-                yield format_event_stream(f"doc_search ...")
+                yield format_data_stream("action","doc_search")
                 tech_docs = exec_prompt_recipe(agents["doc_search"], {"input": query})
                 
                 sources = {
@@ -290,7 +285,7 @@ def ai():
                 except StopIteration as e:
                     response_content = json.loads(e.value)  # capture final return
 
-                formatted_results = json.dumps({
+                formatted_result = json.dumps({
                     "text": response_content['comment'],
                     "label": response_content['label'],
                     "description": response_content['description'],
@@ -300,7 +295,7 @@ def ai():
                     "role": "ai",
                     "user_role": role
                 })
-                yield f"data: {formatted_results}\n\ndata: [DONE]\n\n"
+                yield format_data_stream("result",formatted_result)
 
         return Response(events(role,user_message,sources,history), content_type='text/event-stream') 
 
