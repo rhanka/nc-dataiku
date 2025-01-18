@@ -159,7 +159,7 @@ def format_data_stream(type, input,metadata):
     if (metadata):
         text = json.dumps({'type': type, 'text': input.replace('\n', '\\n'), 'metadata': metadata})
     else:
-        text = json.dumps({'type': type, 'text': input.replace('\n', '\\n'))  
+        text = json.dumps({'type': type, 'text': input.replace('\n', '\\n')})
     return f"data: {text}\n\n"
 
 def stream_prompt_recipe(recipe_name, inputs):
