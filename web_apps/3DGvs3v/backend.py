@@ -1,6 +1,7 @@
 import dataiku
 import pandas as pd
-from flask import request, Response, jsonify
+from flask import request, Response, jsonify, stream_with_context
+
 from flask_cors import CORS
 from flask_jwt_extended import (
     JWTManager, create_access_token, create_refresh_token, jwt_required, get_jwt_identity
@@ -181,6 +182,7 @@ def consume(gen):
 
 @app.route('/ai', methods=['POST'])
 def ai():
+    @stream_with_context
     # Mode stream ou non
     stream = (request.headers.get('accept') == 'text/event-stream')
     app.logger.info(f"stream {stream}")
