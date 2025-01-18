@@ -152,10 +152,10 @@ def exec_prompt_recipe(recipe_name, inputs):
 
 def format_event_stream(input):
     text = json.dumps({'v': input.replace('\n', '\\n')})
-    return f"event: delta\ndata: {text}\n\n"  # Envoi progressif du texte
+    return f"event: delta\ndata: {text}\n\n"
 
 def format_data_stream(input):
-    return f"data: {input}\n\n"  # Envoi progressif du texte
+    return f"data: {input}\n\n"
 
 
 @app.route('/ai', methods=['POST'])
