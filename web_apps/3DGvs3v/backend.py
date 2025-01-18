@@ -250,6 +250,7 @@ def ai():
         })
     else:
         def events(role,user_message,sources,history):
+            yield "event: delta_encoding\ndata: \"v1\"\n\n"
             if (not sources):
             # 1s step: expand query
                 app.logger.info("query")
