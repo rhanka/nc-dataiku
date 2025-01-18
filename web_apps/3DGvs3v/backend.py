@@ -149,29 +149,24 @@ def exec_prompt_recipe(recipe_name, inputs):
         return json.loads(resp.text)
     except:
         return resp.text
-    
-def stream_prompt_recipe(recipe_name, inputs):
-    result = None
-    for chunk in completion_from_prompt_recipe(recipe_name, inputs).execute_streamed():
-        if isinstance(chunk, DSSLLMStreamedCompletionChunk):
-            # Événement intermédiaire pour le streaming
-            yield f"event: delta\n"
-            yield f"data: {json.dumps({'v': chunk.data['text']})}\n\n"
-        elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
-            # Traitement final lorsque le flux est terminé
-            result = chunk.data['trace']['children'][1]['outputs']['text']
-            formatted_results = json.dumps({'type': 'message_stream_complete', 'text': result.replace('\n', '\\n')})
-            yield f"data: {formatted_results}\n\n"
-            yield "data: [DONE]\n\n"
-    return result
 
 def format_event_stream(input):
     text = json.dumps({'v': input.replace('\n', '\\n')})
     return f"event: delta\ndata: {text}\n\n"
 
-def format_data_stream(input):
-    return f"data: {input}\n\n"
-
+def stream_prompt_recipe(recipe_name, inputs):
+    result = None
+    yield format_event_stream(f"{recipe_name} ...") 
+    for chunk in completion_from_prompt_recipe(recipe_name, inputs).execute_streamed():
+        if isinstance(chunk, DSSLLMStreamedCompletionChunk):
+            # Événement intermédiaire pour le streaming
+            yield format_event_stream(chunk.data['text'])
+        elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
+            # Traitement final lorsque le flux est terminé
+            result = chunk.data['trace']['children'][1]['outputs']['text']
+            formatted_results = json.dumps({'type': 'message_stream_complete', 'text': result.replace('\n', '\\n')})
+            yield f"data: {formatted_results}\n\ndata: [DONE]\n\n"
+    return result
 
 @app.route('/ai', methods=['POST'])
 def ai():
@@ -244,18 +239,10 @@ def ai():
         def events(role,user_message,sources,history):
             if (not sources):
             # 1s step: expand query
-                yield format_event_stream("build knowledge query ...") 
-                query_inputs = {
-                    "role": "000",
+                query = stream_prompt_recipe(agents["query"], {
+                    "role": role,
                     "description" : user_message
-                }
-                for chunk in completion_from_prompt_recipe(agents["query"], query_inputs).execute_streamed():
-                    if isinstance(chunk, DSSLLMStreamedCompletionChunk):
-                        yield format_event_stream(chunk.data['text'])
-                    elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
-                        query = chunk.data['trace']['children'][1]['outputs']['text']
-                        text = json.dumps({'type': "message_stream_complete", 'text': query.replace('\n', '\\n')})
-                        yield f"data: {text}\n\ndata: [DONE]\n\n"  # Indicateur de fin de la première étape
+                })
                 
                 # 2nd step : gather documents relative to query
                 sources = {
