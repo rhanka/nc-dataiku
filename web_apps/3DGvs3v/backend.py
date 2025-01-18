@@ -257,9 +257,17 @@ def ai():
                 }))
                 app.logger.info(query)
                 # 2nd step : gather documents relative to query
+                yield f"data: {formatted_results}\n\ndata: [DONE]\n\n"
+
+                exec_prompt_recipe
+                yield format_event_stream(f"{nc_search} ...")
+                non_conformities = exec_prompt_recipe(agents["nc_search"], {"input": query})
+                yield format_event_stream(f"{doc_search} ...")
+                tech_docs = exec_prompt_recipe(agents["doc_search"], {"input": query})
+                
                 sources = {
-                    "non_conformities": consume(stream_prompt_recipe(agents["nc_search"], {"input": query})),
-                    "tech_docs": consume(stream_prompt_recipe(agents["doc_search"], {"input": query}))
+                    "non_conformities": non_conformities,
+                    "tech_docs": tech_docs
                 }
                 
                 response_content = json.loads(consume(stream_prompt_recipe(agents[role], {
