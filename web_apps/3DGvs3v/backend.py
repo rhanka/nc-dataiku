@@ -267,10 +267,10 @@ def ai():
                 
                 # 2nd step : gather documents relative to query
                 app.logger.info("nc_search")
-                yield format_data_stream("recipe","nc_search")
+                yield format_data_stream("action","nc_search")
                 non_conformities = exec_prompt_recipe(agents["nc_search"], {"input": query})
                 app.logger.info("doc_search")
-                yield format_data_stream("re","doc_search")
+                yield format_data_stream("action","doc_search")
                 tech_docs = exec_prompt_recipe(agents["doc_search"], {"input": query})
                 
                 sources = {
