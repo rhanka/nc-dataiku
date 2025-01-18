@@ -303,7 +303,7 @@ def ai():
             })
             yield format_data_stream("result",formatted_result)
 
-        return Response(events(role,user_message,sources,history), content_type='text/event-stream') 
+        return Response(events(role,user_message,sources,history), content_type='text/event-stream', headers={"X-Accel-Buffering": "no", "Cache-Control": "no-cache"}) 
 
         
 ##########################################################################
