@@ -250,6 +250,7 @@ def ai():
         def events(role,user_message,sources,history):
             if (not sources):
             # 1s step: expand query
+                app.logger.info("query")
                 query = stream_prompt_recipe(agents["query"], {
                     "role": role,
                     "description" : user_message
@@ -261,9 +262,10 @@ def ai():
                     query = e.value  # capture final return
                 
                 # 2nd step : gather documents relative to query
-                exec_prompt_recipe
+                app.logger.info("nc_search")
                 yield format_data_stream("recipe","nc_search")
                 non_conformities = exec_prompt_recipe(agents["nc_search"], {"input": query})
+                app.logger.info("doc_search")
                 yield format_data_stream("re","doc_search")
                 tech_docs = exec_prompt_recipe(agents["doc_search"], {"input": query})
                 
@@ -271,31 +273,33 @@ def ai():
                     "non_conformities": non_conformities,
                     "tech_docs": tech_docs
                 }
-
-                response_content = stream_prompt_recipe(agents[role], {
-                    "role": role,
-                    "description": user_message,
-                    "search_docs": json.dumps(sources["tech_docs"]),
-                    "search_nc": json.dumps(sources["non_conformities"]),
-                    "history": json.dumps(history)
-                })
-                try:
-                    while True:
-                        yield next(response_content)
-                except StopIteration as e:
-                    response_content = json.loads(e.value)  # capture final return
-
-                formatted_result = json.dumps({
-                    "text": response_content['comment'],
-                    "label": response_content['label'],
-                    "description": response_content['description'],
-                    "sources": sources,
-                    "user_query": user_message,
-                    "knowledge_query": query,
-                    "role": "ai",
-                    "user_role": role
-                })
-                yield format_data_stream("result",formatted_result)
+                
+            app.logger.info(agents[role])
+            response_content = stream_prompt_recipe(agents[role], {
+                "role": role,
+                "description": user_message,
+                "search_docs": json.dumps(sources["tech_docs"]),
+                "search_nc": json.dumps(sources["non_conformities"]),
+                "history": json.dumps(history)
+            })
+            try:
+                while True:
+                    yield next(response_content)
+            except StopIteration as e:
+                response_content = json.loads(e.value)  # capture final return
+            
+            app.logger.info("end")
+            formatted_result = json.dumps({
+                "text": response_content['comment'],
+                "label": response_content['label'],
+                "description": response_content['description'],
+                "sources": sources,
+                "user_query": user_message,
+                "knowledge_query": query,
+                "role": "ai",
+                "user_role": role
+            })
+            yield format_data_stream("result",formatted_result)
 
         return Response(events(role,user_message,sources,history), content_type='text/event-stream') 
 
