@@ -182,6 +182,7 @@ def consume(gen):
 
 @app.route('/ai', methods=['POST'])
 def ai():
+    @stream_with_context
     # Mode stream ou non
     stream = (request.headers.get('accept') == 'text/event-stream')
     app.logger.info(f"stream {stream}")
