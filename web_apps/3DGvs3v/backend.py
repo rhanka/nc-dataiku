@@ -160,14 +160,15 @@ def format_data_stream(type, input):
     return f"data: {text}\n\n"
 
 def stream_prompt_recipe(recipe_name, inputs):
-    yield format_data_stream("action",f"{recipe_name}")
+    agent_name = next((agent for agent, recipe in agents.items() if recipe == recipe_name), recipe_name)
+    yield format_data_stream("action",f"{agent_name}")
     result = None
     for chunk in completion_from_prompt_recipe(recipe_name, inputs).execute_streamed():
         if isinstance(chunk, DSSLLMStreamedCompletionChunk):
             yield format_event_stream(chunk.data['text'])
         elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
             result = chunk.data['trace']['children'][1]['outputs']['text']
-            yield format_data_stream(f"result:{recipe_name}",result)
+            yield format_data_stream(f"result:{agent_name}",result)
     return result
 
 def consume(gen):
