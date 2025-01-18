@@ -155,25 +155,30 @@ def format_event_stream(input):
     return f"event: delta\ndata: {text}\n\n"
 
 def stream_prompt_recipe(recipe_name, inputs):
+    yield format_event_stream(f"{recipe_name} ...")
     result = None
-    yield format_event_stream(f"{recipe_name} ...") 
     for chunk in completion_from_prompt_recipe(recipe_name, inputs).execute_streamed():
         if isinstance(chunk, DSSLLMStreamedCompletionChunk):
-            # Événement intermédiaire pour le streaming
             yield format_event_stream(chunk.data['text'])
         elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
-            # Traitement final lorsque le flux est terminé
             result = chunk.data['trace']['children'][1]['outputs']['text']
-            formatted_results = json.dumps({'type': 'message_stream_complete', 'text': result.replace('\n', '\\n')})
+            formatted_results = json.dumps({
+                'type': 'message_stream_complete',
+                'text': result.replace('\n', '\\n')
+            })
             yield f"data: {formatted_results}\n\ndata: [DONE]\n\n"
-    return result
+    return final
 
-def consume(generator):
-    """Consomme complètement un générateur et retourne la dernière valeur."""
-    result = None
-    for _ in generator:
-        pass  # Force l'exécution complète du générateur
-    return result
+def consume(gen):
+    """Iterate through a streaming generator but also capture its final return value."""
+    final = None
+    try:
+        for _ in gen:
+            pass
+    except StopIteration as e:
+        final = e.value
+    return final
+
 
 @app.route('/ai', methods=['POST'])
 def ai():
