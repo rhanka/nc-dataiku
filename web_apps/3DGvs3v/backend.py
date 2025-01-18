@@ -166,7 +166,7 @@ def stream_prompt_recipe(recipe_name, inputs):
             yield format_event_stream(chunk.data['text'])
         elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
             result = chunk.data['trace']['children'][1]['outputs']['text']
-            yield format_data_stream(f"recipe_result:{recipe_name}",result)
+            yield format_data_stream(f"result:{recipe_name}",result)
     return result
 
 def consume(gen):
@@ -262,9 +262,9 @@ def ai():
                 
                 # 2nd step : gather documents relative to query
                 exec_prompt_recipe
-                yield format_data_stream("action","nc_search")
+                yield format_data_stream("recipe","nc_search")
                 non_conformities = exec_prompt_recipe(agents["nc_search"], {"input": query})
-                yield format_data_stream("action","doc_search")
+                yield format_data_stream("re","doc_search")
                 tech_docs = exec_prompt_recipe(agents["doc_search"], {"input": query})
                 
                 sources = {
