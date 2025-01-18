@@ -257,7 +257,7 @@ def ai():
                 })
                 try:
                     while True:
-                        yield = next(query)
+                        yield next(query)
                 except StopIteration as e:
                     query = e.value  # capture final return
                 
