@@ -154,6 +154,10 @@ def format_event_stream(input):
     text = json.dumps({'v': input.replace('\n', '\\n')})
     return f"event: delta\ndata: {text}\n\n"
 
+def format_data_stream(type, input):
+    text = json.dumps({'type': type, 'text': input.replace('\n', '\\n')})
+    return f"data: {text}\n\n"
+
 def stream_prompt_recipe(recipe_name, inputs):
     yield format_event_stream(f"{recipe_name} ...")
     result = None
