@@ -255,10 +255,8 @@ def ai():
                     "role": role,
                     "description" : user_message
                 }))
-                app.logger.info(query)
+                
                 # 2nd step : gather documents relative to query
-                yield f"data: {formatted_results}\n\ndata: [DONE]\n\n"
-
                 exec_prompt_recipe
                 yield format_event_stream(f"{nc_search} ...")
                 non_conformities = exec_prompt_recipe(agents["nc_search"], {"input": query})
