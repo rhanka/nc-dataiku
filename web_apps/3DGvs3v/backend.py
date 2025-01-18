@@ -156,11 +156,12 @@ def format_event_stream(input):
     return f"event: delta\ndata: {text}\n\n"
 
 def format_data_stream(type, input,metadata):
+    data = {'type': type, 'text': input}
+    if (not isinstance(input, dict)):
+        data['text'] = input.replace('\n', '\\n')
     if (metadata):
-        text = json.dumps({'type': type, 'text': input.replace('\n', '\\n'), 'metadata': metadata})
-    else:
-        text = json.dumps({'type': type, 'text': input.replace('\n', '\\n')})
-    return f"data: {text}\n\n"
+        data['metadata'] = metadata
+    return f"data: {json.dumps(data)}\n\n"
 
 def stream_prompt_recipe(recipe_name, inputs):
     agent_name = next((agent for agent, recipe in agents.items() if recipe == recipe_name), recipe_name)
