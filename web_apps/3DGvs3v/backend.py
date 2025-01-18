@@ -155,8 +155,8 @@ def format_event_stream(input):
     text = json.dumps({'v': input.replace('\n', '\\n')})
     return f"event: delta\ndata: {text}\n\n"
 
-def format_data_stream(type, input):
-    text = json.dumps({'type': type, 'text': input.replace('\n', '\\n')})
+def format_data_stream(type, input, metadata):
+    text = json.dumps({'type': type, 'text': input.replace('\n', '\\n'), 'metadata': metadata})
     return f"data: {text}\n\n"
 
 def stream_prompt_recipe(recipe_name, inputs):
@@ -168,7 +168,7 @@ def stream_prompt_recipe(recipe_name, inputs):
             yield format_event_stream(chunk.data['text'])
         elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
             result = chunk.data['trace']['children'][1]['outputs']['text']
-            yield format_data_stream(f"result:{agent_name}",result)
+            yield format_data_stream("result",result,agent_name)
     return result
 
 def consume(gen):
@@ -303,7 +303,7 @@ def ai():
                 "role": "ai",
                 "user_role": role
             })
-            yield format_data_stream("result",formatted_result)
+            yield format_data_stream("result",formatted_result, "final")
 
         return Response(events(role,user_message,sources,history), content_type='text/event-stream', headers={"X-Accel-Buffering": "no", "Cache-Control": "no-cache"}) 
 
