@@ -246,9 +246,30 @@ def ai():
                 
                 # 2nd step : gather documents relative to query
                 sources = {
-                    "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
-                    "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query})
+                    "non_conformities": stream_prompt_recipe(agents["nc_search"], {"input": query}),
+                    "tech_docs": stream_prompt_recipe(agents["doc_search"], {"input": query})
                 }
+                
+                response_content = stream_prompt_recipe(agents[role], {
+                    "role": role,
+                    "description": user_message,
+                    "search_docs": json.dumps(sources["tech_docs"]),
+                    "search_nc": json.dumps(sources["non_conformities"]),
+                    "history": json.dumps(history)
+                })
+
+                formatted_results = json.dumps({
+                    "text": response_content['comment'],
+                    "label": response_content['label'],
+                    "description": response_content['description'],
+                    "sources": sources,
+                    "user_query": user_message,
+                    "knowledge_query": query,
+                    "role": "ai",
+                    "user_role": role
+                })
+                yield f"data: {formatted_results}\n\ndata: [DONE]\n\n"
+
         return Response(events(role,user_message,sources,history), content_type='text/event-stream') 
 
         
