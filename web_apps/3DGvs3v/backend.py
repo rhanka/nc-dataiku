@@ -167,7 +167,7 @@ def stream_prompt_recipe(recipe_name, inputs):
                 'text': result.replace('\n', '\\n')
             })
             yield f"data: {formatted_results}\n\ndata: [DONE]\n\n"
-    return final
+    return result
 
 def consume(gen):
     """Iterate through a streaming generator but also capture its final return value."""
