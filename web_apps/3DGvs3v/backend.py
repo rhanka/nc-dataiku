@@ -251,10 +251,15 @@ def ai():
         def events(role,user_message,sources,history):
             if (not sources):
             # 1s step: expand query
-                query = consume(stream_prompt_recipe(agents["query"], {
+                query = stream_prompt_recipe(agents["query"], {
                     "role": role,
                     "description" : user_message
-                }))
+                })
+                try:
+                    while True:
+                        yield = next(query)
+                except StopIteration as e:
+                    query = e.value  # capture final return
                 
                 # 2nd step : gather documents relative to query
                 exec_prompt_recipe
@@ -267,14 +272,19 @@ def ai():
                     "non_conformities": non_conformities,
                     "tech_docs": tech_docs
                 }
-                
-                response_content = json.loads(consume(stream_prompt_recipe(agents[role], {
+
+                response_content = stream_prompt_recipe(agents[role], {
                     "role": role,
                     "description": user_message,
                     "search_docs": json.dumps(sources["tech_docs"]),
                     "search_nc": json.dumps(sources["non_conformities"]),
                     "history": json.dumps(history)
-                })))
+                })
+                try:
+                    while True:
+                        yield = next(response_content)
+                except StopIteration as e:
+                    response_content = json.loads(e.value)  # capture final return
 
                 formatted_results = json.dumps({
                     "text": response_content['comment'],
