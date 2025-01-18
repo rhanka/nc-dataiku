@@ -222,6 +222,8 @@ def ai():
         def events(role,user_message,sources,history):
             if (not sources):
             # 1s step: expand query
+                text = json.dumps({'v': chunk.data['text'].replace('\n', '\\n')})
+                yield f"event: delta\ndata: {expand query}\n\n"  # Envoi progressif du texte
                 query_inputs = {
                     "role": "000",
                     "description" : user_message
