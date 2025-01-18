@@ -150,6 +150,13 @@ def exec_prompt_recipe(recipe_name, inputs):
     except:
         return resp.text
 
+def format_event_stream(input):
+    text = json.dumps({'v': input.replace('\n', '\\n')})
+    return f"event: delta\ndata: {text}\n\n"  # Envoi progressif du texte
+
+def format_data_stream(input):
+    return f"data: {input}\n\n"  # Envoi progressif du texte
+
 
 @app.route('/ai', methods=['POST'])
 def ai():
@@ -222,16 +229,14 @@ def ai():
         def events(role,user_message,sources,history):
             if (not sources):
             # 1s step: expand query
-                text = json.dumps({'v': "build knowledge query ..."})
-                yield f"event: delta\ndata: {text}\n\n"  # Envoi progressif du texte
+                yield format_event_stream("build knowledge query ...") 
                 query_inputs = {
                     "role": "000",
                     "description" : user_message
                 }
                 for chunk in completion_from_prompt_recipe(agents["query"], query_inputs).execute_streamed():
                     if isinstance(chunk, DSSLLMStreamedCompletionChunk):
-                        text = json.dumps({'v': chunk.data['text'].replace('\n', '\\n')})
-                        yield f"event: delta\ndata: {text}\n\n"  # Envoi progressif du texte
+                        yield format_event_stream(chunk.data['text'])
                     elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
                         query = chunk.data['trace']['children'][1]['outputs']['text']
                         text = json.dumps({'type': "message_stream_complete", 'text': query.replace('\n', '\\n')})
