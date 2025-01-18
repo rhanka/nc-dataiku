@@ -250,7 +250,7 @@ def ai():
                     "role": role,
                     "description" : user_message
                 }))
-                
+                app.logger.info(query)
                 # 2nd step : gather documents relative to query
                 sources = {
                     "non_conformities": consume(stream_prompt_recipe(agents["nc_search"], {"input": query})),
@@ -265,7 +265,16 @@ def ai():
                     "history": json.dumps(history)
                 }))
 
-
+                formatted_results = json.dumps({
+                    "text": response_content['comment'],
+                    "label": response_content['label'],
+                    "description": response_content['description'],
+                    "sources": sources,
+                    "user_query": user_message,
+                    "knowledge_query": query,
+                    "role": "ai",
+                    "user_role": role
+                })
                 yield f"data: {formatted_results}\n\ndata: [DONE]\n\n"
 
         return Response(events(role,user_message,sources,history), content_type='text/event-stream') 
