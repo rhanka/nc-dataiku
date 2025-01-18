@@ -234,7 +234,8 @@ def ai():
                         query = chunk.data['trace']['children'][1]['outputs']['text']
                         text = json:dumps({'text': chunk.data['text'].replace('\n', '\\n')})
                         app.logger.info(query)
-                        yield f"data: [DONE]\n"  # Indicateur de fin de la première étape
+                        yield f"data: {text}\n\n"  # Indicateur de fin de la première étape
+                        yield f"data: [DONE]\n\n"  # Indicateur de fin de la première étape
                 
                 # 2nd step : gather documents relative to query
                 sources = {
