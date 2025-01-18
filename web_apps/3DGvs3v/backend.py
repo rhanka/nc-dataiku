@@ -166,7 +166,7 @@ def stream_prompt_recipe(recipe_name, inputs):
             yield format_event_stream(chunk.data['text'])
         elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
             result = chunk.data['trace']['children'][1]['outputs']['text']
-            yield format_data_stream("recipe_name",result)
+            yield format_data_stream(f"recipe_result:{recipe_name}",result)
     return result
 
 def consume(gen):
