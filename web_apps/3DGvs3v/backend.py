@@ -149,6 +149,21 @@ def exec_prompt_recipe(recipe_name, inputs):
         return json.loads(resp.text)
     except:
         return resp.text
+    
+def stream_prompt_recipe(recipe_name, inputs):
+    result = None
+    for chunk in completion_from_prompt_recipe(recipe_name, inputs).execute_streamed():
+        if isinstance(chunk, DSSLLMStreamedCompletionChunk):
+            # Événement intermédiaire pour le streaming
+            yield f"event: delta\n"
+            yield f"data: {json.dumps({'v': chunk.data['text']})}\n\n"
+        elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
+            # Traitement final lorsque le flux est terminé
+            result = chunk.data['trace']['children'][1]['outputs']['text']
+            formatted_results = json.dumps({'type': 'message_stream_complete', 'text': result.replace('\n', '\\n')})
+            yield f"data: {formatted_results}\n\n"
+            yield "data: [DONE]\n\n"
+    return result
 
 def format_event_stream(input):
     text = json.dumps({'v': input.replace('\n', '\\n')})
@@ -240,7 +255,6 @@ def ai():
                     elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
                         query = chunk.data['trace']['children'][1]['outputs']['text']
                         text = json.dumps({'type': "message_stream_complete", 'text': query.replace('\n', '\\n')})
-                        app.logger.info(query)
                         yield f"data: {text}\n\ndata: [DONE]\n\n"  # Indicateur de fin de la première étape
                 
                 # 2nd step : gather documents relative to query
