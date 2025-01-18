@@ -262,13 +262,13 @@ def ai():
                     "tech_docs": consume(stream_prompt_recipe(agents["doc_search"], {"input": query}))
                 }
                 
-                response_content = consume(stream_prompt_recipe(agents[role], {
+                response_content = json.loads(consume(stream_prompt_recipe(agents[role], {
                     "role": role,
                     "description": user_message,
                     "search_docs": json.dumps(sources["tech_docs"]),
                     "search_nc": json.dumps(sources["non_conformities"]),
                     "history": json.dumps(history)
-                }))
+                })))
 
                 formatted_results = json.dumps({
                     "text": response_content['comment'],
