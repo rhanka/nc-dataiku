@@ -164,7 +164,7 @@ def format_data_stream(type, input,metadata):
 
 def stream_prompt_recipe(recipe_name, inputs):
     agent_name = next((agent for agent, recipe in agents.items() if recipe == recipe_name), recipe_name)
-    yield format_data_stream("action",f"{agent_name}")
+    yield format_data_stream("action",f"{agent_name}",None)
     result = None
     for chunk in completion_from_prompt_recipe(recipe_name, inputs).execute_streamed():
         if isinstance(chunk, DSSLLMStreamedCompletionChunk):
