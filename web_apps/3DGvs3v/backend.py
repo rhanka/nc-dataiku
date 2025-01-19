@@ -296,7 +296,6 @@ def ai():
                 non_conformities = exec_prompt_recipe(agents["nc_search"], {"input": query})
                 yield format_data_stream("result",non_conformities,"nc_search")
                 
-                
                 sources = {
                     "non_conformities": non_conformities,
                     "tech_docs": tech_docs
