@@ -167,7 +167,7 @@ def format_data_stream(type, input,metadata):
 
 def stream_prompt_recipe(recipe_name, inputs):
     agent_name = next((agent for agent, recipe in agents.items() if recipe == recipe_name), recipe_name)
-    yield format_data_stream("action",f"{agent_name}",None)
+    yield format_data_stream("action",agent_name,agent_name)
     result = None
     for chunk in completion_from_prompt_recipe(recipe_name, inputs).execute_streamed():
         if isinstance(chunk, DSSLLMStreamedCompletionChunk):
@@ -273,12 +273,12 @@ def ai():
                 
                 # 2nd step : gather documents relative to query
                 app.logger.info("nc_search")
-                yield format_data_stream("action","nc_search",None)
+                yield format_data_stream("action","nc_search","nc_search")
                 non_conformities = exec_prompt_recipe(agents["nc_search"], {"input": query})
                 yield format_data_stream("result",non_conformities,"nc_search")
                 
                 app.logger.info("doc_search")
-                yield format_data_stream("action","doc_search",None)
+                yield format_data_stream("action","doc_search","doc_search")
                 tech_docs = exec_prompt_recipe(agents["doc_search"], {"input": query})
                 yield format_data_stream("result",tech_docs,"doc_search")
                 
