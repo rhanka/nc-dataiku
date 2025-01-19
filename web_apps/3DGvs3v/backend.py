@@ -227,18 +227,17 @@ def ai():
     history = {}
     sources = None
     try:
-        history = json.loads(messages[-1]["history"]) if messages[-1] and messages[-1]["history"] else {}
+        history = messages[-1]["history"] if messages[-1] and messages[-1]["history"] else {}
     except:
         history = {}
         
     try:
-        sources = json.loads(messages[-1]["sources"]) if messages[-1] and messages[-1]["sources"] else None
+        sources = messages[-1]["sources"] if messages[-1] and messages[-1]["sources"] else None
     except:
         sources = None
         
     app.logger.info(history)
     app.logger.info(sources)
-    app.logger.info(messages[-1])
     
     if (not stream):
         if (not sources):
