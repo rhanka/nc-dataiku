@@ -122,6 +122,16 @@ agents = {
     "100": "compute_nc_scenarios_propose_100"
 }
 
+agentsMsg = {
+    "query": "Build appropriate request",
+    "nc_search": "Search for similar non-conformities",
+    "doc_search": "Search for relevant technical documents",
+    "000": "Propose structured non-conformity report",
+    "propose_000": "Propose structured non-conformity report",
+    "propose_100": "Analysing non-conformity",
+    "100": "compute_nc_scenarios_propose_100"
+}
+
 def completion_from_prompt_recipe(recipe_name, inputs):
     #partial method
     recipe = project.get_recipe(recipe_name)
