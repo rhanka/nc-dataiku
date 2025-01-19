@@ -215,7 +215,7 @@
         "containerMode": "INHERIT"
       },
       "llmSettings": {
-        "temperature": 0.0,
+        "temperature": 1.0,
         "stopSequences": [],
         "responseFormat": {
           "type": "json"
