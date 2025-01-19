@@ -151,9 +151,11 @@ def exec_prompt_recipe(recipe_name, inputs):
     except:
         return resp.text
 
-def format_event_stream(input):
-    text = json.dumps({'v': input.replace('\n', '\\n')})
-    return f"event: delta\ndata: {text}\n\n"
+def format_event_stream(input, metadata):
+    data = {'v': input.replace('\n', '\\n')}
+    if (metadata):
+        data["metadata"] = metadata
+    return f"event: delta\ndata: {json.dumps(data)}\n\n"
 
 def format_data_stream(type, input,metadata):
     data = {'type': type, 'text': input}
@@ -169,7 +171,7 @@ def stream_prompt_recipe(recipe_name, inputs):
     result = None
     for chunk in completion_from_prompt_recipe(recipe_name, inputs).execute_streamed():
         if isinstance(chunk, DSSLLMStreamedCompletionChunk):
-            yield format_event_stream(chunk.data['text'])
+            yield format_event_stream(chunk.data['text'],agent_name)
         elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
             result = chunk.data['trace']['children'][1]['outputs']['text']
             yield format_data_stream("result",result,agent_name)
