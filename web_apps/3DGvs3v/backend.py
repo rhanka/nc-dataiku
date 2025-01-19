@@ -186,7 +186,7 @@ def stream_prompt_recipe(recipe_name, inputs):
             text = chunk.data['trace']['children'][1]['outputs']['text']
             try:
                 result = json.loads(text)
-            except
+            except:
                 result = text
             yield format_data_stream("result",result,agent_name)
     return result
