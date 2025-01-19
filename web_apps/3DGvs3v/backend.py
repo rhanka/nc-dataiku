@@ -312,7 +312,7 @@ def ai():
                 response_content = json.loads(e.value)  # capture final return
             
             app.logger.info("end")
-            formatted_result = json.dumps({
+            result = {
                 "text": response_content['comment'],
                 "label": response_content['label'],
                 "description": response_content['description'],
@@ -321,8 +321,8 @@ def ai():
                 "knowledge_query": query,
                 "role": "ai",
                 "user_role": role
-            })
-            yield format_data_stream("result",formatted_result, "final")
+            }
+            yield format_data_stream("result",result, "final")
 
         return Response(events(role,user_message,sources,history), content_type='text/event-stream', headers={"X-Accel-Buffering": "no", "Cache-Control": "no-cache"}) 
 
