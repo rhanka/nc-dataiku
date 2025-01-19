@@ -313,7 +313,7 @@ def ai():
                 while True:
                     yield next(response_content)
             except StopIteration as e:
-                response_content = json.loads(e.value)  # capture final return
+                response_content = e.value  # capture final return
             
             app.logger.info("end")
             result = {
