@@ -238,7 +238,7 @@ def ai():
         
     app.logger.info(history)
     app.logger.info(sources)
-    app.logger.info(messages)
+    app.logger.info(messages[-1])
     
     if (not stream):
         if (not sources):
