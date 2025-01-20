@@ -137,6 +137,11 @@
       "table": 0
     },
     {
+      "name": "user_message",
+      "type": "string",
+      "table": 0
+    },
+    {
       "name": "llm_output",
       "alias": "query",
       "type": "string",
@@ -243,6 +248,11 @@
           {
             "name": "role",
             "comment": "rôle pour l\u0027opérateur (ici Quality Controller \u003d 000)",
+            "type": "string"
+          },
+          {
+            "name": "user_message",
+            "comment": "",
             "type": "string"
           },
           {
