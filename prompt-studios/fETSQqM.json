@@ -148,6 +148,7 @@
           },
           {
             "name": "user_message",
+            "datasetColumnName": "user_message",
             "type": "TEXT"
           }
         ],
