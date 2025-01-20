@@ -129,7 +129,7 @@ agentsMsg = {
     "000": "Propose structured non-conformity report",
     "propose_000": "Propose structured non-conformity report",
     "100": "Analysing non-conformity",
-    "propose_100": "Analysing non-conformity",
+    "propose_100": "Analysing non-conformity"
 }
 
 def completion_from_prompt_recipe(recipe_name, inputs):
