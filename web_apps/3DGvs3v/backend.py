@@ -226,10 +226,10 @@ def ai():
     
     role = messages[-1]["role"] if messages[-1] and (messages[-1]["role"] in roles) else "000"
     
-    if messages[-1] and messages[-1]["description"]:
+    try:
         user_message = messages[-1]["text"]
         description = messages[-1]["description"]
-    else:
+    except:
         description = messages[-1]["text"]
         user_message = "Propose task description"
 
