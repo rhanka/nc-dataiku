@@ -226,6 +226,45 @@
       "inlinePromptTemplateQueries": [],
       "tags": [],
       "starred": false
+    },
+    {
+      "id": "yihpaz9n9p",
+      "prompt": {
+        "promptMode": "PROMPT_TEMPLATE_TEXT",
+        "promptTemplateInputs": [],
+        "structuredPromptExamples": [],
+        "textPromptTemplateInputs": [
+          {
+            "name": "input",
+            "type": "TEXT"
+          },
+          {
+            "name": "role",
+            "datasetColumnName": "role",
+            "type": "TEXT"
+          }
+        ],
+        "textPromptTemplate": "Do something about {{input}}",
+        "textPromptSystemTemplate": "Proxy - Fin the best agent\n\n#Processus\nUne non conformité de l\u0027A220 doit être traitée selon le processus suivant :\n\n000 - rapport de non-conformité par le Quality Controler\n100 - analyse et recommandation / plan d\u0027action par le Design Office\n200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n400 - du calcul / plan d\u0027action amendé par le Stress Manager\n500 - plan d\u0027action final validé par le Quality Manager\n\nVous supportez le role de l\u0027étape {{role}} et devez trouer le meilleur processus d\u0027agents pour traiter la requête de l\u0027utilisateur.\n\n# Agents disponibles :\n- query: en fonction des données d\u0027entrée (entrée initial pour la description du rapport 000, ou historique + entrée initiale de l\u0027étape 100, 200...), fournir la meilleure requete\n\nEnfin",
+        "resultValidation": {
+          "expectedFormat": "NONE",
+          "requiredJSONObjectKeys": [],
+          "forbiddenTerms": []
+        },
+        "promptTemplateQueriesSource": "DATASET"
+      },
+      "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      },
+      "llmSettings": {
+        "stopSequences": []
+      },
+      "dataset": "nc_scenarios_propose_100",
+      "nbRows": 8,
+      "inlinePromptTemplateQueries": [],
+      "tags": [],
+      "starred": false
     }
   ],
   "creationTag": {
