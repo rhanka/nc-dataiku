@@ -8,12 +8,12 @@ from flask_jwt_extended import (
 )
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.exceptions import HTTPException
+from urllib.parse import quote
 
 import json
 from langchain.chains.question_answering import load_qa_chain
 from dataiku.langchain.dku_llm import DKULLM, DKUChatLLM
 from dataikuapi.dss.llm import DSSLLMStreamedCompletionChunk, DSSLLMStreamedCompletionFooter
-
 
 client = dataiku.api_client()
 project = client.get_default_project()
@@ -68,12 +68,15 @@ def get_doc(filename):
         # Build the file path
         file_path = f"{folder_path}/{filename}"
 
+        # Encoder le nom de fichier pour UTF-8
+        encoded_filename = quote(filename)
+        
         # Serve the file if it exists
         with open(file_path, 'rb') as pdf_file:
             return Response(
                 pdf_file.read(),
                 mimetype='application/pdf',
-                headers={"Content-Disposition": f"inline; filename={filename}"}
+                headers={"Content-Disposition": f"inline; filename*=UTF-8''{encoded_filename}"}
             )
     except FileNotFoundError:
         return json.dumps({"error": f"File {filename} not found."}), 404
