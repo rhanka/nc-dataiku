@@ -226,7 +226,13 @@ def ai():
     
     role = messages[-1]["role"] if messages[-1] and (messages[-1]["role"] in roles) else "000"
     
-    user_message = messages[-1]["text"]
+    if messages[-1] and messages[-1]["description"]:
+        user_message = messages[-1]["text"]
+        description = messages[-1]["description"]
+    else:
+        description = messages[-1]["text"]
+        user_message = "Propose task description"
+
     history = {}
     sources = None
     try:
@@ -247,7 +253,8 @@ def ai():
             # 1s step: expand query
             query = exec_prompt_recipe(agents["query"], {
                 "role": role,
-                "description" : user_message
+                "user_message": user_message,
+                "description": description
             })
 
             # 2nd step : gather documents relative to query
@@ -259,7 +266,8 @@ def ai():
         # 3rd step : give the best advice given the documents
         response_content = exec_prompt_recipe(agents[role], {
             "role": role,
-            "description": user_message,
+            "user_message": user_message,
+            "description": description,
             "search_docs": json.dumps(sources["tech_docs"]),
             "search_nc": json.dumps(sources["non_conformities"]),
             "history": json.dumps(history)
@@ -271,6 +279,7 @@ def ai():
             "description": response_content['description'],
             "sources": sources,
             "user_query": user_message,
+            "input_description": description,
             "knowledge_query": query,
             "role": "ai",
             "user_role": role
@@ -283,7 +292,8 @@ def ai():
                 app.logger.info("query")
                 query = stream_prompt_recipe(agents["query"], {
                     "role": role,
-                    "description" : user_message
+                    "user_message": user_message,
+                    "description": description
                 })
                 try:
                     while True:
@@ -310,7 +320,8 @@ def ai():
             app.logger.info(agents[role])
             response_content = stream_prompt_recipe(agents[role], {
                 "role": role,
-                "description": user_message,
+                "user_message": user_message,
+                "description": description,
                 "search_docs": json.dumps(sources["tech_docs"]),
                 "search_nc": json.dumps(sources["non_conformities"]),
                 "history": json.dumps(history)
@@ -328,6 +339,7 @@ def ai():
                 "description": response_content['description'],
                 "sources": sources,
                 "user_query": user_message,
+                "input_description": description,
                 "knowledge_query": query,
                 "role": "ai",
                 "user_role": role
