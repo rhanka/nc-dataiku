@@ -29,8 +29,34 @@
   },
   "explorationFilters": [],
   "columnUseScientificNotationByName": {},
-  "exploreUIParams": {},
-  "steps": [],
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "\"100\"",
+        "column": "role"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "\"Merci de fournir une propostion d\u0027analyse\"",
+        "column": "description"
+      },
+      "alwaysShowComment": false
+    }
+  ],
   "maxProcessedMemTableBytes": -1,
   "previewMode": "ALL_ROWS",
   "vizSampling": {
@@ -57,7 +83,23 @@
     "autoRefreshSample": false
   },
   "analysisColumnData": {},
-  "columnWidthsByName": {},
+  "columnWidthsByName": {
+    "llm_error_message": 143,
+    "llm_raw_response": 300,
+    "role": 100,
+    "search_docs": 300,
+    "llm_validation_status": 173,
+    "query": 300,
+    "llm_output": 300,
+    "description": 300,
+    "user_message": 183,
+    "llm_raw_query": 300,
+    "nc_event_id": 127,
+    "aircraft_id": 100,
+    "aircraft_model": 148,
+    "search_nc": 300,
+    "zone": 300
+  },
   "sorting": [],
   "globalSearchQuery": "",
   "coloring": {
