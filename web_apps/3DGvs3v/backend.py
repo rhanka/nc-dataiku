@@ -188,7 +188,7 @@ def stream_prompt_recipe(recipe_name, inputs):
         elif isinstance(chunk, DSSLLMStreamedCompletionFooter):
             text = chunk.data['trace']['children'][1]['outputs']['text']
             try:
-                result = json.loads(text.encode('utf-8').decode('unicode_escape'))
+                result = json.loads(text)
             except:
                 result = text
             yield format_data_stream("result",result,agent_name)
