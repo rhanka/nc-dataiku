@@ -118,8 +118,8 @@ agents = {
     "doc_search": "compute_nc_scenarios_search_techdocs",
     "000": "compute_nc_scenarios_propose_000",
     "propose_000": "compute_nc_scenarios_propose_000",
-    "propose_100": "compute_nc_scenarios_propose_100",
     "100": "compute_nc_scenarios_propose_100"
+    "propose_100": "compute_nc_scenarios_propose_100",
 }
 
 agentsMsg = {
