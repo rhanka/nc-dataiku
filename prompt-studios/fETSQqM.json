@@ -236,7 +236,7 @@
           "type": "json"
         }
       },
-      "dataset": "nc_scenarios_propose_000",
+      "dataset": "nc_scenarios_propose_000_to_100",
       "nbRows": 8,
       "inlinePromptTemplateQueries": [],
       "tags": [],
