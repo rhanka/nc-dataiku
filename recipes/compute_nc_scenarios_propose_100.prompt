@@ -11,7 +11,7 @@
     "topP": 0.1
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+  "llmId": "openai:OpenAI-FA:gpt-4o",
   "prompt": {
     "promptTemplateInputs": [],
     "resultValidation": {
