@@ -7,7 +7,8 @@
     "temperature": 0,
     "responseFormat": {
       "type": "json"
-    }
+    },
+    "topP": 0.1
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
   "llmId": "openai:OpenAI-FA:gpt-4o-mini",
