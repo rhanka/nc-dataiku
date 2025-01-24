@@ -57,7 +57,7 @@
           "forbiddenTerms": []
         }
       },
-      "llmId": "huggingfacelocal:HuggingFace-FA:google/gemma-2-2b-it:TEXT_GENERATION_GEMMA:promptDriven\u003dtrue",
+      "llmId": "vertex:VertexAI-FA:gemini-pro",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
