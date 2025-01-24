@@ -57,7 +57,7 @@
           "forbiddenTerms": []
         }
       },
-      "llmId": "vertex:VertexAI-FA:gemini-pro",
+      "llmId": "vertex:VertexAI-FA:gemini-1.5-flash",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
