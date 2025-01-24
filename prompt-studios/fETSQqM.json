@@ -161,7 +161,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "mistralai:Mistral-FA:open-mistral-7b",
+      "llmId": "openai:OpenAI-FA:gpt-4o-mini",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
