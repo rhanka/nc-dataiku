@@ -57,7 +57,7 @@
           "forbiddenTerms": []
         }
       },
-      "llmId": "huggingfacelocal:HuggingFace-FA:DeepSeek-V3:TEXT_GENERATION_LLAMA_2:promptDriven\u003dtrue",
+      "llmId": "huggingfacelocal:HuggingFace-FA:google/gemma-2-2b-it:TEXT_GENERATION_GEMMA:promptDriven\u003dtrue",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
