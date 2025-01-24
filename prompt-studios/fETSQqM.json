@@ -161,7 +161,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+      "llmId": "vertex:VertexAI-FA:gemini-1.5-flash",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
