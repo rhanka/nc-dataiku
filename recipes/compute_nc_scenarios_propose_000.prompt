@@ -10,7 +10,7 @@
     }
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "mistralai:Mistral-FA:open-mistral-7b",
+  "llmId": "mistralai:Mistral-FA:mistral-small-latest",
   "prompt": {
     "promptTemplateInputs": [],
     "resultValidation": {
