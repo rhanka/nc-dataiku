@@ -10,7 +10,7 @@
     }
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+  "llmId": "mistralai:Mistral-FA:open-mistral-7b",
   "prompt": {
     "promptTemplateInputs": [],
     "resultValidation": {
