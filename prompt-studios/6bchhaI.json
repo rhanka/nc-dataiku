@@ -57,7 +57,7 @@
           "forbiddenTerms": []
         }
       },
-      "llmId": "openai:OpenAI-FA:o1-mini",
+      "llmId": "huggingfacelocal:HuggingFace-FA:mistralai/Mistral-7B-Instruct-v0.2:TEXT_GENERATION_MISTRAL:promptDriven\u003dtrue",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
