@@ -50,7 +50,7 @@
         "promptTemplateInputs": [],
         "structuredPromptExamples": [],
         "textPromptTemplateInputs": [],
-        "rawPromptText": "Please provide hydro pdf documents",
+        "rawPromptText": "Parle moi de la meteo",
         "resultValidation": {
           "expectedFormat": "NONE",
           "requiredJSONObjectKeys": [],
