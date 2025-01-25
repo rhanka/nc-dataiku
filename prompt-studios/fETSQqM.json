@@ -286,30 +286,19 @@
       "id": "jflpbkifgj",
       "prompt": {
         "promptMode": "PROMPT_TEMPLATE_STRUCTURED",
-        "promptTemplateInputs": [
-          {
-            "name": "Reasoning problem",
-            "type": "TEXT"
-          }
-        ],
+        "promptTemplateInputs": [],
         "structuredPromptPrefix": "Here are some reasoning problems. Think step by step, before giving your final answer.",
         "structuredPromptExamples": [
           {
-            "inputs": [
-              "A coin is heads up. Ka turns the coin over. Sherrie turns the coin over. Is the coin still heads up?"
-            ],
+            "inputs": [],
             "output": "The coin was turned over by both Ka and Sherrie. So the coin was turned over two times, which is an even number. The coin started heads up, and a coin only has two sides, so after an even number of turns, it will be back to heads up. So the answer is yes."
           },
           {
-            "inputs": [
-              "A person is traveling at 20 km/h and reaches his destination in 2.5 hours, can you find the traveled distance?"
-            ],
+            "inputs": [],
             "output": "The distance that the person traveled would be 20 km/hr * 2.5 hrs \u003d 50 km. The answer is 50 km."
           },
           {
-            "inputs": [
-              "There were nine computers in the server room. Five more computers were installed each day, from Monday to Thursday. How many computers are now in the server room?"
-            ],
+            "inputs": [],
             "output": "There were originally 9 computers. For each of four days, five more computers were added. So 5 * 4 \u003d 20 computers were added. 9 + 20 is 29. The answer is 29."
           }
         ],
@@ -321,7 +310,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "openai:OpenAI-FA:gpt-4o",
+      "llmId": "mistralai:Mistral-FA:open-mistral-7b",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
