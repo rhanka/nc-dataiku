@@ -1,4 +1,3 @@
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # -*- coding: utf-8 -*-
 import dataiku
 import os
@@ -22,22 +21,26 @@ for pdf_file in pdf_files:
         temp_pdf.write(pdf_data)
         temp_pdf.flush()  # Assurez-vous que le contenu est écrit sur le disque
 
-        # Convertir en Markdown
+        # Lire le PDF
         reader = PdfReader(temp_pdf.name)
 
-        # Extract each page and save as a separate PDF
+        # Extraire chaque page et sauvegarder en tant que fichier PDF séparé
         for page_number, page in enumerate(reader.pages):
             writer = PdfWriter()
             writer.add_page(page)
 
-            # Define the PDF file name for each page
-            page_pdf_file_name = f"{os.path.splitext(pdf_file)[0]}_page_{page_number + 1}.pdf"
+            # Définir le nom de fichier pour chaque page
+            page_pdf_file_name = f"{os.path.splitext(os.path.basename(pdf_file))[0]}_page_{page_number + 1}.pdf"
 
-            # Write the single-page PDF
+            # Créer un fichier temporaire pour chaque page PDF
             with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as page_pdf:
                 writer.write(page_pdf)
                 page_pdf.flush()
 
-                # Upload the single-page PDF to the output folder
+                # Lire le contenu du fichier temporaire
                 with open(page_pdf.name, 'rb') as page_pdf_file:
-                    A220_tech_docs_pages.upload_data(page_pdf_file_name, page_pdf_file)
+                    page_pdf_data = page_pdf_file.read()  # Lire les données en bytes
+                    A220_tech_docs_pages.upload_data(page_pdf_file_name, page_pdf_data)
+
+            # Supprimer le fichier temporaire
+            os.remove(page_pdf.name)
