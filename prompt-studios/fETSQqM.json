@@ -296,7 +296,7 @@
           "forbiddenTerms": []
         }
       },
-      "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+      "llmId": "mistralai:Mistral-FA:mistral-large-latest",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
