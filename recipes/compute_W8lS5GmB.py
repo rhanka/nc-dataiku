@@ -3,7 +3,7 @@
 import dataiku
 import os
 import tempfile
-from PyPDF2 import PdfReader
+from PyPDF2 import PdfReader, PdfWriter
 
 # Folders
 A220_tech_docs = dataiku.Folder("SoQWOnhR")          # Input folder
@@ -16,7 +16,7 @@ for pdf_file in pdf_files:
     # Lire le contenu PDF
     with A220_tech_docs.get_download_stream(pdf_file) as f:
         pdf_data = f.read()
-        
+
     # Utiliser un fichier temporaire pour la conversion
     with tempfile.NamedTemporaryFile(delete=True, suffix=".pdf") as temp_pdf:
         temp_pdf.write(pdf_data)
@@ -29,15 +29,15 @@ for pdf_file in pdf_files:
         for page_number, page in enumerate(reader.pages):
             writer = PdfWriter()
             writer.add_page(page)
-            
+
             # Define the PDF file name for each page
             page_pdf_file_name = f"{os.path.splitext(pdf_file)[0]}_page_{page_number + 1}.pdf"
-            
+
             # Write the single-page PDF
             with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as page_pdf:
                 writer.write(page_pdf)
                 page_pdf.flush()
-                
+
                 # Upload the single-page PDF to the output folder
                 with open(page_pdf.name, 'rb') as page_pdf_file:
                     A220_tech_docs_pages.upload_data(page_pdf_file_name, page_pdf_file)
