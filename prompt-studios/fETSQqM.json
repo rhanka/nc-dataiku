@@ -281,47 +281,6 @@
       "inlinePromptTemplateQueries": [],
       "tags": [],
       "starred": false
-    },
-    {
-      "id": "jflpbkifgj",
-      "prompt": {
-        "promptMode": "PROMPT_TEMPLATE_STRUCTURED",
-        "promptTemplateInputs": [],
-        "structuredPromptPrefix": "Here are some reasoning problems. Think step by step, before giving your final answer.",
-        "structuredPromptExamples": [
-          {
-            "inputs": [],
-            "output": "The coin was turned over by both Ka and Sherrie. So the coin was turned over two times, which is an even number. The coin started heads up, and a coin only has two sides, so after an even number of turns, it will be back to heads up. So the answer is yes."
-          },
-          {
-            "inputs": [],
-            "output": "The distance that the person traveled would be 20 km/hr * 2.5 hrs \u003d 50 km. The answer is 50 km."
-          },
-          {
-            "inputs": [],
-            "output": "There were originally 9 computers. For each of four days, five more computers were added. So 5 * 4 \u003d 20 computers were added. 9 + 20 is 29. The answer is 29."
-          }
-        ],
-        "textPromptTemplateInputs": [],
-        "resultValidation": {
-          "expectedFormat": "NONE",
-          "requiredJSONObjectKeys": [],
-          "forbiddenTerms": []
-        },
-        "promptTemplateQueriesSource": "DATASET"
-      },
-      "llmId": "mistralai:Mistral-FA:open-mistral-7b",
-      "containerSelection": {
-        "containerMode": "INHERIT"
-      },
-      "llmSettings": {
-        "stopSequences": []
-      },
-      "dataset": "nc_scenarios_propose_000_to_100",
-      "nbRows": 8,
-      "inlinePromptTemplateQueries": [],
-      "tags": [],
-      "starred": false
     }
   ],
   "creationTag": {
