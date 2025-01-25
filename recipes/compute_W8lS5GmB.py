@@ -1,4 +1,3 @@
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # -*- coding: utf-8 -*-
 import dataiku
 import os
@@ -30,8 +29,11 @@ for pdf_file in pdf_files:
             writer = PdfWriter()
             writer.add_page(page)
 
+            # Formatage du numéro de page avec padding (0001, 0002, ...)
+            padded_page_number = str(page_number + 1).zfill(4)  # Ajout de padding à 4 chiffres
+
             # Définir le nom de fichier pour chaque page
-            page_pdf_file_name = f"{os.path.splitext(os.path.basename(pdf_file))[0]}_page_{page_number + 1}.pdf"
+            page_pdf_file_name = f"{os.path.splitext(os.path.basename(pdf_file))[0]}_page_{padded_page_number}.pdf"
 
             # Créer un fichier temporaire pour chaque page PDF
             with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as page_pdf:
