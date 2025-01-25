@@ -29,6 +29,10 @@
     {
       "objectId": "a220_nc_images_list",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "W8lS5GmB",
+      "objectType": "MANAGED_FOLDER"
     }
   ],
   "shared": [],
