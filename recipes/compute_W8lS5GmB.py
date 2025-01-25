@@ -29,6 +29,10 @@ for pdf_file in pdf_files:
             writer = PdfWriter()
             writer.add_page(page)
 
+            # Supprimer les métadonnées inutiles pour réduire la taille
+            writer._header = b"%PDF-1.4"  # Optionnel : définir une version PDF compatible plus ancienne
+            writer.remove_metadata()     # Supprime les métadonnées globales
+
             # Formatage du numéro de page avec padding (0001, 0002, ...)
             padded_page_number = str(page_number + 1).zfill(4)  # Ajout de padding à 4 chiffres
 
