@@ -1,8 +1,9 @@
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # -*- coding: utf-8 -*-
 import dataiku
 import os
 import tempfile
-from PyPDF2 import PdfReader, PdfWriter
+from pypdf import PdfReader, PdfWriter
 
 # Folders
 A220_tech_docs = dataiku.Folder("SoQWOnhR")          # Input folder
