@@ -296,7 +296,7 @@
           "forbiddenTerms": []
         }
       },
-      "llmId": "mistralai:Mistral-FA:mistral-large-latest",
+      "llmId": "huggingfacelocal:HuggingFace-FA:DeepSeek-V3:TEXT_GENERATION_LLAMA_2:promptDriven\u003dtrue",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
