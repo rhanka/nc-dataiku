@@ -37,6 +37,10 @@
     {
       "objectId": "compute_W8lS5GmB",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "AtrGbrcD",
+      "objectType": "MANAGED_FOLDER"
     }
   ],
   "shared": [],
