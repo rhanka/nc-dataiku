@@ -27,10 +27,60 @@
     },
     "autoRefreshSample": false
   },
-  "explorationFilters": [],
+  "explorationFilters": [
+    {
+      "validityFilter": {
+        "column": "word_count",
+        "type": "validity",
+        "params": {
+          "nok": true,
+          "type": "LongMeaning",
+          "ok": true,
+          "empty": true
+        }
+      },
+      "column": "word_count",
+      "active": true,
+      "alphanumFilter": {
+        "selectedValues": [],
+        "column": "word_count",
+        "type": "alphanum",
+        "params": {
+          "mode": "full_string",
+          "normalization": "exact"
+        }
+      },
+      "type": "columnFilter",
+      "$$hashKey": "object:34955",
+      "facet": {
+        "columnType": "NUMERICAL",
+        "selectedValues": {},
+        "column": "word_count",
+        "sort": "count",
+        "type": "facet",
+        "currentMode": "NUMERICAL"
+      },
+      "currentMode": "FACET"
+    }
+  ],
   "columnUseScientificNotationByName": {},
-  "exploreUIParams": {},
-  "steps": [],
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "FilterOnCustomFormula",
+      "params": {
+        "expression": "contains(chunk,\"left blank\")",
+        "action": "REMOVE_ROW"
+      },
+      "alwaysShowComment": false
+    }
+  ],
   "maxProcessedMemTableBytes": -1,
   "previewMode": "ALL_ROWS",
   "vizSampling": {
@@ -57,7 +107,15 @@
     "autoRefreshSample": false
   },
   "analysisColumnData": {},
-  "columnWidthsByName": {},
+  "columnWidthsByName": {
+    "word_count": 100,
+    "words": 300,
+    "chunk": 300,
+    "doc": 300,
+    "chunk_simplified": 300,
+    "ngrams": 300,
+    "chunk_id": 100
+  },
   "sorting": [],
   "globalSearchQuery": "",
   "coloring": {
