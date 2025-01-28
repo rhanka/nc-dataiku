@@ -8,7 +8,7 @@ import tempfile
 md = MarkItDown()
 
 # Folders
-A220_tech_docs = dataiku.Folder("SoQWOnhR")          # Input folder
+A220_tech_docs = dataiku.Folder("W8lS5GmB")          # Input folder
 A220_tech_docs_prep = dataiku.Folder("AXB1Cyno")    # Output folder
 
 # Lister les fichiers PDF
