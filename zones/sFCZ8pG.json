@@ -69,6 +69,14 @@
     {
       "objectId": "8jpMQW44",
       "objectType": "RETRIEVABLE_KNOWLEDGE"
+    },
+    {
+      "objectId": "a220_tech_docs_content_prepared",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_a220_tech_docs_content_prepared",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
