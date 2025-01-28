@@ -62,7 +62,7 @@ def get_doc(filename):
     """
     try:
         # Replace "pdf_folder_dataset" with the actual folder dataset name
-        folder = dataiku.Folder("SoQWOnhR")
+        folder = dataiku.Folder("W8lS5GmB")
         folder_path = folder.get_path()
 
         # Build the file path
