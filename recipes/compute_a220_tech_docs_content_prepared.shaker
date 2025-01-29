@@ -3,10 +3,10 @@
     "mode": "ALL"
   },
   "explorationSampling": {
-    "_refreshTrigger": 0,
+    "_refreshTrigger": 1738117674740,
     "selection": {
       "latestPartitionsN": 1,
-      "maxRecords": 10000,
+      "maxRecords": 16000,
       "maxRecordsForDisplay": -1,
       "ordering": {
         "rules": [],
@@ -75,7 +75,7 @@
       "disabled": false,
       "type": "FilterOnCustomFormula",
       "params": {
-        "expression": "contains(chunk,\"left blank\")",
+        "expression": "contains(toLowercase(chunk),\"left blank\")",
         "action": "REMOVE_ROW"
       },
       "alwaysShowComment": false
