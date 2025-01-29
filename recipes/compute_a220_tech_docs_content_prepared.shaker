@@ -75,7 +75,7 @@
       "disabled": false,
       "type": "FilterOnCustomFormula",
       "params": {
-        "expression": "contains(toLowercase(chunk),\"left blank\")",
+        "expression": "or(contains(toLowercase(chunk),\"left blank\"),contains(toLowercase(chunk),\"table of content\"))",
         "action": "REMOVE_ROW"
       },
       "alwaysShowComment": false
