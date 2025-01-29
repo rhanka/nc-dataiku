@@ -14,7 +14,7 @@
   "llmsExposedWith": [
     {
       "ragModelId": "gpt-4o-mini-a220-tech-docs",
-      "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+      "llmId": "openai:OpenAI-FA:gpt-4o",
       "maxDocuments": 30,
       "useMMR": true,
       "mmrK": 60,
