@@ -45,6 +45,10 @@
     {
       "objectId": "compute_french_nouns_from_english_wiktionary",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "french_nouns_from_french_wiktionary",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
