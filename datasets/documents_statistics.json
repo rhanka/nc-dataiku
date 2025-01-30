@@ -61,7 +61,7 @@
       {"name":"readability","type":"double"},
       {"name":"file_path","type":"string"}
     ],
-    "userModified": true
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {
