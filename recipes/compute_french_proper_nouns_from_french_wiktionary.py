@@ -47,5 +47,5 @@ members = get_all_category_members(category_name)
 df = pd.DataFrame(members)
 
 # Write DataFrame to a Dataiku dataset
-output_dataset = dataiku.Dataset("english_proper_nouns_from_french_wiktionary")  # Change to your dataset name
+output_dataset = dataiku.Dataset("french_proper_nouns_from_french_wiktionary")  # Change to your dataset name
 output_dataset.write_with_schema(df)
