@@ -86,7 +86,7 @@
   },
   "schema": {
     "columns": [],
-    "userModified": true
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {
