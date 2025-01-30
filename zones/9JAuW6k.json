@@ -21,6 +21,10 @@
     {
       "objectId": "compute_french_wiktionary_titles",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "english_wiktionary_titles",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
