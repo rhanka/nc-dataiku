@@ -9,6 +9,38 @@
     {
       "objectId": "english_wiktionary_titles",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_english_nouns_from_english_wiktionary",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_english_proper_nouns_from_english_wiktionary",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_french_nouns_from_english_wiktionary",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_french_proper_nouns_from_english_wiktionary",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "english_nouns_from_english_wiktionary",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "english_proper_nouns_from_english_wiktionary",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "french_nouns_from_english_wiktionary",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "french_proper_nouns_from_english_wiktionary",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],

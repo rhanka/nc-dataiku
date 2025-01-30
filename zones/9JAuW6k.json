@@ -13,38 +13,6 @@
     {
       "objectId": "compute_document_statistics",
       "objectType": "RECIPE"
-    },
-    {
-      "objectId": "english_nouns_from_english_wiktionary",
-      "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_english_nouns_from_english_wiktionary",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "french_nouns_from_english_wiktionary",
-      "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_french_nouns_from_english_wiktionary",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "english_proper_nouns_from_english_wiktionary",
-      "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_english_proper_nouns_from_english_wiktionary",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "french_proper_nouns_from_english_wiktionary",
-      "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_french_proper_nouns_from_english_wiktionary",
-      "objectType": "RECIPE"
     }
   ],
   "shared": [],
