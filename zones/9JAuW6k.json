@@ -9,6 +9,10 @@
     {
       "objectId": "string_statistics",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_string_statistics",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
