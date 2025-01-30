@@ -13,6 +13,10 @@
     {
       "objectId": "compute_string_statistics",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "documents_statistics",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
