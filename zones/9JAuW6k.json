@@ -29,6 +29,10 @@
     {
       "objectId": "compute_english_wiktionary_titles",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "english_nouns_from_english_wiktionary",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
