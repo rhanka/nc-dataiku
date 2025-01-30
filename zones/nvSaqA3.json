@@ -5,6 +5,10 @@
     {
       "objectId": "all_wikidata_properties",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_all_wikidata_properties",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
