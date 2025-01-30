@@ -1,7 +1,12 @@
 {
   "name": "English Wikipedia",
   "color": "#465A64",
-  "items": [],
+  "items": [
+    {
+      "objectId": "english_wikipedia_titles",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
