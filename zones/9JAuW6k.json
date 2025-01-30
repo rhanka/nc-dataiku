@@ -7,10 +7,6 @@
       "objectType": "MANAGED_FOLDER"
     },
     {
-      "objectId": "documents_statistics",
-      "objectType": "DATASET"
-    },
-    {
       "objectId": "document_statistics",
       "objectType": "DATASET"
     },
