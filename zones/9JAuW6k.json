@@ -13,6 +13,10 @@
     {
       "objectId": "compute_document_statistics",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "french_wiktionary_titles",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
