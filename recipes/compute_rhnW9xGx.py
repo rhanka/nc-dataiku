@@ -8,8 +8,8 @@ import tempfile
 md = MarkItDown()
 
 # Folders
-A220_tech_docs = dataiku.Folder("W8lS5GmB")          # Input folder
-A220_tech_docs_prep = dataiku.Folder("AXB1Cyno")    # Output folder
+A220_tech_docs = dataiku.Folder("SoQWOnhR")          # Input folder
+A220_tech_docs_prep = dataiku.Folder("rhnW9xGx")    # Output folder
 
 # Lister les fichiers PDF
 pdf_files = [f for f in A220_tech_docs.list_paths_in_partition() if f.lower().endswith(".pdf")]
