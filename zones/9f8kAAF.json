@@ -17,6 +17,14 @@
     {
       "objectId": "french_wiktionary_titles",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_english_nouns_from_french_wiktionary",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "english_nouns_from_french_wiktionary",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
