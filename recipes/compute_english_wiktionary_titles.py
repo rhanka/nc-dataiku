@@ -1,17 +1,42 @@
-# -*- coding: utf-8 -*-
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 import dataiku
-import pandas as pd, numpy as np
-from dataiku import pandasutils as pdu
+import pandas as pd
+import requests
+import gzip
+import shutil
+import os
 
+# URL of the file
+url = "https://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-all-titles.gz"
+filename = "enwiktionary-latest-all-titles.gz"
+unzipped_filename = "enwiktionary-latest-all-titles.txt"
 
+def download_file(url, filename):
+    """Download a file from a URL"""
+    response = requests.get(url, stream=True)
+    with open(filename, "wb") as file:
+        shutil.copyfileobj(response.raw, file)
+    print(f"Downloaded {filename}")
 
-# Compute recipe outputs
-# TODO: Write here your actual code that computes the outputs
-# NB: DSS supports several kinds of APIs for reading and writing data. Please see doc.
+def extract_gzip(gz_filename, extracted_filename):
+    """Extract a gzip file"""
+    with gzip.open(gz_filename, "rb") as f_in:
+        with open(extracted_filename, "wb") as f_out:
+            shutil.copyfileobj(f_in, f_out)
+    print(f"Extracted {gz_filename} to {extracted_filename}")
 
-english_wiktionary_titles_df = ... # Compute a Pandas dataframe to write into english_wiktionary_titles
+def load_to_dataframe(filename):
+    """Load file content into a Pandas DataFrame"""
+    with open(filename, "r", encoding="utf-8") as file:
+        lines = file.read().splitlines()
+    df = pd.DataFrame(lines, columns=["Title"])
+    return df
 
+# Download, extract, and load data
+download_file(url, filename)
+extract_gzip(filename, unzipped_filename)
+df = load_to_dataframe(unzipped_filename)
 
-# Write recipe outputs
-english_wiktionary_titles = dataiku.Dataset("english_wiktionary_titles")
-english_wiktionary_titles.write_with_schema(english_wiktionary_titles_df)
+# Write DataFrame to Dataiku dataset
+output_dataset = dataiku.Dataset("english_wiktionary_titles")
+output_dataset.write_with_schema(df)
