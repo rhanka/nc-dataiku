@@ -1,7 +1,12 @@
 {
   "name": "Knowledge Engineering",
   "color": "#4B8021",
-  "items": [],
+  "items": [
+    {
+      "objectId": "rhnW9xGx",
+      "objectType": "MANAGED_FOLDER"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
