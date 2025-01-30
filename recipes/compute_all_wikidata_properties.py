@@ -1,6 +1,8 @@
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 from SPARQLWrapper import SPARQLWrapper, JSON
 import pandas as pd
 import dataiku
+from dataiku import Dataset
 
 # Define SPARQL endpoint
 sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
@@ -37,4 +39,4 @@ df = pd.DataFrame(data)
 
 # Save DataFrame to Dataiku dataset
 dataset_name = "all_wikidata_properties"
-dataiku.Dataset(dataset_name).write_with_schema(df)
+Dataset(dataset_name).write_with_schema(df)
