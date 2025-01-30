@@ -5,6 +5,10 @@
     {
       "objectId": "rhnW9xGx",
       "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "string_statistics",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
