@@ -1,7 +1,12 @@
 {
   "name": "French Wikipedia",
   "color": "#31439C",
-  "items": [],
+  "items": [
+    {
+      "objectId": "french_wikipedia_titles",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
