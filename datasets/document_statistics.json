@@ -85,8 +85,16 @@
     }
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {"name":"num_chars","type":"double"},
+      {"name":"num_words","type":"double"},
+      {"name":"num_sentences","type":"double"},
+      {"name":"avg_word_length","type":"double"},
+      {"name":"lexical_diversity","type":"double"},
+      {"name":"readability","type":"double"},
+      {"name":"file_path","type":"string"}
+    ],
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {
