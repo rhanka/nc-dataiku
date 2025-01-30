@@ -25,6 +25,10 @@
     {
       "objectId": "english_wiktionary_titles",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_english_wiktionary_titles",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
