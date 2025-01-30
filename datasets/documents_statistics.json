@@ -12,7 +12,7 @@
   },
   "flowOptions": {
     "virtualizable": false,
-    "rebuildBehavior": "WRITE_PROTECT",
+    "rebuildBehavior": "NORMAL",
     "crossProjectBuildBehavior": "STOP"
   },
   "readWriteOptions": {
@@ -61,7 +61,7 @@
       {"name":"readability","type":"double"},
       {"name":"file_path","type":"string"}
     ],
-    "userModified": false
+    "userModified": true
   },
   "dkuProperties": [],
   "metrics": {
