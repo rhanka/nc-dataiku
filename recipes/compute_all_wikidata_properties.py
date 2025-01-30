@@ -1,42 +1,62 @@
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 from SPARQLWrapper import SPARQLWrapper, JSON
 import pandas as pd
+import time
 import dataiku
-from dataiku import Dataset
 
-# Define SPARQL endpoint
+# Define the Dataiku dataset where data will be saved
+dataset_name = "wikidata_properties"
+
+# Initialize SPARQL endpoint
 sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
 
-# Define the SPARQL query
-query = """
-SELECT ?property ?propertyType ?propertyLabel ?propertyDescription ?propertyAltLabel WHERE {
-  ?property wikibase:propertyType ?propertyType .
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en". }
-}
-ORDER BY ASC(xsd:integer(STRAFTER(STR(?property), 'P')))
-"""
+# Set batch size and offset for pagination
+batch_size = 5000  # Fetch data in smaller chunks
+offset = 0
+all_data = []
 
-# Set up the query
-sparql.setQuery(query)
-sparql.setReturnFormat(JSON)
+while True:
+    # Define the SPARQL query with pagination
+    query = f"""
+    SELECT ?property ?propertyType ?propertyLabel ?propertyDescription ?propertyAltLabel WHERE {{
+      ?property wikibase:propertyType ?propertyType .
+      SERVICE wikibase:label {{ bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en". }}
+    }}
+    LIMIT {batch_size} OFFSET {offset}
+    """
 
-# Execute the query
-results = sparql.query().convert()
+    # Configure the SPARQL request
+    sparql.setQuery(query)
+    sparql.setReturnFormat(JSON)
 
-# Extract results into a list of dictionaries
-data = []
-for result in results["results"]["bindings"]:
-    data.append({
-        "property": result["property"]["value"],
-        "propertyType": result["propertyType"]["value"],
-        "propertyLabel": result.get("propertyLabel", {}).get("value", ""),
-        "propertyDescription": result.get("propertyDescription", {}).get("value", ""),
-        "propertyAltLabel": result.get("propertyAltLabel", {}).get("value", ""),
-    })
+    try:
+        results = sparql.query().convert()
+        bindings = results["results"]["bindings"]
+
+        if not bindings:
+            break  # Stop if no more data
+
+        # Process results
+        for result in bindings:
+            all_data.append({
+                "property": result["property"]["value"],
+                "propertyType": result["propertyType"]["value"],
+                "propertyLabel": result.get("propertyLabel", {}).get("value", ""),
+                "propertyDescription": result.get("propertyDescription", {}).get("value", ""),
+                "propertyAltLabel": result.get("propertyAltLabel", {}).get("value", ""),
+            })
+
+        print(f"Retrieved {len(all_data)} records...")
+
+        # Move to next batch
+        offset += batch_size
+        time.sleep(1)  # Prevent server overload
+
+    except Exception as e:
+        print(f"Error: {e}")
+        break
 
 # Convert to DataFrame
-df = pd.DataFrame(data)
+df = pd.DataFrame(all_data)
 
-# Save DataFrame to Dataiku dataset
-dataset_name = "all_wikidata_properties"
-Dataset(dataset_name).write_with_schema(df)
+# Save DataFrame to a Dataiku dataset
+dataiku.Dataset("all_wikidata_properties").write_with_schema(df)
