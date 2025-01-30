@@ -69,6 +69,10 @@
     {
       "objectId": "compute_english_proper_nouns_from_french_wiktionary",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "french_proper_nouns_from_french_wiktionary",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
