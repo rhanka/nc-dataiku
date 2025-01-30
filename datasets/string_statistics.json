@@ -70,7 +70,7 @@
   "tags": [],
   "params": {
     "connection": "filesystem_managed",
-    "path": "${projectKey}/string_statistics",
+    "path": "${projectKey}/documents_statistics",
     "notReadyIfEmpty": false,
     "filesSelectionRules": {
       "mode": "ALL",
