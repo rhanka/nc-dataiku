@@ -7,14 +7,6 @@
       "objectType": "MANAGED_FOLDER"
     },
     {
-      "objectId": "string_statistics",
-      "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_string_statistics",
-      "objectType": "RECIPE"
-    },
-    {
       "objectId": "documents_statistics",
       "objectType": "DATASET"
     },
