@@ -1,7 +1,12 @@
 {
   "name": "Wikidata",
   "color": "#087ABF",
-  "items": [],
+  "items": [
+    {
+      "objectId": "all_wikidata_properties",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
