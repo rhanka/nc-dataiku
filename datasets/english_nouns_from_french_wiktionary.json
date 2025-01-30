@@ -85,8 +85,12 @@
     }
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {"name":"pageid","type":"bigint"},
+      {"name":"ns","type":"bigint"},
+      {"name":"title","type":"string"}
+    ],
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {
