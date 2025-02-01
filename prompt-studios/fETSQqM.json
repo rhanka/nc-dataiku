@@ -281,32 +281,6 @@
       "inlinePromptTemplateQueries": [],
       "tags": [],
       "starred": false
-    },
-    {
-      "id": "3t44u0g73n",
-      "prompt": {
-        "promptMode": "RAW_PROMPT",
-        "promptTemplateInputs": [],
-        "structuredPromptExamples": [],
-        "textPromptTemplateInputs": [],
-        "rawPromptText": "Explain in simple terms what Generative AI is and why prompts matter for it",
-        "resultValidation": {
-          "expectedFormat": "NONE",
-          "requiredJSONObjectKeys": [],
-          "forbiddenTerms": []
-        }
-      },
-      "llmId": "huggingfacelocal:HuggingFace-FA:mistralai/Mistral-7B-Instruct-v0.2:TEXT_GENERATION_MISTRAL:promptDriven\u003dtrue",
-      "containerSelection": {
-        "containerMode": "INHERIT"
-      },
-      "llmSettings": {
-        "stopSequences": []
-      },
-      "nbRows": 8,
-      "inlinePromptTemplateQueries": [],
-      "tags": [],
-      "starred": false
     }
   ],
   "creationTag": {
