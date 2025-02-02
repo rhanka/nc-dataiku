@@ -1,3 +1,56 @@
 {
-  "data": []
+  "data": [
+    [
+      "{\n    \"query\": {\n        \"recipe\": \"compute_nc_scenarios_query\",\n        \"mission\": \"Build appropriate request from user request\"\n        \"ouptut\" : [\"nc_search\",\"doc_search\"]\n    },\n    \"nc_search\": {\n        \"recipe\": \"compute_nc_scenarios_search_nc\",\n        \"mission\": \"Search for similar non-conformities\"\n        \"input\" : [\"query\"]\n    },\n    \"doc_search\": {\n        \"recipe\": \"compute_nc_scenarios_search_techdocs\",\n        \"mission\": \"Search for relevant technical documents\",\n        \"input\" : [\"query\"]\n    },\n    \"000\": {\n        \"recipe\": \"compute_nc_scenarios_propose_000\",\n        \"mission\": \"Propose structured non-conformity report\",\n        \"input\": [\"nc_search\",\"doc_search\"]\n    },\n    \"100\": {\n        \"recipe\": \"compute_nc_scenarios_propose_100\",\n        \"mission\": \"Analyse non-conformity\", \n        \"input\": [\"nc_search\",\"doc_search\"]\n    } ,\n}",
+      "false",
+      "false",
+      "000",
+      "query\nnc_search\ndoc_search\n000"
+    ],
+    [
+      "{\n    \"query\": {\n        \"recipe\": \"compute_nc_scenarios_query\",\n        \"mission\": \"Build appropriate request from user request\"\n        \"ouptut\" : [\"nc_search\",\"doc_search\"]\n    },\n    \"nc_search\": {\n        \"recipe\": \"compute_nc_scenarios_search_nc\",\n        \"mission\": \"Search for similar non-conformities\"\n        \"input\" : [\"query\"]\n    },\n    \"doc_search\": {\n        \"recipe\": \"compute_nc_scenarios_search_techdocs\",\n        \"mission\": \"Search for relevant technical documents\",\n        \"input\" : [\"query\"]\n    },\n    \"000\": {\n        \"recipe\": \"compute_nc_scenarios_propose_000\",\n        \"mission\": \"Propose structured non-conformity report\",\n        \"input\": [\"nc_search\",\"doc_search\"]\n    },\n    \"100\": {\n        \"recipe\": \"compute_nc_scenarios_propose_100\",\n        \"mission\": \"Analyse non-conformity\", \n        \"input\": [\"nc_search\",\"doc_search\"]\n    } ,\n}",
+      "true",
+      "true",
+      "000",
+      "000"
+    ],
+    [
+      "{\n    \"query\": {\n        \"recipe\": \"compute_nc_scenarios_query\",\n        \"mission\": \"Build appropriate request from user request\"\n        \"ouptut\" : [\"nc_search\",\"doc_search\"]\n    },\n    \"nc_search\": {\n        \"recipe\": \"compute_nc_scenarios_search_nc\",\n        \"mission\": \"Search for similar non-conformities\"\n        \"input\" : [\"query\"]\n    },\n    \"doc_search\": {\n        \"recipe\": \"compute_nc_scenarios_search_techdocs\",\n        \"mission\": \"Search for relevant technical documents\",\n        \"input\" : [\"query\"]\n    },\n    \"000\": {\n        \"recipe\": \"compute_nc_scenarios_propose_000\",\n        \"mission\": \"Propose structured non-conformity report\",\n        \"input\": [\"nc_search\",\"doc_search\"]\n    },\n    \"100\": {\n        \"recipe\": \"compute_nc_scenarios_propose_100\",\n        \"mission\": \"Analyse non-conformity\", \n        \"input\": [\"nc_search\",\"doc_search\"]\n    } ,\n}",
+      "false",
+      "true",
+      "000",
+      "query\ndoc_search\n000"
+    ],
+    [
+      "{\n    \"query\": {\n        \"recipe\": \"compute_nc_scenarios_query\",\n        \"mission\": \"Build appropriate request from user request\"\n        \"ouptut\" : [\"nc_search\",\"doc_search\"]\n    },\n    \"nc_search\": {\n        \"recipe\": \"compute_nc_scenarios_search_nc\",\n        \"mission\": \"Search for similar non-conformities\"\n        \"input\" : [\"query\"]\n    },\n    \"doc_search\": {\n        \"recipe\": \"compute_nc_scenarios_search_techdocs\",\n        \"mission\": \"Search for relevant technical documents\",\n        \"input\" : [\"query\"]\n    },\n    \"000\": {\n        \"recipe\": \"compute_nc_scenarios_propose_000\",\n        \"mission\": \"Propose structured non-conformity report\",\n        \"input\": [\"nc_search\",\"doc_search\"]\n    },\n    \"100\": {\n        \"recipe\": \"compute_nc_scenarios_propose_100\",\n        \"mission\": \"Analyse non-conformity\", \n        \"input\": [\"nc_search\",\"doc_search\"]\n    } ,\n}",
+      "true",
+      "false",
+      "000",
+      "query\nnc_search\ndoc_search\n000"
+    ],
+    [
+      "{\n    \"query\": {\n        \"recipe\": \"compute_nc_scenarios_query\",\n        \"mission\": \"Build appropriate request from user request\"\n        \"ouptut\" : [\"nc_search\",\"doc_search\"]\n    },\n    \"nc_search\": {\n        \"recipe\": \"compute_nc_scenarios_search_nc\",\n        \"mission\": \"Search for similar non-conformities\"\n        \"input\" : [\"query\"]\n    },\n    \"doc_search\": {\n        \"recipe\": \"compute_nc_scenarios_search_techdocs\",\n        \"mission\": \"Search for relevant technical documents\",\n        \"input\" : [\"query\"]\n    },\n    \"000\": {\n        \"recipe\": \"compute_nc_scenarios_propose_000\",\n        \"mission\": \"Propose structured non-conformity report\",\n        \"input\": [\"nc_search\",\"doc_search\"]\n    },\n    \"100\": {\n        \"recipe\": \"compute_nc_scenarios_propose_100\",\n        \"mission\": \"Analyse non-conformity\", \n        \"input\": [\"nc_search\",\"doc_search\"]\n    } ,\n}",
+      "false",
+      "false",
+      "000",
+      "query"
+    ],
+    [
+      "{\n    \"query\": {\n        \"recipe\": \"compute_nc_scenarios_query\",\n        \"mission\": \"Build appropriate request from user request\"\n        \"ouptut\" : [\"nc_search\",\"doc_search\"]\n    },\n    \"nc_search\": {\n        \"recipe\": \"compute_nc_scenarios_search_nc\",\n        \"mission\": \"Search for similar non-conformities\"\n        \"input\" : [\"query\"]\n    },\n    \"doc_search\": {\n        \"recipe\": \"compute_nc_scenarios_search_techdocs\",\n        \"mission\": \"Search for relevant technical documents\",\n        \"input\" : [\"query\"]\n    },\n    \"000\": {\n        \"recipe\": \"compute_nc_scenarios_propose_000\",\n        \"mission\": \"Propose structured non-conformity report\",\n        \"input\": [\"nc_search\",\"doc_search\"]\n    },\n    \"100\": {\n        \"recipe\": \"compute_nc_scenarios_propose_100\",\n        \"mission\": \"Analyse non-conformity\", \n        \"input\": [\"nc_search\",\"doc_search\"]\n    } ,\n}",
+      "false",
+      "false",
+      "100",
+      "query\nnc_search\ndoc_search\n100\n"
+    ]
+  ],
+  "schema": {
+    "columns": [
+      {"name":"agents","type":"string"},
+      {"name":"nc_search","type":"string"},
+      {"name":"doc_search","type":"string"},
+      {"name":"role","type":"string"},
+      {"name":"results","type":"string"}
+    ],
+    "userModified": false
+  }
 }

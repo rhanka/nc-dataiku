@@ -52,7 +52,13 @@
     "importSourceType": "NONE"
   },
   "schema": {
-    "columns": [],
+    "columns": [
+      {"name":"agents","type":"string"},
+      {"name":"nc_search","type":"string"},
+      {"name":"doc_search","type":"string"},
+      {"name":"role","type":"string"},
+      {"name":"results","type":"string"}
+    ],
     "userModified": true
   },
   "dkuProperties": [],
