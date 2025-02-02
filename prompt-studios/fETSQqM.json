@@ -252,11 +252,24 @@
         "textPromptTemplateInputs": [
           {
             "name": "agents",
+            "datasetColumnName": "agents",
+            "type": "TEXT"
+          },
+          {
+            "name": "role",
+            "type": "TEXT"
+          },
+          {
+            "name": "nc_search",
+            "type": "TEXT"
+          },
+          {
+            "name": "doc_search",
             "type": "TEXT"
           }
         ],
         "textPromptTemplate": "vas-y",
-        "textPromptSystemTemplate": "Proxy - Fin the best agent\n\n#Processus\nUne non conformité de l\u0027A220 doit être traitée selon le processus suivant :\n\n000 - rapport de non-conformité par le Quality Controler\n100 - analyse et recommandation / plan d\u0027action par le Design Office\n200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n400 - du calcul / plan d\u0027action amendé par le Stress Manager\n500 - plan d\u0027action final validé par le Quality Manager\n\nVous devez trouer le meilleur processus d\u0027agents pour traiter la requête de l\u0027utilisateur.\n\n# Agents disponibles :\nagents \u003d {{agents}}\n\nLa chaîne d\u0027agents sollicité pour le role 000 est la suivante le suivant :\nlorsque nc_search et doc_search sont à false\n- role 000 : query, doc_search, nc_search, 000 \n- role 100: query, doc_search, nc_search, 100 \nlorsque nc_search et doc_search sont à true\n- role 000 : 000\n- role 100: 100\n\n\nEn fonction du message utilisateur, détermine la meilleure chaîne d\u0027agent en respectant la chaîne d\u0027entrée (e.g pour exécuter 000, il faut avoir nc_search et doc_search à true - et s\u0027ils sont à true, l\u0027un des deux nc_search et doc_search peuvent être réexécuté selon la demande).\n\nSortie: uniquement la liste des agents (un agent par ligne), sans commentaire - On n\u0027exécute que 000 ou 100, pas les deux (ainsi 000 puis 100 est à exclure)\n\nLe rôle de l\u0027utilisateur est le suivant: 000\nL\u0027état de recherche des non-conformité nc_search est le suivant : false\nL\u0027état de recherche des document techniques doc_search est le suivant: true",
+        "textPromptSystemTemplate": "Proxy - Find the best agent\n\n#Processus\nUne non conformité de l\u0027A220 doit être traitée selon le processus suivant :\n\n000 - rapport de non-conformité par le Quality Controler\n100 - analyse et recommandation / plan d\u0027action par le Design Office\n200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n400 - du calcul / plan d\u0027action amendé par le Stress Manager\n500 - plan d\u0027action final validé par le Quality Manager\n\nVous devez trouer le meilleur processus d\u0027agents pour traiter la requête de l\u0027utilisateur.\n\n# Agents disponibles :\nagents \u003d {{agents}}\n\nExemple de sorties :\nlorsque nc_search et doc_search sont à false\n- role 000 : query, doc_search, nc_search, 000 \n- role 100: query, doc_search, nc_search, 100 \nlorsque nc_search et doc_search sont à true\n- role 000 : 000\n- role 100: 100\n\n\nEn fonction du message utilisateur, détermine la meilleure chaîne d\u0027agent en respectant la chaîne d\u0027entrée (e.g pour exécuter 000, il faut avoir nc_search et doc_search à true - et s\u0027ils sont à true, l\u0027un des deux nc_search et doc_search peuvent être réexécuté selon la demande).\n\nSortie: uniquement la liste des agents (un agent par ligne), sans commentaire - On n\u0027exécute que 000 ou 100, pas les deux (ainsi 000 puis 100 est à exclure), sans aucune mise en forme markdown.\n\nLe rôle de l\u0027utilisateur est le suivant: {{role}}\nL\u0027état de recherche des non-conformité nc_search est le suivant : {{nc_search}}\nL\u0027état de recherche des document techniques doc_search est le suivant: {{doc_search}}",
         "resultValidation": {
           "expectedFormat": "NONE",
           "requiredJSONObjectKeys": [],
