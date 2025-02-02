@@ -280,7 +280,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "mistralai:Mistral-FA:open-mixtral-8x7b",
+      "llmId": "openai:OpenAI-FA:o1-mini",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
