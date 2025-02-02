@@ -257,14 +257,17 @@
           },
           {
             "name": "role",
+            "datasetColumnName": "role",
             "type": "TEXT"
           },
           {
             "name": "nc_search",
+            "datasetColumnName": "nc_search",
             "type": "TEXT"
           },
           {
             "name": "doc_search",
+            "datasetColumnName": "doc_search",
             "type": "TEXT"
           }
         ],
