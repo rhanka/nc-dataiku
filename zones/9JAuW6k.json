@@ -53,6 +53,10 @@
     {
       "objectId": "compute_corpus_strings_statistics_with_pareto",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "sentences",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
