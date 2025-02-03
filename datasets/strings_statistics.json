@@ -86,11 +86,9 @@
   },
   "schema": {
     "columns": [
-      {"name":"num_uppercase","type":"bigint"},
-      {"name":"num_lowercase","type":"bigint"},
-      {"name":"num_digits","type":"bigint"},
-      {"name":"num_punctuation","type":"bigint"},
-      {"name":"file_path","type":"string"}
+      {"name":"document_id","type":"bigint"},
+      {"name":"string","type":"string"},
+      {"name":"frequency","type":"bigint"}
     ],
     "userModified": false
   },
