@@ -89,8 +89,11 @@
       {"name":"chunk","type":"string"},
       {"name":"doc","type":"string"},
       {"name":"chunk_id","type":"bigint"},
-      {"name":"summary","type":"string"},
-      {"name":"llm_error_message","type":"string"}
+      {"name":"llm_output","type":"string"},
+      {"name":"llm_validation_status","type":"string"},
+      {"name":"llm_raw_response","type":"string"},
+      {"name":"llm_error_message","type":"string"},
+      {"name":"llm_raw_query","type":"string"}
     ],
     "userModified": true
   },
