@@ -17,6 +17,10 @@
     {
       "objectId": "strings_statistics",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_strings_statistics",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
