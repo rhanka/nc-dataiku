@@ -85,8 +85,28 @@
     }
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {"name":"term","type":"string"},
+      {"name":"/a220_asl_external_2024-12-20.md","type":"bigint"},
+      {"name":"/MODULE 3 AVIONICS.md","type":"bigint"},
+      {"name":"/HYDRO A220_equipment_catalogue.md","type":"bigint"},
+      {"name":"/A220-100CFRC-MAST-ISS07-25Feb2022.md","type":"bigint"},
+      {"name":"/a220-300-FCOM-2-2-13.md","type":"bigint"},
+      {"name":"/MODULE 5 POWER PLANT.md","type":"bigint"},
+      {"name":"/MODULE 1 GENERAL FAMILIARIZATION.md","type":"bigint"},
+      {"name":"/MODULE 2 ELECTRICAL.md","type":"bigint"},
+      {"name":"/611795195-a220-300-Cs300-Bd500-1a11-Flight-Crew-Operating-Manual-Volume-1-1-13nbsped.md","type":"bigint"},
+      {"name":"/492445413-Airbus-A220-Technical-Training-Manual-Airframe-Bombardier-CSeries-CS300.md","type":"bigint"},
+      {"name":"/Aide au traitement des Non Conformités - MAP.md","type":"bigint"},
+      {"name":"/461065572-A220-Suppliers-Quality-Requirements.md","type":"bigint"},
+      {"name":"/MODULE 4 AIRFRAME.md","type":"bigint"},
+      {"name":"/a220-300-cs300-bd500-1a11-quick-reference-handbook.md","type":"bigint"},
+      {"name":"/A220-ACP-Issue004-00-20Jun2024.md","type":"bigint"},
+      {"name":"/A220-300ARP-Issue098-00-16May2024.md","type":"bigint"},
+      {"name":"/a220-300-FCOM-1-1-13.md","type":"bigint"},
+      {"name":"/A220-300CFRC-MAST-ISS05-25Feb2022.md","type":"bigint"}
+    ],
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {
