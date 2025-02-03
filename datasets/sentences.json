@@ -86,7 +86,7 @@
   },
   "schema": {
     "columns": [
-      {"name":"text","type":"string"}
+      {"name":"sentence","type":"string"}
     ],
     "userModified": false
   },
