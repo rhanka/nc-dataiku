@@ -1,0 +1,98 @@
+{
+  "script": {
+    "steps": [],
+    "maxProcessedMemTableBytes": -1,
+    "columnsSelection": {
+      "mode": "ALL"
+    },
+    "columnWidthsByName": {
+      "term": 190,
+      "/a220_asl_external_2024-12-20.md": 255,
+      "/MODULE 3 AVIONICS.md": 173,
+      "/HYDRO A220_equipment_catalogue.md": 270,
+      "/A220-100CFRC-MAST-ISS07-25Feb2022.md": 293,
+      "/a220-300-FCOM-2-2-13.md": 195,
+      "/MODULE 5 POWER PLANT.md": 195,
+      "/MODULE 1 GENERAL FAMILIARIZATION.md": 285,
+      "/MODULE 2 ELECTRICAL.md": 188,
+      "/611795195-a220-300-Cs300-Bd500-1a11-Flight-Crew-Operating-Manual-Volume-1-1-13nbsped.md": 300,
+      "/492445413-Airbus-A220-Technical-Training-Manual-Airframe-Bombardier-CSeries-CS300.md": 300,
+      "/Aide au traitement des Non Conformités - MAP.md": 300,
+      "/461065572-A220-Suppliers-Quality-Requirements.md": 300,
+      "/MODULE 4 AIRFRAME.md": 173,
+      "/a220-300-cs300-bd500-1a11-quick-reference-handbook.md": 300,
+      "/A220-ACP-Issue004-00-20Jun2024.md": 270,
+      "/A220-300ARP-Issue098-00-16May2024.md": 293,
+      "/a220-300-FCOM-1-1-13.md": 195,
+      "/A220-300CFRC-MAST-ISS05-25Feb2022.md": 293
+    },
+    "columnUseScientificNotationByName": {},
+    "coloring": {
+      "scheme": "MEANING_AND_STATUS",
+      "individualColumns": [],
+      "individualColumnsRules": [],
+      "valueColoringMode": "HASH"
+    },
+    "sorting": [],
+    "analysisColumnData": {},
+    "explorationSampling": {
+      "selection": {
+        "maxRecordsForDisplay": -1,
+        "maxStoredBytes": 104857600,
+        "timeout": -1,
+        "filter": {
+          "distinct": false,
+          "enabled": false
+        },
+        "partitionSelectionMethod": "ALL",
+        "latestPartitionsN": 1,
+        "ordering": {
+          "enabled": false,
+          "rules": []
+        },
+        "samplingMethod": "HEAD_SEQUENTIAL",
+        "maxRecords": 10000,
+        "targetRatio": 0.02,
+        "ascending": true,
+        "withinFirstN": -1,
+        "maxReadUncompressedBytes": -1
+      },
+      "autoRefreshSample": false,
+      "_refreshTrigger": 0
+    },
+    "vizSampling": {
+      "selection": {
+        "useMemTable": false,
+        "filter": {
+          "distinct": false,
+          "enabled": false
+        },
+        "partitionSelectionMethod": "ALL",
+        "latestPartitionsN": 1,
+        "ordering": {
+          "enabled": false,
+          "rules": []
+        },
+        "samplingMethod": "FULL",
+        "maxRecords": -1,
+        "targetRatio": 0.02,
+        "ascending": true,
+        "withinFirstN": -1,
+        "maxReadUncompressedBytes": -1
+      },
+      "autoRefreshSample": false,
+      "_refreshTrigger": 0
+    },
+    "exploreUIParams": {
+      "autoRefresh": true
+    },
+    "globalSearchQuery": "",
+    "explorationFilters": [],
+    "previewMode": "ALL_ROWS"
+  },
+  "charts": [],
+  "interactiveSearch": {
+    "savedQueries": []
+  },
+  "customMeasures": []
+}
