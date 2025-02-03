@@ -1,4 +1,5 @@
 {
+  "outputLanguage": "",
   "maxNumSplitLevels": 3,
   "specialTokensSafetyFactor": 4,
   "targetLength": 3,
@@ -9,5 +10,7 @@
   "targetLengthUnit": "SENTENCE",
   "huggingFaceMaxTokens": 300,
   "huggingFaceMinTokens": 50,
+  "llmId": "openai:OpenAI-FA:gpt-4o",
+  "inputColumn": "doc",
   "numOverlapTokens": 5
 }
