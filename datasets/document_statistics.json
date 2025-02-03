@@ -86,16 +86,21 @@
   },
   "schema": {
     "columns": [
-      {"name":"num_chars","type":"double"},
-      {"name":"num_words","type":"double"},
-      {"name":"num_sentences","type":"double"},
-      {"name":"num_uppercase","type":"double"},
-      {"name":"num_lowercase","type":"double"},
-      {"name":"num_digits","type":"double"},
-      {"name":"num_punctuation","type":"double"},
+      {"name":"num_chars","type":"bigint"},
+      {"name":"num_words","type":"bigint"},
+      {"name":"num_sentences","type":"bigint"},
+      {"name":"num_paragraphs","type":"bigint"},
+      {"name":"num_uppercase","type":"bigint"},
+      {"name":"num_lowercase","type":"bigint"},
+      {"name":"num_digits","type":"bigint"},
+      {"name":"num_punctuation","type":"bigint"},
       {"name":"avg_word_length","type":"double"},
       {"name":"lexical_diversity","type":"double"},
       {"name":"readability","type":"double"},
+      {"name":"num_unique_words","type":"bigint"},
+      {"name":"longest_word","type":"string"},
+      {"name":"shortest_word","type":"string"},
+      {"name":"most_common_word","type":"string"},
       {"name":"file_path","type":"string"}
     ],
     "userModified": false
