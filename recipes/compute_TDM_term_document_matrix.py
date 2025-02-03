@@ -26,7 +26,7 @@ vectorizer = CountVectorizer()
 X = vectorizer.fit_transform(documents)
 
 # Convert the sparse matrix to a DataFrame
-TDM_term_document_matrix_df = pd.DataFrame(X.toarray(), columns=vectorizer.get_feature_names_out(), index=file_paths)
+TDM_term_document_matrix_df = pd.DataFrame(X.toarray().T, index=vectorizer.get_feature_names_out(), columns=file_paths)
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Write recipe outputs
