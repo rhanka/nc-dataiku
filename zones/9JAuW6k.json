@@ -61,6 +61,14 @@
     {
       "objectId": "compute_sentences",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_a220_tech_docs_content_summarized",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "a220_tech_docs_content_summarized",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
