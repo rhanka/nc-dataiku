@@ -6,8 +6,11 @@ import numpy as np
 from dataiku import pandasutils as pdu
 import nltk
 nltk.download('punkt')
+nltk.download('punkt_tab')
 from nltk.tokenize import sent_tokenize
+import spacy
 
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Read recipe inputs
 A220_tech_docs_text = dataiku.Folder("rhnW9xGx")
 A220_tech_docs_text_info = A220_tech_docs_text.get_info()
@@ -22,6 +25,7 @@ for file_path in file_paths:
     with A220_tech_docs_text.get_download_stream(file_path) as f:
         texts.append(f.read().decode('utf-8'))
 
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Extract sentences from the texts
 sentences = []
 for text in texts:
@@ -46,9 +50,6 @@ clean_sentences_according_to_nltk_df = exploded_df
 clean_sentences_according_to_nltk_df
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-import spacy
-import pandas as pd
-
 # Load the spaCy model
 nlp = spacy.load('en_core_web_sm')
 
@@ -69,17 +70,13 @@ refined_df = refine_sentences_with_pos(clean_sentences_according_to_nltk_df, 'se
 refined_df
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-valid_sentences_df = refined_df[refined_df["POS_sentence"].contains("VERB")]
-valid_sentences_df = refined_df[refined_df["POS_sentence"].endswith("PUNCT")]
+valid_sentences_df = refined_df[refined_df["POS_sentence"].str.contains("VERB")]
+valid_sentences_df = valid_sentences_df[valid_sentences_df["POS_sentence"].str.endswith("PUNCT")]
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+valid_sentences_df
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Write recipe outputs
 sentences = dataiku.Dataset("sentences")
-sentences.write_with_schema(refined_df)
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-# Write in chunks to avoid memory overload
-with sentences.get_writer() as writer:
-    chunk_size = 10000  # Adjust based on your memory capacity
-    for chunk in np.array_split(refined_df, max(1, len(refined_df) // chunk_size)):
-        writer.write_dataframe(chunk)
+sentences.write_with_schema(valid_sentences_df)
