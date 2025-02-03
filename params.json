@@ -22,6 +22,7 @@
       "zonesGraphRenderingAlgorithm": "DOT_OLDRANK",
       "zonesGraphConnectZones": true,
       "zonesGraphForJobs": true,
+      "respectTraversalOrder": false,
       "zonesManualPositioning": false
     },
     "gitCommitMode": "AUTO",
@@ -65,8 +66,9 @@
     },
     "codeEnvs": {
       "python": {
-        "mode": "INHERIT",
-        "preventOverride": false
+        "mode": "EXPLICIT_ENV",
+        "preventOverride": false,
+        "envName": "markitdown"
       },
       "r": {
         "mode": "INHERIT",
@@ -78,7 +80,7 @@
       }
     },
     "container": {
-      "containerMode": "INHERIT"
+      "containerMode": "NONE"
     },
     "containerForVisualRecipesWorkloads": {
       "containerMode": "INHERIT"
