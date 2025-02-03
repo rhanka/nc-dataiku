@@ -49,6 +49,10 @@
     {
       "objectId": "corpus_strings_statistics_with_pareto",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_corpus_strings_statistics_with_pareto",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
