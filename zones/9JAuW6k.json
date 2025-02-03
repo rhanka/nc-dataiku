@@ -21,6 +21,10 @@
     {
       "objectId": "compute_strings_statistics",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "DTM_document_term_matrix",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
