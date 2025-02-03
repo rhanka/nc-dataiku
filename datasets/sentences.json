@@ -86,7 +86,8 @@
   },
   "schema": {
     "columns": [
-      {"name":"sentence","type":"string"}
+      {"name":"sentence","type":"string"},
+      {"name":"POS_sentence","type":"string"}
     ],
     "userModified": false
   },
