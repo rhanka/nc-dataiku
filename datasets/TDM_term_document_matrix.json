@@ -86,6 +86,7 @@
   },
   "schema": {
     "columns": [
+      {"name":"term","type":"string"},
       {"name":"/a220_asl_external_2024-12-20.md","type":"bigint"},
       {"name":"/MODULE 3 AVIONICS.md","type":"bigint"},
       {"name":"/HYDRO A220_equipment_catalogue.md","type":"bigint"},
