@@ -41,6 +41,10 @@
     {
       "objectId": "LTDM_letters_term_document_matrix",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_LTDM_letters_term_document_matrix",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
