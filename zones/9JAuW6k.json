@@ -29,6 +29,10 @@
     {
       "objectId": "compute_DTM_document_term_matrix",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "TDM_term_document_matrix",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
