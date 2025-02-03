@@ -31,4 +31,4 @@ TDM_term_document_matrix_df = pd.DataFrame(X.toarray().T, index=vectorizer.get_f
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Write recipe outputs
 TDM_term_document_matrix = dataiku.Dataset("TDM_term_document_matrix")
-TDM_term_document_matrix.write_with_schema(TDM_term_document_matrix_df)
+TDM_term_document_matrix.write_with_schema(TDM_term_document_matrix_df.reset_index().rename(columns={'index': 'term'}))
