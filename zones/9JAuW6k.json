@@ -25,6 +25,10 @@
     {
       "objectId": "DTM_document_term_matrix",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_DTM_document_term_matrix",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
