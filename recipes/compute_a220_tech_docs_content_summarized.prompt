@@ -1,0 +1,27 @@
+{
+  "rawQueryOutputMode": "RAW",
+  "completionSettings": {
+    "stopSequences": []
+  },
+  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
+  "llmId": "openai:OpenAI-FA:gpt-4o",
+  "prompt": {
+    "promptTemplateInputs": [
+      {
+        "datasetColumnName": "doc",
+        "name": "text to summarize",
+        "type": "TEXT"
+      }
+    ],
+    "resultValidation": {
+      "requiredJSONObjectKeys": [],
+      "expectedFormat": "NONE",
+      "forbiddenTerms": []
+    },
+    "promptTemplateQueriesSource": "DATASET",
+    "structuredPromptExamples": [],
+    "textPromptTemplateInputs": [],
+    "promptMode": "PROMPT_TEMPLATE_STRUCTURED",
+    "structuredPromptPrefix": "You are a helpful assistant that summarizes the following text. Write your summary in the same language as the original text\n\nIf you cannot summarize, you must answer \"CANNOT_SUMMARIZE\".\n\n"
+  }
+}

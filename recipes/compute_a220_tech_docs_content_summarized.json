@@ -1,5 +1,5 @@
 {
-  "type": "nlp_llm_summarization",
+  "type": "prompt",
   "neverRecomputeExistingPartitions": false,
   "params": {
     "containerSelection": {
