@@ -33,6 +33,10 @@
     {
       "objectId": "TDM_term_document_matrix",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_TDM_term_document_matrix",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
