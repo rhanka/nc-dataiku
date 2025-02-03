@@ -85,8 +85,14 @@
     }
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {"name":"num_uppercase","type":"bigint"},
+      {"name":"num_lowercase","type":"bigint"},
+      {"name":"num_digits","type":"bigint"},
+      {"name":"num_punctuation","type":"bigint"},
+      {"name":"file_path","type":"string"}
+    ],
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {
