@@ -29,6 +29,9 @@ X = vectorizer.fit_transform(documents)
 LTDM_term_document_matrix_df = pd.DataFrame(X.toarray().T, index=vectorizer.get_feature_names_out(), columns=file_paths)
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+LTDM_term_document_matrix_df
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Write recipe outputs
 LTDM_term_document_matrix = dataiku.Dataset("LTDM_letters_term_document_matrix")
 LTDM_term_document_matrix.write_with_schema(LTDM_term_document_matrix_df.reset_index().rename(columns={'index': 'term'}))
