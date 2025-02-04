@@ -85,8 +85,15 @@
     }
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {"name":"string","type":"string"},
+      {"name":"frequency","type":"bigint"},
+      {"name":"relative_frequency","type":"double"},
+      {"name":"rank","type":"double"},
+      {"name":"cumulative_sum","type":"bigint"},
+      {"name":"pareto","type":"double"}
+    ],
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {
