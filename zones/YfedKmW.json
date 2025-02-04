@@ -13,6 +13,10 @@
     {
       "objectId": "compute_dictionaries_of_aviation",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "dale_crane_dic",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
