@@ -1,7 +1,12 @@
 {
   "name": "Corpus Versioning",
   "color": "#F9BE40",
-  "items": [],
+  "items": [
+    {
+      "objectId": "corpus_for_knowledge_engineering",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
