@@ -1,37 +1,37 @@
 {
-  "prompt": {
-    "promptMode": "PROMPT_TEMPLATE_TEXT",
-    "promptTemplateInputs": [
-      {
-        "name": "text to summarize",
-        "datasetColumnName": "doc",
-        "type": "TEXT"
-      }
-    ],
-    "structuredPromptPrefix": "You are a helpful assistant that summarizes the following text. Write your summary in the same language as the original text\n\nIf you cannot summarize, you must answer \"CANNOT_SUMMARIZE\".\n\n",
-    "structuredPromptExamples": [],
-    "textPromptTemplateInputs": [
-      {
-        "name": "input",
-        "datasetColumnName": "chunk",
-        "type": "TEXT"
-      }
-    ],
-    "textPromptTemplate": "{{input}}",
-    "textPromptSystemTemplate": "Resume en anglais l\u0027input utilisateur",
-    "resultValidation": {
-      "expectedFormat": "NONE",
-      "requiredJSONObjectKeys": [],
-      "forbiddenTerms": []
-    },
-    "promptTemplateQueriesSource": "DATASET"
-  },
-  "associatedPromptStudioId": "qKnXXkE",
   "associatedPromptStudioPromptId": "6rhjazCbjZ",
+  "associatedPromptStudioId": "qKnXXkE",
   "rawQueryOutputMode": "RAW",
-  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
   "completionSettings": {
     "stopSequences": []
   },
-  "llmId": "openai:OpenAI-FA:gpt-4o-mini"
+  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
+  "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+  "prompt": {
+    "promptTemplateInputs": [
+      {
+        "datasetColumnName": "doc",
+        "name": "text to summarize",
+        "type": "TEXT"
+      }
+    ],
+    "resultValidation": {
+      "requiredJSONObjectKeys": [],
+      "expectedFormat": "NONE",
+      "forbiddenTerms": []
+    },
+    "promptTemplateQueriesSource": "DATASET",
+    "structuredPromptExamples": [],
+    "textPromptTemplate": "{{input}}",
+    "textPromptTemplateInputs": [
+      {
+        "datasetColumnName": "chunk",
+        "name": "input",
+        "type": "TEXT"
+      }
+    ],
+    "textPromptSystemTemplate": "Resume en anglais l\u0027input utilisateur",
+    "promptMode": "PROMPT_TEMPLATE_TEXT",
+    "structuredPromptPrefix": "You are a helpful assistant that summarizes the following text. Write your summary in the same language as the original text\n\nIf you cannot summarize, you must answer \"CANNOT_SUMMARIZE\".\n\n"
+  }
 }
