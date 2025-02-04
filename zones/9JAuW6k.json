@@ -69,6 +69,10 @@
     {
       "objectId": "a220_tech_docs_content_summarized",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "named_entity_recognition",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
