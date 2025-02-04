@@ -1,0 +1,51 @@
+{
+  "name": "Knowledge_Engineering_Prompt_Studio",
+  "prompts": [
+    {
+      "id": "6rhjazCbjZ",
+      "prompt": {
+        "promptMode": "PROMPT_TEMPLATE_TEXT",
+        "promptTemplateInputs": [
+          {
+            "name": "text to summarize",
+            "datasetColumnName": "doc",
+            "type": "TEXT"
+          }
+        ],
+        "structuredPromptPrefix": "You are a helpful assistant that summarizes the following text. Write your summary in the same language as the original text\n\nIf you cannot summarize, you must answer \"CANNOT_SUMMARIZE\".\n\n",
+        "structuredPromptExamples": [],
+        "textPromptTemplateInputs": [],
+        "resultValidation": {
+          "expectedFormat": "NONE",
+          "requiredJSONObjectKeys": [],
+          "forbiddenTerms": []
+        },
+        "promptTemplateQueriesSource": "DATASET"
+      },
+      "llmId": "openai:OpenAI-FA:gpt-4o",
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      },
+      "llmSettings": {
+        "stopSequences": []
+      },
+      "dataset": "a220_tech_docs_content",
+      "nbRows": 8,
+      "inlinePromptTemplateQueries": [],
+      "tags": [],
+      "starred": false
+    }
+  ],
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "ludovic.bocken@cgi.com"
+    },
+    "lastModifiedOn": 1738681375313
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}
