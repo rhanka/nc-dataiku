@@ -13,6 +13,10 @@
     {
       "objectId": "PP5gsWW1",
       "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "dictionaries_of_aviation",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
