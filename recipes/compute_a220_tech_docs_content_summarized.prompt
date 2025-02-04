@@ -21,7 +21,7 @@
     "promptTemplateQueriesSource": "DATASET",
     "structuredPromptExamples": [],
     "textPromptTemplateInputs": [],
-    "promptMode": "PROMPT_TEMPLATE_STRUCTURED",
+    "promptMode": "PROMPT_TEMPLATE_TEXT",
     "structuredPromptPrefix": "You are a helpful assistant that summarizes the following text. Write your summary in the same language as the original text\n\nIf you cannot summarize, you must answer \"CANNOT_SUMMARIZE\".\n\n"
   }
 }
