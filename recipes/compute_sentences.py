@@ -1,3 +1,6 @@
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: MARKDOWN
+# # Import libraries
+
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # -*- coding: utf-8 -*-
 import dataiku
@@ -9,14 +12,20 @@ nltk.download('punkt')
 nltk.download('punkt_tab')
 from nltk.tokenize import sent_tokenize
 import spacy
+# Load the spaCy model
+nlp = spacy.load('en_core_web_sm')
+import os
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: MARKDOWN
+# # Read recipe inputs
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: MARKDOWN
+# ## Get corpus
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-# Read recipe inputs
 A220_tech_docs_text = dataiku.Folder("rhnW9xGx")
 A220_tech_docs_text_info = A220_tech_docs_text.get_info()
-
 # Assuming the folder contains text files, we can read them into a DataFrame
-import os
 
 file_paths = A220_tech_docs_text.list_paths_in_partition()
 texts = []
@@ -25,11 +34,24 @@ for file_path in file_paths:
     with A220_tech_docs_text.get_download_stream(file_path) as f:
         texts.append(f.read().decode('utf-8'))
 
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: MARKDOWN
+# ## Prepare texts for sentence extraction
+
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-# Extract sentences from the texts
+clean_texts = texts
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+clean_texts = [text.replace("\n\n", "\\pp") for text in clean_texts]
+clean_texts = [text.replace("\n", " ") for text in clean_texts]
+clean_texts = [text.replace("\\pp", "\n\n") for text in clean_texts]
+clean_texts = [text.replace("\x0c", "\n") for text in clean_texts]
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: MARKDOWN
+# # Extract sentences from the texts with nltk
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 sentences = []
-for text in texts:
-    text = text.replace("\x0c", "\n")
+for text in clean_texts:
     text = text.strip()
     sentences.extend(sent_tokenize(text))
 
@@ -48,6 +70,9 @@ clean_sentences_according_to_nltk_df = exploded_df
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 clean_sentences_according_to_nltk_df
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: MARKDOWN
+# # Extract sentences from the texts with spacy
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Load the spaCy model
