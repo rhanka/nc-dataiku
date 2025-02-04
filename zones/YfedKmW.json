@@ -5,6 +5,10 @@
     {
       "objectId": "crocker_david_dictionary_of_aviation",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_crocker_david_dictionary_of_aviation",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
