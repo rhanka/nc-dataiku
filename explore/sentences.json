@@ -70,8 +70,31 @@
   },
   "charts": [
     {
-      "copySelectionFromScript": true,
+      "copySelectionFromScript": false,
       "engineType": "LINO",
+      "refreshableSelection": {
+        "selection": {
+          "useMemTable": false,
+          "filter": {
+            "distinct": false,
+            "enabled": false
+          },
+          "partitionSelectionMethod": "ALL",
+          "latestPartitionsN": 1,
+          "ordering": {
+            "enabled": false,
+            "rules": []
+          },
+          "samplingMethod": "FULL",
+          "maxRecords": 10000,
+          "targetRatio": 0.02,
+          "ascending": true,
+          "withinFirstN": -1,
+          "maxReadUncompressedBytes": -1
+        },
+        "autoRefreshSample": false,
+        "_refreshTrigger": 1738682075990
+      },
       "def": {
         "type": "grouped_columns",
         "variant": "normal",
@@ -544,7 +567,7 @@
           },
           "displayPointer": false
         },
-        "thumbnailData": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAAAAXNSR0IArs4c6QAAA9BJREFUeF7t3D1oFFEUBeBzZ1eLKAjaaKy0Uiy00s5SguxiFWzstBNRtLCNjSSRhEgghZ2F2igW0TKFIljYCYoiiFljhCAhjUGys3NlExJnZhMzy7vGm90TrJZ5N+ed7+3sD0EBfzq6Aeno3XFzIHCHHwICExg4dHPyeAPRcKYL0Se1wcq9Du9n22+v0DO4CZxAxtK7VcEjAvv3J7B/o6CEBA6qz/9iAvs3CkpI4KD6/C8msH+joIQEDqrP/2IC+zcKSkjgoPr8Lyawf6OghAQOqs//YgL7NwpKSOCg+vwvJrB/o6CEBA6qz/9iAvs3CkpI4KD6/C8msH+joIQEDqrP/2IC+zcKSkjgoPr8Lyawf6OghAQOqs//YgL7NwpKSOCg+vwvJrB/o6CEBA6qz//iIGBROaPQPaltzteGKuf9b7t7EgYDA7pvtS4F5gjs6/AQ2JeHeRoCm1fqayCBfXmYpyGweaW+BhLYl4d5GgKbV+prIIF9eZinIbB5pb4GEtiXh3kac2BRvECEY+mkquWJ2lDfO/P0HLhpA/8GWNCf/s0ipVsaycdN0wCYvt33vch1vKZYA1sCrJGMSKI3ss9qeSqCU4D2/nlcFmKVK/noUSQHkkRb4L8Nn50pts3uvcodMFSfQXAhcxigowK5nmN6DuBInm56qHKpezlbd77dgY8COLy2LcUvFTyAopTZqkTz0GRvfvu14cr9Tj8MHQkswMXsHSAaFSS5O4BMqejDFvTByudOQu9uYMVBEU3f5lU1mhBJzqWRE8hjTZL3efiZO9VP3g8DgdcHvpwDHoug17KY8kpFv+aByxq/TuJSPf/4l5Hqh/9xGAgcAgzdLcCJDJxiHILMJwGJortQ3Z8HTurysuWAQHbF0J/px8vlHaU4rjeKHJAYjbnZkeqP1WsJvEXAmiRXswdB3qig+e9k9m5RHosQZ+4WJcV4I39oRN5CdUGB0+n19Vj7CbzciEzpxq/BxW7RbTyDCbxS+kKbn4PX/ZhU+F00gVee/Bv9j+/NP5vN/1Xl8nfRua8q2/kmi8C8Ra++5DS/yeIz2OI1uHdgsqfIO7i/XNNcvxgwY9us34l45xLKS7m9tpO/5doelMqLaMRF+5sdqK51XehddNHBvM5fAwT2Z2KaiMCmdfobRmB/JqaJCGxap79hBPZnYpqIwKZ1+htGYH8mpokIbFqnv2EE9mdimojApnX6G0ZgfyamiQhsWqe/YQT2Z2KaiMCmdfobRmB/JqaJCGxap79hBPZnYpqIwKZ1+htGYH8mpokIbFqnv2EE9mdimug3/y8njeHhaPwAAAAASUVORK5CYII\u003d",
+        "thumbnailData": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAAAAXNSR0IArs4c6QAABC5JREFUeF7tnE+IlGUcx7+/Z/wTsXSwDhKyB6GbHaKbXUyIwnGL6B7dJCItDy502ouwO4ltRniIiDp33D0sgmUUYR6kgi4p6SC6BymQFXWd9/nFIMo8M7PwXWed8Td+9zj7nXm/z+fzvs/zvO8ya9DPWBOwsR6dBgcJHvOTgBI8eWTxZDeHZqP+/pizGYvhcYKnF781+OSDEbutXG7Up8aCwJgPQoIlGJjUFRz2NNAVHFYdV1yCOU5hUxIcVh1XXII5TmFTEhxWHVdcgjlOYVMSHFYdV1yCOU5hUxIcVh1X/KEFO/x7ANs7D1OD//BPY+o37tBKDYPAQILN8F5nyeQ+LcHD0MYfQ4J5ViGTEhxSG19agnlWIZMSHFIbX1qCeVYhkxIcUhtfWoJ5ViGTEhxSG19agnlWIZMSHFIbX1qCeVYhkxIcUhtfWoJ5ViGTEhxSG19agnlWIZMSHFIbX1qCeVYhkxIcUhtfWoJ5ViGTEhxSG196QwVvTv7Jjq0T57oP/+PMqy2+kpIbSWBDBSek4xn5cGdBhy0B1c/dpZtzb/a8tpED02fdIzAUwQbfCeCF+9AdaDXn9r8mCY+egAQ/esYjPcLIBCfgawcOdI4+Oz5Lho+LKd79TLMxNTNSSoEPHkJwenpitpvxJexZxYzlwOyHUj2EYIM9C8OugkjCF8j2Unm146dmo35qKOSCHCS4YHzYydk8fZ4tf1CwNztn2be42USRtbzknl4vshkLzU/rC0HcUTXHTrBbPlRc1Wa/tgXD8HIp3k/A7WDxWlU7gVS90kPOcAeOrcXnJhxtzu7/j6I8wpAEd8JvC65VpXTgPIBbAHYXG0LYvJm/Xc4AacFWb/3S7fPy/DvXRuVYggcQnOAflXuA9KX1LBH4y2AXugXfbVW/G/w6I/7Ksbf+YHL9MhI8BMHIaRmW9xYzQJ9bQsC+cvi7hmI5uOjws73yastmuNkzW8zuO13sNZgzo9//qmx/w7/nC+BrPKrs9yRrPffBa++iezdZA6/B65ii2St4YMGOv83wRjFbIB23rsfC5vbdpUb9GwluE7A1NlkSDMBtRVewzesKbp8LsCVN0QOuwZqi76067QcdWoO1Bt8/G/o/6HgS1+Ad04svMrvtVMP2XGGZyfbLbMq2rZX8X+b9jloyVMUfG2opTVQ5rzDvN0tPuefbndnU8i15k60y70/JnsnZbxTZKhlq2Zn3u/tzZkbdB/e/v/XnHXa1+3dX5up/rnsXzRRW5vEkQD3oeDyrqxVDQIIZSoEzEhxYHlNdghlKgTMSHFgeU12CGUqBMxIcWB5TXYIZSoEzEhxYHlNdghlKgTMSHFgeU12CGUqBMxIcWB5TXYIZSoEzEhxYHlNdghlKgTMSHFgeU12CGUqBMxIcWB5TXYIZSoEzEhxYHlNdghlKgTP/A9ZO8I2anS+RAAAAAElFTkSuQmCC",
         "useLiveProcessingIfAvailable": true,
         "legendPlacement": "OUTER_RIGHT",
         "legendFormatting": {
