@@ -17,6 +17,10 @@
     {
       "objectId": "dictionaries_of_aviation",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_dictionaries_of_aviation",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
