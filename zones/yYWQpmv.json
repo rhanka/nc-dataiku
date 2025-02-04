@@ -9,6 +9,10 @@
     {
       "objectId": "compute_corpus_for_knowledge_engineering",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "nouns_extracted_with_nltk",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
