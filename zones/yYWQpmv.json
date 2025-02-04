@@ -5,6 +5,10 @@
     {
       "objectId": "corpus_for_knowledge_engineering",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_corpus_for_knowledge_engineering",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
