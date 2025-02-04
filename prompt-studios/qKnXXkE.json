@@ -14,7 +14,15 @@
         ],
         "structuredPromptPrefix": "You are a helpful assistant that summarizes the following text. Write your summary in the same language as the original text\n\nIf you cannot summarize, you must answer \"CANNOT_SUMMARIZE\".\n\n",
         "structuredPromptExamples": [],
-        "textPromptTemplateInputs": [],
+        "textPromptTemplateInputs": [
+          {
+            "name": "input",
+            "datasetColumnName": "chunk",
+            "type": "TEXT"
+          }
+        ],
+        "textPromptTemplate": "{{input}}",
+        "textPromptSystemTemplate": "Resume en anglais l\u0027input utilisateur",
         "resultValidation": {
           "expectedFormat": "NONE",
           "requiredJSONObjectKeys": [],
@@ -22,7 +30,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "openai:OpenAI-FA:gpt-4o",
+      "llmId": "openai:OpenAI-FA:gpt-4o-mini",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
