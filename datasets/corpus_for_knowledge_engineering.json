@@ -86,6 +86,7 @@
   },
   "schema": {
     "columns": [
+      {"name":"doc_id","type":"string"},
       {"name":"text","type":"string"}
     ],
     "userModified": false
