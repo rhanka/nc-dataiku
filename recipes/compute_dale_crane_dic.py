@@ -1,9 +1,15 @@
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: MARKDOWN
+# # Import libraries
+
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # -*- coding: utf-8 -*-
 import dataiku
 import pandas as pd, numpy as np
 from dataiku import pandasutils as pdu
 import re
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: MARKDOWN
+# # Get data
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Read recipe inputs
@@ -18,6 +24,9 @@ dictionary = dictionaries_of_aviation_df["content"][2]
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 dictionary
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: MARKDOWN
+# # Clean data
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 clean_dictionary = dictionary
@@ -36,6 +45,9 @@ clean_dictionary
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 entries = re.findall(r'\b(\w+)\b\s+\b\1\b', clean_dictionary)
+
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+entries
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 pattern = r'\b(\w+)\b\s+\b\1\b /'
