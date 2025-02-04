@@ -3,14 +3,6 @@
   "color": "#F9BE40",
   "items": [
     {
-      "objectId": "crocker_david_dictionary_of_aviation",
-      "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_crocker_david_dictionary_of_aviation",
-      "objectType": "RECIPE"
-    },
-    {
       "objectId": "PP5gsWW1",
       "objectType": "MANAGED_FOLDER"
     },
