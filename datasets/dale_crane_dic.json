@@ -85,8 +85,11 @@
     }
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {"name":"entry","type":"string"},
+      {"name":"definition","type":"string"}
+    ],
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {
