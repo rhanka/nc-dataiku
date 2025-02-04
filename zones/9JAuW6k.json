@@ -77,6 +77,10 @@
     {
       "objectId": "compute_named_entity_recognition",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "named_entity_recognition_with_nltk",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
