@@ -44,7 +44,8 @@ for doc_id, text in zip(doc_ids, corpus):
 corpus_statistics_from_voc_dale_crane_df = pd.DataFrame(statistics_list)
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-corpus_statistics_from_voc_dale_crane_df
+# Add rank column based on count
+corpus_statistics_from_voc_dale_crane_df['rank'] = corpus_statistics_from_voc_dale_crane_df.groupby('doc_id')['count'].rank(ascending=False, method='dense')
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Write recipe outputs
