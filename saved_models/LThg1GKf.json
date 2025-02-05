@@ -5,7 +5,46 @@
   "rebuildBehavior": "EXPLICIT",
   "cleanTemporaryVersionsPostJob": false,
   "name": "000",
-  "inlineVersions": [],
+  "activeVersion": "v1",
+  "inlineVersions": [
+    {
+      "versionId": "v1",
+      "versionTag": {
+        "versionNumber": 0,
+        "lastModifiedBy": {
+          "login": "fabien.antoine@cgi.com"
+        },
+        "lastModifiedOn": 1738769874420
+      },
+      "creationTag": {
+        "versionNumber": 0,
+        "lastModifiedBy": {
+          "login": "fabien.antoine@cgi.com"
+        },
+        "lastModifiedOn": 1738769874420
+      },
+      "code": "import os, random\n\n# Generic LangChain imports\nfrom langchain import hub\nfrom langchain.agents import AgentExecutor, create_openai_tools_agent\nfrom langchain.tools import tool\nfrom langchain_core.callbacks import Callbacks\nfrom langchain_core.prompts import ChatPromptTemplate\n\n# Dataiku LLM\nfrom dataiku.langchain.dku_llm import DKUChatLLM\n\n# Wrapper for Langchain agent\nfrom dataiku.llm.python import GenericLangChainAgentWrapper\n\nchat_model \u003d DKUChatLLM(llm_id\u003d\"openai:REPLACE_BY_YOUR_OPENAI_CONNECTION_NAME:gpt-4o-mini\")\n\n@tool\nasync def where_cat_is_hiding() -\u003e str:\n    \"\"\"Where is the cat hiding right now?\"\"\"\n    return random.choice([\"under the bed\", \"on the shelf\"])\n\n@tool\nasync def get_items(place: str) -\u003e str:\n    \"\"\"Use this tool to look up which items are in the given place.\"\"\"\n    if \"bed\" in place:  # For under the bed\n        return \"socks, shoes and dust bunnies\"\n    if \"shelf\" in place:  # For \u0027shelf\u0027\n        return \"books, pencils and pictures\"\n    else:  # if the agent decides to ask about a different place\n        return \"cat snacks\"\n    \ntools \u003d [get_items, where_cat_is_hiding]\n\nagent \u003d create_openai_tools_agent(chat_model, tools,  hub.pull(\"hwchase17/openai-tools-agent\"))\nagent_executor \u003d AgentExecutor(agent\u003dagent, tools\u003dtools)\n\nclass MyLLM(GenericLangChainAgentWrapper):\n    def __init__(self):\n        super(MyLLM, self).__init__(agent_executor)",
+      "pythonAgentSettings": {
+        "codeEnvSelection": {
+          "envMode": "INHERIT"
+        },
+        "containerExecSelection": {
+          "containerMode": "INHERIT"
+        },
+        "implementationMode": "STREAMING_ONLY",
+        "emulateStreaming": true,
+        "devMode": true,
+        "maxParallelRequestsPerProcess": 4
+      },
+      "pluginAgentSettings": {
+        "containerExecSelection": {
+          "containerMode": "INHERIT"
+        },
+        "devMode": false,
+        "maxParallelRequestsPerProcess": 4
+      }
+    }
+  ],
   "conditionalOutputs": [],
   "partitioning": {
     "ignoreNonMatchingFile": false,
