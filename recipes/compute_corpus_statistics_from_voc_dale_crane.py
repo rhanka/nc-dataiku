@@ -15,6 +15,7 @@ dale_crane_dic_df = dale_crane_dic.get_dataframe()
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 corpus = corpus_for_knowledge_engineering_df["text"]
+doc_ids = corpus_for_knowledge_engineering_df["doc_id"]
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 vocabulary = dale_crane_dic_df["entry"]
@@ -47,7 +48,13 @@ def compute_statistics(corpus, vocabulary):
 # TODO: Write here your actual code that computes the outputs
 # NB: DSS supports several kinds of APIs for reading and writing data. Please see doc.
 
-corpus_statistics_from_voc_dale_crane_df = compute_statistics(corpus, vocabulary)
+statistics_list = []
+for doc_id, text in zip(doc_ids, corpus):
+    stats = compute_statistics(text, vocabulary)
+    stats['doc_id'] = doc_id
+    statistics_list.append(stats)
+
+corpus_statistics_from_voc_dale_crane_df = pd.DataFrame(statistics_list)
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Write recipe outputs
