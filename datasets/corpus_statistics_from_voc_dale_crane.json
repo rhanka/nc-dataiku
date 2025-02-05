@@ -85,8 +85,12 @@
     }
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {"name":"doc_id","type":"string"},
+      {"name":"entry","type":"string"},
+      {"name":"count","type":"bigint"}
+    ],
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {
