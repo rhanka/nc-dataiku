@@ -29,6 +29,10 @@
     {
       "objectId": "corpus_statistics_from_voc_dale_crane",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_corpus_statistics_from_voc_dale_crane",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
