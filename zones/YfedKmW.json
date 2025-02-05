@@ -21,6 +21,10 @@
     {
       "objectId": "compute_dale_crane_dic",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "transport_canada_dic",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
