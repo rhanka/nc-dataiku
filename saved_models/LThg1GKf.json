@@ -42,6 +42,15 @@
         },
         "devMode": false,
         "maxParallelRequestsPerProcess": 4
+      },
+      "quickTestQuery": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Put your query here"
+          }
+        ],
+        "context": {}
       }
     }
   ],
