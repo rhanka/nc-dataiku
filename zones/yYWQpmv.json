@@ -17,6 +17,10 @@
     {
       "objectId": "compute_nouns_extracted_with_nltk",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "nouns_extracted_with_spacy",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
