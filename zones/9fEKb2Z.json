@@ -1,7 +1,16 @@
 {
   "name": "Sentences Analysis \u0026 Extraction",
   "color": "#31439C",
-  "items": [],
+  "items": [
+    {
+      "objectId": "compute_sentences",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "sentences",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
