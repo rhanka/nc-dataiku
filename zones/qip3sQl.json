@@ -1,7 +1,16 @@
 {
   "name": "Noun Phrases Extraction",
   "color": "#4B8021",
-  "items": [],
+  "items": [
+    {
+      "objectId": "compute_nouns_extracted_with_nltk",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "nouns_extracted_with_nltk",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
