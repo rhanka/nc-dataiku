@@ -161,7 +161,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "mistralai:Mistral-FA:mistral-large-latest",
+      "llmId": "mistralai:Mistral-FA:mistral-small-latest",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
