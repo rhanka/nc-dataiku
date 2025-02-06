@@ -1,7 +1,16 @@
 {
   "name": "Semantic Triples Extraction",
   "color": "#4B8021",
-  "items": [],
+  "items": [
+    {
+      "objectId": "compute_faq_base_fr_answers_generated_2_triples",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "faq_base_fr_answers_generated_2_triples",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
