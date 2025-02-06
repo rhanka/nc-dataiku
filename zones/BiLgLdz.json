@@ -1,7 +1,16 @@
 {
   "name": "Corpus Statistics",
   "color": "#0F786B",
-  "items": [],
+  "items": [
+    {
+      "objectId": "compute_corpus_statistics_from_voc_dale_crane",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "corpus_statistics_from_voc_dale_crane",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
