@@ -161,7 +161,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "agent:LThg1GKf",
+      "llmId": "openai:OpenAI-FA:o1-mini",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
