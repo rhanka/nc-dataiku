@@ -4,8 +4,15 @@
     "stopSequences": []
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
+  "llmId": "openai:OpenAI-FA:gpt-4o-mini",
   "prompt": {
-    "promptTemplateInputs": [],
+    "promptTemplateInputs": [
+      {
+        "datasetColumnName": "llm_output",
+        "name": "",
+        "type": "TEXT"
+      }
+    ],
     "resultValidation": {
       "requiredJSONObjectKeys": [],
       "expectedFormat": "NONE",
@@ -14,6 +21,7 @@
     "promptTemplateQueriesSource": "DATASET",
     "structuredPromptExamples": [],
     "textPromptTemplateInputs": [],
-    "promptMode": "PROMPT_TEMPLATE_STRUCTURED"
+    "promptMode": "PROMPT_TEMPLATE_STRUCTURED",
+    "structuredPromptPrefix": "Convert the following text into semantic triples of 3 columns : subject, predicate, object"
   }
 }
