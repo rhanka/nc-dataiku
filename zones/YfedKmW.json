@@ -29,6 +29,10 @@
     {
       "objectId": "compute_transport_canada_dic",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "test_library",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
