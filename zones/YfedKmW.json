@@ -33,6 +33,10 @@
     {
       "objectId": "test_library",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_test_library",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
