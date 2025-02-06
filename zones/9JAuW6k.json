@@ -15,14 +15,6 @@
       "objectType": "RECIPE"
     },
     {
-      "objectId": "LTDM_letters_term_document_matrix",
-      "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_LTDM_letters_term_document_matrix",
-      "objectType": "RECIPE"
-    },
-    {
       "objectId": "sentences",
       "objectType": "DATASET"
     },
