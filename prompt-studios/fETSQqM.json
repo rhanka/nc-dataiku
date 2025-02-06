@@ -161,7 +161,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "openai:OpenAI-FA:o1-mini",
+      "llmId": "anthropic:Anthropic-FA:claude-3-5-sonnet-20241022",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
