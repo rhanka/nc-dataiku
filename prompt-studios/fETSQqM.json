@@ -161,7 +161,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "cohere:Cohere-FA:command-r",
+      "llmId": "cohere:Cohere-FA:command-r-plus",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
