@@ -161,7 +161,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "anthropic:Anthropic-FA:claude-3-5-sonnet-20241022",
+      "llmId": "cohere:Cohere-FA:command-r",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
