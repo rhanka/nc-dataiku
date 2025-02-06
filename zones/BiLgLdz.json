@@ -33,6 +33,14 @@
     {
       "objectId": "document_statistics",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_corpus_strings_statistics_with_pareto",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "corpus_strings_statistics_with_pareto",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
