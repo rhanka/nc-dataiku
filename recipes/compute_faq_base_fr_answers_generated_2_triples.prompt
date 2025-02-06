@@ -14,14 +14,18 @@
       }
     ],
     "resultValidation": {
-      "requiredJSONObjectKeys": [],
-      "expectedFormat": "NONE",
+      "requiredJSONObjectKeys": [
+        "subject",
+        "predicate",
+        "object"
+      ],
+      "expectedFormat": "JSON_OBJECT",
       "forbiddenTerms": []
     },
     "promptTemplateQueriesSource": "DATASET",
     "structuredPromptExamples": [],
     "textPromptTemplateInputs": [],
     "promptMode": "PROMPT_TEMPLATE_STRUCTURED",
-    "structuredPromptPrefix": "Convert the following text into semantic triples of 3 columns : subject, predicate, object"
+    "structuredPromptPrefix": "Convert the following text into semantic triples of 3 JSON keys : subject, predicate, object"
   }
 }
