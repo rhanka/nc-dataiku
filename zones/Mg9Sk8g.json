@@ -1,7 +1,12 @@
 {
   "name": "FAQ Base",
   "color": "#087ABF",
-  "items": [],
+  "items": [
+    {
+      "objectId": "faq_base_fr",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
