@@ -9,6 +9,14 @@
     {
       "objectId": "corpus_statistics_from_voc_dale_crane",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_DTM_document_term_matrix",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "DTM_document_term_matrix",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
