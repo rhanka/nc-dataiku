@@ -161,7 +161,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "huggingfacelocal:HuggingFace-FA:meta-llama/Meta-Llama-3.1-8B-Instruct:TEXT_GENERATION_LLAMA_2:promptDriven\u003dtrue",
+      "llmId": "openai:OpenAI-FA:gpt-4o-mini",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
@@ -280,7 +280,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "cohere:Cohere-FA:command-r",
+      "llmId": "vertex:VertexAI-FA:gemini-1.5-flash",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
