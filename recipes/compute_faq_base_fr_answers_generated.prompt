@@ -4,8 +4,15 @@
     "stopSequences": []
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
+  "llmId": "openai:OpenAI-FA:gpt-4o-mini",
   "prompt": {
-    "promptTemplateInputs": [],
+    "promptTemplateInputs": [
+      {
+        "datasetColumnName": "question",
+        "name": "",
+        "type": "TEXT"
+      }
+    ],
     "resultValidation": {
       "requiredJSONObjectKeys": [],
       "expectedFormat": "NONE",
@@ -14,6 +21,7 @@
     "promptTemplateQueriesSource": "DATASET",
     "structuredPromptExamples": [],
     "textPromptTemplateInputs": [],
-    "promptMode": "PROMPT_TEMPLATE_STRUCTURED"
+    "promptMode": "PROMPT_TEMPLATE_STRUCTURED",
+    "structuredPromptPrefix": "Answer the following question in French"
   }
 }
