@@ -52,7 +52,10 @@
     "importSourceType": "NONE"
   },
   "schema": {
-    "columns": [],
+    "columns": [
+      {"name":"category","type":"string"},
+      {"name":"question","type":"string"}
+    ],
     "userModified": true
   },
   "dkuProperties": [],

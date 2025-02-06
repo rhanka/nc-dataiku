@@ -1,3 +1,115 @@
 {
-  "data": []
+  "data": [
+    [
+      "Définition",
+      "Qu\u0027est-ce qu\u0027un aéronef?"
+    ],
+    [
+      "Fabrication",
+      "Qu\u0027est-ce qu\u0027on peut considérer comme étant une non-conformité de fabrication d\u0027aéronefs?"
+    ],
+    [
+      "Maintenance",
+      "Qu\u0027est-ce qu\u0027on peut considérer comme étant une non-conformité de maintenance d\u0027aéronefs?"
+    ],
+    [
+      "Fabrication",
+      "Quelles sont les connaissances requises pour décrire une non-conformité de fabrication d\u0027aéronefs?"
+    ],
+    [
+      "Maintenance",
+      "Quelles sont les connaissances requises pour décrire une non-conformité de maintenance d\u0027aéronefs?"
+    ],
+    [
+      "Fabrication",
+      "Quelles sont les connaissances requises pour analyser une non-conformité de fabrication d\u0027aéronefs?"
+    ],
+    [
+      "Maintenance",
+      "Quelles sont les connaissances requises pour analyser une non-conformité de maintenance d\u0027aéronefs?"
+    ],
+    [
+      "Fabrication",
+      "Quelle documentation est pertinente pour décrire une non-conformité de fabrication d\u0027aéronefs?"
+    ],
+    [
+      "Maintenance",
+      "Quelle documentation est pertinente pour décrire une non-conformité de maintenance d\u0027aéronefs?"
+    ],
+    [
+      "Fabrication",
+      "Quelle documentation est pertinente pour analyser une non-conformité de fabrication d\u0027aéronefs?"
+    ],
+    [
+      "Maintenance",
+      "Quelle documentation est pertinente pour analyser une non-conformité de maintenance d\u0027aéronefs?"
+    ],
+    [
+      "Fabrication",
+      "Quelles sont les non-conformités historisées qui seraient pertinentes pour décrire une non-conformité de fabrication d\u0027aéronefs?"
+    ],
+    [
+      "Maintenance",
+      "Quelles sont les non-conformités historisées qui seraient pertinentes pour décrire une non-conformité de maintenance d\u0027aéronefs?"
+    ],
+    [
+      "Fabrication",
+      "Quelles sont les non-conformités historisées qui seraient pertinentes pour analyser une non-conformité de fabrication d\u0027aéronefs?"
+    ],
+    [
+      "Maintenance",
+      "Quelles sont les non-conformités historisées qui seraient pertinentes pour analyser une non-conformité de maintenance d\u0027aéronefs?"
+    ],
+    [
+      "Fabrication",
+      "Quelles sont les différentes catégories de non-conformité de fabrication d\u0027aéronefs?"
+    ],
+    [
+      "Maintenance",
+      "Quelles sont les différentes catégories de non-conformité de maintenance d\u0027aéronefs?"
+    ],
+    [
+      "Fabrication",
+      "Quelle taxonomie ou classification faire de la non-conformité de fabrication d\u0027aéronefs?"
+    ],
+    [
+      "Maintenance",
+      "Quelle taxonomie ou classification faire de la non-conformité de maintenance d\u0027aéronefs?"
+    ],
+    [
+      "Règles",
+      "Quelles sont les règles à appliquer en cas de non-conformité entre la structure et les systèmes d\u0027aéronefs?"
+    ],
+    [
+      "Règles",
+      "Quelles sont les règles à appliquer en cas de non-conformité entre structures d\u0027aéronefs?"
+    ],
+    [
+      "Règles",
+      "Quelles sont les règles à appliquer en cas de non-conformité entre systèmes d\u0027aéronefs?"
+    ],
+    [
+      "Procédures",
+      "Quelles sont les procédures à appliquer en cas de non-conformité entre la structure et les systèmes d\u0027aéronefs?"
+    ],
+    [
+      "Procédures",
+      "Quelles sont les procédures à appliquer en cas de non-conformité entre structures d\u0027aéronefs?"
+    ],
+    [
+      "Procédures",
+      "Quelles sont les procédures à appliquer en cas de non-conformité entre systèmes d\u0027aéronefs?"
+    ],
+    [
+      null,
+      null
+    ]
+  ],
+  "schema": {
+    "columns": [
+      {"name":"category","type":"string"},
+      {"name":"question","type":"string"}
+    ],
+    "userModified": false
+  }
 }
