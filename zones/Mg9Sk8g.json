@@ -5,6 +5,14 @@
     {
       "objectId": "faq_base_fr",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_faq_base_fr_answers_generated",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "faq_base_fr_answers_generated",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],

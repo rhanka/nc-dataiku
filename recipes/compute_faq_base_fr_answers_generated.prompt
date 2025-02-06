@@ -1,0 +1,19 @@
+{
+  "rawQueryOutputMode": "RAW",
+  "completionSettings": {
+    "stopSequences": []
+  },
+  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
+  "prompt": {
+    "promptTemplateInputs": [],
+    "resultValidation": {
+      "requiredJSONObjectKeys": [],
+      "expectedFormat": "NONE",
+      "forbiddenTerms": []
+    },
+    "promptTemplateQueriesSource": "DATASET",
+    "structuredPromptExamples": [],
+    "textPromptTemplateInputs": [],
+    "promptMode": "PROMPT_TEMPLATE_STRUCTURED"
+  }
+}
