@@ -1,7 +1,16 @@
 {
   "name": "Named Entity Recognition",
   "color": "#0F786B",
-  "items": [],
+  "items": [
+    {
+      "objectId": "compute_named_entity_recognition_with_nltk",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "named_entity_recognition_with_nltk",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
