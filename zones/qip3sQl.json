@@ -17,6 +17,10 @@
     {
       "objectId": "nouns_extracted_with_spacy",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "noun_phrases_extracted_with_spacy",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
