@@ -166,10 +166,7 @@
         "containerMode": "INHERIT"
       },
       "llmSettings": {
-        "stopSequences": [],
-        "responseFormat": {
-          "type": "json"
-        }
+        "stopSequences": []
       },
       "dataset": "nc_scenarios_search_stacked",
       "nbRows": 8,
