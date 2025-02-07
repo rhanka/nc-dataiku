@@ -5,6 +5,10 @@
     {
       "objectId": "pos_tagging_with_spacy",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_pos_tagging_with_spacy",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
