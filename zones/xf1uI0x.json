@@ -1,7 +1,12 @@
 {
   "name": "POS Tagging",
   "color": "#0F786B",
-  "items": [],
+  "items": [
+    {
+      "objectId": "pos_tagging_with_spacy",
+      "objectType": "DATASET"
+    }
+  ],
   "shared": [],
   "position": {},
   "tags": [],
