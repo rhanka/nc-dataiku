@@ -7,7 +7,7 @@
     "temperature": 0
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "mistralai:Mistral-FA:mistral-small-latest",
+  "llmId": "openai:OpenAI-FA:gpt-4o-mini",
   "prompt": {
     "promptTemplateInputs": [],
     "resultValidation": {
