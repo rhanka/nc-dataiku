@@ -63,10 +63,10 @@ def get_doc(filename):
     try:
         # Replace "pdf_folder_dataset" with the actual folder dataset name
         folder = dataiku.Folder("W8lS5GmB")
-        folder_path = folder.get_path()
+        #folder_path = folder.get_path()
 
         # Build the file path
-        file_path = f"{folder_path}/{filename}"
+        #file_path = f"{folder_path}/{filename}"
 
         # Encoder le nom de fichier pour UTF-8
         encoded_filename = quote(filename)
