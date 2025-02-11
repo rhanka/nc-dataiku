@@ -30,7 +30,21 @@
     {
       "ragModelId": "mistral-large-a220-nc",
       "llmId": "mistralai:Mistral-FA:mistral-large-latest",
-      "maxDocuments": 9,
+      "maxDocuments": 10,
+      "useMMR": true,
+      "mmrK": 20,
+      "mmrDiversity": 0.1,
+      "printSources": true,
+      "includeContentInSources": true,
+      "outputFormat": "JSON",
+      "retrievalSource": "EMBEDDING",
+      "customizeContextMessage": false,
+      "contextMessage": "Use the following pieces of context to answer the question at the end.\nIf you do not know the answer, just say that you do not know, do not try to make up an answer."
+    },
+    {
+      "ragModelId": "mistral-small-a220-nc",
+      "llmId": "mistralai:Mistral-FA:mistral-small-latest",
+      "maxDocuments": 10,
       "useMMR": true,
       "mmrK": 20,
       "mmrDiversity": 0.1,
