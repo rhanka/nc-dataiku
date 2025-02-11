@@ -1,41 +1,41 @@
 {
+  "associatedPromptStudioPromptId": "441rcri8ig",
+  "associatedPromptStudioId": "fETSQqM",
+  "rawQueryOutputMode": "RAW",
+  "completionSettings": {
+    "stopSequences": [],
+    "temperature": 0
+  },
+  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
+  "llmId": "mistralai:Mistral-FA:mistral-small-latest",
   "prompt": {
-    "promptMode": "PROMPT_TEMPLATE_TEXT",
     "promptTemplateInputs": [],
+    "resultValidation": {
+      "requiredJSONObjectKeys": [],
+      "expectedFormat": "NONE",
+      "forbiddenTerms": []
+    },
+    "promptTemplateQueriesSource": "DATASET",
     "structuredPromptExamples": [],
+    "textPromptTemplate": "Voici la description pour laquelle il faut forger la requête:\n{{description}}\n\nFormule la avec l\u0027intention suivante:\n{{user_message}}",
     "textPromptTemplateInputs": [
       {
-        "name": "description",
         "datasetColumnName": "description",
+        "name": "description",
         "type": "TEXT"
       },
       {
-        "name": "role",
         "datasetColumnName": "role",
+        "name": "role",
         "type": "TEXT"
       },
       {
-        "name": "user_message",
         "datasetColumnName": "user_message",
+        "name": "user_message",
         "type": "TEXT"
       }
     ],
-    "textPromptTemplate": "Voici la description pour laquelle il faut forger la requête:\n{{description}}\n\nFormule la avec l\u0027intention suivante:\n{{user_message}}",
     "textPromptSystemTemplate": "Prompt Query\n\nVous soutenez le rôle de {{role}} et vous vous appuyez sur les connaissances de la documentation technique A220 et de la base de connaissances sur la non-conformité (bases de données vectorielles type RAG). L\u0027utilisateur va fournir une description, et vous devez à partir de cette description extraire les terme techniques pertinents afin de fournir un prompt optimisé vers ces bases RAG afin de permettre la meilleure recherche possible compte tenu des données fournies par l\u0027utilisateur. \n\nLe prompt doit etre fourni sous la forme suivante, en anglais\n- role: {{role}}\n- label : synthese de la description\n- label_alt: synthese alternative avec un vocabulaire totalemeent orthogonal (sinon ne pas fournir label_alt)\n- parts: pièces concernées (si possible : identifiant de la zone, et description - ne pas inventer)\n- zone: zone de l\u0027avion (si possible : identifiant de la zone, et description - ne pas inventer)\n\nLe format de sortie est en texte simple (pas de formattage yaml ou json), en anglais\n\nLe prompt ne contient pas  la description complète du problème.",
-    "resultValidation": {
-      "expectedFormat": "NONE",
-      "requiredJSONObjectKeys": [],
-      "forbiddenTerms": []
-    },
-    "promptTemplateQueriesSource": "DATASET"
-  },
-  "associatedPromptStudioId": "fETSQqM",
-  "associatedPromptStudioPromptId": "441rcri8ig",
-  "rawQueryOutputMode": "RAW",
-  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "completionSettings": {
-    "temperature": 0.0,
-    "stopSequences": []
-  },
-  "llmId": "mistralai:Mistral-FA:mistral-small-latest"
+    "promptMode": "PROMPT_TEMPLATE_TEXT"
+  }
 }
