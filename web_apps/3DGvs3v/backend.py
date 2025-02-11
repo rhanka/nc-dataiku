@@ -72,7 +72,7 @@ def get_doc(filename):
         encoded_filename = quote(filename)
         
         # Serve the file if it exists
-        with folder.get_download_stream(file_path) as pdf_file:
+        with folder.get_download_stream(filename) as pdf_file:
             return Response(
                 pdf_file.read(),
                 mimetype='application/pdf',
