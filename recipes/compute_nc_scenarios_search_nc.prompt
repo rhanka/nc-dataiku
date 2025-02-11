@@ -7,7 +7,7 @@
     "temperature": 0
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "retrievalaugmented:zQ92IhQ9:gpt-4o-mini-a220-tech-docs",
+  "llmId": "retrievalaugmented:WnKb6p17:gpt-4o-mini-a220-nc",
   "prompt": {
     "promptTemplateInputs": [],
     "resultValidation": {
