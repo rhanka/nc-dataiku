@@ -69,7 +69,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "retrievalaugmented:WnKb6p17:mistral-large-a220-nc",
+      "llmId": "retrievalaugmented:WnKb6p17:gpt-4o-mini-a220-nc",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
