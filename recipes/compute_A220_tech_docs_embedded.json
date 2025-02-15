@@ -14,6 +14,7 @@
               {
                 "input": "file name",
                 "operator": "contains",
+                "col": "file path",
                 "string": ".pdf",
                 "num": 0.0,
                 "num2": 0.0
@@ -21,6 +22,7 @@
               {
                 "input": "file name",
                 "operator": "contains",
+                "col": "file path",
                 "string": ".pptx",
                 "num": 0.0,
                 "num2": 0.0
@@ -28,6 +30,7 @@
               {
                 "input": "file name",
                 "operator": "contains",
+                "col": "file path",
                 "string": ".docx",
                 "num": 0.0,
                 "num2": 0.0
@@ -60,6 +63,7 @@
               {
                 "input": "file name",
                 "operator": "contains",
+                "col": "file path",
                 "string": ".txt",
                 "num": 0.0,
                 "num2": 0.0
@@ -67,6 +71,7 @@
               {
                 "input": "file name",
                 "operator": "contains",
+                "col": "file path",
                 "string": ".md",
                 "num": 0.0,
                 "num2": 0.0
