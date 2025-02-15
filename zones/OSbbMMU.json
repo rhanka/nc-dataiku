@@ -45,6 +45,18 @@
     {
       "objectId": "compute_rhnW9xGx",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_A220_tech_docs_embedded",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "3x83HZS8",
+      "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "IAFnrIEG",
+      "objectType": "RETRIEVABLE_KNOWLEDGE"
     }
   ],
   "shared": [],

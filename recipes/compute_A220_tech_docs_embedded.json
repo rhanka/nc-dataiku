@@ -1,0 +1,151 @@
+{
+  "type": "embed_documents",
+  "neverRecomputeExistingPartitions": false,
+  "params": {
+    "defaultVlmId": "openai:OpenAI-FA:gpt-4o-mini",
+    "rules": [
+      {
+        "filter": {
+          "distinct": false,
+          "enabled": true,
+          "uiData": {
+            "mode": "||",
+            "conditions": [
+              {
+                "input": "file name",
+                "operator": "contains",
+                "string": ".pdf",
+                "num": 0.0,
+                "num2": 0.0
+              },
+              {
+                "input": "file name",
+                "operator": "contains",
+                "string": ".pptx",
+                "num": 0.0,
+                "num2": 0.0
+              },
+              {
+                "input": "file name",
+                "operator": "contains",
+                "string": ".docx",
+                "num": 0.0,
+                "num2": 0.0
+              }
+            ]
+          }
+        },
+        "actionToPerform": "VLM",
+        "vlmSettings": {
+          "splitUnit": "PAGE",
+          "customNbPages": 1,
+          "customPagesOverlap": 0,
+          "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+          "useCustomPrompt": false,
+          "customPrompt": "Generate a concise summary, up to 500 words, derived from the screenshot(s) of document page(s) provided. \nBegin with a brief overview and highlight crucial words, facts, or concepts to enhance both semantic and keyword searchability.\nOmit any references to the original source.\n"
+        },
+        "splittingSettings": {
+          "chunkSizeCharacters": 3000,
+          "chunkOverlapCharacters": 120
+        },
+        "storeInMultimodalColumn": "IMAGES"
+      },
+      {
+        "filter": {
+          "distinct": false,
+          "enabled": true,
+          "uiData": {
+            "mode": "||",
+            "conditions": [
+              {
+                "input": "file name",
+                "operator": "contains",
+                "string": ".txt",
+                "num": 0.0,
+                "num2": 0.0
+              },
+              {
+                "input": "file name",
+                "operator": "contains",
+                "string": ".md",
+                "num": 0.0,
+                "num2": 0.0
+              }
+            ]
+          }
+        },
+        "actionToPerform": "STRUCTURED",
+        "structuredSettings": {
+          "splitUnit": "SECTION",
+          "maxSectionDepth": 6
+        },
+        "splittingSettings": {
+          "chunkSizeCharacters": 3000,
+          "chunkOverlapCharacters": 120
+        },
+        "storeInMultimodalColumn": "FULL_CONTENT"
+      }
+    ],
+    "allOtherRule": {
+      "actionToPerform": "DONOTEXTRACT",
+      "structuredSettings": {
+        "splitUnit": "SECTION",
+        "maxSectionDepth": 6
+      },
+      "splittingSettings": {
+        "chunkSizeCharacters": 3000,
+        "chunkOverlapCharacters": 120
+      },
+      "storeInMultimodalColumn": "FULL_CONTENT"
+    }
+  },
+  "customMeta": {
+    "kv": {}
+  },
+  "redispatchPartitioning": false,
+  "maxRunningActivities": 0,
+  "hashPropagationBehavior": "INHERIT",
+  "variables": {},
+  "dkuProperties": [],
+  "inputs": {
+    "main": {
+      "items": [
+        {
+          "ref": "SoQWOnhR",
+          "deps": []
+        }
+      ]
+    }
+  },
+  "outputs": {
+    "images": {
+      "items": [
+        {
+          "ref": "3x83HZS8",
+          "appendMode": false
+        }
+      ]
+    },
+    "knowledge_bank": {
+      "items": [
+        {
+          "ref": "IAFnrIEG",
+          "appendMode": false
+        }
+      ]
+    }
+  },
+  "labels": [],
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "fabien.antoine@cgi.com"
+    },
+    "lastModifiedOn": 1739639179978
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}
