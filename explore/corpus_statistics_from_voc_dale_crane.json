@@ -3,8 +3,27 @@
     "steps": [],
     "maxProcessedMemTableBytes": -1,
     "columnsSelection": {
-      "mode": "ALL"
+      "mode": "ALL",
+      "list": [
+        {
+          "name": "doc_id",
+          "d": true
+        },
+        {
+          "name": "entry",
+          "d": true
+        },
+        {
+          "name": "count",
+          "d": true
+        },
+        {
+          "name": "rank",
+          "d": true
+        }
+      ]
     },
+    "columnOrder": [],
     "columnWidthsByName": {
       "doc_id": 100,
       "entry": 127,
@@ -89,7 +108,8 @@
           "columnType": "NUMERICAL",
           "currentMode": "NUMERICAL",
           "sort": "count",
-          "selectedValues": {}
+          "selectedValues": {},
+          "minValue": 97.6
         },
         "alphanumFilter": {
           "type": "alphanum",
