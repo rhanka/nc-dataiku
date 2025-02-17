@@ -33,7 +33,7 @@ for secret in auth_info["secrets"]:
 if not JWT_SECRET_KEY or not MY_APP_USERNAME or not MY_APP_PASSWORD:
         raise Exception("secret not found")
         
-# CORS(app, resources={r"/*": {"origins": "*"}})
+# CORS(app, resources={r"/*": {"origins": "https://nc.genai-cgi.com/"}})
 app.config['JWT_SECRET_KEY'] = JWT_SECRET_KEY
 jwt = JWTManager(app)
 
