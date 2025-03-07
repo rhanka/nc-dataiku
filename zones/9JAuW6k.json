@@ -3,10 +3,6 @@
   "color": "#4B8021",
   "items": [
     {
-      "objectId": "rhnW9xGx",
-      "objectType": "MANAGED_FOLDER"
-    },
-    {
       "objectId": "compute_a220_tech_docs_content_summarized",
       "objectType": "RECIPE"
     },
