@@ -1,0 +1,142 @@
+{
+  "type": "webapp_agent-connect_portal",
+  "hasLegacyBackendURL": false,
+  "params": {
+    "backendEnabled": true,
+    "enableJavascriptModules": true,
+    "autoStartBackend": false,
+    "hideJSSecurityPanel": true,
+    "envSelection": {
+      "envMode": "INHERIT"
+    },
+    "nbProcesses": 1,
+    "backendAPIAccessEnabled": false,
+    "libraries": [
+      "jquery",
+      "dataiku",
+      "font_awesome"
+    ],
+    "infra": {
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      },
+      "overrideGlobalK8sExposition": false,
+      "exposition": {
+        "type": "local_process",
+        "params": {}
+      },
+      "scaling": {
+        "initialReplicas": 1,
+        "progressDeadlineSeconds": 600,
+        "hpa": false,
+        "hpaTargetCPUPercent": 0,
+        "hpaMetrics": [],
+        "hpaMinPods": 0,
+        "hpaMaxPods": 0,
+        "hpaAnnotations": []
+      },
+      "deploymentModifier": {
+        "config": {}
+      }
+    },
+    "forceAuthentication": false
+  },
+  "config": {
+    "agents_descriptions": [],
+    "show_advanced_logging_settings": false,
+    "index_chat_history": false,
+    "permanent_delete": true,
+    "feedback_positive_choices": [],
+    "feedback_negative_choices": [],
+    "allow_general_feedback": false,
+    "max_upload_size_mb": 15,
+    "max_n_upload_files": 5,
+    "allow_doc_as_image": true,
+    "docs_per_page_as_image": 5,
+    "max_llm_tokens": 2048,
+    "primer_prompt": "Please act as a business analyst and return concise Portal no more than 3 lines",
+    "show_advanced_settings": false,
+    "system_prompt": "The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know.",
+    "enable_image_generation": false,
+    "max_images_per_user_per_week": 0,
+    "web_app_title": "Ask Anything – Let Agent Connect uncover the best answers tailored just for you!",
+    "web_app_subheading": "Answers are provided by Dataiku Agents, which leverage documents, datasets, and advanced tools to deliver precise and insightful information.",
+    "web_app_input_placeholder": "Ask your question...",
+    "example_questions": [
+      "What are the latest trends in the renewable energy sector?",
+      "Summarize the key policies in our company handbook",
+      "Explain the process for submitting an internal expense report"
+    ],
+    "disclaimer": "This application is powered by a Large Language Model. Review proposed outcomes in context with \u003cspan style\u003d\"color: #267cfb; text-decoration: underline\"\u003eResponsible AI\u003c/span\u003e considerations",
+    "use_custom_rebranding": false,
+    "custom_logo_file_name": "logo.png",
+    "custom_icon_file_name": "answer-icon.png",
+    "user_profile_languages": [
+      {
+        "from": "ar",
+        "to": "Arabic"
+      },
+      {
+        "from": "zh",
+        "to": "Chinese"
+      },
+      {
+        "from": "en",
+        "to": "English"
+      },
+      {
+        "from": "fr",
+        "to": "French"
+      },
+      {
+        "from": "de",
+        "to": "German"
+      },
+      {
+        "from": "it",
+        "to": "Italian"
+      },
+      {
+        "from": "ja",
+        "to": "Japanese"
+      },
+      {
+        "from": "ko",
+        "to": "Korean"
+      },
+      {
+        "from": "pt",
+        "to": "Portuguese"
+      },
+      {
+        "from": "ru",
+        "to": "Russian"
+      },
+      {
+        "from": "es",
+        "to": "Spanish"
+      }
+    ],
+    "user_profile_settings": [],
+    "include_user_profile_in_prompt": false,
+    "language": "en",
+    "log_level": "INFO",
+    "http_headers": [],
+    "max_thread_workers_number": 0
+  },
+  "name": "Agent Connect NC",
+  "apiKey": "e:AES:X2:FDBConVJL+sei7lGt+6VXAmxTmrrGMUhwGAsLLW43IJaGcygxjFNRfC5BVH+Qx7GvtY1Q0HnOT0s7koW9SZHFeU4In97VSKMGt4OY6x1qq4nUIjc8VLe",
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "fabien.antoine@cgi.com"
+    },
+    "lastModifiedOn": 1741382589629
+  },
+  "tags": [],
+  "checklists": {
+    "checklists": []
+  },
+  "customFields": {},
+  "isVirtual": false
+}
