@@ -43,7 +43,7 @@
           "splitUnit": "CUSTOM",
           "customNbPages": 1,
           "customPagesOverlap": 0,
-          "llmId": "vertex:VertexAI-FA:gemini-1.5-flash",
+          "llmId": "openai:OpenAI-FA:gpt-4o-mini",
           "useCustomPrompt": false,
           "customPrompt": "Generate a concise summary, up to 500 words, derived from the screenshot(s) of document page(s) provided. \nBegin with a brief overview and highlight crucial words, facts, or concepts to enhance both semantic and keyword searchability.\nOmit any references to the original source.\n"
         },
