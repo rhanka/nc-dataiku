@@ -17,6 +17,7 @@ for secret in auth_info["secrets"]:
 
 client = Mistral(api_key=MISTRAL_API_KEY)
 
+# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Folders
 A220_tech_docs = dataiku.Folder("SoQWOnhR")          # Input folder
 A220_tech_docs_prep = dataiku.Folder("d7DdDueY")    # Output folder
@@ -28,17 +29,13 @@ for pdf_file in pdf_files:
     # Lire le contenu PDF
     with A220_tech_docs.get_download_stream(pdf_file) as f:
         pdf_data = f.read()
-        
-    # Utiliser un fichier temporaire pour la conversion
-    with tempfile.NamedTemporaryFile(delete=True, suffix=".pdf") as temp_pdf:
-        temp_pdf.write(pdf_data)
-        temp_pdf.flush()  # Assurez-vous que le contenu est écrit sur le disque
+
 
         # Create upload file object for Mistral API
         uploaded_file = client.files.upload(
             file={
-                "file_name": pdf_file.stem,
-                "content": pdf_file.read_bytes(),
+                "file_name": pdf_file,
+                "content": f.read(),
             },
             purpose="ocr",
         )
@@ -46,7 +43,7 @@ for pdf_file in pdf_files:
         pdf_response = client.ocr.process(document=DocumentURLChunk(document_url=signed_url.url), model="mistral-ocr-latest", include_image_base64=True)
         response_dict = json.loads(pdf_response.json())
         json_string = json.dumps(response_dict, indent=4)
-        
+
         # Écrire le fichier .json
         json_file_name = os.path.splitext(pdf_file)[0] + ".json"
         with A220_tech_docs_prep.get_writer(json_file_name) as writer:
