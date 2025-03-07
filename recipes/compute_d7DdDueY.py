@@ -19,7 +19,7 @@ client = Mistral(api_key=MISTRAL_API_KEY)
 
 # Folders
 A220_tech_docs = dataiku.Folder("SoQWOnhR")          # Input folder
-A220_tech_docs_prep = dataiku.Folder("rhnW9xGx")    # Output folder
+A220_tech_docs_prep = dataiku.Folder("d7DdDueY")    # Output folder
 
 # Lister les fichiers PDF
 pdf_files = [f for f in A220_tech_docs.list_paths_in_partition() if f.lower().endswith(".pdf")]
