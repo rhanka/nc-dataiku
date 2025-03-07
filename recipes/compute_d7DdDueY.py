@@ -28,9 +28,7 @@ pdf_files = [f for f in A220_tech_docs.list_paths_in_partition() if f.lower().en
 for pdf_file in pdf_files:
     # Lire le contenu PDF
     with A220_tech_docs.get_download_stream(pdf_file) as f:
-        pdf_data = f.read()
-
-
+        print(f"file: {pdf_file}")
         # Create upload file object for Mistral API
         uploaded_file = client.files.upload(
             file={
