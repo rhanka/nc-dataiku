@@ -42,7 +42,11 @@
     "forceAuthentication": false
   },
   "config": {
-    "agents_descriptions": [],
+    "agents_descriptions": [
+      {
+        "$$hashKey": "object:1312"
+      }
+    ],
     "show_advanced_logging_settings": false,
     "index_chat_history": false,
     "permanent_delete": true,
@@ -74,47 +78,69 @@
     "user_profile_languages": [
       {
         "from": "ar",
-        "to": "Arabic"
+        "to": "Arabic",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "zh",
-        "to": "Chinese"
+        "to": "Chinese",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "en",
-        "to": "English"
+        "to": "English",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "fr",
-        "to": "French"
+        "to": "French",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "de",
-        "to": "German"
+        "to": "German",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "it",
-        "to": "Italian"
+        "to": "Italian",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "ja",
-        "to": "Japanese"
+        "to": "Japanese",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "ko",
-        "to": "Korean"
+        "to": "Korean",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "pt",
-        "to": "Portuguese"
+        "to": "Portuguese",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "ru",
-        "to": "Russian"
+        "to": "Russian",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "es",
-        "to": "Spanish"
+        "to": "Spanish",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       }
     ],
     "user_profile_settings": [],
@@ -122,10 +148,20 @@
     "language": "en",
     "log_level": "INFO",
     "http_headers": [],
-    "max_thread_workers_number": 0
+    "max_thread_workers_number": 0,
+    "image_generation_system_prompt": "",
+    "custom_theme_name": "",
+    "projects_keys": [
+      "NONCONFORMITIES"
+    ],
+    "answers_ids": [],
+    "agents_ids": [
+      "NONCONFORMITIES:agent:LThg1GKf"
+    ],
+    "llm_id": "openai:OpenAI-FA:gpt-4o-mini"
   },
   "name": "Agent Connect NC",
-  "apiKey": "e:AES:X2:FDBConVJL+sei7lGt+6VXAmxTmrrGMUhwGAsLLW43IJaGcygxjFNRfC5BVH+Qx7GvtY1Q0HnOT0s7koW9SZHFeU4In97VSKMGt4OY6x1qq4nUIjc8VLe",
+  "apiKey": "e:AES:X2:pRaXinP5DJpZCChGJNboe3j8s7kUVhKMB6ypUODwhhLsLvIRcDu8SGFGXuBCujCXQDogOCGG7IByJNKQCtuVIjz3rhbA4KT73hXuJ9iNj9++m6JUidi8",
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
