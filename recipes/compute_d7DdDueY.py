@@ -2,10 +2,20 @@
 # -*- coding: utf-8 -*-
 import dataiku
 import os
-from markitdown import MarkItDown
+from mistralai import Mistral
+from mistralai import DocumentURLChunk, ImageURLChunk, TextChunk
 import tempfile
+import json
 
-md = MarkItDown()
+client = dataiku.api_client()
+project = client.get_default_project()
+auth_info = client.get_auth_info(with_secrets=True)
+MISTRAL_API_KEY = None
+for secret in auth_info["secrets"]:
+    if secret["key"] == "MISTRAL_API_KEY":
+        MISTRAL_API_KEY = secret["value"]
+
+client = Mistral(api_key=MISTRAL_API_KEY)
 
 # Folders
 A220_tech_docs = dataiku.Folder("SoQWOnhR")          # Input folder
@@ -24,14 +34,20 @@ for pdf_file in pdf_files:
         temp_pdf.write(pdf_data)
         temp_pdf.flush()  # Assurez-vous que le contenu est écrit sur le disque
 
-        # Convertir en Markdown
-        md_content = md.convert(temp_pdf.name)
-
-        # Afficher le nombre de lignes dans le contenu Markdown
-        num_lines = len(md_content.text_content.splitlines())
-        print(f"Nombre de lignes : {num_lines}")
+        # Create upload file object for Mistral API
+        uploaded_file = client.files.upload(
+            file={
+                "file_name": pdf_file.stem,
+                "content": pdf_file.read_bytes(),
+            },
+            purpose="ocr",
+        )
+        signed_url = client.files.get_signed_url(file_id=uploaded_file.id, expiry=1)
+        pdf_response = client.ocr.process(document=DocumentURLChunk(document_url=signed_url.url), model="mistral-ocr-latest", include_image_base64=True)
+        response_dict = json.loads(pdf_response.json())
+        json_string = json.dumps(response_dict, indent=4)
         
-        # Écrire le fichier .md
-        md_file_name = os.path.splitext(pdf_file)[0] + ".md"
-        with A220_tech_docs_prep.get_writer(md_file_name) as writer:
-            writer.write(md_content.text_content.encode('utf-8'))
+        # Écrire le fichier .json
+        json_file_name = os.path.splitext(pdf_file)[0] + ".json"
+        with A220_tech_docs_prep.get_writer(json_file_name) as writer:
+            writer.write(json_string.encode('utf-8'))
