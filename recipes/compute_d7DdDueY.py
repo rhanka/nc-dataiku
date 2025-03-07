@@ -19,7 +19,7 @@ client = Mistral(api_key=MISTRAL_API_KEY)
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # Folders
-A220_tech_docs = dataiku.Folder("SoQWOnhR")          # Input folder
+A220_tech_docs = dataiku.Folder("W8lS5GmB")          # Input folder
 A220_tech_docs_prep = dataiku.Folder("d7DdDueY")    # Output folder
 
 # Lister les fichiers PDF
