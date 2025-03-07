@@ -65,6 +65,10 @@
     {
       "objectId": "d7DdDueY",
       "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_d7DdDueY",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
