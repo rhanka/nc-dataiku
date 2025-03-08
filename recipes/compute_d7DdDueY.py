@@ -1,12 +1,9 @@
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # -*- coding: utf-8 -*-
 import dataiku
-import os
 from mistralai import Mistral
 from mistralai import DocumentURLChunk, ImageURLChunk, TextChunk
 import tempfile
-import json
-import time
 
 client = dataiku.api_client()
 project = client.get_default_project()
@@ -19,6 +16,14 @@ for secret in auth_info["secrets"]:
 client = Mistral(api_key=MISTRAL_API_KEY)
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import os
+import json
+import time
+
+# Paramétrer le nombre de requêtes parallèles
+MAX_WORKERS = 3
+
 # Folders
 A220_tech_docs = dataiku.Folder("W8lS5GmB")          # Input folder
 A220_tech_docs_prep = dataiku.Folder("d7DdDueY")    # Output folder
@@ -30,16 +35,14 @@ pdf_files.sort()
 # Lister les fichiers JSON existants pour éviter les doublons
 existing_json_files = set(A220_tech_docs_prep.list_paths_in_partition())
 
-index = 0
-while index < len(pdf_files):
-    pdf_file = pdf_files[index]
+
+def process_pdf(pdf_file):
     json_file_name = os.path.splitext(pdf_file)[0] + ".json"
 
     # Vérifier si le fichier JSON existe déjà
     if json_file_name in existing_json_files:
         print(f"{json_file_name} existe déjà, passe au suivant.")
-        index += 1
-        continue
+        return
 
     # Lire le contenu PDF
     with A220_tech_docs.get_download_stream(pdf_file) as f:
@@ -68,10 +71,8 @@ while index < len(pdf_files):
                     include_image_base64=True
                 )
             except Exception as e:
-                print(f"Échec répété pour {pdf_file}, ajout en fin de liste: {e}")
-                pdf_files.append(pdf_file)
-                index += 1
-                continue
+                print(f"Échec répété pour {pdf_file}, réessai plus tard: {e}")
+                return pdf_file  # à réessayer plus tard
 
         response_dict = json.loads(pdf_response.json())
         json_string = json.dumps(response_dict, indent=4)
@@ -80,4 +81,15 @@ while index < len(pdf_files):
         with A220_tech_docs_prep.get_writer(json_file_name) as writer:
             writer.write(json_string.encode('utf-8'))
 
-    index += 1
+
+pending_files = pdf_files
+while pending_files:
+    retry_files = []
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        futures = {executor.submit(process_pdf, pdf): pdf for pdf in pending_files}
+        for future in as_completed(futures):
+            result = future.result()
+            if result:
+                retry_files.append(result)
+
+    pending_files = retry_files
