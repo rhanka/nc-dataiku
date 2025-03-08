@@ -8,7 +8,7 @@
         "promptTemplateInputs": [],
         "structuredPromptExamples": [],
         "textPromptTemplateInputs": [],
-        "rawPromptText": "Ask a question to your Retrieval-Augmented LLM.",
+        "rawPromptText": "Parle moi des engines",
         "guardrailsPipelineSettings": {
           "guardrails": []
         },
