@@ -3,22 +3,6 @@
   "color": "#D03713",
   "items": [
     {
-      "objectId": "compute_NC_types_random_000_rapport",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "NC_types_random_000_rapport",
-      "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_NC_types_random_000_rapport_structured",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "NC_types_random_000_rapport_structured",
-      "objectType": "DATASET"
-    },
-    {
       "objectId": "compute_nc_scenarios_propose_000",
       "objectType": "RECIPE"
     },
