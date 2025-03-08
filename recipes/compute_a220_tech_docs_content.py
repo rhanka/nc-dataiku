@@ -8,7 +8,7 @@ from langchain.text_splitter import (
     MarkdownHeaderTextSplitter,
 )
 
-folder = dataiku.Folder("AXB1Cyno")
+folder = dataiku.Folder("d7DdDueY")
 
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
