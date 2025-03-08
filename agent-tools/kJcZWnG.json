@@ -1,6 +1,39 @@
 {
   "name": "tech_docs",
   "type": "VectorStoreSearch",
+  "params": {
+    "maxDocuments": 18,
+    "useMMR": true,
+    "mmrK": 40,
+    "mmrDiversity": 0.25,
+    "useHybridSearch": false,
+    "useAdvancedReranking": false,
+    "rrfRankConstant": 60,
+    "rrfRankWindowSize": 4,
+    "filter": {
+      "uiData": {
+        "mode": "\u0026\u0026",
+        "conditions": [
+          {
+            "num": 0,
+            "items": []
+          }
+        ],
+        "$filterOptions": "rules",
+        "$latestOperator": "\u0026\u0026"
+      },
+      "$status": {}
+    },
+    "knowledgeBankRef": "IAFnrIEG",
+    "performFiltering": false,
+    "allMetadataInContext": true
+  },
+  "quickTestQuery": {
+    "input": {
+      "searchQuery": "Ask your question here"
+    },
+    "context": {}
+  },
   "dkuProperties": [],
   "creationTag": {
     "versionNumber": 0,
