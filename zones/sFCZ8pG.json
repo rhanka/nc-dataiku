@@ -31,10 +31,6 @@
       "objectType": "RECIPE"
     },
     {
-      "objectId": "all_sources_chunks",
-      "objectType": "DATASET"
-    },
-    {
       "objectId": "compute_NC_types_random_500_md_concat",
       "objectType": "RECIPE"
     },
