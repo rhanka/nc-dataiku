@@ -22,7 +22,7 @@ import json
 import time
 
 # Paramétrer le nombre de requêtes parallèles
-MAX_WORKERS = 5
+MAX_WORKERS = 10
 
 # Folders
 A220_tech_docs = dataiku.Folder("W8lS5GmB")          # Input folder
