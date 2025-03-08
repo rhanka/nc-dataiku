@@ -15,14 +15,6 @@
       "objectType": "RECIPE"
     },
     {
-      "objectId": "dale_crane_dic",
-      "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_dale_crane_dic",
-      "objectType": "RECIPE"
-    },
-    {
       "objectId": "transport_canada_dic",
       "objectType": "DATASET"
     },
@@ -36,6 +28,14 @@
     },
     {
       "objectId": "compute_test_library",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "dale_crane_dic",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_dale_crane_dic",
       "objectType": "RECIPE"
     }
   ],
