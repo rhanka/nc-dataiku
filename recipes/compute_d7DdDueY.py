@@ -42,18 +42,21 @@ def extract_md_and_images(json_file_name, response_dict):
     # Extraire et écrire le Markdown
     md_file_name = base_name + ".md"
     if md_file_name not in existing_files:
+        print(f"Extraction md et images : {md_file_name}")
         markdown_content = "\n\n".join(page["markdown"] for page in response_dict.get("pages", []))
         with A220_tech_docs_prep.get_writer(md_file_name) as writer:
             writer.write(markdown_content.encode('utf-8'))
+        # Extraire et écrire les images
+        for page in response_dict.get("pages", []):
+            for image in page.get("images", []):
+                image_file_name = base_name + "-" + image["id"]
+                if image_file_name not in existing_files:
+                    image_data = image["image_base64"].split(",")[1]
+                    with A220_tech_docs_prep.get_writer(image_file_name) as writer:
+                        writer.write(base64.b64decode(image_data))
+    else:
+        print(f"{md_file_name} existe déjà.")
 
-    # Extraire et écrire les images
-    for page in response_dict.get("pages", []):
-        for image in page.get("images", []):
-            image_file_name = base_name + "-" + image["id"]
-            if image_file_name not in existing_files:
-                image_data = image["image_base64"].split(",")[1]
-                with A220_tech_docs_prep.get_writer(image_file_name) as writer:
-                    writer.write(base64.b64decode(image_data))
 
 
 def process_pdf(pdf_file):
