@@ -17,10 +17,6 @@
       {
         "d": true,
         "name": "chunk_id"
-      },
-      {
-        "d": true,
-        "name": "doc_chunk_id"
       }
     ]
   },
@@ -138,7 +134,7 @@
       "disabled": false,
       "type": "ColumnsConcat",
       "params": {
-        "outputColumn": "doc_chunk_id",
+        "outputColumn": "chunk_id",
         "columns": [
           "doc",
           "chunk_id"
