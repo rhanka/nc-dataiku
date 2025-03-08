@@ -90,7 +90,8 @@
       {"name":"images","type":"array","arrayContent":{"type":"string"}
       },
       {"name":"doc","type":"string"},
-      {"name":"chunk_id","type":"bigint"}
+      {"name":"chunk_id","type":"bigint"},
+      {"name":"doc_chunk_id","type":"string"}
     ],
     "userModified": true
   },
