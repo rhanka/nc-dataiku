@@ -87,11 +87,14 @@
   "schema": {
     "columns": [
       {"name":"chunk","type":"string"},
+      {"name":"images","type":"array","arrayContent":{"type":"string"}
+      },
       {"name":"doc","type":"string"},
       {"name":"chunk_id","type":"bigint"}
     ],
     "userModified": true
   },
+  "typeSystemVersion": "V1",
   "dkuProperties": [],
   "metrics": {
     "probes": [
