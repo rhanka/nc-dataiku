@@ -4,6 +4,8 @@ import dataiku
 from mistralai import Mistral
 from mistralai import DocumentURLChunk, ImageURLChunk, TextChunk
 import tempfile
+import base64
+
 
 client = dataiku.api_client()
 project = client.get_default_project()
