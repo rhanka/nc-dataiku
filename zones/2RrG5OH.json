@@ -93,6 +93,22 @@
     {
       "objectId": "compute_NC_types_random_000_rapport_structured",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "NC_types_random_100_analysis",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "NC_types_random_100_analysis_structured",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_NC_types_random_100_analysis_structured",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_NC_types_random_100_analysis",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
