@@ -4,6 +4,12 @@
   "rebuildBehavior": "EXPLICIT",
   "vectorStoreType": "CHROMA",
   "embeddingLLMId": "openai:OpenAI-FA:text-embedding-3-large",
+  "metadataColumnsSchema": [
+    {"name":"images","type":"array","arrayContent":{"type":"string"}
+    },
+    {"name":"doc","type":"string"},
+    {"name":"chunk_id","type":"bigint"}
+  ],
   "envSelection": {
     "envMode": "EXPLICIT_ENV",
     "envName": "markitdown"
