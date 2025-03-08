@@ -73,6 +73,10 @@
     {
       "objectId": "WjbK1sFo",
       "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "compute_WjbK1sFo",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
