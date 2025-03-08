@@ -16,5 +16,5 @@
   "knowledgeColumn": "chunk",
   "clearVectorStore": false,
   "documentSplittingMode": "NONE",
-  "vectorStoreUpdateMethod": "SMART_OVERWRITE"
+  "vectorStoreUpdateMethod": "OVERWRITE"
 }
