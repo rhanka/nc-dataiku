@@ -40,6 +40,7 @@ vision_prompt = """
     using exact terms if any included in the picture. 
     Don't wrap the markdown with ``` and only provide the description without additionnal comment.
 """
+pixtral_model="pixtral-12b-2409"
 
 # Lister les fichiers PDF
 pdf_files = [f for f in A220_tech_docs.list_paths_in_partition() if f.lower().endswith(".pdf")]
@@ -77,7 +78,7 @@ def generate_image_description(image_data):
         
         # Appeler l'API Mistral Vision avec le modèle pixtral-large-2411
         response = client.chat.complete(
-            model="pixtral-large-2411",
+            model=pixtral_model,
             messages=messages
         )
         
