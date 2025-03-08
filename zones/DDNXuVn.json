@@ -1,24 +1,7 @@
 {
   "name": "200 - Design Manager",
   "color": "#C54F00",
-  "items": [
-    {
-      "objectId": "compute_NC_types_random_200_analysis_validation_structured",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "NC_types_random_200_analysis_validation_structured",
-      "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_NC_types_random_200_analysis_validation",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "NC_types_random_200_analysis_validation",
-      "objectType": "DATASET"
-    }
-  ],
+  "items": [],
   "shared": [],
   "position": {},
   "tags": [],
