@@ -5,6 +5,9 @@
     },
     {
       "column": "chunk_id"
+    },
+    {
+      "column": "images"
     }
   ],
   "chunkOverlapCharacters": 120,
