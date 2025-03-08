@@ -6,6 +6,7 @@ from mistralai import Mistral
 from mistralai import DocumentURLChunk, ImageURLChunk, TextChunk
 import tempfile
 import json
+import time
 
 client = dataiku.api_client()
 project = client.get_default_project()
