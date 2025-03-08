@@ -1,19 +1,41 @@
 {
   "columnsSelection": {
-    "mode": "ALL"
+    "mode": "ALL",
+    "list": [
+      {
+        "d": true,
+        "name": "chunk"
+      },
+      {
+        "d": true,
+        "name": "images1"
+      },
+      {
+        "d": true,
+        "name": "images"
+      },
+      {
+        "d": true,
+        "name": "doc"
+      },
+      {
+        "d": true,
+        "name": "chunk_id"
+      }
+    ]
   },
   "explorationSampling": {
-    "_refreshTrigger": 1738117674740,
+    "_refreshTrigger": 1741405869554,
     "selection": {
       "latestPartitionsN": 1,
-      "maxRecords": 16000,
+      "maxRecords": 32000,
       "maxRecordsForDisplay": -1,
       "ordering": {
         "rules": [],
         "enabled": false
       },
       "withinFirstN": -1,
-      "maxStoredBytes": 104857600,
+      "maxStoredBytes": 419430400,
       "ascending": true,
       "timeout": -1,
       "filter": {
@@ -63,6 +85,7 @@
       "currentMode": "FACET"
     }
   ],
+  "columnOrder": [],
   "columnUseScientificNotationByName": {},
   "origin": "PREPARE_RECIPE",
   "exploreUIParams": {
@@ -70,13 +93,42 @@
   },
   "steps": [
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "FilterOnCustomFormula",
       "params": {
         "expression": "or(contains(toLowercase(chunk),\"left blank\"),contains(toLowercase(chunk),\"table of content\"))",
         "action": "REMOVE_ROW"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "RegexpExtractor",
+      "params": {
+        "found_col": false,
+        "extractAllOccurrences": true,
+        "prefix": "images",
+        "column": "chunk",
+        "pattern": "\\((img-\\d+.jpeg)\\)"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnRenamer",
+      "params": {
+        "renamings": [
+          {
+            "from": "images1",
+            "to": "images"
+          }
+        ]
       },
       "alwaysShowComment": false
     }
@@ -109,12 +161,17 @@
   "analysisColumnData": {},
   "columnWidthsByName": {
     "word_count": 100,
+    "images": 183,
+    "imagesfound": 100,
     "words": 300,
+    "imgfound": 100,
     "chunk": 300,
     "doc": 300,
     "chunk_simplified": 300,
     "ngrams": 300,
-    "chunk_id": 100
+    "images1": 183,
+    "chunk_id": 100,
+    "img1": 100
   },
   "sorting": [],
   "globalSearchQuery": "",
