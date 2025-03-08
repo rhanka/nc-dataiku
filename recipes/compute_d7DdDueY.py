@@ -24,6 +24,7 @@ A220_tech_docs_prep = dataiku.Folder("d7DdDueY")    # Output folder
 
 # Lister les fichiers PDF
 pdf_files = [f for f in A220_tech_docs.list_paths_in_partition() if f.lower().endswith(".pdf")]
+pdf_files.sort()
 
 for pdf_file in pdf_files:
     # Lire le contenu PDF
