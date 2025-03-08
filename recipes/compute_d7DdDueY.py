@@ -28,7 +28,7 @@ from io import BytesIO
 from mistralai import Mistral
 
 # Paramétrer le nombre de requêtes parallèles
-MAX_WORKERS = 10
+MAX_WORKERS = 2
 
 # Folders
 A220_tech_docs = dataiku.Folder("W8lS5GmB")          # Input folder
