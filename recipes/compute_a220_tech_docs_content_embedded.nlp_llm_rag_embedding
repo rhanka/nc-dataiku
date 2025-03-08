@@ -11,9 +11,10 @@
     }
   ],
   "chunkOverlapCharacters": 120,
+  "sourceIdColumn": "chunk_id",
   "chunkSizeCharacters": 3000,
   "knowledgeColumn": "chunk",
   "clearVectorStore": false,
   "documentSplittingMode": "NONE",
-  "vectorStoreUpdateMethod": "OVERWRITE"
+  "vectorStoreUpdateMethod": "SMART_OVERWRITE"
 }
