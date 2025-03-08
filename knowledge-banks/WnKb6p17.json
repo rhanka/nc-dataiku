@@ -4,6 +4,10 @@
   "rebuildBehavior": "EXPLICIT",
   "vectorStoreType": "CHROMA",
   "embeddingLLMId": "openai:OpenAI-FA:text-embedding-3-large",
+  "metadataColumnsSchema": [
+    {"name":"doc","type":"string"},
+    {"name":"chunk_id","type":"string"}
+  ],
   "envSelection": {
     "envMode": "EXPLICIT_ENV",
     "envName": "markitdown"
