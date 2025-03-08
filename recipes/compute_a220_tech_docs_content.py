@@ -31,7 +31,10 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20
 # -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 d = {"chunk": [], "doc": []}
 
-for path in folder.list_paths_in_partition():
+md_files = [f for f in folder.list_paths_in_partition() if f.lower().endswith(".md")]
+md_files.sort()
+
+for path in md_files:
     doc = path[1:].replace("=", "/")
     with folder.get_download_stream(path) as stream:
         s = io.BytesIO(stream.read()).read().decode("utf-8")
