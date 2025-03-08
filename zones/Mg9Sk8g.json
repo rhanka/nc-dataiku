@@ -13,6 +13,14 @@
     {
       "objectId": "faq_base_fr_answers_generated",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "faq_base_fr_answers_generated_2_triples",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_faq_base_fr_answers_generated_2_triples",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
