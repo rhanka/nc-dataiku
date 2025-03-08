@@ -4,6 +4,7 @@ import dataiku
 from mistralai import Mistral
 from mistralai import DocumentURLChunk, ImageURLChunk, TextChunk
 import tempfile
+import base64
 
 client = dataiku.api_client()
 project = client.get_default_project()
@@ -22,7 +23,7 @@ import json
 import time
 
 # Paramétrer le nombre de requêtes parallèles
-MAX_WORKERS = 3
+MAX_WORKERS = 10
 
 # Folders
 A220_tech_docs = dataiku.Folder("W8lS5GmB")          # Input folder
@@ -46,16 +47,17 @@ def extract_md_and_images(json_file_name, response_dict):
         markdown_content = "\n\n".join(page["markdown"] for page in response_dict.get("pages", []))
         with A220_tech_docs_prep.get_writer(md_file_name) as writer:
             writer.write(markdown_content.encode('utf-8'))
-        # Extraire et écrire les images
-        for page in response_dict.get("pages", []):
-            for image in page.get("images", []):
-                image_file_name = base_name + "-" + image["id"]
-                if image_file_name not in existing_files:
-                    image_data = image["image_base64"].split(",")[1]
-                    with A220_tech_docs_prep.get_writer(image_file_name) as writer:
-                        writer.write(base64.b64decode(image_data))
     else:
         print(f"{md_file_name} existe déjà.")
+
+    # Extraire et écrire les images
+    for page in response_dict.get("pages", []):
+        for image in page.get("images", []):
+            image_file_name = base_name + "-" + image["id"]
+            if image_file_name not in existing_files:
+                image_data = image["image_base64"].split(",")[1]
+                with A220_tech_docs_prep.get_writer(image_file_name) as writer:
+                    writer.write(base64.b64decode(image_data))
 
 
 
