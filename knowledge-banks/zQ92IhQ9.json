@@ -9,7 +9,7 @@
     "envName": "markitdown"
   },
   "containerExecSelection": {
-    "containerMode": "NONE"
+    "containerMode": "INHERIT"
   },
   "llmsExposedWith": [
     {
