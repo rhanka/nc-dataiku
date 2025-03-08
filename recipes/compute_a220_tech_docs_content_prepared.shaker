@@ -8,10 +8,6 @@
       },
       {
         "d": true,
-        "name": "images1"
-      },
-      {
-        "d": true,
         "name": "images"
       },
       {
@@ -21,6 +17,10 @@
       {
         "d": true,
         "name": "chunk_id"
+      },
+      {
+        "d": true,
+        "name": "doc_chunk_id"
       }
     ]
   },
@@ -118,7 +118,7 @@
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "ColumnRenamer",
@@ -129,6 +129,21 @@
             "to": "images"
           }
         ]
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsConcat",
+      "params": {
+        "outputColumn": "doc_chunk_id",
+        "columns": [
+          "doc",
+          "chunk_id"
+        ],
+        "join": "_"
       },
       "alwaysShowComment": false
     }
@@ -160,17 +175,18 @@
   },
   "analysisColumnData": {},
   "columnWidthsByName": {
-    "word_count": 100,
     "images": 183,
-    "imagesfound": 100,
     "words": 300,
     "imgfound": 100,
     "chunk": 300,
-    "doc": 300,
+    "doc_chunk_id": 300,
     "chunk_simplified": 300,
-    "ngrams": 300,
     "images1": 183,
     "chunk_id": 100,
+    "word_count": 100,
+    "imagesfound": 100,
+    "doc": 300,
+    "ngrams": 300,
     "img1": 100
   },
   "sorting": [],
