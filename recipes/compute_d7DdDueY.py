@@ -22,7 +22,7 @@ import json
 import time
 
 # Paramétrer le nombre de requêtes parallèles
-MAX_WORKERS = 10
+MAX_WORKERS = 3
 
 # Folders
 A220_tech_docs = dataiku.Folder("W8lS5GmB")          # Input folder
@@ -32,16 +32,41 @@ A220_tech_docs_prep = dataiku.Folder("d7DdDueY")    # Output folder
 pdf_files = [f for f in A220_tech_docs.list_paths_in_partition() if f.lower().endswith(".pdf")]
 pdf_files.sort()
 
-# Lister les fichiers JSON existants pour éviter les doublons
-existing_json_files = set(A220_tech_docs_prep.list_paths_in_partition())
+# Lister les fichiers existants
+existing_files = set(A220_tech_docs_prep.list_paths_in_partition())
+
+
+def extract_md_and_images(json_file_name, response_dict):
+    base_name = os.path.splitext(json_file_name)[0]
+
+    # Extraire et écrire le Markdown
+    md_file_name = base_name + ".md"
+    if md_file_name not in existing_files:
+        markdown_content = "\n\n".join(page["markdown"] for page in response_dict.get("pages", []))
+        with A220_tech_docs_prep.get_writer(md_file_name) as writer:
+            writer.write(markdown_content.encode('utf-8'))
+
+    # Extraire et écrire les images
+    for page in response_dict.get("pages", []):
+        for image in page.get("images", []):
+            image_file_name = base_name + "-" + image["id"]
+            if image_file_name not in existing_files:
+                image_data = image["image_base64"].split(",")[1]
+                with A220_tech_docs_prep.get_writer(image_file_name) as writer:
+                    writer.write(base64.b64decode(image_data))
 
 
 def process_pdf(pdf_file):
     json_file_name = os.path.splitext(pdf_file)[0] + ".json"
 
-    # Vérifier si le fichier JSON existe déjà
-    if json_file_name in existing_json_files:
-        print(f"{json_file_name} existe déjà, passe au suivant.")
+    # Vérifier si le JSON existe déjà
+    if json_file_name in existing_files:
+        print(f"{json_file_name} existe déjà.")
+
+        # Charger le JSON existant pour extraction MD et images
+        with A220_tech_docs_prep.get_download_stream(json_file_name) as reader:
+            response_dict = json.load(reader)
+            extract_md_and_images(json_file_name, response_dict)
         return
 
     # Lire le contenu PDF
@@ -80,6 +105,9 @@ def process_pdf(pdf_file):
         # Écrire le fichier .json
         with A220_tech_docs_prep.get_writer(json_file_name) as writer:
             writer.write(json_string.encode('utf-8'))
+
+        # Extraire Markdown et images
+        extract_md_and_images(json_file_name, response_dict)
 
 
 pending_files = pdf_files
