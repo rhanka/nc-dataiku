@@ -114,7 +114,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "retrievalaugmented:zQ92IhQ9:mistral-small-a220-tech-docs",
+      "llmId": "retrievalaugmented:WnKb6p17:gpt-4o-mini-a220-nc",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
