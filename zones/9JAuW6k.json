@@ -1,16 +1,7 @@
 {
   "name": "Knowledge Engineering",
   "color": "#4B8021",
-  "items": [
-    {
-      "objectId": "compute_a220_tech_docs_content_summarized",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "a220_tech_docs_content_summarized",
-      "objectType": "DATASET"
-    }
-  ],
+  "items": [],
   "shared": [],
   "position": {},
   "tags": [],
