@@ -114,7 +114,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "retrievalaugmented:WnKb6p17:gpt-4o-mini-a220-nc",
+      "llmId": "retrievalaugmented:zQ92IhQ9:gpt-4o-mini-a220-tech-docs",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
