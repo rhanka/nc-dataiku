@@ -8,6 +8,9 @@
     },
     {
       "column": "images"
+    },
+    {
+      "column": "doc_chunk_id"
     }
   ],
   "chunkOverlapCharacters": 120,
