@@ -5,6 +5,7 @@ from mistralai import Mistral
 from mistralai import DocumentURLChunk, ImageURLChunk, TextChunk
 import tempfile
 import base64
+from io import BytesIO
 
 client = dataiku.api_client()
 project = client.get_default_project()
@@ -54,11 +55,12 @@ def extract_md_and_images(json_file_name, response_dict):
     for page in response_dict.get("pages", []):
         for image in page.get("images", []):
             image_file_name = base_name + "-" + image["id"]
-            if image_file_name not in existing_files:
+            #if image_file_name not in existing_files:
+            if True:
                 image_data = image["image_base64"].split(",")[1]
+                image_bytes = base64.b64decode(image_data)
                 with A220_tech_docs_prep.get_writer(image_file_name) as writer:
-                    writer.write(base64.b64decode(image_data))
-
+                    writer.write(BytesIO(image_bytes).getvalue())
 
 
 def process_pdf(pdf_file):
