@@ -15,10 +15,6 @@
       "objectType": "MANAGED_FOLDER"
     },
     {
-      "objectId": "AXB1Cyno",
-      "objectType": "MANAGED_FOLDER"
-    },
-    {
       "objectId": "compute_a220_nc_images_list",
       "objectType": "RECIPE"
     },
