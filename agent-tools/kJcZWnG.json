@@ -1,0 +1,17 @@
+{
+  "name": "tech_docs",
+  "type": "VectorStoreSearch",
+  "dkuProperties": [],
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "fabien.antoine@cgi.com"
+    },
+    "lastModifiedOn": 1741407881681
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}
