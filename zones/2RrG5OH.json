@@ -119,14 +119,6 @@
       "objectType": "RECIPE"
     },
     {
-      "objectId": "compute_NC_types_random_200_analysis_validation_structured",
-      "objectType": "RECIPE"
-    },
-    {
-      "objectId": "NC_types_random_200_analysis_validation_structured",
-      "objectType": "DATASET"
-    },
-    {
       "objectId": "compute_NC_types_random_500_final",
       "objectType": "RECIPE"
     },
@@ -145,6 +137,46 @@
     {
       "objectId": "PfntrBrh",
       "objectType": "MANAGED_FOLDER"
+    },
+    {
+      "objectId": "NC_types_random_200_analysis_validation_structured",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_NC_types_random_300_stress",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "NC_types_random_300_stress",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_NC_types_random_300_stress_structured",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "NC_types_random_300_stress_structured",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_NC_types_random_400_stress_validation",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "NC_types_random_400_stress_validation",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_NC_types_random_400_stress_validation_structured",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "NC_types_random_400_stress_validation_structured",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_NC_types_random_200_analysis_validation_structured",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
