@@ -4,7 +4,7 @@
   "rebuildBehavior": "EXPLICIT",
   "vectorStoreType": "CHROMA",
   "embeddingLLMId": "openai:OpenAI-FA:text-embedding-3-large",
-  "sourceIdColumn": "doc",
+  "sourceIdColumn": "chunk_id",
   "envSelection": {
     "envMode": "EXPLICIT_ENV",
     "envName": "markitdown"
