@@ -5,10 +5,9 @@
   "vectorStoreType": "CHROMA",
   "embeddingLLMId": "openai:OpenAI-FA:text-embedding-3-large",
   "metadataColumnsSchema": [
-    {"name":"images","type":"array","arrayContent":{"type":"string"}
-    },
     {"name":"doc","type":"string"},
-    {"name":"chunk_id","type":"bigint"}
+    {"name":"doc_root","type":"string"},
+    {"name":"json_img","type":"string"}
   ],
   "envSelection": {
     "envMode": "EXPLICIT_ENV",
