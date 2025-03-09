@@ -32,7 +32,7 @@ import httpx
 import threading
 
 # Paramétrer le nombre de requêtes parallèles
-MAX_WORKERS = 3
+MAX_WORKERS = 6
 
 # Folders
 A220_tech_docs = dataiku.Folder("W8lS5GmB")          # Input folder
