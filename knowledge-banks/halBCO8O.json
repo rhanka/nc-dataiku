@@ -1,0 +1,27 @@
+{
+  "name": "a220_tech_docs_content_prepared_embedded",
+  "retrieverType": "VECTOR_STORE_BACKED",
+  "rebuildBehavior": "EXPLICIT",
+  "vectorStoreType": "CHROMA",
+  "embeddingLLMId": "openai:OpenAI-FA:text-embedding-3-small",
+  "envSelection": {
+    "envMode": "EXPLICIT_ENV",
+    "envName": "markitdown"
+  },
+  "containerExecSelection": {
+    "containerMode": "INHERIT"
+  },
+  "llmsExposedWith": [],
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "fabien.antoine@cgi.com"
+    },
+    "lastModifiedOn": 1741533979390
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}
