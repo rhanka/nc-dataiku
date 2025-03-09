@@ -42,7 +42,7 @@ A220_tech_docs_prep = dataiku.Folder("d7DdDueY")    # Output folder
 vision_prompt = """
     Provide a description in markdown of this image coming from an A220 technical document,
     using exact terms if any included in the picture.
-    Don't wrap the markdown with any format backquotes, ``` and only provide the description without additionnal comment.
+    Don't wrap the markdown with any format backquotes ``` and only provide the description without additionnal comment.
 """
 pixtral_model = "pixtral-12b-2409"
 
