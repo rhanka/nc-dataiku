@@ -64,9 +64,9 @@
     "docs_per_page_as_image": 5,
     "activate_knowledge_bank": true,
     "enable_smart_usage_of_kb": true,
-    "show_kb_advanced_settings": false,
+    "show_kb_advanced_settings": true,
     "knowledge_bank_system_prompt": "Given the following specific context, please give a short answer to the question at the end, If you don\u0027t know the answer, just say that you don\u0027t know, don\u0027t try to make up an answer.",
-    "knowledge_retrieval_k": 3,
+    "knowledge_retrieval_k": 5,
     "knowledge_retrieval_search_type": "similarity",
     "knowledge_retrieval_mmr_k": 20,
     "knowledge_retrieval_mmr_diversity": 0.25,
@@ -74,7 +74,7 @@
     "filter_logged_sources": false,
     "n_top_sources_to_log": -1,
     "display_source_chunks": true,
-    "enable_llm_citations": false,
+    "enable_llm_citations": true,
     "knowledge_sources_filters": [],
     "knowledge_enable_auto_filtering": false,
     "sql_retrieval_suggested_joins": [],
@@ -83,14 +83,13 @@
     "db_query_examples": {},
     "hard_sql_limit": 50,
     "display_sql_query": false,
-    "enable_answers_api": false,
-    "web_app_title": "Ask directly questions to your document corpus",
+    "enable_answers_api": true,
+    "web_app_title": "Ask directly questions to A220 Tech docs",
     "web_app_subheading": "Answers are sourced from the processed documents, delivered in natural language and accompanied by the most relevant references.",
     "web_app_input_placeholder": "Ask your question",
     "example_questions": [
-      "What are the primary causes of the recent increase in global temperatures?",
-      "How does quantum computing differ from classical computing in terms of processing information?",
-      "Whats the most popular language globally?"
+      "Whats are the parts of the engine ?",
+      "Please provide documents about aircraft\u0027s doors"
     ],
     "disclaimer": "This application is powered by a Large Language Model. Review proposed outcomes in context with \u003cspan style\u003d\"color: #267cfb; text-decoration: underline\"\u003eResponsible AI\u003c/span\u003e considerations",
     "use_custom_rebranding": false,
@@ -99,47 +98,69 @@
     "user_profile_languages": [
       {
         "from": "ar",
-        "to": "Arabic"
+        "to": "Arabic",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "zh",
-        "to": "Chinese"
+        "to": "Chinese",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "en",
-        "to": "English"
+        "to": "English",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "fr",
-        "to": "French"
+        "to": "French",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "de",
-        "to": "German"
+        "to": "German",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "it",
-        "to": "Italian"
+        "to": "Italian",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "ja",
-        "to": "Japanese"
+        "to": "Japanese",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "ko",
-        "to": "Korean"
+        "to": "Korean",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "pt",
-        "to": "Portuguese"
+        "to": "Portuguese",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "ru",
-        "to": "Russian"
+        "to": "Russian",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       },
       {
         "from": "es",
-        "to": "Spanish"
+        "to": "Spanish",
+        "$touched.it.from": true,
+        "$touched.it.to": true
       }
     ],
     "user_profile_settings": [],
@@ -147,10 +168,28 @@
     "language": "en",
     "log_level": "INFO",
     "http_headers": [],
-    "max_thread_workers_number": 0
+    "max_thread_workers_number": 0,
+    "image_generation_system_prompt": "",
+    "knowledge_bank_custom_name": "A220 tech docs",
+    "knowledge_bank_description": "A220 aircraft technical documents to help maintainance",
+    "knowledge_bank_prompt": "",
+    "knowledge_sources_context_metadata": [
+      "doc",
+      "doc_root"
+    ],
+    "knowledge_sources_displayed_metas": [],
+    "knowledge_source_url": "doc",
+    "knowledge_source_title": "doc_root",
+    "knowledge_source_thumbnail": false,
+    "sql_retrieval_custom_name": "",
+    "custom_theme_name": "",
+    "sql_retrieval_table_list": [],
+    "llm_id": "openai:OpenAI-FA:gpt-4o",
+    "logging_dataset": "answers_history_tech_docs",
+    "answers_description": "Search in A220 technical docs to help to support maintainance operations"
   },
   "name": "Answers RAG - a220_tech_docs_content_embedded",
-  "apiKey": "e:AES:X2:Jt4CepoU+2dsSKLlrW9B8EbAOTkMN2xz6+AZC305TMzCOWqg9CCoRMxO6F4+se3Jv11elZcMBLkPQ/nEuA1z1xBMVIcO0PD31F9sPxmMh4rbVnXdLJLV",
+  "apiKey": "e:AES:X2:5Cipiqgmr6fNQNFd4xcmaqQkbYjuRQIUG9327VMK0GaMCbPafq6cs71GY/m01893wAF07bB2GaXrswwMazlR+F2aL65DDLQqp7YxYAvvvT20MRidZ/sc",
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
