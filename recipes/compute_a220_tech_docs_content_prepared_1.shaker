@@ -435,7 +435,7 @@
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
-        "expression": "chunk\n+if(isBlank(ATA),\"\",\"*ATA* (llm annotation): \"+ATA+\"\\n\\n\")\n+if(isBlank(pars),\"\",\"*Parts* (llm annotation): \"+parts+\"\\n\\n\")\n",
+        "expression": "chunk\n+if(isBlank(ATA),\"\",\"\\n\\n*ATA* (llm annotation): \"+ATA)\n+if(isBlank(pars),\"\",\"\\n\\n*Parts* (llm annotation): \"+parts+\"\\n\")\n",
         "column": "chunk"
       },
       "alwaysShowComment": false
