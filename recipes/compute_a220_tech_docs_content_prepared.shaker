@@ -4,19 +4,99 @@
     "list": [
       {
         "d": true,
-        "name": "chunk"
-      },
-      {
-        "d": true,
-        "name": "images"
-      },
-      {
-        "d": true,
         "name": "doc"
       },
       {
         "d": true,
-        "name": "chunk_id"
+        "name": "doc_root"
+      },
+      {
+        "d": true,
+        "name": "json"
+      },
+      {
+        "d": true,
+        "name": "md"
+      },
+      {
+        "d": true,
+        "name": "md_img"
+      },
+      {
+        "d": true,
+        "name": "json_img"
+      },
+      {
+        "d": true,
+        "name": "img-0"
+      },
+      {
+        "d": true,
+        "name": "img-1"
+      },
+      {
+        "d": true,
+        "name": "img-2"
+      },
+      {
+        "d": true,
+        "name": "img-3"
+      },
+      {
+        "d": true,
+        "name": "img-4"
+      },
+      {
+        "d": true,
+        "name": "img-5"
+      },
+      {
+        "d": true,
+        "name": "img-6"
+      },
+      {
+        "d": true,
+        "name": "img-7"
+      },
+      {
+        "d": true,
+        "name": "img-8"
+      },
+      {
+        "d": true,
+        "name": "img-0-desc"
+      },
+      {
+        "d": true,
+        "name": "img-1-desc"
+      },
+      {
+        "d": true,
+        "name": "img-2-desc"
+      },
+      {
+        "d": true,
+        "name": "img-3-desc"
+      },
+      {
+        "d": true,
+        "name": "img-4-desc"
+      },
+      {
+        "d": true,
+        "name": "img-5-desc"
+      },
+      {
+        "d": true,
+        "name": "img-6-desc"
+      },
+      {
+        "d": true,
+        "name": "img-7-desc"
+      },
+      {
+        "d": true,
+        "name": "img-8-desc"
       }
     ]
   },
@@ -87,63 +167,7 @@
   "exploreUIParams": {
     "autoRefresh": true
   },
-  "steps": [
-    {
-      "preview": false,
-      "metaType": "PROCESSOR",
-      "disabled": false,
-      "type": "FilterOnCustomFormula",
-      "params": {
-        "expression": "or(contains(toLowercase(chunk),\"left blank\"),contains(toLowercase(chunk),\"table of content\"))",
-        "action": "REMOVE_ROW"
-      },
-      "alwaysShowComment": false
-    },
-    {
-      "preview": false,
-      "metaType": "PROCESSOR",
-      "disabled": false,
-      "type": "RegexpExtractor",
-      "params": {
-        "found_col": false,
-        "extractAllOccurrences": true,
-        "prefix": "images",
-        "column": "chunk",
-        "pattern": "\\((img-\\d+.jpeg)\\)"
-      },
-      "alwaysShowComment": false
-    },
-    {
-      "preview": false,
-      "metaType": "PROCESSOR",
-      "disabled": false,
-      "type": "ColumnRenamer",
-      "params": {
-        "renamings": [
-          {
-            "from": "images1",
-            "to": "images"
-          }
-        ]
-      },
-      "alwaysShowComment": false
-    },
-    {
-      "preview": true,
-      "metaType": "PROCESSOR",
-      "disabled": false,
-      "type": "ColumnsConcat",
-      "params": {
-        "outputColumn": "chunk_id",
-        "columns": [
-          "doc",
-          "chunk_id"
-        ],
-        "join": "_"
-      },
-      "alwaysShowComment": false
-    }
-  ],
+  "steps": [],
   "maxProcessedMemTableBytes": -1,
   "previewMode": "ALL_ROWS",
   "vizSampling": {
@@ -171,18 +195,41 @@
   },
   "analysisColumnData": {},
   "columnWidthsByName": {
-    "images": 183,
-    "words": 300,
-    "imgfound": 100,
     "chunk": 300,
     "doc_chunk_id": 300,
-    "chunk_simplified": 300,
     "images1": 183,
-    "chunk_id": 100,
+    "img-4": 176,
+    "img-5": 176,
     "word_count": 100,
+    "img-2": 176,
+    "img-3": 176,
+    "img-8": 176,
+    "img-6": 176,
+    "md": 300,
+    "img-7": 176,
+    "json": 300,
+    "img-2-desc": 197,
+    "ngrams": 300,
+    "img-0": 300,
+    "img-8-desc": 176,
+    "img-1": 183,
+    "img-5-desc": 176,
+    "doc_root": 300,
+    "json_img": 300,
+    "images": 183,
+    "img-7-desc": 176,
+    "words": 300,
+    "imgfound": 100,
+    "chunk_simplified": 300,
+    "img-1-desc": 300,
+    "img-4-desc": 176,
+    "chunk_id": 100,
+    "img-6-desc": 176,
+    "img-3-desc": 183,
+    "md_img": 300,
     "imagesfound": 100,
     "doc": 300,
-    "ngrams": 300,
+    "img-0-desc": 300,
     "img1": 100
   },
   "sorting": [],
