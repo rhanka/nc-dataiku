@@ -250,6 +250,7 @@ def ai():
     app.logger.info(sources)
     
     if (not stream):
+        # not streaming API
         if (not sources):
             # 1s step: expand query
             query = exec_prompt_recipe(agents["query"], {
@@ -260,8 +261,8 @@ def ai():
 
             # 2nd step : gather documents relative to query
             sources = {
-                "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query}),
-                "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query})
+                "tech_docs": exec_prompt_recipe(agents["doc_search"], {"input": query}),
+                "non_conformities": exec_prompt_recipe(agents["nc_search"], {"input": query})
             }
 
         # 3rd step : give the best advice given the documents
@@ -286,6 +287,7 @@ def ai():
             "user_role": role
         })
     else:
+        # stream API
         def events(role,user_message,sources,history):
             yield "event: delta_encoding\ndata: \"v1\"\n\n"
             if (not sources):
@@ -306,6 +308,7 @@ def ai():
                 app.logger.info("doc_search")
                 yield format_data_stream("action",agentsMsg["doc_search"],"doc_search")
                 tech_docs = exec_prompt_recipe(agents["doc_search"], {"input": query})
+                print(tech_docs)
                 yield format_data_stream("result",tech_docs,"doc_search")
 
                 app.logger.info("nc_search")
