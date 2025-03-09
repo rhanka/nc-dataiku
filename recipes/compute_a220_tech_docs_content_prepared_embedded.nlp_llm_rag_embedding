@@ -1,7 +1,18 @@
 {
-  "metadataColumns": [],
+  "metadataColumns": [
+    {
+      "column": "doc"
+    },
+    {
+      "column": "doc_root"
+    },
+    {
+      "column": "json_img"
+    }
+  ],
   "chunkOverlapCharacters": 120,
   "chunkSizeCharacters": 3000,
+  "knowledgeColumn": "md_img",
   "clearVectorStore": false,
   "documentSplittingMode": "CHARACTERS_BASED",
   "vectorStoreUpdateMethod": "OVERWRITE"
