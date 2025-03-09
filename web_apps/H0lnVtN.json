@@ -1,0 +1,167 @@
+{
+  "type": "webapp_document-question-answering_document-intelligence-explorer",
+  "hasLegacyBackendURL": false,
+  "params": {
+    "backendEnabled": true,
+    "enableJavascriptModules": true,
+    "autoStartBackend": false,
+    "hideJSSecurityPanel": true,
+    "envSelection": {
+      "envMode": "INHERIT"
+    },
+    "nbProcesses": 1,
+    "backendAPIAccessEnabled": false,
+    "libraries": [
+      "jquery",
+      "dataiku",
+      "font_awesome"
+    ],
+    "infra": {
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      },
+      "overrideGlobalK8sExposition": false,
+      "exposition": {
+        "type": "local_process",
+        "params": {}
+      },
+      "scaling": {
+        "initialReplicas": 1,
+        "progressDeadlineSeconds": 600,
+        "hpa": false,
+        "hpaTargetCPUPercent": 0,
+        "hpaMetrics": [],
+        "hpaMinPods": 0,
+        "hpaMaxPods": 0,
+        "hpaAnnotations": []
+      },
+      "deploymentModifier": {
+        "config": {}
+      }
+    },
+    "forceAuthentication": false
+  },
+  "config": {
+    "retrieval_mode": "kb",
+    "knowledge_bank_id": "zQ92IhQ9",
+    "show_advanced_logging_settings": false,
+    "index_chat_history": false,
+    "permanent_delete": true,
+    "feedback_positive_choices": [],
+    "feedback_negative_choices": [],
+    "allow_general_feedback": false,
+    "max_llm_tokens": 2048,
+    "primer_prompt": "Please act as a business analyst and return concise answers no more than 3 lines",
+    "show_advanced_settings": false,
+    "system_prompt": "The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know.",
+    "force_streaming_mode": false,
+    "force_multi_modal_mode": false,
+    "enable_image_generation": false,
+    "max_images_per_user_per_week": 0,
+    "max_upload_size_mb": 15,
+    "max_n_upload_files": 5,
+    "allow_doc_as_image": true,
+    "docs_per_page_as_image": 5,
+    "activate_knowledge_bank": true,
+    "enable_smart_usage_of_kb": true,
+    "show_kb_advanced_settings": false,
+    "knowledge_bank_system_prompt": "Given the following specific context, please give a short answer to the question at the end, If you don\u0027t know the answer, just say that you don\u0027t know, don\u0027t try to make up an answer.",
+    "knowledge_retrieval_k": 3,
+    "knowledge_retrieval_search_type": "similarity",
+    "knowledge_retrieval_mmr_k": 20,
+    "knowledge_retrieval_mmr_diversity": 0.25,
+    "knowledge_retrieval_score_threshold": 0.5,
+    "filter_logged_sources": false,
+    "n_top_sources_to_log": -1,
+    "display_source_chunks": true,
+    "enable_llm_citations": false,
+    "knowledge_sources_filters": [],
+    "knowledge_enable_auto_filtering": false,
+    "sql_retrieval_suggested_joins": [],
+    "show_db_advanced_settings": false,
+    "db_system_prompt": "Given the following specific context taken from SQL table, please give a short answer to the question at the end. If you don\u0027t know the answer, just say that you don\u0027t know, don\u0027t try to make up an answer. Do not explain or mention the SQL query, table names, or column names in your response unless directly relevant and necessary to answer the question.",
+    "db_query_examples": {},
+    "hard_sql_limit": 50,
+    "display_sql_query": false,
+    "enable_answers_api": false,
+    "web_app_title": "Ask directly questions to your document corpus",
+    "web_app_subheading": "Answers are sourced from the processed documents, delivered in natural language and accompanied by the most relevant references.",
+    "web_app_input_placeholder": "Ask your question",
+    "example_questions": [
+      "What are the primary causes of the recent increase in global temperatures?",
+      "How does quantum computing differ from classical computing in terms of processing information?",
+      "Whats the most popular language globally?"
+    ],
+    "disclaimer": "This application is powered by a Large Language Model. Review proposed outcomes in context with \u003cspan style\u003d\"color: #267cfb; text-decoration: underline\"\u003eResponsible AI\u003c/span\u003e considerations",
+    "use_custom_rebranding": false,
+    "custom_logo_file_name": "logo.png",
+    "custom_icon_file_name": "answer-icon.png",
+    "user_profile_languages": [
+      {
+        "from": "ar",
+        "to": "Arabic"
+      },
+      {
+        "from": "zh",
+        "to": "Chinese"
+      },
+      {
+        "from": "en",
+        "to": "English"
+      },
+      {
+        "from": "fr",
+        "to": "French"
+      },
+      {
+        "from": "de",
+        "to": "German"
+      },
+      {
+        "from": "it",
+        "to": "Italian"
+      },
+      {
+        "from": "ja",
+        "to": "Japanese"
+      },
+      {
+        "from": "ko",
+        "to": "Korean"
+      },
+      {
+        "from": "pt",
+        "to": "Portuguese"
+      },
+      {
+        "from": "ru",
+        "to": "Russian"
+      },
+      {
+        "from": "es",
+        "to": "Spanish"
+      }
+    ],
+    "user_profile_settings": [],
+    "include_user_profile_in_KB_prompt": false,
+    "language": "en",
+    "log_level": "INFO",
+    "http_headers": [],
+    "max_thread_workers_number": 0
+  },
+  "name": "Answers RAG - a220_tech_docs_content_embedded",
+  "apiKey": "e:AES:X2:Jt4CepoU+2dsSKLlrW9B8EbAOTkMN2xz6+AZC305TMzCOWqg9CCoRMxO6F4+se3Jv11elZcMBLkPQ/nEuA1z1xBMVIcO0PD31F9sPxmMh4rbVnXdLJLV",
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "fabien.antoine@cgi.com"
+    },
+    "lastModifiedOn": 1741536860115
+  },
+  "tags": [],
+  "checklists": {
+    "checklists": []
+  },
+  "customFields": {},
+  "isVirtual": false
+}

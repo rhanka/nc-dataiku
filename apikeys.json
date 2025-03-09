@@ -61,5 +61,41 @@
     "key": "sha256:Me9t5JJL:f80c64b0d385cc8bf34b097f399e36353a75c287331d3455fb2eeefdca5e74b3",
     "label": "Key for Web app Agent Connect NC(xRGREYT)",
     "createdOn": 1741382589625
+  },
+  {
+    "execSQLLike": false,
+    "localDatasets": [
+      {
+        "datasets": [],
+        "privileges": [
+          "READ_DATA",
+          "READ_METADATA",
+          "READ_SCHEMA"
+        ]
+      }
+    ],
+    "projectPrivileges": {
+      "admin": false,
+      "editPermissions": false,
+      "readProjectContent": false,
+      "writeProjectContent": false,
+      "exportDatasetsData": false,
+      "readDashboards": false,
+      "writeDashboards": false,
+      "moderateDashboards": false,
+      "publishToDataCollections": false,
+      "shareToWorkspaces": false,
+      "runScenarios": false,
+      "manageDashboardAuthorizations": false,
+      "manageExposedElements": false,
+      "manageAdditionalDashboardUsers": false,
+      "executeApp": false
+    },
+    "onBehalf": "H0lnVtN",
+    "expiresOn": 0,
+    "id": "zqLa895NbLhACDmM",
+    "key": "sha256:fYY8YYQy:7d52bd13c13b1cff2a7f7791e329d3d64e549481c963c9f4c5096d15024d59fb",
+    "label": "Key for Web app Answers RAG - a220_tech_docs_content_embedded(H0lnVtN)",
+    "createdOn": 1741536860101
   }
 ]
