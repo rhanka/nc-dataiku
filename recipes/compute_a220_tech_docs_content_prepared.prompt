@@ -6,7 +6,7 @@
     "stopSequences": []
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+  "llmId": "mistralai:Mistral-FA:mistral-small-latest",
   "prompt": {
     "guardrailsPipelineSettings": {
       "guardrails": []
