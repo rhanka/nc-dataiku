@@ -39,7 +39,7 @@
         "stopSequences": []
       },
       "dataset": "a220_tech_docs_content",
-      "nbRows": 8,
+      "nbRows": 20,
       "inlinePromptTemplateQueries": [],
       "tags": [],
       "starred": false
