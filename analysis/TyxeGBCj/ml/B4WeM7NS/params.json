@@ -14178,7 +14178,7 @@
         "useCustomVectorizer": false,
         "isStructuredRef": false,
         "name": "chunk",
-        "role": "REJECT",
+        "role": "INPUT",
         "type": "TEXT",
         "state": {
           "userModified": false,
