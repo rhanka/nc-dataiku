@@ -51,10 +51,6 @@
       "objectType": "RETRIEVABLE_KNOWLEDGE"
     },
     {
-      "objectId": "a220_tech_docs_content_prepared",
-      "objectType": "DATASET"
-    },
-    {
       "objectId": "a220_tech_docs_content_summarized",
       "objectType": "DATASET"
     },
@@ -73,6 +69,14 @@
     {
       "objectId": "a220_tech_docs_content_annotations",
       "objectType": "DATASET"
+    },
+    {
+      "objectId": "a220_tech_docs_content_prepared",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_a220_tech_docs_content_prepared_1",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
