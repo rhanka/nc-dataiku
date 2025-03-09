@@ -7,7 +7,8 @@
   "metadataColumnsSchema": [
     {"name":"doc","type":"string"},
     {"name":"doc_root","type":"string"},
-    {"name":"json_img","type":"string"}
+    {"name":"json","type":"string"},
+    {"name":"chunk_id","type":"string"}
   ],
   "envSelection": {
     "envMode": "EXPLICIT_ENV",
