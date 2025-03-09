@@ -69,6 +69,10 @@
     {
       "objectId": "compute_a220_tech_docs_content_prepared",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "a220_tech_docs_content_annotations",
+      "objectType": "DATASET"
     }
   ],
   "shared": [],
