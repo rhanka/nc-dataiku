@@ -121,7 +121,7 @@
       "ragModelId": "gpt-4o-a220-tech-docs",
       "llmId": "openai:OpenAI-FA:gpt-4o",
       "maxDocuments": 30,
-      "useMMR": false,
+      "useMMR": true,
       "useHybridSearch": false,
       "useAdvancedReranking": false,
       "rrfRankConstant": 60,
@@ -132,6 +132,7 @@
       "includeContentInSources": true,
       "outputFormat": "JSON",
       "retrievalSource": "EMBEDDING",
+      "retrievalColumn": "doc",
       "guardrailsSettings": {
         "faithfulnessSettings": {
           "answerOverwrite": "Could not come up with a factual enough answer.",
