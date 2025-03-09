@@ -7,12 +7,15 @@
       "column": "doc_root"
     },
     {
-      "column": "json_img"
+      "column": "json"
+    },
+    {
+      "column": "chunk_id"
     }
   ],
   "chunkOverlapCharacters": 120,
   "chunkSizeCharacters": 3000,
-  "knowledgeColumn": "md_img",
+  "knowledgeColumn": "chunk",
   "clearVectorStore": false,
   "documentSplittingMode": "CHARACTERS_BASED",
   "vectorStoreUpdateMethod": "OVERWRITE"
