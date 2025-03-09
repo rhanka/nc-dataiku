@@ -84,6 +84,24 @@ def get_doc(filename):
     except Exception as e:
         return json.dumps({"error": f"An error occurred: {str(e)}"}), 500
 
+@app.route('/json/<filename>', methods=['GET'])
+def get_json(filename):
+    """
+    Serve a JSON file from a folder dataset based on the filename.
+    """
+    try:
+        folder = dataiku.Folder("d7DdDueY")
+        encoded_filename = quote(filename)
+        
+        with folder.get_download_stream(filename) as json_file:
+            return Response(
+                json_file.read(),
+                mimetype='application/json'
+            )
+    except FileNotFoundError:
+        return json.dumps({"error": f"File {filename} not found."}), 404
+    except Exception as e:
+        return json.dumps({"error": f"An error occurred: {str(e)}"}), 500
 
 @app.route('/nc')
 def non_conformities():
