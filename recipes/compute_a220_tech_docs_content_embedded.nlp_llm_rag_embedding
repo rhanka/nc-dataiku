@@ -4,16 +4,16 @@
       "column": "doc"
     },
     {
-      "column": "chunk_id"
+      "column": "doc_root"
     },
     {
-      "column": "images"
+      "column": "json_img"
     }
   ],
   "chunkOverlapCharacters": 120,
   "sourceIdColumn": "chunk_id",
   "chunkSizeCharacters": 3000,
-  "knowledgeColumn": "chunk",
+  "knowledgeColumn": "md_img",
   "clearVectorStore": false,
   "documentSplittingMode": "NONE",
   "vectorStoreUpdateMethod": "OVERWRITE"
