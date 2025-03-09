@@ -1,6 +1,28 @@
 {
   "columnsSelection": {
-    "mode": "ALL"
+    "mode": "ALL",
+    "list": [
+      {
+        "d": true,
+        "name": "doc"
+      },
+      {
+        "d": true,
+        "name": "doc_root"
+      },
+      {
+        "d": true,
+        "name": "json"
+      },
+      {
+        "d": true,
+        "name": "chunk"
+      },
+      {
+        "d": true,
+        "name": "chunk_id"
+      }
+    ]
   },
   "explorationSampling": {
     "_refreshTrigger": 1741531516592,
@@ -30,8 +52,120 @@
   "explorationFilters": [],
   "columnOrder": [],
   "columnUseScientificNotationByName": {},
-  "exploreUIParams": {},
-  "steps": [],
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "SplitIntoChunks",
+      "params": {
+        "keepSeparator": true,
+        "inCol": "md_img",
+        "outCol": "chunk",
+        "stripWhitespace": true,
+        "isRegex": false,
+        "chunkSize": 3000,
+        "chunkOverlap": 120,
+        "chunkIdCol": "chunk_id",
+        "separators": [
+          {
+            "isDefault": true,
+            "description": "Double new lines",
+            "value": "\\n\\n",
+            "enabled": true
+          },
+          {
+            "isDefault": true,
+            "description": "New Lines",
+            "value": "\\n",
+            "enabled": true
+          },
+          {
+            "isDefault": true,
+            "description": "Spaces",
+            "value": " ",
+            "enabled": true
+          },
+          {
+            "isDefault": true,
+            "description": "Each character",
+            "value": "",
+            "enabled": true
+          }
+        ]
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "if(isBlank(val(\"img-0\")),json,json_img)",
+        "column": "json"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsSelector",
+      "params": {
+        "columns": [
+          "md",
+          "md_img",
+          ""
+        ],
+        "keep": false,
+        "appliesTo": "PATTERN",
+        "appliesToPattern": "^(md|json_|img).*"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "doc+\" \"+chunk_id",
+        "column": "chunk_id"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "FindReplace",
+      "params": {
+        "output": "",
+        "useDatasetForMapping": false,
+        "mapping": [
+          {
+            "from": "^/"
+          }
+        ],
+        "normalization": "EXACT",
+        "columns": [
+          "doc",
+          "doc_root",
+          "json",
+          "chunk_id"
+        ],
+        "appliesTo": "COLUMNS",
+        "stopAfterFirstMatch": false,
+        "matching": "PATTERN"
+      },
+      "alwaysShowComment": false
+    }
+  ],
   "maxProcessedMemTableBytes": -1,
   "previewMode": "ALL_ROWS",
   "vizSampling": {
@@ -58,7 +192,34 @@
     "autoRefreshSample": false
   },
   "analysisColumnData": {},
-  "columnWidthsByName": {},
+  "columnWidthsByName": {
+    "chunk": 300,
+    "img-4": 176,
+    "img-5": 176,
+    "img-2": 176,
+    "img-3": 176,
+    "img-8": 176,
+    "img-6": 176,
+    "md": 300,
+    "img-7": 176,
+    "json": 300,
+    "img-2-desc": 197,
+    "img-0": 300,
+    "img-8-desc": 176,
+    "img-1": 183,
+    "img-5-desc": 176,
+    "doc_root": 300,
+    "json_img": 300,
+    "img-7-desc": 176,
+    "img-1-desc": 300,
+    "img-4-desc": 176,
+    "chunk_id": 100,
+    "img-6-desc": 176,
+    "img-3-desc": 183,
+    "md_img": 300,
+    "doc": 300,
+    "img-0-desc": 300
+  },
   "sorting": [],
   "globalSearchQuery": "",
   "coloring": {
