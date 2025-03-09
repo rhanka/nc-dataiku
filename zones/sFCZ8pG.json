@@ -69,10 +69,6 @@
     {
       "objectId": "compute_a220_tech_docs_content_prepared_embedded",
       "objectType": "RECIPE"
-    },
-    {
-      "objectId": "halBCO8O",
-      "objectType": "RETRIEVABLE_KNOWLEDGE"
     }
   ],
   "shared": [],
