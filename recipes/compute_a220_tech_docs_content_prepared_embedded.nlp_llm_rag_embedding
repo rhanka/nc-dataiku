@@ -11,6 +11,15 @@
     },
     {
       "column": "chunk_id"
+    },
+    {
+      "column": "ATA"
+    },
+    {
+      "column": "parts"
+    },
+    {
+      "column": "doc_type"
     }
   ],
   "chunkOverlapCharacters": 120,
