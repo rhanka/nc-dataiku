@@ -317,8 +317,8 @@ def ai():
                 yield format_data_stream("result",non_conformities,"nc_search")
                 
                 sources = {
-                    "non_conformities": non_conformities,
-                    "tech_docs": tech_docs
+                    "tech_docs": tech_docs,
+                    "non_conformities": non_conformities
                 }
                 
             app.logger.info(agents[role])
