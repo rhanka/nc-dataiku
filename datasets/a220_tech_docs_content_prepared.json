@@ -90,7 +90,10 @@
       {"name":"doc_root","type":"string"},
       {"name":"json","type":"string"},
       {"name":"chunk","type":"string"},
-      {"name":"chunk_id","type":"string"}
+      {"name":"chunk_id","type":"string"},
+      {"name":"ATA","type":"string"},
+      {"name":"parts","type":"string"},
+      {"name":"doc_type","type":"string"}
     ],
     "userModified": true
   },
