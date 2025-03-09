@@ -4,6 +4,7 @@
     "stopSequences": []
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
+  "llmId": "openai:OpenAI-FA:gpt-4o-mini",
   "prompt": {
     "guardrailsPipelineSettings": {
       "guardrails": []
@@ -17,6 +18,6 @@
     "promptTemplateQueriesSource": "DATASET",
     "structuredPromptExamples": [],
     "textPromptTemplateInputs": [],
-    "promptMode": "PROMPT_TEMPLATE_STRUCTURED"
+    "promptMode": "PROMPT_TEMPLATE_TEXT"
   }
 }
