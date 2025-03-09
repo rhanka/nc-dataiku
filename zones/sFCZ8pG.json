@@ -7,10 +7,6 @@
       "objectType": "RETRIEVABLE_KNOWLEDGE"
     },
     {
-      "objectId": "compute_a220_tech_docs_content_embedded",
-      "objectType": "RECIPE"
-    },
-    {
       "objectId": "a220_tech_docs_content",
       "objectType": "DATASET"
     },
