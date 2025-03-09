@@ -65,6 +65,10 @@
     {
       "objectId": "compute_a220_tech_docs_content_prepared_embedded",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_a220_tech_docs_content_prepared",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
