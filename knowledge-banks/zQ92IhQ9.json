@@ -123,11 +123,11 @@
       "useAdvancedReranking": false,
       "rrfRankConstant": 60,
       "rrfRankWindowSize": 4,
-      "mmrK": 58,
-      "mmrDiversity": 0.25,
+      "mmrK": 60,
+      "mmrDiversity": 0.1,
       "printSources": true,
       "includeContentInSources": true,
-      "outputFormat": "SEPARATED",
+      "outputFormat": "JSON",
       "retrievalSource": "EMBEDDING",
       "guardrailsSettings": {
         "faithfulnessSettings": {
