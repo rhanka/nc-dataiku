@@ -3,9 +3,133 @@
     "steps": [],
     "maxProcessedMemTableBytes": -1,
     "columnsSelection": {
-      "mode": "ALL"
+      "mode": "ALL",
+      "list": [
+        {
+          "name": "doc",
+          "d": true
+        },
+        {
+          "name": "doc_root",
+          "d": true
+        },
+        {
+          "name": "json",
+          "d": true
+        },
+        {
+          "name": "md",
+          "d": true
+        },
+        {
+          "name": "md_img",
+          "d": true
+        },
+        {
+          "name": "json_img",
+          "d": true
+        },
+        {
+          "name": "img-0",
+          "d": true
+        },
+        {
+          "name": "img-1",
+          "d": true
+        },
+        {
+          "name": "img-2",
+          "d": true
+        },
+        {
+          "name": "img-3",
+          "d": true
+        },
+        {
+          "name": "img-4",
+          "d": true
+        },
+        {
+          "name": "img-5",
+          "d": true
+        },
+        {
+          "name": "img-6",
+          "d": true
+        },
+        {
+          "name": "img-7",
+          "d": true
+        },
+        {
+          "name": "img-8",
+          "d": true
+        },
+        {
+          "name": "img-0-desc",
+          "d": true
+        },
+        {
+          "name": "img-1-desc",
+          "d": true
+        },
+        {
+          "name": "img-2-desc",
+          "d": true
+        },
+        {
+          "name": "img-3-desc",
+          "d": true
+        },
+        {
+          "name": "img-4-desc",
+          "d": true
+        },
+        {
+          "name": "img-5-desc",
+          "d": true
+        },
+        {
+          "name": "img-6-desc",
+          "d": true
+        },
+        {
+          "name": "img-7-desc",
+          "d": true
+        },
+        {
+          "name": "img-8-desc",
+          "d": true
+        }
+      ]
     },
-    "columnWidthsByName": {},
+    "columnOrder": [],
+    "columnWidthsByName": {
+      "doc": 414,
+      "doc_root": 300,
+      "json": 300,
+      "md": 300,
+      "md_img": 100,
+      "json_img": 100,
+      "img-0": 100,
+      "img-1": 100,
+      "img-2": 100,
+      "img-3": 100,
+      "img-4": 100,
+      "img-5": 100,
+      "img-6": 100,
+      "img-7": 100,
+      "img-8": 100,
+      "img-0-desc": 100,
+      "img-1-desc": 100,
+      "img-2-desc": 100,
+      "img-3-desc": 100,
+      "img-4-desc": 100,
+      "img-5-desc": 100,
+      "img-6-desc": 100,
+      "img-7-desc": 100,
+      "img-8-desc": 100
+    },
     "columnUseScientificNotationByName": {},
     "coloring": {
       "scheme": "MEANING_AND_STATUS",
@@ -63,7 +187,9 @@
       "autoRefreshSample": false,
       "_refreshTrigger": 0
     },
-    "exploreUIParams": {},
+    "exploreUIParams": {
+      "autoRefresh": true
+    },
     "globalSearchQuery": "",
     "explorationFilters": [],
     "previewMode": "ALL_ROWS"
@@ -278,6 +404,17 @@
             "backgroundColor": "#D9D9D9BF"
           }
         },
+        "stackedColumnsOptions": {
+          "totalsInChartDisplayOptions": {
+            "textFormatting": {
+              "fontSize": 11,
+              "fontColor": "#333",
+              "hasBackground": false
+            },
+            "addDetails": false,
+            "additionalMeasures": []
+          }
+        },
         "chartHeight": 200,
         "singleXAxis": true,
         "multiTooltips": false,
@@ -308,6 +445,7 @@
           "defaultRadius": 5.0,
           "singleShape": "FILLED_CIRCLE"
         },
+        "computeMode": "NORMAL",
         "xAxisMode": "NORMAL",
         "yAxisMode": "NORMAL",
         "pieOptions": {
@@ -418,6 +556,7 @@
             "percentile": 0.0,
             "isCustomPercentile": false,
             "constantValue": 0.0,
+            "constantDateValue": 0.0,
             "defaultConstantValue": 0.0,
             "ignoreExistingFilters": false
           },
@@ -426,6 +565,7 @@
             "percentile": 0.0,
             "isCustomPercentile": false,
             "constantValue": 0.0,
+            "constantDateValue": 0.0,
             "defaultConstantValue": 0.0,
             "ignoreExistingFilters": false
           },
@@ -463,6 +603,7 @@
         },
         "pivotTableOptions": {
           "displayEmptyValues": false,
+          "showSidebar": true,
           "measureDisplayMode": "ROWS",
           "displayTotals": {
             "subTotals": {
@@ -475,17 +616,22 @@
             }
           },
           "tableFormatting": {
+            "showRowHeaders": true,
+            "showRowMainHeaders": true,
+            "freezeRowHeaders": false,
+            "showColumnHeaders": true,
+            "showColumnMainHeaders": true,
+            "values": {
+              "fontSize": 12,
+              "fontColor": "#333",
+              "hasBackground": false
+            },
             "rowHeaders": {
               "fontSize": 12,
               "fontColor": "#333",
               "hasBackground": false
             },
             "columnHeaders": {
-              "fontSize": 12,
-              "fontColor": "#333",
-              "hasBackground": false
-            },
-            "values": {
               "fontSize": 12,
               "fontColor": "#333",
               "hasBackground": false
