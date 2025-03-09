@@ -29,6 +29,7 @@ import traceback
 from io import BytesIO
 from mistralai import Mistral
 import httpx
+import threading
 
 # Paramétrer le nombre de requêtes parallèles
 MAX_WORKERS = 3
@@ -44,10 +45,9 @@ vision_prompt = """
     Don't wrap the markdown with ``` and only provide the description without additionnal comment.
 """
 pixtral_model = "pixtral-12b-2409"
-#pixtral_model = "pixtral-large-2411"
 
 # Nombre maximal de tentatives pour les appels Pixtral
-MAX_PIXTRAL_RETRIES = 1
+MAX_PIXTRAL_RETRIES = 2
 # Délai entre les tentatives (secondes)
 PIXTRAL_RETRY_DELAY = 1
 
@@ -68,7 +68,10 @@ total_ocr_errors = 0
 total_pixtral_errors = 0
 total_retries = 0
 
-def generate_image_description(description_file_name,image_data, retries=MAX_PIXTRAL_RETRIES):
+# Lock pour l'écriture de fichiers dans le dossier de sortie
+folder_lock = threading.Lock()
+
+def generate_image_description(image_data, retries=MAX_PIXTRAL_RETRIES):
     """
     Utilise Mistral Vision (Pixtral) pour générer une description de l'image
     avec mécanisme de réessai en cas d'erreur SSL ou réseau
@@ -94,13 +97,14 @@ def generate_image_description(description_file_name,image_data, retries=MAX_PIX
                     },
                     {
                         "type": "image_url",
-                        "image_url": f"data:image/jpeg;base64,{base64_image}"
+                        "image_url": {
+                            "url": f"data:image/jpeg;base64,{base64_image}"
+                        }
                     }
                 ]
             }
         ]
         
-        print(f"Requête pour {description_file_name}")
         # Appeler l'API Mistral Vision avec le modèle pixtral
         response = client.chat.complete(
             model=pixtral_model,
@@ -115,7 +119,7 @@ def generate_image_description(description_file_name,image_data, retries=MAX_PIX
         total_pixtral_errors += 1
         print(f"Erreur SSL/connexion lors de l'appel à Pixtral: {e}")
         time.sleep(PIXTRAL_RETRY_DELAY)
-        return generate_image_description(description_file_name,image_data, retries-1)
+        return generate_image_description(image_data, retries-1)
     except Exception as e:
         # Autres types d'erreurs
         total_pixtral_errors += 1
@@ -124,7 +128,7 @@ def generate_image_description(description_file_name,image_data, retries=MAX_PIX
         # Pour certaines erreurs, on peut vouloir réessayer
         if "rate limit" in str(e).lower() or "timeout" in str(e).lower() or "connection" in str(e).lower() or "ssl" in str(e).lower():
             time.sleep(PIXTRAL_RETRY_DELAY)
-            return generate_image_description(description_file_name,image_data, retries-1)
+            return generate_image_description(image_data, retries-1)
         
         # Pour les autres types d'erreurs, on abandonne directement
         return None
@@ -161,6 +165,37 @@ def clean_description_for_alt_text(description):
     # Supprimer les espaces en début et fin de chaîne
     cleaned = cleaned.strip()
     return cleaned
+
+def safe_write_to_folder(folder, file_path, content, is_binary=False):
+    """
+    Fonction pour écrire en toute sécurité dans un dossier avec un verrou
+    """
+    with folder_lock:
+        try:
+            with folder.get_writer(file_path) as writer:
+                if is_binary:
+                    writer.write(content)
+                else:
+                    writer.write(content.encode('utf-8'))
+            return True
+        except Exception as e:
+            print(f"Erreur lors de l'écriture du fichier {file_path}: {e}")
+            return False
+
+def safe_read_from_folder(folder, file_path, binary=False):
+    """
+    Fonction pour lire en toute sécurité depuis un dossier avec un verrou
+    """
+    with folder_lock:
+        try:
+            with folder.get_download_stream(file_path) as reader:
+                if binary:
+                    return reader.read()
+                else:
+                    return reader.read().decode('utf-8')
+        except Exception as e:
+            print(f"Erreur lors de la lecture du fichier {file_path}: {e}")
+            return None
 
 def extract_md_and_images(json_file_name, response_dict, retry_files=None):
     global total_images_processed, total_descriptions_generated, total_retries
@@ -205,8 +240,8 @@ def extract_md_and_images(json_file_name, response_dict, retry_files=None):
                 try:
                     image_data = image["image_base64"]
                     image_bytes = base64.b64decode(image_data.split(",")[1])
-                    with A220_tech_docs_prep.get_writer(image_file_name) as writer:
-                        writer.write(BytesIO(image_bytes).getvalue())
+                    if not safe_write_to_folder(A220_tech_docs_prep, image_file_name, BytesIO(image_bytes).getvalue(), is_binary=True):
+                        continue
                 except Exception as e:
                     print(f"Erreur lors de l'écriture de l'image {image_id}: {e}")
                     continue
@@ -217,7 +252,7 @@ def extract_md_and_images(json_file_name, response_dict, retry_files=None):
             
             if description_file_name not in existing_files:
                 # Générer la description avec Mistral Vision
-                description = generate_image_description(description_file_name,image["image_base64"])
+                description = generate_image_description(image["image_base64"])
                 
                 # Vérifier si la génération a échoué
                 if description is None:
@@ -227,19 +262,16 @@ def extract_md_and_images(json_file_name, response_dict, retry_files=None):
                     continue
                 
                 # Écrire la description dans un fichier .md
-                with A220_tech_docs_prep.get_writer(description_file_name) as writer:
-                    writer.write(description.encode('utf-8'))
+                if not safe_write_to_folder(A220_tech_docs_prep, description_file_name, description):
+                    continue
                 
                 # Incrémenter le compteur de descriptions générées
                 descriptions_generated += 1
                 total_descriptions_generated += 1
             else:
                 # Lire la description existante
-                try:
-                    with A220_tech_docs_prep.get_download_stream(description_file_name) as reader:
-                        description = reader.read().decode('utf-8')
-                except Exception as e:
-                    print(f"Erreur lors de la lecture de la description existante {description_file_name}: {e}")
+                description = safe_read_from_folder(A220_tech_docs_prep, description_file_name)
+                if description is None:
                     description = "Erreur lors de la lecture de la description"
             
             # Stocker la description pour mise à jour du markdown
@@ -284,19 +316,40 @@ def extract_md_and_images(json_file_name, response_dict, retry_files=None):
     # Extraire et écrire le Markdown original sans modifications
     if md_file_name not in existing_files:
         markdown_content = "\n\n".join(page["markdown"] for page in response_dict.get("pages", []))
-        with A220_tech_docs_prep.get_writer(md_file_name) as writer:
-            writer.write(markdown_content.encode('utf-8'))
+        safe_write_to_folder(A220_tech_docs_prep, md_file_name, markdown_content)
+    
+    # Ne générer les fichiers enrichis que s'il y a des images
+    if has_images and image_descriptions:
+        # Sauvegarder le JSON enrichi
+        json_with_desc_file_name = base_name + "__with_img_desc.json"
+        if json_with_desc_file_name not in existing_files:
+            json_string = json.dumps(enriched_json, indent=4)
+            safe_write_to_folder(A220_tech_docs_prep, json_with_desc_file_name, json_string)
+        
+        # Créer le markdown avec descriptions d'images
+        md_with_desc_file_name = base_name + "__with_img_desc.md"
+        if md_with_desc_file_name not in existing_files:
+            # Générer le markdown à partir des données enrichies
+            markdown_with_desc = "\n\n".join(page.get("markdown_alt", page.get("markdown", "")) 
+                                            for page in enriched_json.get("pages", []))
+            safe_write_to_folder(A220_tech_docs_prep, md_with_desc_file_name, markdown_with_desc)
 
 def process_pdf(pdf_file, retry_files=None, current_count=None, total_count=None):
+    global total_pdfs_ocrized, total_ocr_errors, total_retries
+    
     json_file_name = os.path.splitext(pdf_file)[0] + ".json"
     
     # Vérifier si le JSON existe déjà
     if json_file_name in existing_files:
         # Charger le JSON existant pour extraction MD et images
         try:
-            with A220_tech_docs_prep.get_download_stream(json_file_name) as reader:
-                response_dict = json.load(reader)
+            json_content = safe_read_from_folder(A220_tech_docs_prep, json_file_name)
+            if json_content:
+                response_dict = json.loads(json_content)
                 extract_md_and_images(json_file_name, response_dict, retry_files)
+            else:
+                if retry_files is not None:
+                    retry_files.append(pdf_file)
         except Exception as e:
             print(f"Erreur lors du chargement du JSON existant {json_file_name}: {e}")
             if retry_files is not None:
@@ -305,52 +358,58 @@ def process_pdf(pdf_file, retry_files=None, current_count=None, total_count=None
     
     # Lire le contenu PDF
     try:
-        with A220_tech_docs.get_download_stream(pdf_file) as f:
+        pdf_content = safe_read_from_folder(A220_tech_docs, pdf_file, binary=True)
+        if pdf_content is None:
+            if retry_files is not None:
+                retry_files.append(pdf_file)
+            return
+            
+        try:
+            uploaded_file = client.files.upload(
+                file={
+                    "file_name": pdf_file,
+                    "content": pdf_content,
+                },
+                purpose="ocr",
+            )
+            signed_url = client.files.get_signed_url(file_id=uploaded_file.id, expiry=1)
+            pdf_response = client.ocr.process(
+                document=DocumentURLChunk(document_url=signed_url.url),
+                model="mistral-ocr-latest",
+                include_image_base64=True
+            )
+        except Exception as e:
+            print(f"Erreur lors du traitement OCR de {pdf_file}: {e}. Réessai dans 2 secondes.")
+            total_ocr_errors += 1
+            time.sleep(2)
             try:
-                uploaded_file = client.files.upload(
-                    file={
-                        "file_name": pdf_file,
-                        "content": f.read(),
-                    },
-                    purpose="ocr",
-                )
-                signed_url = client.files.get_signed_url(file_id=uploaded_file.id, expiry=1)
                 pdf_response = client.ocr.process(
                     document=DocumentURLChunk(document_url=signed_url.url),
                     model="mistral-ocr-latest",
                     include_image_base64=True
                 )
             except Exception as e:
-                print(f"Erreur lors du traitement OCR de {pdf_file}: {e}. Réessai dans 2 secondes.")
+                print(f"Échec répété pour l'OCR de {pdf_file}, ajout à la file de réessai: {e}")
                 total_ocr_errors += 1
-                time.sleep(2)
-                try:
-                    pdf_response = client.ocr.process(
-                        document=DocumentURLChunk(document_url=signed_url.url),
-                        model="mistral-ocr-latest",
-                        include_image_base64=True
-                    )
-                except Exception as e:
-                    print(f"Échec répété pour l'OCR de {pdf_file}, ajout à la file de réessai: {e}")
-                    total_ocr_errors += 1
-                    if retry_files is not None:
-                        retry_files.append(pdf_file)
-                        total_retries += 1
-                    return
-            
-            response_dict = json.loads(pdf_response.json())
-            json_string = json.dumps(response_dict, indent=4)
-            
-            # Écrire le fichier .json
-            with A220_tech_docs_prep.get_writer(json_file_name) as writer:
-                writer.write(json_string.encode('utf-8'))
-            
-            # Incrémenter le compteur de PDF OCRisés
-            global total_pdfs_ocrized
-            total_pdfs_ocrized += 1
-            
-            # Extraire Markdown et images avec descriptions
-            extract_md_and_images(json_file_name, response_dict, retry_files)
+                if retry_files is not None:
+                    retry_files.append(pdf_file)
+                    total_retries += 1
+                return
+        
+        response_dict = json.loads(pdf_response.json())
+        json_string = json.dumps(response_dict, indent=4)
+        
+        # Écrire le fichier .json
+        if not safe_write_to_folder(A220_tech_docs_prep, json_file_name, json_string):
+            if retry_files is not None:
+                retry_files.append(pdf_file)
+            return
+        
+        # Incrémenter le compteur de PDF OCRisés
+        total_pdfs_ocrized += 1
+        
+        # Extraire Markdown et images avec descriptions
+        extract_md_and_images(json_file_name, response_dict, retry_files)
     except Exception as e:
         print(f"Erreur générale lors du traitement de {pdf_file}: {e}")
         traceback.print_exc()
