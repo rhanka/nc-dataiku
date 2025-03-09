@@ -121,7 +121,7 @@
       "ragModelId": "gpt-4o-a220-tech-docs",
       "llmId": "openai:OpenAI-FA:gpt-4o",
       "maxDocuments": 30,
-      "useMMR": true,
+      "useMMR": false,
       "useHybridSearch": false,
       "useAdvancedReranking": false,
       "rrfRankConstant": 60,
