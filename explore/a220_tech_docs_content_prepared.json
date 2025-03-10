@@ -110,7 +110,7 @@
     "exploreUIParams": {
       "autoRefresh": true
     },
-    "globalSearchQuery": "0027",
+    "globalSearchQuery": "",
     "explorationFilters": [],
     "previewMode": "ALL_ROWS"
   },
