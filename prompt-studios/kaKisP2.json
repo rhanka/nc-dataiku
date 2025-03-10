@@ -31,7 +31,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "cohere:Cohere-FA:command-r",
+      "llmId": "mistralai:Mistral-FA:mistral-small-latest",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
