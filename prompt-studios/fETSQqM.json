@@ -36,7 +36,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "openai:OpenAI-FA:gpt-4o",
+      "llmId": "openai:OpenAI-FA:o3-mini",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
