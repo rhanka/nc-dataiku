@@ -1,4 +1,51 @@
 {
+  "uiData": {
+    "mode": "||",
+    "$latestOperator": "||",
+    "$filterOptions": "rules",
+    "conditions": [
+      {
+        "input": "doc_type",
+        "col": "doc_root",
+        "string": "blank",
+        "$showList": false,
+        "operator": "\u003d\u003d [string]"
+      },
+      {
+        "input": "doc_type",
+        "col": "doc",
+        "string": "index",
+        "$showList": false,
+        "num": 0,
+        "operator": "\u003d\u003d [string]"
+      },
+      {
+        "input": "doc_type",
+        "col": "doc",
+        "string": "data table",
+        "$showList": false,
+        "num": 0,
+        "operator": "\u003d\u003d [string]"
+      },
+      {
+        "input": "doc_type",
+        "col": "doc",
+        "string": "table of content",
+        "$showList": false,
+        "num": 0,
+        "operator": "contains"
+      },
+      {
+        "input": "doc_type",
+        "col": "doc",
+        "string": "component list",
+        "$showList": false,
+        "num": 0,
+        "operator": "contains"
+      }
+    ]
+  },
+  "$status": {},
   "distinct": false,
-  "enabled": false
+  "enabled": true
 }
