@@ -1,0 +1,261 @@
+{
+  "script": {
+    "steps": [],
+    "maxProcessedMemTableBytes": -1,
+    "columnsSelection": {
+      "mode": "ALL",
+      "list": [
+        {
+          "name": "doc",
+          "d": true
+        },
+        {
+          "name": "doc_root",
+          "d": true
+        },
+        {
+          "name": "json",
+          "d": true
+        },
+        {
+          "name": "md",
+          "d": true
+        },
+        {
+          "name": "md_img",
+          "d": true
+        },
+        {
+          "name": "json_img",
+          "d": true
+        },
+        {
+          "name": "img-0",
+          "d": true
+        },
+        {
+          "name": "img-1",
+          "d": true
+        },
+        {
+          "name": "img-2",
+          "d": true
+        },
+        {
+          "name": "img-3",
+          "d": true
+        },
+        {
+          "name": "img-4",
+          "d": true
+        },
+        {
+          "name": "img-5",
+          "d": true
+        },
+        {
+          "name": "img-6",
+          "d": true
+        },
+        {
+          "name": "img-7",
+          "d": true
+        },
+        {
+          "name": "img-8",
+          "d": true
+        },
+        {
+          "name": "img-0-desc",
+          "d": true
+        },
+        {
+          "name": "img-1-desc",
+          "d": true
+        },
+        {
+          "name": "img-2-desc",
+          "d": true
+        },
+        {
+          "name": "img-3-desc",
+          "d": true
+        },
+        {
+          "name": "img-4-desc",
+          "d": true
+        },
+        {
+          "name": "img-5-desc",
+          "d": true
+        },
+        {
+          "name": "img-6-desc",
+          "d": true
+        },
+        {
+          "name": "img-7-desc",
+          "d": true
+        },
+        {
+          "name": "img-8-desc",
+          "d": true
+        },
+        {
+          "name": "llm_output",
+          "d": true
+        },
+        {
+          "name": "llm_validation_status",
+          "d": true
+        },
+        {
+          "name": "llm_raw_response",
+          "d": true
+        },
+        {
+          "name": "llm_error_message",
+          "d": true
+        },
+        {
+          "name": "llm_raw_query",
+          "d": true
+        }
+      ]
+    },
+    "columnOrder": [],
+    "columnWidthsByName": {
+      "doc": 300,
+      "doc_root": 300,
+      "json": 300,
+      "md": 300,
+      "md_img": 300,
+      "json_img": 300,
+      "img-0": 300,
+      "img-1": 190,
+      "img-2": 176,
+      "img-3": 176,
+      "img-4": 176,
+      "img-5": 176,
+      "img-6": 176,
+      "img-7": 176,
+      "img-8": 176,
+      "img-0-desc": 300,
+      "img-1-desc": 300,
+      "img-2-desc": 204,
+      "img-3-desc": 183,
+      "img-4-desc": 176,
+      "img-5-desc": 176,
+      "img-6-desc": 176,
+      "img-7-desc": 176,
+      "img-8-desc": 176,
+      "llm_output": 300,
+      "llm_validation_status": 173,
+      "llm_raw_response": 300,
+      "llm_error_message": 300,
+      "llm_raw_query": 300
+    },
+    "columnUseScientificNotationByName": {},
+    "coloring": {
+      "scheme": "MEANING_AND_STATUS",
+      "individualColumns": [],
+      "individualColumnsRules": [],
+      "valueColoringMode": "HASH"
+    },
+    "sorting": [],
+    "analysisColumnData": {},
+    "explorationSampling": {
+      "selection": {
+        "maxRecordsForDisplay": -1,
+        "maxStoredBytes": 104857600,
+        "timeout": -1,
+        "filter": {
+          "distinct": false,
+          "enabled": false
+        },
+        "partitionSelectionMethod": "ALL",
+        "latestPartitionsN": 1,
+        "ordering": {
+          "enabled": false,
+          "rules": []
+        },
+        "samplingMethod": "HEAD_SEQUENTIAL",
+        "maxRecords": 10000,
+        "targetRatio": 0.02,
+        "ascending": true,
+        "withinFirstN": -1,
+        "maxReadUncompressedBytes": -1
+      },
+      "autoRefreshSample": false,
+      "_refreshTrigger": 0
+    },
+    "vizSampling": {
+      "selection": {
+        "useMemTable": false,
+        "filter": {
+          "distinct": false,
+          "enabled": false
+        },
+        "partitionSelectionMethod": "ALL",
+        "latestPartitionsN": 1,
+        "ordering": {
+          "enabled": false,
+          "rules": []
+        },
+        "samplingMethod": "FULL",
+        "maxRecords": -1,
+        "targetRatio": 0.02,
+        "ascending": true,
+        "withinFirstN": -1,
+        "maxReadUncompressedBytes": -1
+      },
+      "autoRefreshSample": false,
+      "_refreshTrigger": 0
+    },
+    "exploreUIParams": {
+      "autoRefresh": true
+    },
+    "globalSearchQuery": "",
+    "explorationFilters": [
+      {
+        "column": "llm_output",
+        "type": "columnFilter",
+        "currentMode": "FACET",
+        "active": true,
+        "facet": {
+          "type": "facet",
+          "column": "llm_output",
+          "columnType": "ALPHANUM",
+          "currentMode": "ALPHANUM",
+          "sort": "count",
+          "selectedValues": {}
+        },
+        "alphanumFilter": {
+          "type": "alphanum",
+          "column": "llm_output",
+          "selectedValues": [],
+          "params": {
+            "mode": "full_string",
+            "normalization": "exact"
+          }
+        },
+        "validityFilter": {
+          "type": "validity",
+          "column": "llm_output",
+          "params": {
+            "type": "FreeText",
+            "ok": true,
+            "nok": true,
+            "empty": true
+          }
+        }
+      }
+    ],
+    "previewMode": "ALL_ROWS"
+  },
+  "charts": [],
+  "interactiveSearch": {
+    "savedQueries": []
+  },
+  "customMeasures": []
+}
