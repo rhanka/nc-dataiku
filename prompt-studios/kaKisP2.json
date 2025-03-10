@@ -31,7 +31,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "vertex:VertexAI-FA:gemini-1.5-flash",
+      "llmId": "mistralai:Mistral-FA:mistral-small-latest",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
