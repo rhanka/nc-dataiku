@@ -41,6 +41,7 @@
         "containerMode": "INHERIT"
       },
       "llmSettings": {
+        "temperature": 0.0,
         "stopSequences": []
       },
       "dataset": "nc_scenarios_test",
