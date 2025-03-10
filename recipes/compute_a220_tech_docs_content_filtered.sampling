@@ -1,7 +1,7 @@
 {
   "uiData": {
-    "mode": "||",
-    "$latestOperator": "||",
+    "mode": "\u0026\u0026",
+    "$latestOperator": "\u0026\u0026",
     "$filterOptions": "rules",
     "conditions": [
       {
@@ -9,7 +9,7 @@
         "col": "doc_root",
         "string": "blank",
         "$showList": false,
-        "operator": "\u003d\u003d [string]"
+        "operator": "!\u003d [string]"
       },
       {
         "input": "doc_type",
@@ -17,7 +17,7 @@
         "string": "index",
         "$showList": false,
         "num": 0,
-        "operator": "\u003d\u003d [string]"
+        "operator": "!\u003d [string]"
       },
       {
         "input": "doc_type",
@@ -25,7 +25,7 @@
         "string": "data table",
         "$showList": false,
         "num": 0,
-        "operator": "\u003d\u003d [string]"
+        "operator": "!\u003d [string]"
       },
       {
         "input": "doc_type",
@@ -33,7 +33,7 @@
         "string": "table of content",
         "$showList": false,
         "num": 0,
-        "operator": "contains"
+        "operator": "!\u003d [NaNcolumn]"
       },
       {
         "input": "doc_type",
@@ -41,7 +41,7 @@
         "string": "component list",
         "$showList": false,
         "num": 0,
-        "operator": "contains"
+        "operator": "!\u003d [string]"
       }
     ]
   },
