@@ -60,8 +60,24 @@
     "numPartitions": -1
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {"name":"message_id","type":"string"},
+      {"name":"user","type":"string"},
+      {"name":"platform","type":"string"},
+      {"name":"llm_name","type":"string"},
+      {"name":"query","type":"string"},
+      {"name":"answer","type":"string"},
+      {"name":"filters","type":"string"},
+      {"name":"sources","type":"string"},
+      {"name":"created_at","type":"string"},
+      {"name":"llm_context","type":"string"},
+      {"name":"generated_media","type":"string"},
+      {"name":"feedback","type":"string"},
+      {"name":"conversation_id","type":"string"},
+      {"name":"state","type":"string"},
+      {"name":"history","type":"string"}
+    ],
+    "userModified": false
   },
   "typeSystemVersion": "V2",
   "dkuProperties": [],
