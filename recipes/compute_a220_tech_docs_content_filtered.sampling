@@ -7,7 +7,7 @@
       {
         "input": "doc_type",
         "col": "doc_root",
-        "string": "blank",
+        "string": "blank page",
         "$showList": false,
         "operator": "!\u003d [string]"
       },
@@ -34,14 +34,6 @@
         "$showList": false,
         "num": 0,
         "operator": "!\u003d [NaNcolumn]"
-      },
-      {
-        "input": "doc_type",
-        "col": "doc",
-        "string": "component list",
-        "$showList": false,
-        "num": 0,
-        "operator": "!\u003d [string]"
       }
     ]
   },
