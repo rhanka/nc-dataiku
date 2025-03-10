@@ -689,7 +689,7 @@
       "def": {
         "type": "grouped_columns",
         "variant": "normal",
-        "name": "Count by doc_root",
+        "name": "Count by doc_root and cluster_labels",
         "userEditedName": false,
         "displayWithEChartsByDefault": true,
         "genericDimension0": [
@@ -735,7 +735,49 @@
             "shouldFormatInPercentage": false
           }
         ],
-        "genericDimension1": [],
+        "genericDimension1": [
+          {
+            "column": "cluster_labels",
+            "type": "ALPHANUM",
+            "numParams": {
+              "emptyBinsMode": "ZEROS"
+            },
+            "maxValues": 20,
+            "generateOthersCategory": true,
+            "forceLastPositionOthers": false,
+            "oneTickPerBin": "AUTO",
+            "filters": [],
+            "isA": "dimension",
+            "possibleSorts": [
+              {
+                "type": "NATURAL",
+                "label": "Natural ordering",
+                "sortAscending": true
+              },
+              {
+                "type": "AGGREGATION",
+                "measureIdx": 0,
+                "label": "Count of records, descending"
+              },
+              {
+                "type": "AGGREGATION",
+                "measureIdx": 0,
+                "label": "Count of records, ascending",
+                "sortAscending": true
+              }
+            ],
+            "sort": {
+              "type": "AGGREGATION",
+              "measureIdx": 0,
+              "label": "Count of records, descending"
+            },
+            "multiplier": "Auto",
+            "hideTrailingZeros": true,
+            "digitGrouping": "DEFAULT",
+            "useParenthesesForNegativeValues": false,
+            "shouldFormatInPercentage": false
+          }
+        ],
         "facetDimension": [],
         "animationDimension": [],
         "genericMeasures": [
