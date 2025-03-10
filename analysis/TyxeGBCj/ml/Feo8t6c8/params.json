@@ -689,7 +689,7 @@
       "def": {
         "type": "grouped_columns",
         "variant": "normal",
-        "name": "Count distinct of cluster_labels by doc_type",
+        "name": "Count by doc_type and cluster_labels",
         "userEditedName": false,
         "displayWithEChartsByDefault": true,
         "genericDimension0": [
@@ -714,19 +714,19 @@
               {
                 "type": "AGGREGATION",
                 "measureIdx": 0,
-                "label": "Count distinct of cluster_labels, descending"
+                "label": "Count of records, descending"
               },
               {
                 "type": "AGGREGATION",
                 "measureIdx": 0,
-                "label": "Count distinct of cluster_labels, ascending",
+                "label": "Count of records, ascending",
                 "sortAscending": true
               }
             ],
             "sort": {
-              "type": "AGGREGATION",
-              "measureIdx": 0,
-              "label": "Count distinct of cluster_labels, descending"
+              "type": "NATURAL",
+              "label": "Natural ordering",
+              "sortAscending": true
             },
             "multiplier": "Auto",
             "hideTrailingZeros": true,
@@ -735,14 +735,55 @@
             "shouldFormatInPercentage": false
           }
         ],
-        "genericDimension1": [],
+        "genericDimension1": [
+          {
+            "column": "cluster_labels",
+            "type": "ALPHANUM",
+            "numParams": {
+              "emptyBinsMode": "ZEROS"
+            },
+            "maxValues": 20,
+            "generateOthersCategory": true,
+            "forceLastPositionOthers": false,
+            "oneTickPerBin": "AUTO",
+            "filters": [],
+            "isA": "dimension",
+            "possibleSorts": [
+              {
+                "type": "NATURAL",
+                "label": "Natural ordering",
+                "sortAscending": true
+              },
+              {
+                "type": "AGGREGATION",
+                "measureIdx": 0,
+                "label": "Count of records, descending"
+              },
+              {
+                "type": "AGGREGATION",
+                "measureIdx": 0,
+                "label": "Count of records, ascending",
+                "sortAscending": true
+              }
+            ],
+            "sort": {
+              "type": "NATURAL",
+              "label": "Natural ordering",
+              "sortAscending": true
+            },
+            "multiplier": "Auto",
+            "hideTrailingZeros": true,
+            "digitGrouping": "DEFAULT",
+            "useParenthesesForNegativeValues": false,
+            "shouldFormatInPercentage": false
+          }
+        ],
         "facetDimension": [],
         "animationDimension": [],
         "genericMeasures": [
           {
-            "column": "cluster_labels",
-            "function": "COUNTD",
-            "type": "ALPHANUM",
+            "function": "COUNT",
+            "type": "NUMERICAL",
             "displayed": true,
             "isA": "measure",
             "displayAxis": "axis1",
