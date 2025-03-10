@@ -110,7 +110,7 @@
     "exploreUIParams": {
       "autoRefresh": true
     },
-    "globalSearchQuery": "\"APU FUEL SOV\"",
+    "globalSearchQuery": "",
     "explorationFilters": [],
     "previewMode": "ALL_ROWS"
   },
