@@ -31,7 +31,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "vertex:VertexAI-FA:gemini-1.5-flash",
+      "llmId": "vertex:VertexAI-FA:gemini-2.0-flash-exp",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
