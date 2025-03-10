@@ -240,11 +240,12 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "openai:OpenAI-FA:o3-mini",
+      "llmId": "openai:OpenAI-FA:gpt-4o",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
       "llmSettings": {
+        "temperature": 0.0,
         "stopSequences": [],
         "responseFormat": {
           "type": "json"
