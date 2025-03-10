@@ -390,12 +390,8 @@
         ],
         "values": [
           "table of content",
-          "blank page",
-          "Index of Revisions",
-          "List of Effective Pages",
-          "section or chapter",
-          "acronyms and abbreviations",
-          "Changes applied list"
+          "index",
+          "data table"
         ],
         "matchingMode": "FULL_STRING",
         "action": "REMOVE_ROW",
