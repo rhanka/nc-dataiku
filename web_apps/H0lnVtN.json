@@ -4,7 +4,7 @@
   "params": {
     "backendEnabled": true,
     "enableJavascriptModules": true,
-    "autoStartBackend": false,
+    "autoStartBackend": true,
     "hideJSSecurityPanel": true,
     "envSelection": {
       "envMode": "INHERIT"
@@ -49,7 +49,7 @@
     "permanent_delete": true,
     "feedback_positive_choices": [],
     "feedback_negative_choices": [],
-    "allow_general_feedback": false,
+    "allow_general_feedback": true,
     "max_llm_tokens": 2048,
     "primer_prompt": "Please act as a business analyst and return concise answers no more than 3 lines",
     "show_advanced_settings": false,
@@ -75,8 +75,12 @@
     "n_top_sources_to_log": -1,
     "display_source_chunks": true,
     "enable_llm_citations": true,
-    "knowledge_sources_filters": [],
-    "knowledge_enable_auto_filtering": false,
+    "knowledge_sources_filters": [
+      "doc_type",
+      "ATA",
+      "doc_root"
+    ],
+    "knowledge_enable_auto_filtering": true,
     "sql_retrieval_suggested_joins": [],
     "show_db_advanced_settings": false,
     "db_system_prompt": "Given the following specific context taken from SQL table, please give a short answer to the question at the end. If you don\u0027t know the answer, just say that you don\u0027t know, don\u0027t try to make up an answer. Do not explain or mention the SQL query, table names, or column names in your response unless directly relevant and necessary to answer the question.",
@@ -175,9 +179,18 @@
     "knowledge_bank_prompt": "",
     "knowledge_sources_context_metadata": [
       "doc",
-      "doc_root"
+      "doc_root",
+      "ATA",
+      "parts",
+      "doc_type"
     ],
-    "knowledge_sources_displayed_metas": [],
+    "knowledge_sources_displayed_metas": [
+      "doc_root",
+      "doc",
+      "ATA",
+      "parts",
+      "doc_type"
+    ],
     "knowledge_source_url": "doc",
     "knowledge_source_title": "doc_root",
     "knowledge_source_thumbnail": false,
@@ -185,11 +198,14 @@
     "custom_theme_name": "",
     "sql_retrieval_table_list": [],
     "llm_id": "openai:OpenAI-FA:gpt-4o",
-    "logging_dataset": "answers_history_tech_docs",
-    "answers_description": "Search in A220 technical docs to help to support maintainance operations"
+    "logging_dataset": "answers_conversations_tech_docs",
+    "answers_description": "Search in A220 technical docs to help to support maintainance operations",
+    "user_profile_dataset": "answers_user_profiles",
+    "general_feedback_dataset": "answers_feedback_tech_docs",
+    "message_dataset": "answers_messages_tech_docs"
   },
   "name": "Answers RAG - a220_tech_docs_content_embedded",
-  "apiKey": "e:AES:X2:5Cipiqgmr6fNQNFd4xcmaqQkbYjuRQIUG9327VMK0GaMCbPafq6cs71GY/m01893wAF07bB2GaXrswwMazlR+F2aL65DDLQqp7YxYAvvvT20MRidZ/sc",
+  "apiKey": "e:AES:X2:bNftuaZq75YT3ooBq6h+aLXkB487xECgAYcHF8OzdAQkD0zThrSOPcKgdAUyB4XJ74Fq6V4/svQ/XdnDpH3ebz9o3igbt7+VlQKuruhGSAsTrLOiXAVg",
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
