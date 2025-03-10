@@ -15,7 +15,7 @@
         "rules": []
       },
       "samplingMethod": "CLASS_REBALANCE_TARGET_NB_APPROX",
-      "maxRecords": -1,
+      "maxRecords": 20,
       "targetRatio": 0.02,
       "column": "doc_root",
       "ascending": true,
