@@ -31,7 +31,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "vertex:VertexAI-FA:gemini-2.0-flash-exp",
+      "llmId": "anthropic:Anthropic-FA:claude-3-5-sonnet-20241022",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
