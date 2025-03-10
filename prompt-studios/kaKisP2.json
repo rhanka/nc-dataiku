@@ -10,7 +10,7 @@
         "textPromptTemplateInputs": [
           {
             "name": "doc",
-            "datasetColumnName": "doc_root",
+            "datasetColumnName": "doc",
             "type": "TEXT"
           },
           {
