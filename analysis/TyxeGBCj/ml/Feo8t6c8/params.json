@@ -689,12 +689,12 @@
       "def": {
         "type": "grouped_columns",
         "variant": "normal",
-        "name": "Count distinct of cluster_labels by cluster_id",
+        "name": "Count distinct of cluster_labels by doc_type",
         "userEditedName": false,
         "displayWithEChartsByDefault": true,
         "genericDimension0": [
           {
-            "column": "cluster_id",
+            "column": "doc_type",
             "type": "ALPHANUM",
             "numParams": {
               "emptyBinsMode": "ZEROS"
