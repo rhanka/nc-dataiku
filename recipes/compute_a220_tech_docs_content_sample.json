@@ -14,12 +14,14 @@
         "enabled": false,
         "rules": []
       },
-      "samplingMethod": "FULL",
+      "samplingMethod": "CLASS_REBALANCE_TARGET_NB_APPROX",
       "maxRecords": -1,
       "targetRatio": 0.02,
+      "column": "doc_root",
       "ascending": true,
       "withinFirstN": -1,
-      "maxReadUncompressedBytes": -1
+      "maxReadUncompressedBytes": -1,
+      "seed": 1337
     },
     "engineParams": {
       "dssEngineMaxThreads": 4,
