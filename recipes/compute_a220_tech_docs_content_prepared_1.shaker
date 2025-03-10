@@ -381,30 +381,6 @@
       "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
-      "type": "FilterOnValue",
-      "params": {
-        "normalizationMode": "EXACT",
-        "booleanMode": "AND",
-        "columns": [
-          "doc_type"
-        ],
-        "values": [
-          "table of content",
-          "index",
-          "data table"
-        ],
-        "matchingMode": "FULL_STRING",
-        "action": "REMOVE_ROW",
-        "appliesTo": "SINGLE_COLUMN",
-        "exclude": false,
-        "processNullOrEmptyValues": false
-      },
-      "alwaysShowComment": false
-    },
-    {
-      "preview": false,
-      "metaType": "PROCESSOR",
-      "disabled": false,
       "type": "FindReplace",
       "params": {
         "output": "",
