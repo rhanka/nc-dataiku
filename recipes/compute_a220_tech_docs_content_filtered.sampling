@@ -57,6 +57,14 @@
         "$showList": false,
         "num": 0,
         "operator": "!\u003d [string]"
+      },
+      {
+        "input": "doc",
+        "col": "doc",
+        "string": "MODULE 4 AIRFRAME_page_0859.pdf",
+        "$showList": false,
+        "num": 0,
+        "operator": "!\u003d [string]"
       }
     ]
   },
