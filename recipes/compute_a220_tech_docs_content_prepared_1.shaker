@@ -305,13 +305,37 @@
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
         "expression": "length(chunk)",
         "column": "length"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "FindReplace",
+      "params": {
+        "output": "chunk",
+        "useDatasetForMapping": false,
+        "mapping": [
+          {
+            "from": ".*CS100 aircraft in flight.*",
+            "to": ""
+          }
+        ],
+        "normalization": "EXACT",
+        "columns": [
+          "chunk"
+        ],
+        "appliesTo": "SINGLE_COLUMN",
+        "stopAfterFirstMatch": false,
+        "matching": "PATTERN"
       },
       "alwaysShowComment": false
     }
@@ -803,6 +827,7 @@
     "annotATA 61, PROPELLERS, ATA 71, POWER PLANT": 300,
     "annotMLG WHEEL 27x3.5 R12 PR16 Radial Tire, MLG WHEEL 42x15.0 R21 PR26 Radial Tire, Tapered Roller Bearing Location (2x), Preformed Packing, Thermal Fuse Plug (3x), MLG WHEEL HUB OUTBOARD, Inflation Valve, Tire Pressure Sensor, Tire Pressure Module, Tire Pressure Sensor Holder, Tie Bolts, Locking Bolts, Overinflation Protection Plug, Axle Nut, MLG WHEEL HUB INBOARD, Heat Shield, Drive Keys": 300,
     "annotATA 54 - Nacelles/Pylons": 233,
+    "chunkm": 100,
     "annotCoffee Maker, Electrical Service Outlet, Storage Units, PA Handset, Ovens, FullSize Trolleys, Flight Attendant Seat, Trash Compactor, Galley Control Panel": 300,
     "annotfigure illustration": 195,
     "annotExternal Handle, Lock Mechanism Shaft, Vent Flap, Latch Shaft, Hinge Arm, Lift Mechanism, Forward Latch Crank, Aft Latch Crank, Latch Operating Cam, Lock Shaft": 300,
@@ -1290,6 +1315,7 @@
     "annotDescription of fuselage structure": 300,
     "annotUpper Skin, Lower Skin, Forward Spar, Rear Spar, No. 1 Mid Spar, No. 2 Mid Spar, Antipeel Bolts": 300,
     "annotdescription of electrical equipment bays": 300,
+    "chunk_m": 300,
     "annotRope Storage Cover, Velcro Strap, Wing Eyelet Attachment": 300,
     "annotATA 54 | NACELLES/PYLONS": 233,
     "annotOverview and Operation": 218,
