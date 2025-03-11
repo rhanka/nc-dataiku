@@ -116,7 +116,7 @@
       "type": "SplitIntoChunks",
       "params": {
         "keepSeparator": true,
-        "inCol": "md_img",
+        "inCol": "md",
         "outCol": "chunk",
         "stripWhitespace": true,
         "isRegex": false,
