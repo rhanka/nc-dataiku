@@ -2,9 +2,9 @@
   "name": "tech_docs",
   "type": "VectorStoreSearch",
   "params": {
-    "maxDocuments": 18,
+    "maxDocuments": 30,
     "useMMR": true,
-    "mmrK": 40,
+    "mmrK": 60,
     "mmrDiversity": 0.25,
     "useHybridSearch": false,
     "useAdvancedReranking": false,
@@ -16,7 +16,9 @@
         "conditions": [
           {
             "num": 0,
-            "items": []
+            "items": [],
+            "$$hashKey": "object:10445",
+            "$showList": false
           }
         ],
         "$filterOptions": "rules",
@@ -24,9 +26,15 @@
       },
       "$status": {}
     },
-    "knowledgeBankRef": "IAFnrIEG",
+    "knowledgeBankRef": "zQ92IhQ9",
     "performFiltering": false,
-    "allMetadataInContext": true
+    "allMetadataInContext": true,
+    "titleMetadata": "doc_root",
+    "urlMetadata": "doc",
+    "metadataInSources": [
+      "ATA",
+      "parts"
+    ]
   },
   "quickTestQuery": {
     "input": {
