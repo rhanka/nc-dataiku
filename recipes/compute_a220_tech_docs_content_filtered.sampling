@@ -49,6 +49,14 @@
         "$showList": false,
         "num": 200,
         "operator": "\u003e  [number]"
+      },
+      {
+        "input": "doc_root",
+        "col": "doc",
+        "string": "492445413-Airbus-A220-Technical-Training-Manual-Airframe-Bombardier-CSeries-CS300.pdf",
+        "$showList": false,
+        "num": 0,
+        "operator": "!\u003d [string]"
       }
     ]
   },
