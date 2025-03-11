@@ -3,7 +3,7 @@
   "retrieverType": "VECTOR_STORE_BACKED",
   "rebuildBehavior": "EXPLICIT",
   "vectorStoreType": "CHROMA",
-  "embeddingLLMId": "openai:OpenAI-FA:text-embedding-3-small",
+  "embeddingLLMId": "openai:OpenAI-FA:text-embedding-3-large",
   "envSelection": {
     "envMode": "EXPLICIT_ENV",
     "envName": "markitdown"
