@@ -47,7 +47,7 @@
         "input": "length",
         "col": "doc",
         "$showList": false,
-        "num": 200,
+        "num": 50,
         "operator": "\u003e  [number]"
       }
     ]
