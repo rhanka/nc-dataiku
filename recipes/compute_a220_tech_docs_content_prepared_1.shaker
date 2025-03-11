@@ -20,6 +20,10 @@
       },
       {
         "d": true,
+        "name": "length"
+      },
+      {
+        "d": true,
         "name": "chunk_id"
       },
       {
@@ -37,17 +41,17 @@
     ]
   },
   "explorationSampling": {
-    "_refreshTrigger": 1741531516592,
+    "_refreshTrigger": 1741679154825,
     "selection": {
       "latestPartitionsN": 1,
-      "maxRecords": 10000,
+      "maxRecords": 20000,
       "maxRecordsForDisplay": -1,
       "ordering": {
         "rules": [],
         "enabled": false
       },
       "withinFirstN": -1,
-      "maxStoredBytes": 104857600,
+      "maxStoredBytes": 209715200,
       "ascending": true,
       "timeout": -1,
       "filter": {
@@ -61,7 +65,43 @@
     },
     "autoRefreshSample": false
   },
-  "explorationFilters": [],
+  "explorationFilters": [
+    {
+      "validityFilter": {
+        "column": "length",
+        "type": "validity",
+        "params": {
+          "nok": true,
+          "type": "LongMeaning",
+          "ok": true,
+          "empty": true
+        }
+      },
+      "column": "length",
+      "active": true,
+      "alphanumFilter": {
+        "selectedValues": [],
+        "column": "length",
+        "type": "alphanum",
+        "params": {
+          "mode": "full_string",
+          "normalization": "exact"
+        }
+      },
+      "type": "columnFilter",
+      "$$hashKey": "object:5092",
+      "facet": {
+        "columnType": "NUMERICAL",
+        "selectedValues": {},
+        "maxValue": 207.166,
+        "column": "length",
+        "sort": "count",
+        "type": "facet",
+        "currentMode": "NUMERICAL"
+      },
+      "currentMode": "FACET"
+    }
+  ],
   "columnOrder": [],
   "columnUseScientificNotationByName": {},
   "origin": "PREPARE_RECIPE",
@@ -254,13 +294,24 @@
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
         "expression": "chunk\n+if(isBlank(ATA),\"\",\"\\n\\n*ATA* (llm annotation): \"+ATA)\n+if(isBlank(pars),\"\",\"\\n\\n*Parts* (llm annotation): \"+parts+\"\\n\")\n",
         "column": "chunk"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "length(chunk)",
+        "column": "length"
       },
       "alwaysShowComment": false
     }
@@ -727,6 +778,7 @@
     "annotComponent description/explanation": 300,
     "annotDescription of components and systems": 300,
     "annotRepair procedure excerpt": 233,
+    "length": 100,
     "annotElectrical overview technical information": 300,
     "annotATA 26 - FIRE PROTECTION": 233,
     "annotElectrical/Towing Service Panel, Oxygen Service Panel, Refuel/Defuel Panel, NLG Bay, FWD Equipment Bay, MLG Bay, Mid Equipment Bay, Waste Service Panel, Water Service Panel, APU Bay, AFT Equipment Bay": 300,
