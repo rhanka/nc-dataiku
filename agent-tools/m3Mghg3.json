@@ -1,0 +1,17 @@
+{
+  "name": "query",
+  "type": "LLMMeshLLMQuery",
+  "dkuProperties": [],
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "fabien.antoine@cgi.com"
+    },
+    "lastModifiedOn": 1741680299195
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}
