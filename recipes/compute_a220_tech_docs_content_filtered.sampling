@@ -42,6 +42,13 @@
         "$showList": false,
         "num": 0,
         "operator": "!\u003d [string]"
+      },
+      {
+        "input": "length",
+        "col": "doc",
+        "$showList": false,
+        "num": 200,
+        "operator": "\u003e  [number]"
       }
     ]
   },
