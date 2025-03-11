@@ -101,6 +101,14 @@
     {
       "objectId": "compute_a220_tech_docs_content_prepared_2",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "a220_tech_docs_content_filtered_without_img",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_a220_tech_docs_content_filtered_without_img",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],

@@ -1,0 +1,58 @@
+{
+  "uiData": {
+    "mode": "\u0026\u0026",
+    "$latestOperator": "\u0026\u0026",
+    "$filterOptions": "rules",
+    "conditions": [
+      {
+        "input": "doc_type",
+        "col": "doc_root",
+        "string": "blank page",
+        "$showList": false,
+        "operator": "!\u003d [string]"
+      },
+      {
+        "input": "doc_type",
+        "col": "doc",
+        "string": "index",
+        "$showList": false,
+        "num": 0,
+        "operator": "!\u003d [string]"
+      },
+      {
+        "input": "doc_type",
+        "col": "doc",
+        "string": "data table",
+        "$showList": false,
+        "num": 0,
+        "operator": "!\u003d [string]"
+      },
+      {
+        "input": "doc_type",
+        "col": "doc",
+        "string": "separation page",
+        "$showList": false,
+        "num": 0,
+        "operator": "!\u003d [string]"
+      },
+      {
+        "input": "doc_type",
+        "col": "doc",
+        "string": "component list",
+        "$showList": false,
+        "num": 0,
+        "operator": "!\u003d [string]"
+      },
+      {
+        "input": "length",
+        "col": "doc",
+        "$showList": false,
+        "num": 200,
+        "operator": "\u003e  [number]"
+      }
+    ]
+  },
+  "$status": {},
+  "distinct": false,
+  "enabled": true
+}
