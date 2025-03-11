@@ -1,7 +1,33 @@
 {
-  "metadataColumns": [],
+  "metadataColumns": [
+    {
+      "column": "doc"
+    },
+    {
+      "column": "doc_root"
+    },
+    {
+      "column": "json"
+    },
+    {
+      "column": "chunk_id"
+    },
+    {
+      "column": "ATA"
+    },
+    {
+      "column": "parts"
+    },
+    {
+      "column": "doc_type"
+    },
+    {
+      "column": "length"
+    }
+  ],
   "chunkOverlapCharacters": 120,
   "chunkSizeCharacters": 3000,
+  "knowledgeColumn": "chunk",
   "clearVectorStore": false,
   "documentSplittingMode": "CHARACTERS_BASED",
   "vectorStoreUpdateMethod": "OVERWRITE"
