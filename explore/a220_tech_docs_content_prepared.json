@@ -22,6 +22,10 @@
           "d": true
         },
         {
+          "name": "length",
+          "d": true
+        },
+        {
           "name": "chunk_id",
           "d": true
         },
@@ -48,7 +52,8 @@
       "chunk_id": 300,
       "ATA": 239,
       "parts": 300,
-      "doc_type": 246
+      "doc_type": 246,
+      "length": 100
     },
     "columnUseScientificNotationByName": {},
     "coloring": {
@@ -110,13 +115,13 @@
     "exploreUIParams": {
       "autoRefresh": true
     },
-    "globalSearchQuery": "",
+    "globalSearchQuery": "__with",
     "explorationFilters": [
       {
         "column": "doc_type",
         "type": "columnFilter",
         "currentMode": "FACET",
-        "active": true,
+        "active": false,
         "facet": {
           "type": "facet",
           "column": "doc_type",
