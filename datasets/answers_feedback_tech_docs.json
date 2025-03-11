@@ -60,8 +60,14 @@
     "numPartitions": -1
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {"name":"date","type":"string"},
+      {"name":"user","type":"string"},
+      {"name":"message","type":"string"},
+      {"name":"knowledgebank","type":"string"},
+      {"name":"llm","type":"string"}
+    ],
+    "userModified": false
   },
   "typeSystemVersion": "V2",
   "dkuProperties": [],
