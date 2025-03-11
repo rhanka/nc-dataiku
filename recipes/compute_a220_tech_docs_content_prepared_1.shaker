@@ -308,17 +308,6 @@
       "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
-      "type": "CreateColumnWithGREL",
-      "params": {
-        "expression": "length(chunk)",
-        "column": "length"
-      },
-      "alwaysShowComment": false
-    },
-    {
-      "preview": false,
-      "metaType": "PROCESSOR",
-      "disabled": false,
       "type": "FindReplace",
       "params": {
         "output": "chunk",
@@ -336,6 +325,17 @@
         "appliesTo": "SINGLE_COLUMN",
         "stopAfterFirstMatch": false,
         "matching": "PATTERN"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "CreateColumnWithGREL",
+      "params": {
+        "expression": "length(chunk)",
+        "column": "length"
       },
       "alwaysShowComment": false
     }
