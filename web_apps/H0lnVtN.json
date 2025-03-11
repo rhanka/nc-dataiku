@@ -200,12 +200,12 @@
     "llm_id": "openai:OpenAI-FA:gpt-4o",
     "logging_dataset": "answers_conversations_tech_docs",
     "answers_description": "Search in A220 technical docs to help to support maintainance operations",
-    "user_profile_dataset": "answers_user_profiles",
+    "user_profile_dataset": "answers_users",
     "general_feedback_dataset": "answers_feedback_tech_docs",
     "message_dataset": "answers_messages_tech_docs"
   },
   "name": "Answers RAG - a220_tech_docs_content_embedded",
-  "apiKey": "e:AES:X2:bNftuaZq75YT3ooBq6h+aLXkB487xECgAYcHF8OzdAQkD0zThrSOPcKgdAUyB4XJ74Fq6V4/svQ/XdnDpH3ebz9o3igbt7+VlQKuruhGSAsTrLOiXAVg",
+  "apiKey": "e:AES:X2:cX0nMDweQY0zs7XScIdWt2WT9nMRfiJAjTA9nkA7Tcr1pHD07eR5gCBMF9KtQMke2cGY57D86HhHcdaOFQRhCkGnj7Tq43Xn1KFYbOrMI1XFBJG18nOl",
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
