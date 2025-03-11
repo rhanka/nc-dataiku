@@ -60,8 +60,12 @@
     "numPartitions": -1
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {"name":"user","type":"string"},
+      {"name":"profile","type":"string"},
+      {"name":"last_updated","type":"datetimenotz"}
+    ],
+    "userModified": false
   },
   "typeSystemVersion": "V2",
   "dkuProperties": [],
