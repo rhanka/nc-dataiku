@@ -308,30 +308,6 @@
       "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
-      "type": "FindReplace",
-      "params": {
-        "output": "chunk",
-        "useDatasetForMapping": false,
-        "mapping": [
-          {
-            "from": ".*CS100 aircraft in flight.*",
-            "to": ""
-          }
-        ],
-        "normalization": "EXACT",
-        "columns": [
-          "chunk"
-        ],
-        "appliesTo": "SINGLE_COLUMN",
-        "stopAfterFirstMatch": false,
-        "matching": "PATTERN"
-      },
-      "alwaysShowComment": false
-    },
-    {
-      "preview": false,
-      "metaType": "PROCESSOR",
-      "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
         "expression": "length(chunk)",
