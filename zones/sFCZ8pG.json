@@ -109,6 +109,14 @@
     {
       "objectId": "compute_a220_tech_docs_content_filtered_without_img",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "compute_a220_tech_docs_with_img_embedded",
+      "objectType": "RECIPE"
+    },
+    {
+      "objectId": "oPufaBeV",
+      "objectType": "RETRIEVABLE_KNOWLEDGE"
     }
   ],
   "shared": [],
