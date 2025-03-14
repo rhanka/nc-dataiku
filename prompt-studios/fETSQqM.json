@@ -339,7 +339,7 @@
           "guardrails": []
         },
         "resultValidation": {
-          "expectedFormat": "NONE",
+          "expectedFormat": "JSON_OBJECT",
           "requiredJSONObjectKeys": [],
           "forbiddenTerms": []
         },
