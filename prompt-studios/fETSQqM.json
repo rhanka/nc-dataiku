@@ -309,6 +309,36 @@
       "inlinePromptTemplateQueries": [],
       "tags": [],
       "starred": false
+    },
+    {
+      "id": "0kcqQUWUYy",
+      "prompt": {
+        "promptMode": "PROMPT_TEMPLATE_TEXT",
+        "promptTemplateInputs": [],
+        "structuredPromptExamples": [],
+        "textPromptTemplateInputs": [],
+        "guardrailsPipelineSettings": {
+          "guardrails": []
+        },
+        "resultValidation": {
+          "expectedFormat": "NONE",
+          "requiredJSONObjectKeys": [],
+          "forbiddenTerms": []
+        },
+        "promptTemplateQueriesSource": "DATASET"
+      },
+      "llmId": "openai:OpenAI-FA:o3-mini",
+      "containerSelection": {
+        "containerMode": "INHERIT"
+      },
+      "llmSettings": {
+        "stopSequences": []
+      },
+      "dataset": "nc_scenarios_search_techdocs",
+      "nbRows": 8,
+      "inlinePromptTemplateQueries": [],
+      "tags": [],
+      "starred": false
     }
   ],
   "creationTag": {
