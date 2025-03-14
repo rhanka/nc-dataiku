@@ -329,6 +329,7 @@
           },
           {
             "name": "description",
+            "datasetColumnName": "description",
             "type": "TEXT"
           }
         ],
