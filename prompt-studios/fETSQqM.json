@@ -316,7 +316,24 @@
         "promptMode": "PROMPT_TEMPLATE_TEXT",
         "promptTemplateInputs": [],
         "structuredPromptExamples": [],
-        "textPromptTemplateInputs": [],
+        "textPromptTemplateInputs": [
+          {
+            "name": "tech_docs",
+            "datasetColumnName": "llm_output_1",
+            "type": "TEXT"
+          },
+          {
+            "name": "role",
+            "datasetColumnName": "role",
+            "type": "TEXT"
+          },
+          {
+            "name": "description",
+            "type": "TEXT"
+          }
+        ],
+        "textPromptTemplate": "",
+        "textPromptSystemTemplate": "#Processus\nUne non conformité de l\u0027A220 doit être traitée selon le processus suivant :\n\n000 - rapport de non-conformité par le Quality Controler\n100 - analyse et recommandation / plan d\u0027action par le Design Office\n200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n400 - du calcul / plan d\u0027action amendé par le Stress Manager\n500 - plan d\u0027action final validé par le Quality Manager\n\nVous supportez le role de l\u0027étape {{role}} et devez rédiger de la facon la plus explicite en prenant\nles exemples fournis et la documentation technique.\n\nL\u0027objectif est de filtrer la liste des documents technique suivante selon la requête utilisateur qui a le rôle de la tâche {{role}} :\n{{tech_docs}}\n\nL\u0027observation de l\u0027utilisateur est la suivante :\n{{description}}\n\nResultat: format exact des tech_docs, filtré selon la requête utilisateur.",
         "guardrailsPipelineSettings": {
           "guardrails": []
         },
