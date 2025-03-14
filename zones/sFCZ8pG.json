@@ -117,6 +117,14 @@
     {
       "objectId": "oPufaBeV",
       "objectType": "RETRIEVABLE_KNOWLEDGE"
+    },
+    {
+      "objectId": "a220_tech_docs_parts",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_a220_tech_docs_parts",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
