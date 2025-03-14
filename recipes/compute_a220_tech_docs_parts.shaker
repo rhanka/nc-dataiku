@@ -1,19 +1,25 @@
 {
   "columnsSelection": {
-    "mode": "ALL"
+    "mode": "ALL",
+    "list": [
+      {
+        "d": true,
+        "name": "parts"
+      }
+    ]
   },
   "explorationSampling": {
-    "_refreshTrigger": 1741683716447,
+    "_refreshTrigger": 1741981569202,
     "selection": {
       "latestPartitionsN": 1,
-      "maxRecords": 15000,
+      "maxRecords": 20000,
       "maxRecordsForDisplay": -1,
       "ordering": {
         "rules": [],
         "enabled": false
       },
       "withinFirstN": -1,
-      "maxStoredBytes": 104857600,
+      "maxStoredBytes": 209715200,
       "ascending": true,
       "timeout": -1,
       "filter": {
@@ -30,8 +36,51 @@
   "explorationFilters": [],
   "columnOrder": [],
   "columnUseScientificNotationByName": {},
-  "exploreUIParams": {},
-  "steps": [],
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsSelector",
+      "params": {
+        "columns": [
+          "parts"
+        ],
+        "keep": true,
+        "appliesTo": "COLUMNS"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "SplitFold",
+      "params": {
+        "trimSpaces": true,
+        "keepEmptyChunks": false,
+        "column": "parts",
+        "separator": ","
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ArraySortProcessor",
+      "params": {
+        "input": "parts",
+        "sortingType": "ALPHA",
+        "descending": false
+      },
+      "alwaysShowComment": false
+    }
+  ],
   "maxProcessedMemTableBytes": -1,
   "previewMode": "ALL_ROWS",
   "vizSampling": {
@@ -58,7 +107,18 @@
     "autoRefreshSample": false
   },
   "analysisColumnData": {},
-  "columnWidthsByName": {},
+  "columnWidthsByName": {
+    "doc_root": 300,
+    "length": 100,
+    "parts": 300,
+    "count": 100,
+    "doc": 300,
+    "json": 300,
+    "chunk": 300,
+    "doc_type": 232,
+    "chunk_id": 300,
+    "ATA": 176
+  },
   "sorting": [],
   "globalSearchQuery": "",
   "coloring": {
