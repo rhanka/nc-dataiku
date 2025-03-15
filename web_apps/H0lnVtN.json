@@ -43,7 +43,7 @@
   },
   "config": {
     "retrieval_mode": "kb",
-    "knowledge_bank_id": "zQ92IhQ9",
+    "knowledge_bank_id": "oPufaBeV",
     "show_advanced_logging_settings": false,
     "index_chat_history": false,
     "permanent_delete": true,
@@ -205,7 +205,7 @@
     "message_dataset": "answers_messages_tech_docs"
   },
   "name": "Answers RAG - a220_tech_docs_content_embedded",
-  "apiKey": "e:AES:X2:/qXDeftrv8Kr+vVA3i463sb4F220L8Ff+J93qTU/32dUmArtLJ9YmImHPgs+AjR9jI0MY7H8yidSkGzEvs0LCILMuK24jADVDQW6mgBWaVgsp8s2r0Db",
+  "apiKey": "e:AES:X2:Pq+K2Cc6OcvyYgADKr+RUG6SUlqCZK5aBiiT6g9K0Vt5q2HLTWodZt5Bm465bwhIIMZDqRO0ou1CiNchzFeemxx4Q0wwxKfNFK0cLIRSh95y1eJB2lud",
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
