@@ -43,7 +43,7 @@
       "llmSettings": {
         "stopSequences": []
       },
-      "dataset": "a220_tech_docs_content",
+      "dataset": "a220_tech_docs_content_sample",
       "nbRows": 15,
       "inlinePromptTemplateQueries": [],
       "tags": [],
