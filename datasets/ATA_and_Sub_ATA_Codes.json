@@ -27,7 +27,7 @@
   "formatParams": {
     "style": "excel",
     "charset": "utf-8",
-    "separator": ",",
+    "separator": ";",
     "quoteChar": "\"",
     "escapeChar": "\\",
     "maxRowChars": 100000000,
@@ -85,10 +85,10 @@
   },
   "schema": {
     "columns": [
-      {"name":"Code ATA","type":"string"},
-      {"name":"Libellé ATA","type":"string"},
-      {"name":"Code sous-ATA","type":"string"},
-      {"name":"Libellé sous-ATA","type":"string"}
+      {"name":"ATA Code","type":"string"},
+      {"name":"ATA Name","type":"string"},
+      {"name":"Sub-ATA Code","type":"string"},
+      {"name":"Sub-ATA Name","type":"string"}
     ],
     "userModified": true
   },
