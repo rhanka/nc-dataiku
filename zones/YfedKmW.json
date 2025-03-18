@@ -37,6 +37,14 @@
     {
       "objectId": "compute_dale_crane_dic",
       "objectType": "RECIPE"
+    },
+    {
+      "objectId": "dale_crane_dic_prepared",
+      "objectType": "DATASET"
+    },
+    {
+      "objectId": "compute_dale_crane_dic_prepared",
+      "objectType": "RECIPE"
     }
   ],
   "shared": [],
