@@ -114,7 +114,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "retrievalaugmented:oPufaBeV:gpt-4o-a220-tech-docs-img",
+      "llmId": "retrievalaugmented:oPufaBeV:gemini-2-0-a220-tech-docs-img",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
