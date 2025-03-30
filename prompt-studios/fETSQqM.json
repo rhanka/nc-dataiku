@@ -75,7 +75,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "retrievalaugmented:oPufaBeV:gemini-2-0-a220-tech-docs-img",
+      "llmId": "retrievalaugmented:WnKb6p17:gpt-4o-mini-a220-nc",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
