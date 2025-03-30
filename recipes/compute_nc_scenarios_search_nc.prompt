@@ -7,7 +7,7 @@
     "temperature": 0
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+  "llmId": "retrievalaugmented:oPufaBeV:gpt-4o-a220-tech-docs-img",
   "prompt": {
     "guardrailsPipelineSettings": {
       "guardrails": []
