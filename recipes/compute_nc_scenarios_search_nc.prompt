@@ -7,7 +7,7 @@
     "temperature": 0
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "retrievalaugmented:WnKb6p17:gemini-2-0-flash-a220-nc",
+  "llmId": "retrievalaugmented:WnKb6p17:gpt-4o-mini-a220-nc",
   "prompt": {
     "guardrailsPipelineSettings": {
       "guardrails": []
