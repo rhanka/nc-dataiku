@@ -209,7 +209,20 @@ def stream_prompt_recipe(recipe_name, inputs):
             try:
                 result = json.loads(text)
             except:
-                result = text
+                # Si l'analyse directe échoue, essayer de trouver le JSON dans ```json ... ```
+                # Utilise re.DOTALL pour que '.' corresponde aussi aux nouvelles lignes
+                match = re.search(r"```(?:json)?\s*({.*?})\s*```", text, re.DOTALL | re.IGNORECASE)
+                if match:
+                    json_str = match.group(1)
+                    try:
+                        result = json.loads(json_str)
+                    except json.JSONDecodeError:
+                        # Si l'extraction/analyse échoue encore, assigner le texte brut
+                        app.logger.warning(f"Could not parse JSON extracted from markdown: {json_str}")
+                        result = text # Solution de repli : texte brut
+                else:
+                    # Si aucun bloc markdown trouvé, assigner le texte brut
+                    result = text # Solution de repli : texte brut
             yield format_data_stream("result",result,agent_name)
     return result
 
