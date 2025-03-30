@@ -67,7 +67,7 @@
       "mmrDiversity": 0.25,
       "printSources": true,
       "includeContentInSources": true,
-      "outputFormat": "SEPARATED",
+      "outputFormat": "JSON",
       "retrievalSource": "EMBEDDING",
       "guardrailsSettings": {
         "faithfulnessSettings": {
