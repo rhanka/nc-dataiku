@@ -1,34 +1,34 @@
 {
+  "associatedPromptStudioPromptId": "qqqd0liifx",
+  "associatedPromptStudioId": "fETSQqM",
+  "rawQueryOutputMode": "RAW",
+  "completionSettings": {
+    "stopSequences": [],
+    "temperature": 0
+  },
+  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
+  "llmId": "retrievalaugmented:oPufaBeV:gpt-4o-a220-tech-docs-img",
   "prompt": {
-    "promptMode": "PROMPT_TEMPLATE_TEXT",
-    "promptTemplateInputs": [],
-    "structuredPromptExamples": [],
-    "textPromptTemplateInputs": [
-      {
-        "name": "input",
-        "datasetColumnName": "llm_output",
-        "type": "TEXT"
-      }
-    ],
-    "textPromptTemplate": "{{input}}",
-    "textPromptSystemTemplate": "Recherche dans la base de documentations techniques de l\u0027A220\nIl s\u0027agit de retrouver les documentations techniques pertinentes relatives au problème de la non-conformité (relatives aux pièces ou a la zone, et au label).\nRepondre ensuite en anglais, en une phrase concise sans complexité pour décrire la pertinence des documents retrouvés vis-à-vis de la requête",
     "guardrailsPipelineSettings": {
       "guardrails": []
     },
+    "promptTemplateInputs": [],
     "resultValidation": {
-      "expectedFormat": "NONE",
       "requiredJSONObjectKeys": [],
+      "expectedFormat": "NONE",
       "forbiddenTerms": []
     },
-    "promptTemplateQueriesSource": "DATASET"
-  },
-  "associatedPromptStudioId": "fETSQqM",
-  "associatedPromptStudioPromptId": "qqqd0liifx",
-  "rawQueryOutputMode": "RAW",
-  "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "completionSettings": {
-    "temperature": 0.0,
-    "stopSequences": []
-  },
-  "llmId": "retrievalaugmented:oPufaBeV:gpt-4o-a220-tech-docs-img"
+    "promptTemplateQueriesSource": "DATASET",
+    "structuredPromptExamples": [],
+    "textPromptTemplate": "{{input}}",
+    "textPromptTemplateInputs": [
+      {
+        "datasetColumnName": "llm_output",
+        "name": "input",
+        "type": "TEXT"
+      }
+    ],
+    "textPromptSystemTemplate": "Recherche dans la base de documentations techniques de l\u0027A220\nIl s\u0027agit de retrouver les documentations techniques pertinentes relatives au problème de la non-conformité (relatives aux pièces ou a la zone, et au label).\nRepondre ensuite en anglais, en une phrase concise sans complexité pour décrire la pertinence des documents retrouvés vis-à-vis de la requête",
+    "promptMode": "PROMPT_TEMPLATE_TEXT"
+  }
 }
