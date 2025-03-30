@@ -53,6 +53,38 @@
       },
       "customizeContextMessage": false,
       "contextMessage": "Use the following pieces of context to answer the question at the end.\nIf you do not know the answer, just say that you do not know, do not try to make up an answer."
+    },
+    {
+      "ragModelId": "gemini-2-0-a220-tech-docs-img",
+      "llmId": "vertex:VertexAI-FA:gemini-2.0-flash",
+      "maxDocuments": 20,
+      "useMMR": false,
+      "useHybridSearch": false,
+      "useAdvancedReranking": false,
+      "rrfRankConstant": 60,
+      "rrfRankWindowSize": 4,
+      "mmrK": 20,
+      "mmrDiversity": 0.25,
+      "printSources": true,
+      "includeContentInSources": true,
+      "outputFormat": "SEPARATED",
+      "retrievalSource": "EMBEDDING",
+      "guardrailsSettings": {
+        "faithfulnessSettings": {
+          "answerOverwrite": "Could not come up with a factual enough answer.",
+          "enabled": false,
+          "threshold": 0.8,
+          "handling": "FAIL"
+        },
+        "relevancySettings": {
+          "answerOverwrite": "Could not come up with a relevant enough answer.",
+          "enabled": false,
+          "threshold": 0.8,
+          "handling": "FAIL"
+        }
+      },
+      "customizeContextMessage": false,
+      "contextMessage": "Use the following pieces of context to answer the question at the end.\nIf you do not know the answer, just say that you do not know, do not try to make up an answer."
     }
   ],
   "creationTag": {
