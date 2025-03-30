@@ -24,12 +24,7 @@
       ]
     },
     "model": {
-      "items": [
-        {
-          "ref": "oPufaBeV",
-          "deps": []
-        }
-      ]
+      "items": []
     }
   },
   "outputs": {
