@@ -1,4 +1,5 @@
 import dataiku
+import re
 import pandas as pd
 from flask import request, Response, jsonify, stream_with_context
 
