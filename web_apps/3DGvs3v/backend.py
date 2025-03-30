@@ -353,6 +353,7 @@ def ai():
                     yield next(response_content)
             except StopIteration as e:
                 response_content = e.value  # capture final return
+            app.logger.info(response_content)
             
             app.logger.info("end")
             result = {
