@@ -10,7 +10,7 @@
     }
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "openai:OpenAI-FA:gpt-4.5-preview",
+  "llmId": "openai:OpenAI-FA:gpt-4o",
   "prompt": {
     "guardrailsPipelineSettings": {
       "guardrails": []
