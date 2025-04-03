@@ -10,7 +10,7 @@
     }
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "vertex:VertexAI-FA:gemini-2.0-flash",
+  "llmId": "openai:OpenAI-FA:o1-mini",
   "prompt": {
     "guardrailsPipelineSettings": {
       "guardrails": []
