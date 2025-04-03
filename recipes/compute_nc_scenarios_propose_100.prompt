@@ -10,7 +10,7 @@
     }
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "vertex:VertexAI-FA:gemini-2.0-flash-thinking-exp-01-21",
+  "llmId": "vertex:VertexAI-FA:gemini-2.0-flash",
   "prompt": {
     "guardrailsPipelineSettings": {
       "guardrails": []
