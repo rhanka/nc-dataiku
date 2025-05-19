@@ -17,7 +17,7 @@
   },
   "llmsExposedWith": [
     {
-      "ragModelId": "gpt-4o-mini-a220-nc",
+      "ragModelId": "gpt-4-1-nano-a220-nc",
       "llmId": "openai:OpenAI-FA:gpt-4o-mini",
       "maxDocuments": 10,
       "useMMR": true,
@@ -40,6 +40,18 @@
           "handling": "FAIL"
         },
         "relevancySettings": {
+          "answerOverwrite": "Could not come up with a relevant enough answer.",
+          "enabled": false,
+          "threshold": 0.8,
+          "handling": "FAIL"
+        },
+        "multimodalFaithfulnessSettings": {
+          "answerOverwrite": "Could not come up with a factual enough answer.",
+          "enabled": false,
+          "threshold": 0.8,
+          "handling": "FAIL"
+        },
+        "multimodalRelevancySettings": {
           "answerOverwrite": "Could not come up with a relevant enough answer.",
           "enabled": false,
           "threshold": 0.8,
@@ -76,6 +88,18 @@
           "enabled": false,
           "threshold": 0.8,
           "handling": "FAIL"
+        },
+        "multimodalFaithfulnessSettings": {
+          "answerOverwrite": "Could not come up with a factual enough answer.",
+          "enabled": false,
+          "threshold": 0.8,
+          "handling": "FAIL"
+        },
+        "multimodalRelevancySettings": {
+          "answerOverwrite": "Could not come up with a relevant enough answer.",
+          "enabled": false,
+          "threshold": 0.8,
+          "handling": "FAIL"
         }
       },
       "customizeContextMessage": false,
@@ -108,6 +132,18 @@
           "enabled": false,
           "threshold": 0.8,
           "handling": "FAIL"
+        },
+        "multimodalFaithfulnessSettings": {
+          "answerOverwrite": "Could not come up with a factual enough answer.",
+          "enabled": false,
+          "threshold": 0.8,
+          "handling": "FAIL"
+        },
+        "multimodalRelevancySettings": {
+          "answerOverwrite": "Could not come up with a relevant enough answer.",
+          "enabled": false,
+          "threshold": 0.8,
+          "handling": "FAIL"
         }
       },
       "customizeContextMessage": false,
@@ -136,6 +172,18 @@
           "handling": "FAIL"
         },
         "relevancySettings": {
+          "answerOverwrite": "Could not come up with a relevant enough answer.",
+          "enabled": false,
+          "threshold": 0.8,
+          "handling": "FAIL"
+        },
+        "multimodalFaithfulnessSettings": {
+          "answerOverwrite": "Could not come up with a factual enough answer.",
+          "enabled": false,
+          "threshold": 0.8,
+          "handling": "FAIL"
+        },
+        "multimodalRelevancySettings": {
           "answerOverwrite": "Could not come up with a relevant enough answer.",
           "enabled": false,
           "threshold": 0.8,
