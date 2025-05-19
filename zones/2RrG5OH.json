@@ -55,14 +55,6 @@
       "objectType": "DATASET"
     },
     {
-      "objectId": "NC_types_by_ATA_bis",
-      "objectType": "DATASET"
-    },
-    {
-      "objectId": "compute_NC_types_by_ATA_bis",
-      "objectType": "RECIPE"
-    },
-    {
       "objectId": "nc_scenarios_test",
       "objectType": "DATASET"
     },
