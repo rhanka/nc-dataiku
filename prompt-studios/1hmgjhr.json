@@ -1345,7 +1345,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "retrievalaugmented:oPufaBeV:gpt-4-1-nano-a220-tech-docs-img",
+      "llmId": "openai:OpenAI-FA:gpt-4.1-nano",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
