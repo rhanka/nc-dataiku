@@ -88,7 +88,7 @@
         "type": "TEXT"
       },
       {
-        "datasetColumnName": "000_rapport_name",
+        "datasetColumnName": "000_rapport_result_name",
         "name": " 000_rapport_name ",
         "type": "TEXT"
       },
@@ -118,6 +118,7 @@
         "type": "TEXT"
       },
       {
+        "datasetColumnName": "000_rapport_sources",
         "name": " 000_rapport_sources ",
         "type": "TEXT"
       }
