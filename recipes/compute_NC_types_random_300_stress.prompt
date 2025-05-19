@@ -10,7 +10,7 @@
     }
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "retrievalaugmented:oPufaBeV:gpt-4-1-nano-a220-tech-docs-img",
+  "llmId": "openai:OpenAI-FA:gpt-4.1-nano",
   "prompt": {
     "promptTemplateInputs": [],
     "resultValidation": {
@@ -88,7 +88,6 @@
         "type": "TEXT"
       },
       {
-        "datasetColumnName": "000_rapport_name",
         "name": " 000_rapport_name ",
         "type": "TEXT"
       },
