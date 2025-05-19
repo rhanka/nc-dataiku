@@ -126,10 +126,17 @@
       {"name":"000_rapport","type":"map","mapKeys":{"name":"","type":"string"},
         "mapValues": {"name":"","type":"string"}
       },
-      {"name":"000_rapport_result","type":"map","mapKeys":{"type":"string"},
-        "mapValues": {"type":"string"}
+      {"name":"000_rapport_result","type":"map","mapKeys":{"name":"","type":"string"},
+        "mapValues": {"name":"","type":"string"}
       },
-      {"name":"000_rapport_sources","type":"array","arrayContent":{"type":"string"}
+      {"name":"000_rapport_result_name","type":"string"},
+      {"name":"000_rapport_observation","type":"string"},
+      {"name":"000_rapport_role","type":"string"},
+      {"name":"000_rapport_style","type":"string"},
+      {"name":"000_rapport_label","type":"string"},
+      {"name":"000_rapport_date","type":"date"},
+      {"name":"000_rapport_description","type":"string"},
+      {"name":"000_rapport_sources","type":"array","arrayContent":{"name":"","type":"string"}
       },
       {"name":"llm_output","type":"string"},
       {"name":"llm_validation_status","type":"string"},
