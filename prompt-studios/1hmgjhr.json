@@ -488,34 +488,42 @@
         "textPromptTemplateInputs": [
           {
             "name": " nc_label ",
+            "datasetColumnName": "nc_label",
             "type": "TEXT"
           },
           {
             "name": " nc_primary_cause ",
+            "datasetColumnName": "nc_primary_cause",
             "type": "TEXT"
           },
           {
             "name": " nc_impact ",
+            "datasetColumnName": "nc_impact",
             "type": "TEXT"
           },
           {
             "name": " nc_quantitative_impact ",
+            "datasetColumnName": "nc_quantitative_impact",
             "type": "TEXT"
           },
           {
             "name": " nc_mitigated_scenario ",
+            "datasetColumnName": "nc_mitigated_scenario",
             "type": "TEXT"
           },
           {
             "name": " nc_analysis ",
+            "datasetColumnName": "nc_analysis",
             "type": "TEXT"
           },
           {
             "name": " nc_unresolved_scenario ",
+            "datasetColumnName": "nc_unresolved_scenario",
             "type": "TEXT"
           },
           {
             "name": " metrics ",
+            "datasetColumnName": "metrics",
             "type": "TEXT"
           },
           {
@@ -530,18 +538,22 @@
           },
           {
             "name": " parts ",
+            "datasetColumnName": "parts",
             "type": "TEXT"
           },
           {
             "name": " 000_rapport_description ",
+            "datasetColumnName": "000_rapport_description",
             "type": "TEXT"
           },
           {
             "name": " 000_observation ",
+            "datasetColumnName": "000_rapport_observation",
             "type": "TEXT"
           },
           {
             "name": " 000_rapport_name ",
+            "datasetColumnName": "000_rapport_result_name",
             "type": "TEXT"
           },
           {
@@ -563,9 +575,14 @@
             "name": " 300_style ",
             "datasetColumnName": "300_style",
             "type": "TEXT"
+          },
+          {
+            "name": " 000_rapport_sources ",
+            "datasetColumnName": "000_rapport_sources",
+            "type": "TEXT"
           }
         ],
-        "textPromptTemplate": "400 - Validation par le Stress Manager\n\nUne non-conformité apparait selon le contexte suivant :\n- label: {{ nc_label }}\n- cause primaire: {{ nc_primary_cause }}\n- analyse: {{ nc_analysis }}\n- impact  : {{ nc_impact }} \n- impact quantitatif:  {{ nc_quantitative_impact }} \n- si non traité :  {{ nc_unresolved_scenario }} \n- mitigation possible: {{ nc_mitigated_scenario }} \n- métriques:  {{ metrics }}\n- domaine ATA  : {{ ATA code }} {{ ATA category }}\n- domaines ATA connexes : {{ ATA code }} \n- parties concernées de l\u0027A220: {{ parts }} \n- méthode d\u0027observation: {{ 000_observation }} \n\nCes données ne sont pas formalisées par les opérateurs, qui doivent les découvrir (données cachées) selon le processus de gestion standardisé suivant :\n000 - rapport de non-conformité par le Quality Controler\n100 - analyse et recommandation / plan d\u0027action par le Design Office\n200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n400 - du calcul / plan d\u0027action amendé par le Stress Manager\n500 - plan d\u0027action final validé par le Quality Manager\n\nUn premier rapport a été formalisé en 000 par le Quality Controler :\n- description : {{ 000_rapport_description }}\n\nPuis analysée en 100 par le Design Office:\n- description : {{ 100_analysis }}\n\nEt validé en 200 par le Design manager:\n- description :  {{ 200_analysis_validation }}\n\nEt  les calculs de stress ont été assurés par en 300 par le Stress Office:\n- description :  {{ 300_stress }}\n \nExtraire la dernière date de cette dernière description, connue comme étant la valeur DERNIERE_DATE\n\nLe travail de calcul du Stress Manager est de valider le calcul analyse et l\u0027analyse d\u0027impact du plan d\u0027action de son équipe et d\u0027apporter la recommandation finale, synthèse le cas échéant et mise en consistance.\n\nLe nom du Stress Manager est  PRENOM_NOM (générer un nom prénom statistiquement aléatoire pour la region de Quebec, différent de celui du Quality Controller {{ 000_rapport_name }}) et de ceux du son Design Office, du Design Manager et des gens du Stress Office.\n\nLe Design Office a le STYLE suivant utilisé pour son style rédactionnel: {{ 300_style }}. \nElusif voudra dire trop synthéthique, verbose un peu trop de mots.\nDans tous les cas il s\u0027agit de style ingénieur, donc plus télégraphique que pleinement rédigé (pas de phrases compliquées)\n\nEn sortie, est attendu un json brut sans mise en forme (sans ```json) composé de:\n- role: Stress Manager\n- name: PRENOM_NOM (du Stress Manager)\n- style: STYLE (celui du Stress Manager)\n- label: \"Validation de l\u0027Analyse et Recommandation après calculs\"\n- date: DERNIERE_DATE incrémentée de quelques heures à un ou 2 jours (L\u0027heure doit être une heure naturelle, pas une heure arrondie)\n- description: description de  l\u0027analyse et le plan d\u0027action de son équipe et d\u0027apporter la recommandation finale, synthèse le cas échéant et mise en consistance, apres calculs de stress et impacts sur la structure, le cas échéant, pas une simple mention à un rapport externe (elle doit être autoporteuse) - et formattée en markdown multilignes\n\nLes textes sont en anglais",
+        "textPromptTemplate": "400 - Validation par le Stress Manager\n\nUne non-conformité apparait selon le contexte suivant :\n- label: {{ nc_label }}\n- cause primaire: {{ nc_primary_cause }}\n- analyse: {{ nc_analysis }}\n- impact  : {{ nc_impact }} \n- impact quantitatif:  {{ nc_quantitative_impact }} \n- si non traité :  {{ nc_unresolved_scenario }} \n- mitigation possible: {{ nc_mitigated_scenario }} \n- métriques:  {{ metrics }}\n- domaine ATA  : {{ ATA code }} {{ ATA category }}\n- domaines ATA connexes : {{ ATA code }} \n- parties concernées de l\u0027A220: {{ parts }} \n- méthode d\u0027observation: {{ 000_observation }} \n\nCes données ne sont pas formalisées par les opérateurs, qui doivent les découvrir (données cachées) selon le processus de gestion standardisé suivant :\n000 - rapport de non-conformité par le Quality Controler\n100 - analyse et recommandation / plan d\u0027action par le Design Office\n200 - validation de l\u0027analyse / plan d\u0027action par le Design Manager\n300 - calcul de structure lié au plan d\u0027action et recommandation / selon le Stress Office\n400 - du calcul / plan d\u0027action amendé par le Stress Manager\n500 - plan d\u0027action final validé par le Quality Manager\n\nLes documents techniques connexes à ce sujet sont les suivants, à filtrer précisément selon le sujet:\n{{ 000_rapport_sources }}\n\n\nUn premier rapport a été formalisé en 000 par le Quality Controler :\n- description : {{ 000_rapport_description }}\n\nPuis analysée en 100 par le Design Office:\n- description : {{ 100_analysis }}\n\nEt validé en 200 par le Design manager:\n- description :  {{ 200_analysis_validation }}\n\nEt  les calculs de stress ont été assurés par en 300 par le Stress Office:\n- description :  {{ 300_stress }}\n \nExtraire la dernière date de cette dernière description, connue comme étant la valeur DERNIERE_DATE\n\nLe travail de calcul du Stress Manager est de valider le calcul analyse et l\u0027analyse d\u0027impact du plan d\u0027action de son équipe et d\u0027apporter la recommandation finale, synthèse le cas échéant et mise en consistance.\n\nLe nom du Stress Manager est  PRENOM_NOM (générer un nom prénom statistiquement aléatoire pour la region de Quebec, différent de celui du Quality Controller {{ 000_rapport_name }}) et de ceux du son Design Office, du Design Manager et des gens du Stress Office.\n\nLe Design Office a le STYLE suivant utilisé pour son style rédactionnel: {{ 300_style }}. \nElusif voudra dire trop synthéthique, verbose un peu trop de mots.\nDans tous les cas il s\u0027agit de style ingénieur, donc plus télégraphique que pleinement rédigé (pas de phrases compliquées)\n\nEn sortie, est attendu un json brut sans mise en forme (sans ```json) composé de:\n- role: Stress Manager\n- name: PRENOM_NOM (du Stress Manager)\n- style: STYLE (celui du Stress Manager)\n- label: \"Validation de l\u0027Analyse et Recommandation après calculs\"\n- date: DERNIERE_DATE incrémentée de quelques heures à un ou 2 jours (L\u0027heure doit être une heure naturelle, pas une heure arrondie)\n- description: description de  l\u0027analyse et le plan d\u0027action de son équipe et d\u0027apporter la recommandation finale, synthèse le cas échéant et mise en consistance, apres calculs de stress et impacts sur la structure, le cas échéant, pas une simple mention à un rapport externe (elle doit être autoporteuse) - et formattée en markdown multilignes\n\nLes textes sont en anglais",
         "textPromptSystemTemplate": "",
         "guardrailsPipelineSettings": {
           "guardrails": []
@@ -577,7 +594,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+      "llmId": "openai:OpenAI-FA:gpt-4.1-nano",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
