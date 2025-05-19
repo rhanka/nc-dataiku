@@ -1072,7 +1072,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "retrievalaugmented:oPufaBeV:gpt-4-1-nano-a220-tech-docs-img",
+      "llmId": "retrievalaugmented:WnKb6p17:gpt-4-1-nano-a220-nc",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
