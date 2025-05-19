@@ -1,6 +1,204 @@
 {
   "columnsSelection": {
-    "mode": "ALL"
+    "mode": "ALL",
+    "list": [
+      {
+        "d": true,
+        "name": "ATA_category"
+      },
+      {
+        "d": true,
+        "name": "nc_aggravated_scenario"
+      },
+      {
+        "d": true,
+        "name": "nc_impact"
+      },
+      {
+        "d": true,
+        "name": "ATA_code"
+      },
+      {
+        "d": true,
+        "name": "nc_probability"
+      },
+      {
+        "d": true,
+        "name": "nc_quantitative_impact"
+      },
+      {
+        "d": true,
+        "name": "nc_primary_cause"
+      },
+      {
+        "d": true,
+        "name": "metrics"
+      },
+      {
+        "d": true,
+        "name": "ATA_description"
+      },
+      {
+        "d": true,
+        "name": "nc_scenario"
+      },
+      {
+        "d": true,
+        "name": "nc_analysis"
+      },
+      {
+        "d": true,
+        "name": "nc_type"
+      },
+      {
+        "d": true,
+        "name": "nc_label"
+      },
+      {
+        "d": true,
+        "name": "nc_mitigated_scenario"
+      },
+      {
+        "d": true,
+        "name": "nc_phase"
+      },
+      {
+        "d": true,
+        "name": "nc_unresolved_scenario"
+      },
+      {
+        "d": true,
+        "name": "nc_scenario_id"
+      },
+      {
+        "d": true,
+        "name": "ATA_codes_linked"
+      },
+      {
+        "d": true,
+        "name": "detection_method"
+      },
+      {
+        "d": true,
+        "name": "parts"
+      },
+      {
+        "d": true,
+        "name": "nc_contributory_causes"
+      },
+      {
+        "d": true,
+        "name": "nc_event_seed"
+      },
+      {
+        "d": true,
+        "name": "500_style"
+      },
+      {
+        "d": true,
+        "name": "400_style"
+      },
+      {
+        "d": true,
+        "name": "300_style"
+      },
+      {
+        "d": true,
+        "name": "200_style"
+      },
+      {
+        "d": true,
+        "name": "100_style"
+      },
+      {
+        "d": true,
+        "name": "000_style"
+      },
+      {
+        "d": true,
+        "name": "nc_event_date"
+      },
+      {
+        "d": true,
+        "name": "nc_event_id"
+      },
+      {
+        "d": true,
+        "name": "000_rapport"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_result"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_result_name"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_observation"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_role"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_style"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_label"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_date"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_description"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_sources"
+      },
+      {
+        "d": true,
+        "name": "100_analysis"
+      },
+      {
+        "d": true,
+        "name": "200_analysis_validation"
+      },
+      {
+        "d": true,
+        "name": "200_analysis_validation_role"
+      },
+      {
+        "d": true,
+        "name": "200_analysis_validation_name"
+      },
+      {
+        "d": true,
+        "name": "200_analysis_validation_style"
+      },
+      {
+        "d": true,
+        "name": "200_analysis_validation_label"
+      },
+      {
+        "d": true,
+        "name": "200_analysis_validation_date"
+      },
+      {
+        "d": true,
+        "name": "200_analysis_validation_description"
+      },
+      {
+        "d": true,
+        "name": "300_stress"
+      }
+    ]
   },
   "explorationSampling": {
     "_refreshTrigger": 0,
@@ -28,6 +226,7 @@
     "autoRefreshSample": false
   },
   "explorationFilters": [],
+  "columnOrder": [],
   "columnUseScientificNotationByName": {},
   "origin": "PREPARE_RECIPE",
   "exploreUIParams": {
@@ -105,6 +304,7 @@
   "columnWidthsByName": {
     "100_analysis_steps": 300,
     "detection_method": 300,
+    "000_rapport_result": 300,
     "nc_scenario": 300,
     "200_style": 148,
     "100_analysis_style": 150,
@@ -145,6 +345,7 @@
     "nc_type": 100,
     "200_analysis_validation_description": 300,
     "500_style": 148,
+    "000_rapport_result_name": 211,
     "nc_probability": 134,
     "000_rapport_date": 183,
     "200_analysis_validation_date": 246,
@@ -159,6 +360,7 @@
     "200_analysis_validation_role": 225,
     "nc_mitigated_scenario": 300,
     "200_analysis_validation_name": 225,
+    "000_rapport_sources": 300,
     "300_stress": 300,
     "100_analysis_description": 232,
     "100_analysis_label": 176,
@@ -170,6 +372,7 @@
   "coloring": {
     "scheme": "MEANING_AND_STATUS",
     "individualColumns": [],
+    "coloringGroups": [],
     "valueColoringMode": "HASH",
     "individualColumnsRules": []
   }
