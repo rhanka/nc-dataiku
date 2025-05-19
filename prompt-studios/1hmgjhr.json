@@ -1416,7 +1416,6 @@
           },
           {
             "name": " 000_rapport_name ",
-            "datasetColumnName": "000_rapport_name",
             "type": "TEXT"
           },
           {
@@ -1457,7 +1456,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+      "llmId": "openai:OpenAI-FA:gpt-4.1-nano",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
