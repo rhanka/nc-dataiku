@@ -1072,7 +1072,7 @@
         },
         "promptTemplateQueriesSource": "DATASET"
       },
-      "llmId": "retrievalaugmented:WnKb6p17:gpt-4-1-nano-a220-nc",
+      "llmId": "openai:OpenAI-FA:gpt-4.1-nano",
       "containerSelection": {
         "containerMode": "INHERIT"
       },
