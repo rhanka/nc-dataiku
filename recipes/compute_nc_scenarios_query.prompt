@@ -7,7 +7,7 @@
     "temperature": 0
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+  "llmId": "openai:OpenAI-FA:gpt-4.1-nano",
   "prompt": {
     "guardrailsPipelineSettings": {
       "guardrails": []
