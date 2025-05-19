@@ -103,7 +103,6 @@
         "type": "TEXT"
       },
       {
-        "datasetColumnName": "000_rapport_name",
         "name": " 000_rapport_name ",
         "type": "TEXT"
       },
