@@ -18,7 +18,7 @@
   "llmsExposedWith": [
     {
       "ragModelId": "gpt-4-1-nano-a220-nc",
-      "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+      "llmId": "openai:OpenAI-FA:gpt-4.1-nano",
       "maxDocuments": 10,
       "useMMR": true,
       "useHybridSearch": false,
