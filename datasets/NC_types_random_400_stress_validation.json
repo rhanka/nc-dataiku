@@ -13,7 +13,8 @@
   "flowOptions": {
     "virtualizable": false,
     "rebuildBehavior": "NORMAL",
-    "crossProjectBuildBehavior": "DEFAULT"
+    "crossProjectBuildBehavior": "DEFAULT",
+    "ignoreErrorStatusOnBuild": false
   },
   "readWriteOptions": {
     "preserveOrder": false,
@@ -105,13 +106,13 @@
       {"name":"nc_phase","type":"string"},
       {"name":"nc_unresolved_scenario","type":"string"},
       {"name":"nc_scenario_id","type":"string"},
-      {"name":"ATA_codes_linked","type":"array","arrayContent":{"type":"string"}
+      {"name":"ATA_codes_linked","type":"array","arrayContent":{"name":"","type":"string"}
       },
-      {"name":"detection_method","type":"array","arrayContent":{"type":"string"}
+      {"name":"detection_method","type":"array","arrayContent":{"name":"","type":"string"}
       },
-      {"name":"parts","type":"array","arrayContent":{"type":"string"}
+      {"name":"parts","type":"array","arrayContent":{"name":"","type":"string"}
       },
-      {"name":"nc_contributory_causes","type":"array","arrayContent":{"type":"string"}
+      {"name":"nc_contributory_causes","type":"array","arrayContent":{"name":"","type":"string"}
       },
       {"name":"nc_event_seed","type":"bigint"},
       {"name":"500_style","type":"string"},
@@ -125,13 +126,18 @@
       {"name":"000_rapport","type":"map","mapKeys":{"name":"","type":"string"},
         "mapValues": {"name":"","type":"string"}
       },
-      {"name":"000_rapport_name","type":"string"},
+      {"name":"000_rapport_result","type":"map","mapKeys":{"type":"string"},
+        "mapValues": {"type":"string"}
+      },
+      {"name":"000_rapport_result_name","type":"string"},
       {"name":"000_rapport_observation","type":"string"},
       {"name":"000_rapport_role","type":"string"},
       {"name":"000_rapport_style","type":"string"},
       {"name":"000_rapport_label","type":"string"},
       {"name":"000_rapport_date","type":"date"},
       {"name":"000_rapport_description","type":"string"},
+      {"name":"000_rapport_sources","type":"array","arrayContent":{"type":"string"}
+      },
       {"name":"100_analysis","type":"string"},
       {"name":"200_analysis_validation","type":"map","mapKeys":{"name":"","type":"string"},
         "mapValues": {"name":"","type":"string"}
@@ -151,6 +157,7 @@
     ],
     "userModified": true
   },
+  "typeSystemVersion": "V2",
   "dkuProperties": [],
   "metrics": {
     "probes": [
