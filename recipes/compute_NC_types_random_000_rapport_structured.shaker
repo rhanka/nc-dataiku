@@ -140,7 +140,15 @@
       },
       {
         "d": true,
+        "name": "000_rapport_observation"
+      },
+      {
+        "d": true,
         "name": "000_rapport_result_role"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_role"
       },
       {
         "d": true,
@@ -148,7 +156,15 @@
       },
       {
         "d": true,
+        "name": "000_rapport_style"
+      },
+      {
+        "d": true,
         "name": "000_rapport_result_label"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_label"
       },
       {
         "d": true,
@@ -156,7 +172,15 @@
       },
       {
         "d": true,
+        "name": "000_rapport_date"
+      },
+      {
+        "d": true,
         "name": "000_rapport_result_description"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_description"
       },
       {
         "d": true,
@@ -265,7 +289,7 @@
       "alwaysShowComment": false
     },
     {
-      "preview": true,
+      "preview": false,
       "metaType": "PROCESSOR",
       "disabled": false,
       "type": "JSONFlattener",
@@ -276,6 +300,41 @@
         "prefixOutputs": true,
         "flattenArrays": false,
         "separator": "_"
+      },
+      "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnRenamer",
+      "params": {
+        "renamings": [
+          {
+            "from": "000_rapport_result_observation",
+            "to": "000_rapport_observation"
+          },
+          {
+            "from": "000_rapport_result_role",
+            "to": "000_rapport_role"
+          },
+          {
+            "from": "000_rapport_result_style",
+            "to": "000_rapport_style"
+          },
+          {
+            "from": "000_rapport_result_label",
+            "to": "000_rapport_label"
+          },
+          {
+            "from": "000_rapport_result_date",
+            "to": "000_rapport_date"
+          },
+          {
+            "from": "000_rapport_result_description",
+            "to": "000_rapport_description"
+          }
+        ]
       },
       "alwaysShowComment": false
     }
@@ -307,6 +366,8 @@
   },
   "analysisColumnData": {},
   "columnWidthsByName": {
+    "000_rapportlabel": 300,
+    "000_rapportdate": 183,
     "000_rapport_result_observation": 300,
     "detection_method": 300,
     "000_rapport_result": 300,
@@ -327,6 +388,7 @@
     "nc_analysis": 300,
     "llm_validation_status": 173,
     "000_rapport_name": 135,
+    "000_rapportdescription": 300,
     "llm_output": 300,
     "nc_scenario_id": 211,
     "llm_raw_query": 300,
@@ -339,15 +401,18 @@
     "nc_contributory_causes": 300,
     "000_style": 288,
     "000_rapport_result_role": 211,
+    "000_rapportrole": 155,
     "100_style": 288,
     "300_style": 288,
     "ATA_description": 225,
     "nc_event_seed": 113,
     "nc_type": 100,
+    "000_rapportstyle": 218,
     "500_style": 148,
     "000_rapport_result_name": 211,
     "nc_probability": 134,
     "000_rapport_date": 183,
+    "000_rapportname": 155,
     "nc_impact": 300,
     "ATA_codes_linked": 135,
     "000_rapport_observation": 300,
@@ -358,6 +423,7 @@
     "000_rapport_style": 300,
     "nc_mitigated_scenario": 300,
     "000_rapport_sources": 300,
+    "000_rapportobservation": 300,
     "nc_primary_cause": 300,
     "nc_event_date": 183
   },
