@@ -129,6 +129,13 @@
       {"name":"000_rapport_result","type":"map","mapKeys":{"type":"string"},
         "mapValues": {"type":"string"}
       },
+      {"name":"000_rapport_result_name","type":"string"},
+      {"name":"000_rapport_result_observation","type":"string"},
+      {"name":"000_rapport_result_role","type":"string"},
+      {"name":"000_rapport_result_style","type":"string"},
+      {"name":"000_rapport_result_label","type":"string"},
+      {"name":"000_rapport_result_date","type":"date"},
+      {"name":"000_rapport_result_description","type":"string"},
       {"name":"000_rapport_sources","type":"array","arrayContent":{"type":"string"}
       }
     ],
