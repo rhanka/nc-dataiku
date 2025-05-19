@@ -10,7 +10,7 @@
     }
   },
   "rawResponseOutputMode": "RAW_WITHOUT_TRACES",
-  "llmId": "openai:OpenAI-FA:gpt-4o-mini",
+  "llmId": "retrievalaugmented:oPufaBeV:gpt-4-1-nano-a220-tech-docs-img",
   "prompt": {
     "promptTemplateInputs": [],
     "resultValidation": {
