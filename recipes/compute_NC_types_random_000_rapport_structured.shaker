@@ -1,6 +1,168 @@
 {
   "columnsSelection": {
-    "mode": "ALL"
+    "mode": "ALL",
+    "list": [
+      {
+        "d": true,
+        "name": "ATA_category"
+      },
+      {
+        "d": true,
+        "name": "nc_aggravated_scenario"
+      },
+      {
+        "d": true,
+        "name": "nc_impact"
+      },
+      {
+        "d": true,
+        "name": "ATA_code"
+      },
+      {
+        "d": true,
+        "name": "nc_probability"
+      },
+      {
+        "d": true,
+        "name": "nc_quantitative_impact"
+      },
+      {
+        "d": true,
+        "name": "nc_primary_cause"
+      },
+      {
+        "d": true,
+        "name": "metrics"
+      },
+      {
+        "d": true,
+        "name": "ATA_description"
+      },
+      {
+        "d": true,
+        "name": "nc_scenario"
+      },
+      {
+        "d": true,
+        "name": "nc_analysis"
+      },
+      {
+        "d": true,
+        "name": "nc_type"
+      },
+      {
+        "d": true,
+        "name": "nc_label"
+      },
+      {
+        "d": true,
+        "name": "nc_mitigated_scenario"
+      },
+      {
+        "d": true,
+        "name": "nc_phase"
+      },
+      {
+        "d": true,
+        "name": "nc_unresolved_scenario"
+      },
+      {
+        "d": true,
+        "name": "nc_scenario_id"
+      },
+      {
+        "d": true,
+        "name": "ATA_codes_linked"
+      },
+      {
+        "d": true,
+        "name": "detection_method"
+      },
+      {
+        "d": true,
+        "name": "parts"
+      },
+      {
+        "d": true,
+        "name": "nc_contributory_causes"
+      },
+      {
+        "d": true,
+        "name": "nc_event_seed"
+      },
+      {
+        "d": true,
+        "name": "500_style"
+      },
+      {
+        "d": true,
+        "name": "400_style"
+      },
+      {
+        "d": true,
+        "name": "300_style"
+      },
+      {
+        "d": true,
+        "name": "200_style"
+      },
+      {
+        "d": true,
+        "name": "100_style"
+      },
+      {
+        "d": true,
+        "name": "000_style"
+      },
+      {
+        "d": true,
+        "name": "nc_event_date"
+      },
+      {
+        "d": true,
+        "name": "nc_event_id"
+      },
+      {
+        "d": true,
+        "name": "000_rapport"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_result"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_result_name"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_result_observation"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_result_role"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_result_style"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_result_label"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_result_date"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_result_description"
+      },
+      {
+        "d": true,
+        "name": "000_rapport_sources"
+      }
+    ]
   },
   "explorationSampling": {
     "_refreshTrigger": 0,
@@ -28,6 +190,7 @@
     "autoRefreshSample": false
   },
   "explorationFilters": [],
+  "columnOrder": [],
   "columnUseScientificNotationByName": {},
   "origin": "PREPARE_RECIPE",
   "exploreUIParams": {
@@ -100,6 +263,21 @@
         "separator": "_"
       },
       "alwaysShowComment": false
+    },
+    {
+      "preview": true,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "JSONFlattener",
+      "params": {
+        "maxDepth": 10,
+        "inCol": "000_rapport_result",
+        "nullAsEmpty": true,
+        "prefixOutputs": true,
+        "flattenArrays": false,
+        "separator": "_"
+      },
+      "alwaysShowComment": false
     }
   ],
   "maxProcessedMemTableBytes": -1,
@@ -129,49 +307,58 @@
   },
   "analysisColumnData": {},
   "columnWidthsByName": {
-    "100_style": 288,
+    "000_rapport_result_observation": 300,
     "detection_method": 300,
-    "300_style": 288,
-    "ATA_description": 225,
-    "nc_event_seed": 113,
-    "nc_type": 100,
+    "000_rapport_result": 300,
     "nc_scenario": 300,
     "200_style": 148,
     "nc_event_id": 246,
     "nc_unresolved_scenario": 300,
-    "500_style": 148,
     "ATA_code": 106,
-    "nc_probability": 134,
-    "000_rapport_date": 183,
+    "000_rapport_result_label": 300,
     "400_style": 148,
     "ATA_category": 134,
     "nc_aggravated_scenario": 300,
     "000_rapport_description": 300,
-    "nc_impact": 300,
+    "000_rapport_result_description": 300,
     "llm_error_message": 143,
-    "ATA_codes_linked": 135,
     "llm_raw_response": 300,
-    "000_rapport_observation": 300,
     "for_prompt": 300,
-    "000_rapport": 300,
     "nc_analysis": 300,
     "llm_validation_status": 173,
     "000_rapport_name": 135,
     "llm_output": 300,
     "nc_scenario_id": 211,
     "llm_raw_query": 300,
-    "nc_label": 300,
-    "000_rapport_style": 300,
-    "nc_mitigated_scenario": 300,
     "nc_phase": 225,
     "000_rapport_role": 162,
     "000_rapport_label": 300,
     "parts": 300,
     "nc_quantitative_impact": 300,
-    "nc_primary_cause": 300,
     "metrics": 300,
     "nc_contributory_causes": 300,
     "000_style": 288,
+    "000_rapport_result_role": 211,
+    "100_style": 288,
+    "300_style": 288,
+    "ATA_description": 225,
+    "nc_event_seed": 113,
+    "nc_type": 100,
+    "500_style": 148,
+    "000_rapport_result_name": 211,
+    "nc_probability": 134,
+    "000_rapport_date": 183,
+    "nc_impact": 300,
+    "ATA_codes_linked": 135,
+    "000_rapport_observation": 300,
+    "000_rapport_result_style": 218,
+    "000_rapport": 300,
+    "000_rapport_result_date": 211,
+    "nc_label": 300,
+    "000_rapport_style": 300,
+    "nc_mitigated_scenario": 300,
+    "000_rapport_sources": 300,
+    "nc_primary_cause": 300,
     "nc_event_date": 183
   },
   "sorting": [],
@@ -179,6 +366,7 @@
   "coloring": {
     "scheme": "MEANING_AND_STATUS",
     "individualColumns": [],
+    "coloringGroups": [],
     "valueColoringMode": "HASH",
     "individualColumnsRules": []
   }
