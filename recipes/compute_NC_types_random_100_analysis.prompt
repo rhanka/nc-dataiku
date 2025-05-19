@@ -83,22 +83,18 @@
         "type": "TEXT"
       },
       {
-        "datasetColumnName": "000_rapport_description",
         "name": " 000_rapport_description ",
         "type": "TEXT"
       },
       {
-        "datasetColumnName": "000_rapport_date",
         "name": " 000_rapport_date ",
         "type": "TEXT"
       },
       {
-        "datasetColumnName": "000_rapport_label",
         "name": " 000_rapport_label ",
         "type": "TEXT"
       },
       {
-        "datasetColumnName": "000_rapport_observation",
         "name": " 000_observation ",
         "type": "TEXT"
       },
