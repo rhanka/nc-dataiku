@@ -1416,6 +1416,7 @@
           },
           {
             "name": " 000_rapport_name ",
+            "datasetColumnName": "000_rapport_result_name",
             "type": "TEXT"
           },
           {
