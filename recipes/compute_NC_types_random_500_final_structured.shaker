@@ -142,7 +142,7 @@
       "disabled": false,
       "type": "CreateColumnWithGREL",
       "params": {
-        "expression": "concat(\u0027{\"000\":\u0027 ,concat(\"[\",parseJson(000_rapport),\"]\") , \u0027,\u0027,\n\u0027\"100\":\u0027 , parseJson(100_analysis) , \u0027,\u0027,\n\u0027\"200\":\u0027 , concat(\"[\",parseJson(200_analysis_validation),\"]\") , \u0027,\u0027,\n\u0027\"300\":\u0027 , parseJson(300_stress) , \u0027,\u0027,\n\u0027\"400\":\u0027 , concat(\"[\",parseJson(400_stress_validation),\"]\"), \u0027,\u0027,\n\u0027\"500\":\u0027 , concat(\"[\",parseJson(500_final),\"]\"),\n\u0027}\u0027)",
+        "expression": "concat(\u0027{\"000\":\u0027 ,concat(\"[\",parseJson(000_rapport_result),\"]\") , \u0027,\u0027,\n\u0027\"100\":\u0027 , parseJson(100_analysis) , \u0027,\u0027,\n\u0027\"200\":\u0027 , concat(\"[\",parseJson(200_analysis_validation),\"]\") , \u0027,\u0027,\n\u0027\"300\":\u0027 , parseJson(300_stress) , \u0027,\u0027,\n\u0027\"400\":\u0027 , concat(\"[\",parseJson(400_stress_validation),\"]\"), \u0027,\u0027,\n\u0027\"500\":\u0027 , concat(\"[\",parseJson(500_final),\"]\"),\n\u0027}\u0027)",
         "column": "analysis_history"
       },
       "alwaysShowComment": false
