@@ -1,6 +1,20 @@
 {
   "columnsSelection": {
-    "mode": "ALL"
+    "mode": "ALL",
+    "list": [
+      {
+        "d": true,
+        "name": "doc"
+      },
+      {
+        "d": true,
+        "name": "chunk_id"
+      },
+      {
+        "d": true,
+        "name": "chunk"
+      }
+    ]
   },
   "explorationSampling": {
     "_refreshTrigger": 0,
@@ -28,6 +42,7 @@
     "autoRefreshSample": false
   },
   "explorationFilters": [],
+  "columnOrder": [],
   "columnUseScientificNotationByName": {},
   "origin": "PREPARE_RECIPE",
   "exploreUIParams": {
@@ -73,6 +88,7 @@
       "type": "FindReplace",
       "params": {
         "output": "",
+        "useDatasetForMapping": false,
         "mapping": [
           {
             "from": "\"date\"",
@@ -100,6 +116,7 @@
       "type": "FindReplace",
       "params": {
         "output": "",
+        "useDatasetForMapping": false,
         "mapping": [
           {
             "from": "\"date\"",
@@ -131,6 +148,7 @@
       "type": "FindReplace",
       "params": {
         "output": "",
+        "useDatasetForMapping": false,
         "mapping": [
           {
             "from": "\"date\"",
@@ -162,6 +180,7 @@
       "type": "FindReplace",
       "params": {
         "output": "",
+        "useDatasetForMapping": false,
         "mapping": [
           {
             "from": "\"date\"",
@@ -193,6 +212,7 @@
       "type": "FindReplace",
       "params": {
         "output": "",
+        "useDatasetForMapping": false,
         "mapping": [
           {
             "from": "\"date\"",
@@ -224,6 +244,7 @@
       "type": "FindReplace",
       "params": {
         "output": "",
+        "useDatasetForMapping": false,
         "mapping": [
           {
             "from": "\"date\"",
@@ -3521,6 +3542,7 @@
   "coloring": {
     "scheme": "MEANING_AND_STATUS",
     "individualColumns": [],
+    "coloringGroups": [],
     "valueColoringMode": "HASH",
     "individualColumnsRules": []
   }
